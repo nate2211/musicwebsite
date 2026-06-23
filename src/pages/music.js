@@ -31,6 +31,7 @@ import {
     TrackMixer,
     secondsToBars,
 } from "../components/components";
+import Seo from "../components/seo";
 
 const createId = () =>
     `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;

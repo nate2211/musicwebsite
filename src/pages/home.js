@@ -19,6 +19,7 @@ import {
     SectionHeader,
     primaryPillSx,
 } from "../components/components";
+import Seo from "../components/seo";
 
 export default function Home() {
     return (

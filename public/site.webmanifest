@@ -1,0 +1,18 @@
+{
+  "short_name": "MusicStudioLab",
+  "name": "MusicStudioLab",
+  "description": "A browser-based music studio for Web Audio sound design, piano-roll patterns, playlist arranging, oscillators, envelopes, and audio effects.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#07090f",
+  "theme_color": "#07090f",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
