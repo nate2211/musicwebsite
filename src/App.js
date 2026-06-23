@@ -1,6 +1,8 @@
 import React from "react";
+import { HelmetProvider } from "react-helmet-async";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
+
 import Home from "./pages/home";
 import Music from "./pages/music";
 
@@ -20,7 +22,7 @@ const theme = createTheme({
   },
   typography: {
     fontFamily:
-        'Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+      'Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
     button: {
       textTransform: "none",
       fontWeight: 800,
@@ -46,8 +48,10 @@ const theme = createTheme({
 
 export default function App() {
   return (
+    <HelmetProvider>
       <ThemeProvider theme={theme}>
         <CssBaseline />
+
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -56,5 +60,6 @@ export default function App() {
           </Routes>
         </BrowserRouter>
       </ThemeProvider>
+    </HelmetProvider>
   );
 }
