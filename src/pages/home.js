@@ -23,6 +23,22 @@ import {
 export default function Home() {
     return (
         <GradientPage>
+            <Seo
+                title="Browser Music Studio"
+                path="/"
+                description="MusicStudioLab is a browser-based WebAudio music studio for sound design, oscillator synthesis, piano-roll pattern sequencing, playlist arranging, mixer routing, audio effects, and WAV or MP3 export."
+                keywords="MusicStudioLab, browser music studio, WebAudio API, online DAW, sound designer, oscillator synth, piano roll, pattern mixer, playlist mixer, audio effects, reverb, delay, WAV export, MP3 export"
+                structuredData={{
+                    "@context": "https://schema.org",
+                    "@type": "WebApplication",
+                    name: "MusicStudioLab",
+                    url: "https://musicstudiolab.com/",
+                    applicationCategory: "MultimediaApplication",
+                    operatingSystem: "Web Browser",
+                    description:
+                        "MusicStudioLab is a browser-based WebAudio music studio for sound design, oscillator synthesis, piano-roll sequencing, playlist arranging, mixer routing, and audio exporting.",
+                }}
+            />
             <AppNavBar />
 
             <PageHero

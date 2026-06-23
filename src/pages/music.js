@@ -1628,6 +1628,33 @@ export default function Music() {
 
     return (
         <GradientPage>
+            <Seo
+                title="WebAudio DAW Studio"
+                path="/music"
+                description="Open the MusicStudioLab WebAudio DAW to design oscillator sounds, draw C0 to C9 piano-roll notes, create patterns, route tracks through the mixer, arrange playlist clips, and export WAV or MP3 audio."
+                keywords="WebAudio DAW, browser DAW, online music studio, sound designer, oscillator synth, ADSR envelope, piano roll, C0 to C9 notes, pattern mixer, track mixer, playlist mixer, WAV export, MP3 export"
+                structuredData={{
+                    "@context": "https://schema.org",
+                    "@type": "SoftwareApplication",
+                    name: "MusicStudioLab WebAudio DAW",
+                    url: "https://musicstudiolab.com/music",
+                    applicationCategory: "MultimediaApplication",
+                    operatingSystem: "Web Browser",
+                    description:
+                        "A browser-based WebAudio DAW for oscillator sound design, piano-roll sequencing, mixer routing, playlist arranging, and audio export.",
+                    featureList: [
+                        "WebAudio oscillator sound designer",
+                        "ADSR envelope controls",
+                        "Delay, reverb, gain, and filter effects",
+                        "C0 to C9 piano-roll notes",
+                        "Pattern mixer",
+                        "Track mixer",
+                        "Playlist mixer",
+                        "WAV export",
+                        "MP3 export",
+                    ],
+                }}
+            />
             <AppNavBar />
 
             <Container maxWidth="xl" sx={{ py: { xs: 3, md: 5 } }}>
