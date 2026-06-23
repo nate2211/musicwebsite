@@ -39,7 +39,6 @@ import {
     GraphicEqRounded,
     GridOnRounded,
     HomeRounded,
-    LibraryMusicRounded,
     MenuRounded,
     PauseRounded,
     PianoRounded,
