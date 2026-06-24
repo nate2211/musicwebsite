@@ -187,17 +187,7 @@ export function AppNavBar() {
                             flexGrow: 1,
                         }}
                     >
-                        <Box
-                            sx={{
-                                width: 42,
-                                height: 42,
-                                borderRadius: "16px",
-                                display: "grid",
-                                placeItems: "center",
-                                background: "linear-gradient(135deg, #9ee8ff, #b38cff)",
-                                color: "#07101f",
-                            }}
-                        >
+                        <Box sx={brandIconSx}>
                             <AlbumRounded />
                         </Box>
 
@@ -396,7 +386,7 @@ export function StudioPreview() {
                 <Chip
                     size="small"
                     icon={<PianoRounded />}
-                    label="Piano Roll Pattern Mixer"
+                    label="Advanced Piano Roll"
                     sx={{
                         color: "#9ee8ff",
                         bgcolor: "rgba(158,232,255,.1)",
@@ -502,15 +492,6 @@ export function StudioPreview() {
     );
 }
 
-function dot(color) {
-    return {
-        width: 12,
-        height: 12,
-        borderRadius: "50%",
-        bgcolor: color,
-    };
-}
-
 export function StudioTransport({ bpm, onBpmChange, onExportWav, onExportMp3 }) {
     return (
         <GlassCard>
@@ -568,28 +549,28 @@ export function StudioTransport({ bpm, onBpmChange, onExportWav, onExportMp3 }) 
 }
 
 export function SoundDesigner({
-                                  sounds,
-                                  mixerChannels,
-                                  selectedSoundId,
-                                  soundPlaying,
-                                  activeSoundId,
-                                  selectedSoundDurationSeconds,
-                                  secondsPerBar,
-                                  onSelectSound,
-                                  onCreateSound,
-                                  onDeleteSound,
-                                  onDuplicateSound,
-                                  onPlaySound,
-                                  onPauseSound,
-                                  onStopSound,
-                                  onSoundChange,
-                                  onEnvelopeChange,
-                                  onFilterChange,
-                                  onFxChange,
-                                  onLayerChange,
-                                  onAddLayer,
-                                  onDeleteLayer,
-                              }) {
+    sounds,
+    mixerChannels,
+    selectedSoundId,
+    soundPlaying,
+    activeSoundId,
+    selectedSoundDurationSeconds,
+    secondsPerBar,
+    onSelectSound,
+    onCreateSound,
+    onDeleteSound,
+    onDuplicateSound,
+    onPlaySound,
+    onPauseSound,
+    onStopSound,
+    onSoundChange,
+    onEnvelopeChange,
+    onFilterChange,
+    onFxChange,
+    onLayerChange,
+    onAddLayer,
+    onDeleteLayer,
+}) {
     const selectedSound = sounds.find((sound) => sound.id === selectedSoundId) || sounds[0];
     const selectedIsPlaying = soundPlaying && activeSoundId === selectedSound?.id;
 
@@ -1100,31 +1081,43 @@ function OscLayerEditor({ layer, index, canDelete, onChange, onDelete }) {
 }
 
 export function PatternMixer({
-                                 pattern,
-                                 sounds,
-                                 mixerChannels,
-                                 selectedPianoSoundId,
-                                 selectedPianoNoteId,
-                                 noteLengthSteps,
-                                 patternPlaying,
-                                 currentPatternStep,
-                                 patternSteps,
-                                 stepsPerBar,
-                                 onPlayPattern,
-                                 onPausePattern,
-                                 onStopPattern,
-                                 onSelectedPianoSoundChange,
-                                 onNoteLengthStepsChange,
-                                 onAddPianoNote,
-                                 onSelectPianoNote,
-                                 onDeletePianoNote,
-                                 onResizeSelectedNote,
-                                 onMoveSelectedNote,
-                                 onClearPattern,
-                                 onRasterizePattern,
-                             }) {
+    pattern,
+    sounds,
+    mixerChannels,
+    selectedPianoSoundId,
+    selectedPianoNoteId,
+    noteLengthSteps,
+    patternPlaying,
+    currentPatternStep,
+    patternSteps,
+    stepsPerBar,
+    onPlayPattern,
+    onPausePattern,
+    onStopPattern,
+    onSelectedPianoSoundChange,
+    onNoteLengthStepsChange,
+    onAddPianoNote,
+    onSelectPianoNote,
+    onDeletePianoNote,
+    onResizeSelectedNote,
+    onMoveSelectedNote,
+    onClearPattern,
+    onRasterizePattern,
+    onDuplicateSelectedNote,
+    onDeselectPianoNote,
+}) {
     const selectedSound = sounds.find((sound) => sound.id === selectedPianoSoundId) || sounds[0];
     const selectedNote = pattern.notes.find((note) => note.id === selectedPianoNoteId);
+    const safeLength = clampNumber(noteLengthSteps, 1, patternSteps);
+
+    const quickLengths = [
+        { label: "1/16", steps: 1 },
+        { label: "1/8", steps: 2 },
+        { label: "1 beat", steps: 4 },
+        { label: "2 beats", steps: 8 },
+        { label: "1 bar", steps: 16 },
+        { label: "2 bars", steps: 32 },
+    ].filter((item) => item.steps <= patternSteps);
 
     return (
         <GlassCard>
@@ -1150,7 +1143,7 @@ export function PatternMixer({
                                 variant="caption"
                                 sx={{ color: "rgba(255,255,255,.56)" }}
                             >
-                                Choose a sound, choose note length, then click the piano roll to draw notes from C0 to C9.
+                                Choose a sound and initial length, then click the C0-C9 grid. Repeated notes stay until deleted.
                             </Typography>
                         </Box>
                     </Stack>
@@ -1211,9 +1204,9 @@ export function PatternMixer({
                     }}
                 >
                     <Stack
-                        direction={{ xs: "column", md: "row" }}
+                        direction={{ xs: "column", lg: "row" }}
                         spacing={1.5}
-                        alignItems={{ xs: "stretch", md: "center" }}
+                        alignItems={{ xs: "stretch", lg: "center" }}
                         useFlexGap
                         flexWrap="wrap"
                     >
@@ -1232,11 +1225,11 @@ export function PatternMixer({
                             </Select>
                         </FormControl>
 
-                        <FormControl size="small" sx={{ minWidth: 180, ...darkSelectSx }}>
-                            <InputLabel>Note Length</InputLabel>
+                        <FormControl size="small" sx={{ minWidth: 190, ...darkSelectSx }}>
+                            <InputLabel>Initial Length</InputLabel>
                             <Select
-                                label="Note Length"
-                                value={noteLengthSteps}
+                                label="Initial Length"
+                                value={safeLength}
                                 onChange={(event) => onNoteLengthStepsChange(Number(event.target.value))}
                             >
                                 <MenuItem value={1}>1 step · 1/16 note</MenuItem>
@@ -1244,9 +1237,20 @@ export function PatternMixer({
                                 <MenuItem value={4}>4 steps · 1 beat</MenuItem>
                                 <MenuItem value={8}>8 steps · 2 beats</MenuItem>
                                 <MenuItem value={16}>16 steps · 1 bar</MenuItem>
-                                <MenuItem value={32}>32 steps · 2 bars</MenuItem>
+                                {patternSteps >= 32 && <MenuItem value={32}>32 steps · 2 bars</MenuItem>}
                             </Select>
                         </FormControl>
+
+                        <Box sx={{ minWidth: { xs: "100%", md: 280 }, flex: 1 }}>
+                            <TinySlider
+                                label={`Initial Note Length: ${safeLength} step(s)`}
+                                value={safeLength}
+                                min={1}
+                                max={patternSteps}
+                                step={1}
+                                onChange={(value) => onNoteLengthStepsChange(Math.round(value))}
+                            />
+                        </Box>
 
                         <Chip
                             label={`${pattern.notes.length} notes drawn`}
@@ -1265,6 +1269,42 @@ export function PatternMixer({
                                 border: "1px solid rgba(255,255,255,.1)",
                             }}
                         />
+
+                        {mixerChannels?.length ? (
+                            <Chip
+                                label={`${mixerChannels.length} mixer routes`}
+                                sx={{
+                                    color: "rgba(255,255,255,.78)",
+                                    bgcolor: "rgba(255,255,255,.06)",
+                                    border: "1px solid rgba(255,255,255,.08)",
+                                }}
+                            />
+                        ) : null}
+                    </Stack>
+
+                    <Stack
+                        direction="row"
+                        spacing={1}
+                        useFlexGap
+                        flexWrap="wrap"
+                        sx={{ mt: 1.3 }}
+                    >
+                        {quickLengths.map((item) => (
+                            <Button
+                                key={item.steps}
+                                size="small"
+                                onClick={() => onNoteLengthStepsChange(item.steps)}
+                                sx={{
+                                    ...miniButtonSx,
+                                    bgcolor:
+                                        safeLength === item.steps
+                                            ? "rgba(158,232,255,.22)"
+                                            : "rgba(255,255,255,.055)",
+                                }}
+                            >
+                                {item.label}
+                            </Button>
+                        ))}
 
                         {selectedNote && (
                             <>
@@ -1309,6 +1349,23 @@ export function PatternMixer({
                                     Move Right
                                 </Button>
 
+                                {onDuplicateSelectedNote && (
+                                    <Button
+                                        size="small"
+                                        onClick={onDuplicateSelectedNote}
+                                        startIcon={<ContentCopyRounded />}
+                                        sx={miniButtonSx}
+                                    >
+                                        Duplicate Note
+                                    </Button>
+                                )}
+
+                                {onDeselectPianoNote && (
+                                    <Button size="small" onClick={onDeselectPianoNote} sx={miniButtonSx}>
+                                        Deselect
+                                    </Button>
+                                )}
+
                                 <Button
                                     size="small"
                                     onClick={() => onDeletePianoNote(selectedNote.id)}
@@ -1321,7 +1378,7 @@ export function PatternMixer({
                         )}
                     </Stack>
 
-                    {selectedNote && (
+                    {selectedNote ? (
                         <Typography
                             variant="caption"
                             display="block"
@@ -1331,16 +1388,24 @@ export function PatternMixer({
                             {selectedNote.startStep + 1} · length {selectedNote.lengthSteps} step(s) ·{" "}
                             {getSoundName(sounds, selectedNote.soundId)}
                         </Typography>
+                    ) : (
+                        <Typography
+                            variant="caption"
+                            display="block"
+                            sx={{ color: "rgba(255,255,255,.58)", mt: 1 }}
+                        >
+                            Click empty cells to add notes. Click existing notes to select them. Notes are only deleted with Delete Note.
+                        </Typography>
                     )}
                 </Box>
 
-                <Box sx={{ overflow: "auto", maxHeight: 620, borderRadius: 3 }}>
+                <Box sx={{ overflow: "auto", maxHeight: 650, borderRadius: 3 }}>
                     <Box
                         sx={{
-                            minWidth: 1500,
+                            minWidth: 1600,
                             display: "grid",
-                            gridTemplateColumns: "82px 1fr",
-                            gap: 0.8,
+                            gridTemplateColumns: "88px 1fr",
+                            gap: 0.7,
                         }}
                     >
                         <Box />
@@ -1348,12 +1413,12 @@ export function PatternMixer({
                         <Box
                             sx={{
                                 display: "grid",
-                                gridTemplateColumns: `repeat(${patternSteps}, minmax(28px, 1fr))`,
+                                gridTemplateColumns: `repeat(${patternSteps}, minmax(32px, 1fr))`,
                                 gap: 0.45,
                                 position: "sticky",
                                 top: 0,
                                 zIndex: 5,
-                                bgcolor: "rgba(5,7,17,.92)",
+                                bgcolor: "rgba(5,7,17,.94)",
                                 pb: 0.6,
                             }}
                         >
@@ -1365,7 +1430,7 @@ export function PatternMixer({
                                     <Box
                                         key={`step-label-${stepIndex}`}
                                         sx={{
-                                            height: 26,
+                                            height: 28,
                                             borderRadius: 1,
                                             display: "grid",
                                             placeItems: "center",
@@ -1403,15 +1468,18 @@ export function PatternMixer({
 
                         {PIANO_ROLL_NOTES.map((pianoNote) => {
                             const isSharp = pianoNote.name.includes("#");
-                            const rowNotes = pattern.notes.filter(
-                                (note) => Math.abs(note.note - pianoNote.value) < 0.0001
-                            );
+                            const rowNotes = pattern.notes
+                                .filter((note) => Math.abs(note.note - pianoNote.value) < 0.0001)
+                                .map((note, index) => ({
+                                    ...note,
+                                    overlapIndex: index % 3,
+                                }));
 
                             return (
                                 <React.Fragment key={pianoNote.label}>
                                     <Box
                                         sx={{
-                                            height: 30,
+                                            height: 38,
                                             px: 1,
                                             display: "flex",
                                             alignItems: "center",
@@ -1439,9 +1507,9 @@ export function PatternMixer({
 
                                     <Box
                                         sx={{
-                                            height: 30,
+                                            height: 38,
                                             display: "grid",
-                                            gridTemplateColumns: `repeat(${patternSteps}, minmax(28px, 1fr))`,
+                                            gridTemplateColumns: `repeat(${patternSteps}, minmax(32px, 1fr))`,
                                             gap: 0.45,
                                             position: "relative",
                                         }}
@@ -1457,7 +1525,7 @@ export function PatternMixer({
                                                             soundId: selectedSound?.id,
                                                             note: pianoNote.value,
                                                             startStep: stepIndex,
-                                                            lengthSteps: noteLengthSteps,
+                                                            lengthSteps: safeLength,
                                                         })
                                                     }
                                                     sx={{
@@ -1484,72 +1552,81 @@ export function PatternMixer({
                                         })}
 
                                         {rowNotes.map((note) => {
-                                            const startColumn = Math.min(
-                                                patternSteps,
-                                                Math.max(1, note.startStep + 1)
-                                            );
-                                            const span = Math.max(
-                                                1,
-                                                Math.min(
+                                            const selected = selectedPianoNoteId === note.id;
+                                            const leftPercent = (note.startStep / patternSteps) * 100;
+                                            const widthPercent =
+                                                (Math.min(
                                                     patternSteps - note.startStep,
                                                     note.lengthSteps || 1
-                                                )
-                                            );
-                                            const selected = selectedPianoNoteId === note.id;
+                                                ) /
+                                                    patternSteps) *
+                                                100;
 
                                             return (
-                                                <Box
+                                                <Tooltip
                                                     key={note.id}
-                                                    onClick={(event) => {
-                                                        event.stopPropagation();
-                                                        onSelectPianoNote(note.id);
-                                                    }}
-                                                    sx={{
-                                                        gridColumn: `${startColumn} / span ${span}`,
-                                                        gridRow: 1,
-                                                        zIndex: 3,
-                                                        height: 28,
-                                                        borderRadius: 1.3,
-                                                        px: 0.8,
-                                                        display: "flex",
-                                                        alignItems: "center",
-                                                        justifyContent: "space-between",
-                                                        cursor: "pointer",
-                                                        overflow: "hidden",
-                                                        bgcolor: selected
-                                                            ? "#9ee8ff"
-                                                            : getSoundColor(note.soundId, sounds),
-                                                        color: selected ? "#06101f" : "#fff",
-                                                        border: selected
-                                                            ? "1px solid #fff"
-                                                            : "1px solid rgba(255,255,255,.18)",
-                                                        boxShadow: selected
-                                                            ? "0 0 0 2px rgba(158,232,255,.25)"
-                                                            : "none",
-                                                    }}
+                                                    title={`${frequencyToNoteLabel(note.note)} · start ${
+                                                        note.startStep + 1
+                                                    } · length ${note.lengthSteps} · ${getSoundName(
+                                                        sounds,
+                                                        note.soundId
+                                                    )}`}
                                                 >
-                                                    <Typography
-                                                        variant="caption"
-                                                        noWrap
+                                                    <Box
+                                                        onClick={(event) => {
+                                                            event.stopPropagation();
+                                                            onSelectPianoNote(note.id);
+                                                        }}
                                                         sx={{
-                                                            fontSize: ".62rem",
-                                                            fontWeight: 950,
+                                                            position: "absolute",
+                                                            top: 4 + note.overlapIndex * 9,
+                                                            left: `calc(${leftPercent}% + 2px)`,
+                                                            width: `calc(${widthPercent}% - 4px)`,
+                                                            minWidth: 20,
+                                                            height: 20,
+                                                            zIndex: selected ? 8 : 3 + note.overlapIndex,
+                                                            borderRadius: 1.3,
+                                                            px: 0.8,
+                                                            display: "flex",
+                                                            alignItems: "center",
+                                                            justifyContent: "space-between",
+                                                            cursor: "pointer",
+                                                            overflow: "hidden",
+                                                            bgcolor: selected
+                                                                ? "#9ee8ff"
+                                                                : getSoundColor(note.soundId, sounds),
+                                                            color: selected ? "#06101f" : "#fff",
+                                                            border: selected
+                                                                ? "1px solid #fff"
+                                                                : "1px solid rgba(255,255,255,.18)",
+                                                            boxShadow: selected
+                                                                ? "0 0 0 2px rgba(158,232,255,.25)"
+                                                                : "0 8px 18px rgba(0,0,0,.18)",
                                                         }}
                                                     >
-                                                        {getSoundName(sounds, note.soundId)}
-                                                    </Typography>
+                                                        <Typography
+                                                            variant="caption"
+                                                            noWrap
+                                                            sx={{
+                                                                fontSize: ".62rem",
+                                                                fontWeight: 950,
+                                                            }}
+                                                        >
+                                                            {getSoundName(sounds, note.soundId)}
+                                                        </Typography>
 
-                                                    <Typography
-                                                        variant="caption"
-                                                        sx={{
-                                                            fontSize: ".58rem",
-                                                            opacity: 0.75,
-                                                            ml: 0.8,
-                                                        }}
-                                                    >
-                                                        {note.lengthSteps}
-                                                    </Typography>
-                                                </Box>
+                                                        <Typography
+                                                            variant="caption"
+                                                            sx={{
+                                                                fontSize: ".58rem",
+                                                                opacity: 0.75,
+                                                                ml: 0.8,
+                                                            }}
+                                                        >
+                                                            {note.lengthSteps}
+                                                        </Typography>
+                                                    </Box>
+                                                </Tooltip>
                                             );
                                         })}
                                     </Box>
@@ -1564,12 +1641,12 @@ export function PatternMixer({
 }
 
 export function TrackMixer({
-                               mixerChannels,
-                               selectedMixerChannelId,
-                               onSelectMixerChannel,
-                               onMixerChange,
-                               onAddMixerChannel,
-                           }) {
+    mixerChannels,
+    selectedMixerChannelId,
+    onSelectMixerChannel,
+    onMixerChange,
+    onAddMixerChannel,
+}) {
     const selectedChannel =
         mixerChannels.find((channel) => channel.id === selectedMixerChannelId) ||
         mixerChannels[0];
@@ -1815,7 +1892,7 @@ function MixerInspector({ channel, onChange }) {
 
                 <TinySlider
                     label="FX Wet Mix"
-                    value={channel.fxWet}
+                    value={channel.fxWet || 0}
                     min={0}
                     max={1}
                     step={0.01}
@@ -1827,33 +1904,33 @@ function MixerInspector({ channel, onChange }) {
 }
 
 export function PlaylistMixer({
-                                  lanes,
-                                  clips,
-                                  mixerChannels,
-                                  selectedLaneId,
-                                  selectedClipId,
-                                  clipboardClip,
-                                  playlistPlaying,
-                                  secondsPerBar,
-                                  onPlayPlaylist,
-                                  onStopPlaylist,
-                                  onSelectLane,
-                                  onSelectClip,
-                                  onLaneChange,
-                                  onAddLane,
-                                  onDuplicateLane,
-                                  onUploadFiles,
-                                  onRasterizePattern,
-                                  onPreviewClip,
-                                  onMoveClip,
-                                  onCopyClip,
-                                  onCutClip,
-                                  onPasteClip,
-                                  onDuplicateClip,
-                                  onDeleteClip,
-                                  onTrimClipStart,
-                                  onTrimClipEnd,
-                              }) {
+    lanes,
+    clips,
+    mixerChannels,
+    selectedLaneId,
+    selectedClipId,
+    clipboardClip,
+    playlistPlaying,
+    secondsPerBar,
+    onPlayPlaylist,
+    onStopPlaylist,
+    onSelectLane,
+    onSelectClip,
+    onLaneChange,
+    onAddLane,
+    onDuplicateLane,
+    onUploadFiles,
+    onRasterizePattern,
+    onPreviewClip,
+    onMoveClip,
+    onCopyClip,
+    onCutClip,
+    onPasteClip,
+    onDuplicateClip,
+    onDeleteClip,
+    onTrimClipStart,
+    onTrimClipEnd,
+}) {
     const selectedLane = lanes.find((lane) => lane.id === selectedLaneId);
     const selectedClip = clips.find((clip) => clip.id === selectedClipId);
 
@@ -2209,31 +2286,37 @@ export function PlaylistMixer({
                                                             </IconButton>
                                                         </Tooltip>
 
-                                                        <Tooltip title="Move left">
-                                                            <IconButton
-                                                                size="small"
-                                                                onClick={(event) => {
-                                                                    event.stopPropagation();
-                                                                    onMoveClip(clip.id, -1);
-                                                                }}
-                                                                sx={{ color: "#fff", p: 0.2 }}
-                                                            >
-                                                                <ArrowBackRounded fontSize="inherit" />
-                                                            </IconButton>
-                                                        </Tooltip>
+                                                        <Button
+                                                            size="small"
+                                                            onClick={(event) => {
+                                                                event.stopPropagation();
+                                                                onMoveClip(clip.id, -1);
+                                                            }}
+                                                            sx={{
+                                                                minWidth: 0,
+                                                                px: 0.6,
+                                                                color: "#fff",
+                                                                fontSize: ".62rem",
+                                                            }}
+                                                        >
+                                                            -1
+                                                        </Button>
 
-                                                        <Tooltip title="Move right">
-                                                            <IconButton
-                                                                size="small"
-                                                                onClick={(event) => {
-                                                                    event.stopPropagation();
-                                                                    onMoveClip(clip.id, 1);
-                                                                }}
-                                                                sx={{ color: "#fff", p: 0.2 }}
-                                                            >
-                                                                <AddRounded fontSize="inherit" />
-                                                            </IconButton>
-                                                        </Tooltip>
+                                                        <Button
+                                                            size="small"
+                                                            onClick={(event) => {
+                                                                event.stopPropagation();
+                                                                onMoveClip(clip.id, 1);
+                                                            }}
+                                                            sx={{
+                                                                minWidth: 0,
+                                                                px: 0.6,
+                                                                color: "#fff",
+                                                                fontSize: ".62rem",
+                                                            }}
+                                                        >
+                                                            +1
+                                                        </Button>
                                                     </Stack>
                                                 </Box>
                                             );
@@ -2250,17 +2333,17 @@ export function PlaylistMixer({
 }
 
 function PlaylistToolsBar({
-                              selectedClip,
-                              clipboardClip,
-                              secondsPerBar,
-                              onCopyClip,
-                              onCutClip,
-                              onPasteClip,
-                              onDuplicateClip,
-                              onDeleteClip,
-                              onTrimClipStart,
-                              onTrimClipEnd,
-                          }) {
+    selectedClip,
+    clipboardClip,
+    secondsPerBar,
+    onCopyClip,
+    onCutClip,
+    onPasteClip,
+    onDuplicateClip,
+    onDeleteClip,
+    onTrimClipStart,
+    onTrimClipEnd,
+}) {
     const timing = selectedClip ? getClipTiming(selectedClip, secondsPerBar) : null;
 
     return (
@@ -2524,6 +2607,13 @@ export function InfoCard({ icon, title, description }) {
 }
 
 function TinySlider({ label, value, min, max, step, onChange }) {
+    const display =
+        typeof value === "number"
+            ? step >= 1
+                ? value.toFixed(0)
+                : value.toFixed(value < 5 ? 2 : 0)
+            : value;
+
     return (
         <Box>
             <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 0.2 }}>
@@ -2532,166 +2622,207 @@ function TinySlider({ label, value, min, max, step, onChange }) {
                 </Typography>
 
                 <Typography variant="caption" sx={{ color: "rgba(255,255,255,.44)" }}>
-                    {typeof value === "number" ? value.toFixed(value < 5 ? 2 : 0) : value}
+                    {display}
                 </Typography>
             </Stack>
 
             <Slider
                 size="small"
-                value={value}
+                value={Number(value) || 0}
                 min={min}
                 max={max}
                 step={step}
-                onChange={(_, next) => onChange(next)}
+                onChange={(_, next) => onChange(Number(next))}
                 sx={{
                     color: "#9ee8ff",
-                    py: 0.4,
+                    "& .MuiSlider-thumb": {
+                        boxShadow: "0 0 0 6px rgba(158,232,255,.1)",
+                    },
+                    "& .MuiSlider-rail": {
+                        opacity: 0.22,
+                    },
                 }}
             />
         </Box>
     );
 }
 
-export function frequencyToNoteLabel(freq) {
-    const match = NOTE_OPTIONS.find(
-        (note) => Math.abs(Number(note.value) - Number(freq)) < 0.001
-    );
-
-    return match ? match.label : `${Math.round(freq)}Hz`;
+function getSoundName(sounds, soundId) {
+    return sounds.find((sound) => sound.id === soundId)?.name || "Unknown";
 }
 
-export function getMixerName(mixerChannels, mixerChannelId) {
+function getMixerName(mixerChannels, mixerChannelId) {
     return mixerChannels.find((channel) => channel.id === mixerChannelId)?.name || "Master";
 }
 
-function getSoundName(sounds, soundId) {
-    return sounds.find((sound) => sound.id === soundId)?.name || "Sound";
-}
-
 function getSoundColor(soundId, sounds) {
-    const sound = sounds.find((item) => item.id === soundId);
+    const index = Math.max(
+        0,
+        sounds.findIndex((sound) => sound.id === soundId)
+    );
 
-    if (!sound) return "rgba(158,232,255,.36)";
+    const colors = [
+        "rgba(158,232,255,.78)",
+        "rgba(179,140,255,.78)",
+        "rgba(255,180,235,.7)",
+        "rgba(84,225,128,.72)",
+        "rgba(255,210,120,.72)",
+        "rgba(255,130,130,.72)",
+    ];
 
-    if (sound.type === "drum") return "rgba(158,232,255,.42)";
-    if (sound.type === "bass") return "rgba(84,225,128,.35)";
-    if (sound.type === "pad" || sound.type === "soundscape") return "rgba(179,140,255,.42)";
-    if (sound.type === "fx") return "rgba(255,241,118,.35)";
-
-    return "rgba(255,180,235,.38)";
+    return colors[index % colors.length];
 }
 
-export function getClipTiming(clip, secondsPerBar) {
-    const fullSeconds = clip?.buffer?.duration || 0;
-    const trimStart = clip?.trimStart || 0;
-    const trimEnd = clip?.trimEnd || 0;
-    const playableSeconds = Math.max(0.05, fullSeconds - trimStart - trimEnd);
+export function frequencyToNoteLabel(frequency) {
+    const match = NOTE_OPTIONS.reduce((best, current) => {
+        const bestDistance = Math.abs(best.value - frequency);
+        const currentDistance = Math.abs(current.value - frequency);
+        return currentDistance < bestDistance ? current : best;
+    }, NOTE_OPTIONS[0]);
 
-    return {
-        fullSeconds,
-        fullBars: secondsToBars(fullSeconds, secondsPerBar),
-        playableSeconds,
-        playableBars: secondsToBars(playableSeconds, secondsPerBar),
-        trimStart,
-        trimStartBars: secondsToBars(trimStart, secondsPerBar),
-        trimEnd,
-        trimEndBars: secondsToBars(trimEnd, secondsPerBar),
-    };
+    return match?.label || "C4";
 }
 
 export function secondsToBars(seconds, secondsPerBar) {
-    if (!secondsPerBar || secondsPerBar <= 0) return 0;
+    if (!secondsPerBar) return 0;
     return seconds / secondsPerBar;
 }
 
-export function formatSeconds(value) {
-    return `${Number(value || 0).toFixed(2)}s`;
+export function formatSeconds(seconds) {
+    return `${Number(seconds || 0).toFixed(2)}s`;
 }
 
-export function formatBars(value) {
-    return `${Number(value || 0).toFixed(2)} bars`;
+export function formatBars(bars) {
+    return `${Number(bars || 0).toFixed(2)} bars`;
 }
 
-const sectionIconSx = {
-    width: 44,
-    height: 44,
-    borderRadius: 3,
+function getClipTiming(clip, secondsPerBar) {
+    const fullSeconds =
+        clip.sourceType === "pattern"
+            ? (clip.lengthBars || 1) * secondsPerBar
+            : clip.durationSeconds || (clip.lengthBars || 1) * secondsPerBar;
+
+    const fullBars = secondsToBars(fullSeconds, secondsPerBar);
+    const trimStart = Math.max(0, clip.trimStartSeconds || 0);
+    const trimEnd = Math.max(0, clip.trimEndSeconds || 0);
+    const playableSeconds = Math.max(0.05, fullSeconds - trimStart - trimEnd);
+    const playableBars = secondsToBars(playableSeconds, secondsPerBar);
+
+    return {
+        fullSeconds,
+        fullBars,
+        trimStart,
+        trimEnd,
+        trimStartBars: secondsToBars(trimStart, secondsPerBar),
+        trimEndBars: secondsToBars(trimEnd, secondsPerBar),
+        playableSeconds,
+        playableBars,
+    };
+}
+
+function clampNumber(value, min, max) {
+    return Math.max(min, Math.min(max, Number(value) || min));
+}
+
+function dot(color) {
+    return {
+        width: 12,
+        height: 12,
+        borderRadius: "50%",
+        bgcolor: color,
+    };
+}
+
+const brandIconSx = {
+    width: 42,
+    height: 42,
+    borderRadius: "16px",
     display: "grid",
     placeItems: "center",
-    color: "#06101f",
-    bgcolor: "#9ee8ff",
-    flex: "0 0 auto",
+    background: "linear-gradient(135deg, #9ee8ff, #b38cff)",
+    color: "#07101f",
 };
 
-export const primaryPillSx = {
-    borderRadius: 999,
+const sectionIconSx = {
+    width: 42,
+    height: 42,
+    borderRadius: "16px",
+    display: "grid",
+    placeItems: "center",
+    color: "#07101f",
     bgcolor: "#9ee8ff",
+    flexShrink: 0,
+};
+
+const primaryPillSx = {
+    borderRadius: 999,
     color: "#06101f",
-    fontWeight: 950,
-    minHeight: 40,
-    px: 2,
-    whiteSpace: "nowrap",
+    bgcolor: "#9ee8ff",
+    fontWeight: 900,
     "&:hover": {
-        bgcolor: "#78dcff",
+        bgcolor: "#bdf2ff",
     },
 };
 
-export const outlinePillSx = {
+const outlinePillSx = {
     borderRadius: 999,
     color: "#fff",
     borderColor: "rgba(255,255,255,.18)",
-    minHeight: 40,
-    px: 2,
-    whiteSpace: "nowrap",
+    fontWeight: 850,
     "&:hover": {
-        borderColor: "rgba(158,232,255,.5)",
+        borderColor: "rgba(158,232,255,.45)",
         bgcolor: "rgba(158,232,255,.08)",
     },
 };
 
-export const miniButtonSx = {
+const miniButtonSx = {
     borderRadius: 999,
     color: "#fff",
-    border: "1px solid rgba(255,255,255,.14)",
-    bgcolor: "rgba(255,255,255,.04)",
-    minHeight: 34,
+    border: "1px solid rgba(255,255,255,.1)",
+    bgcolor: "rgba(255,255,255,.055)",
     px: 1.4,
-    whiteSpace: "nowrap",
     "&:hover": {
-        bgcolor: "rgba(158,232,255,.1)",
-        borderColor: "rgba(158,232,255,.36)",
+        bgcolor: "rgba(158,232,255,.13)",
+    },
+    "&.Mui-disabled": {
+        color: "rgba(255,255,255,.28)",
+        borderColor: "rgba(255,255,255,.06)",
     },
 };
 
-export const darkTextFieldSx = {
-    minWidth: 120,
+const darkTextFieldSx = {
     "& .MuiInputBase-root": {
         color: "#fff",
         borderRadius: 3,
+        bgcolor: "rgba(255,255,255,.055)",
     },
     "& .MuiInputLabel-root": {
         color: "rgba(255,255,255,.62)",
     },
     "& .MuiOutlinedInput-notchedOutline": {
-        borderColor: "rgba(255,255,255,.16)",
+        borderColor: "rgba(255,255,255,.12)",
     },
     "&:hover .MuiOutlinedInput-notchedOutline": {
-        borderColor: "rgba(255,255,255,.28)",
+        borderColor: "rgba(158,232,255,.35)",
     },
 };
 
-export const darkSelectSx = {
+const darkSelectSx = {
     "& .MuiInputBase-root": {
         color: "#fff",
         borderRadius: 3,
+        bgcolor: "rgba(255,255,255,.055)",
     },
     "& .MuiInputLabel-root": {
         color: "rgba(255,255,255,.62)",
-    },
-    "& .MuiOutlinedInput-notchedOutline": {
-        borderColor: "rgba(255,255,255,.16)",
     },
     "& .MuiSvgIcon-root": {
         color: "#fff",
+    },
+    "& .MuiOutlinedInput-notchedOutline": {
+        borderColor: "rgba(255,255,255,.12)",
+    },
+    "&:hover .MuiOutlinedInput-notchedOutline": {
+        borderColor: "rgba(158,232,255,.35)",
     },
 };

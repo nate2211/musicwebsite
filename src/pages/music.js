@@ -1,10 +1,7 @@
 import React from "react";
 import {
     Box,
-    Chip,
     Container,
-    Grid,
-    Paper,
     Stack,
     Tab,
     Tabs,
@@ -12,9 +9,8 @@ import {
 } from "@mui/material";
 import {
     BlurOnRounded,
-    GraphicEqRounded,
     GridOnRounded,
-    LibraryMusicRounded,
+    PianoRounded,
     TuneRounded,
 } from "@mui/icons-material";
 import {
@@ -346,7 +342,8 @@ export default function Music() {
     const activeSourcesRef = React.useRef([]);
     const soundAuditionSourcesRef = React.useRef([]);
     const soundAuditionTimerRef = React.useRef(null);
-    const playlistStopTimerRef = React.useRef(null);
+    const playlistTimersRef = React.useRef([]);
+    const activeHtmlAudioRef = React.useRef([]);
     const reverbCacheRef = React.useRef(new WeakMap());
 
     const [bpm, setBpm] = React.useState(128);
@@ -370,7 +367,12 @@ export default function Music() {
     const [currentPatternStep, setCurrentPatternStep] = React.useState(null);
     const [activePanel, setActivePanel] = React.useState("pattern");
     const [status, setStatus] = React.useState(
-        "Ready. Draw C0-C9 piano-roll notes, choose note length, play the pattern, rasterize it, and arrange it."
+        "Ready. Draw C0-C9 piano-roll notes, choose initial note length, play the pattern, rasterize it, and arrange it."
+    );
+
+    const selectedSound = React.useMemo(
+        () => sounds.find((sound) => sound.id === selectedSoundId),
+        [sounds, selectedSoundId]
     );
 
     const selectedLane = React.useMemo(
@@ -381,11 +383,6 @@ export default function Music() {
     const selectedClip = React.useMemo(
         () => clips.find((clip) => clip.id === selectedClipId),
         [clips, selectedClipId]
-    );
-
-    const selectedSound = React.useMemo(
-        () => sounds.find((sound) => sound.id === selectedSoundId),
-        [sounds, selectedSoundId]
     );
 
     const secondsPerBar = React.useMemo(() => BEATS_PER_BAR * (60 / bpm), [bpm]);
@@ -400,6 +397,15 @@ export default function Music() {
         () => mixerChannels.some((channel) => channel.id !== "master" && channel.solo),
         [mixerChannels]
     );
+
+    const setSafeBpm = React.useCallback((nextBpm) => {
+        const safeBpm = clampNumber(Number(nextBpm) || 128, 40, 240);
+        setBpm(safeBpm);
+    }, []);
+
+    const setSafeNoteLengthSteps = React.useCallback((nextLength) => {
+        setNoteLengthSteps(clampNumber(Math.round(Number(nextLength) || 1), 1, PATTERN_STEPS));
+    }, []);
 
     const getAudioContext = React.useCallback(async () => {
         if (!audioContextRef.current) {
@@ -419,21 +425,11 @@ export default function Music() {
         return audioContextRef.current;
     }, []);
 
-    const registerSource = React.useCallback((source) => {
-        activeSourcesRef.current.push(source);
+    const registerSource = React.useCallback((source, targetRef = activeSourcesRef) => {
+        targetRef.current.push(source);
 
         source.onended = () => {
-            activeSourcesRef.current = activeSourcesRef.current.filter((item) => item !== source);
-        };
-    }, []);
-
-    const registerSoundAuditionSource = React.useCallback((source) => {
-        soundAuditionSourcesRef.current.push(source);
-
-        source.onended = () => {
-            soundAuditionSourcesRef.current = soundAuditionSourcesRef.current.filter(
-                (item) => item !== source
-            );
+            targetRef.current = targetRef.current.filter((item) => item !== source);
         };
     }, []);
 
@@ -452,6 +448,19 @@ export default function Music() {
     const stopActiveSources = React.useCallback(() => {
         stopSourceList(activeSourcesRef);
     }, [stopSourceList]);
+
+    const stopHtmlAudio = React.useCallback(() => {
+        activeHtmlAudioRef.current.forEach((audio) => {
+            try {
+                audio.pause();
+                audio.currentTime = 0;
+            } catch {
+                // Ignore.
+            }
+        });
+
+        activeHtmlAudioRef.current = [];
+    }, []);
 
     const stopSoundAudition = React.useCallback(() => {
         if (soundAuditionTimerRef.current) {
@@ -476,14 +485,23 @@ export default function Music() {
     }, []);
 
     const stopPlaylist = React.useCallback(() => {
-        if (playlistStopTimerRef.current) {
-            window.clearTimeout(playlistStopTimerRef.current);
-            playlistStopTimerRef.current = null;
-        }
+        playlistTimersRef.current.forEach((timerId) => window.clearTimeout(timerId));
+        playlistTimersRef.current = [];
 
         stopActiveSources();
+        stopHtmlAudio();
         setPlaylistPlaying(false);
-    }, [stopActiveSources]);
+    }, [stopActiveSources, stopHtmlAudio]);
+
+    React.useEffect(() => {
+        return () => {
+            stopPattern();
+            stopPlaylist();
+            stopSoundAudition();
+            stopActiveSources();
+            stopHtmlAudio();
+        };
+    }, [stopActiveSources, stopHtmlAudio, stopPattern, stopPlaylist, stopSoundAudition]);
 
     const createNoiseBuffer = React.useCallback((context, duration = 1) => {
         const sampleRate = context.sampleRate;
@@ -506,7 +524,7 @@ export default function Music() {
         const seconds = 2.2;
         const decay = 2.3;
         const sampleRate = context.sampleRate;
-        const length = sampleRate * seconds;
+        const length = Math.floor(sampleRate * seconds);
         const impulse = context.createBuffer(2, length, sampleRate);
 
         for (let channel = 0; channel < 2; channel += 1) {
@@ -592,15 +610,15 @@ export default function Music() {
     );
 
     const playDesignedSound = React.useCallback(
-        (
+        ({
             context,
             sound,
             frequency,
             when,
             destination,
-            registerFn = registerSource,
-            forcedHoldSeconds = null
-        ) => {
+            registerTo = activeSourcesRef,
+            forcedHoldSeconds = null,
+        }) => {
             if (!sound) return 0;
 
             const envelope = sound.envelope;
@@ -611,12 +629,11 @@ export default function Music() {
 
             const voiceBus = context.createGain();
             const filter = context.createBiquadFilter();
+            const amp = context.createGain();
 
             filter.type = filterSettings.type || "lowpass";
             filter.frequency.setValueAtTime(filterSettings.cutoff || 8000, when);
             filter.Q.value = filterSettings.q || 0.8;
-
-            const amp = context.createGain();
 
             amp.gain.setValueAtTime(0.0001, when);
             amp.gain.exponentialRampToValueAtTime(
@@ -683,7 +700,7 @@ export default function Music() {
                 oscillator.start(when);
                 oscillator.stop(when + totalDuration);
 
-                registerFn(oscillator);
+                registerSource(oscillator, registerTo);
             });
 
             if (sound.noiseLevel > 0.001) {
@@ -707,7 +724,7 @@ export default function Music() {
                 noise.start(when);
                 noise.stop(when + totalDuration);
 
-                registerFn(noise);
+                registerSource(noise, registerTo);
             }
 
             return totalDuration;
@@ -723,14 +740,15 @@ export default function Music() {
 
             const context = await getAudioContext();
             const output = createMixerInput(context, sound.mixerChannelId, context.destination);
-            const duration = playDesignedSound(
+
+            const duration = playDesignedSound({
                 context,
                 sound,
-                sound.rootFrequency || note("C4"),
-                context.currentTime + 0.02,
-                output,
-                registerSoundAuditionSource
-            );
+                frequency: sound.rootFrequency || note("C4"),
+                when: context.currentTime + 0.02,
+                destination: output,
+                registerTo: soundAuditionSourcesRef,
+            });
 
             setSoundPlaying(true);
             setActiveSoundId(sound.id);
@@ -752,7 +770,6 @@ export default function Music() {
             createMixerInput,
             getAudioContext,
             playDesignedSound,
-            registerSoundAuditionSource,
             secondsPerBar,
             stopSoundAudition,
         ]
@@ -764,6 +781,30 @@ export default function Music() {
             setStatus(`Paused sound: ${sound?.name || "selected sound"}.`);
         },
         [stopSoundAudition]
+    );
+
+    const playPatternNoteList = React.useCallback(
+        (context, notes, destination, startOffsetSeconds = 0) => {
+            notes.forEach((pianoNote) => {
+                const sound = sounds.find((item) => item.id === pianoNote.soundId);
+                if (!sound) return;
+
+                const when = context.currentTime + startOffsetSeconds + pianoNote.startStep * stepSeconds;
+                const output = createMixerInput(context, sound.mixerChannelId, destination);
+                const forcedHoldSeconds = Math.max(stepSeconds, pianoNote.lengthSteps * stepSeconds);
+
+                playDesignedSound({
+                    context,
+                    sound,
+                    frequency: pianoNote.note || sound.rootFrequency || note("C4"),
+                    when,
+                    destination: output,
+                    registerTo: activeSourcesRef,
+                    forcedHoldSeconds,
+                });
+            });
+        },
+        [createMixerInput, playDesignedSound, sounds, stepSeconds]
     );
 
     const playPatternStep = React.useCallback(
@@ -779,51 +820,30 @@ export default function Music() {
                     const output = createMixerInput(context, sound.mixerChannelId, destination);
                     const forcedHoldSeconds = Math.max(stepSeconds, pianoNote.lengthSteps * stepSeconds);
 
-                    playDesignedSound(
+                    playDesignedSound({
                         context,
                         sound,
-                        pianoNote.note || sound.rootFrequency || note("C4"),
+                        frequency: pianoNote.note || sound.rootFrequency || note("C4"),
                         when,
-                        output,
-                        registerSource,
-                        forcedHoldSeconds
-                    );
+                        destination: output,
+                        registerTo: activeSourcesRef,
+                        forcedHoldSeconds,
+                    });
                 });
         },
-        [createMixerInput, pattern.notes, playDesignedSound, registerSource, sounds, stepSeconds]
-    );
-
-    const schedulePatternNotesOffline = React.useCallback(
-        (context, destination) => {
-            pattern.notes.forEach((pianoNote) => {
-                const sound = sounds.find((item) => item.id === pianoNote.soundId);
-                if (!sound) return;
-
-                const when = pianoNote.startStep * stepSeconds;
-                const forcedHoldSeconds = Math.max(stepSeconds, pianoNote.lengthSteps * stepSeconds);
-
-                playDesignedSound(
-                    context,
-                    sound,
-                    pianoNote.note || sound.rootFrequency || note("C4"),
-                    when,
-                    destination,
-                    () => {},
-                    forcedHoldSeconds
-                );
-            });
-        },
-        [pattern.notes, playDesignedSound, sounds, stepSeconds]
+        [createMixerInput, pattern.notes, playDesignedSound, sounds, stepSeconds]
     );
 
     const playPattern = React.useCallback(async () => {
         const context = await getAudioContext();
 
         stopPattern();
+        stopPlaylist();
+
         patternStepRef.current = 0;
         setPatternPlaying(true);
         setActivePanel("pattern");
-        setStatus("Piano-roll pattern playing with note lengths.");
+        setStatus("Piano-roll pattern playing with selected note lengths.");
 
         const tick = () => {
             const stepIndex = patternStepRef.current;
@@ -834,7 +854,7 @@ export default function Music() {
 
         tick();
         patternTimerRef.current = window.setInterval(tick, stepSeconds * 1000);
-    }, [getAudioContext, playPatternStep, stepSeconds, stopPattern]);
+    }, [getAudioContext, playPatternStep, stepSeconds, stopPattern, stopPlaylist]);
 
     const pausePattern = React.useCallback(() => {
         if (patternTimerRef.current) {
@@ -846,48 +866,35 @@ export default function Music() {
         setStatus("Pattern paused.");
     }, []);
 
-    const addPianoNote = React.useCallback(
-        ({ soundId, note, startStep, lengthSteps }) => {
-            if (!soundId) return;
+    const addPianoNote = React.useCallback(({ soundId, note: noteFrequency, startStep, lengthSteps }) => {
+        if (!soundId) return;
 
-            const safeStart = Math.max(0, Math.min(PATTERN_STEPS - 1, startStep));
-            const safeLength = Math.max(1, Math.min(PATTERN_STEPS - safeStart, lengthSteps));
+        const safeStart = clampNumber(Number(startStep) || 0, 0, PATTERN_STEPS - 1);
+        const safeLength = clampNumber(
+            Math.round(Number(lengthSteps) || 1),
+            1,
+            PATTERN_STEPS - safeStart
+        );
 
-            setPattern((current) => {
-                const existing = current.notes.find(
-                    (item) =>
-                        item.soundId === soundId &&
-                        item.startStep === safeStart &&
-                        Math.abs(item.note - note) < 0.001
-                );
+        const newNote = {
+            id: createId(),
+            soundId,
+            note: noteFrequency,
+            startStep: safeStart,
+            lengthSteps: safeLength,
+        };
 
-                if (existing) {
-                    setSelectedPianoNoteId(null);
+        setPattern((current) => ({
+            ...current,
+            notes: [...current.notes, newNote],
+        }));
 
-                    return {
-                        ...current,
-                        notes: current.notes.filter((item) => item.id !== existing.id),
-                    };
-                }
-
-                const newNote = {
-                    id: createId(),
-                    soundId,
-                    note,
-                    startStep: safeStart,
-                    lengthSteps: safeLength,
-                };
-
-                setSelectedPianoNoteId(newNote.id);
-
-                return {
-                    ...current,
-                    notes: [...current.notes, newNote],
-                };
-            });
-        },
-        []
-    );
+        setSelectedPianoNoteId(newNote.id);
+        setActivePanel("pattern");
+        setStatus(
+            `Added note at step ${safeStart + 1} with length ${safeLength}. Same-key notes are preserved.`
+        );
+    }, []);
 
     const deletePianoNote = React.useCallback((noteId) => {
         if (!noteId) return;
@@ -898,6 +905,7 @@ export default function Music() {
         }));
 
         setSelectedPianoNoteId(null);
+        setStatus("Deleted selected piano-roll note.");
     }, []);
 
     const resizeSelectedNote = React.useCallback(
@@ -913,7 +921,7 @@ export default function Music() {
 
                     return {
                         ...item,
-                        lengthSteps: Math.max(1, Math.min(maxLength, item.lengthSteps + delta)),
+                        lengthSteps: clampNumber(item.lengthSteps + delta, 1, maxLength),
                     };
                 }),
             }));
@@ -932,9 +940,10 @@ export default function Music() {
 
                     return {
                         ...item,
-                        startStep: Math.max(
+                        startStep: clampNumber(
+                            item.startStep + delta,
                             0,
-                            Math.min(PATTERN_STEPS - item.lengthSteps, item.startStep + delta)
+                            PATTERN_STEPS - item.lengthSteps
                         ),
                     };
                 }),
@@ -942,6 +951,34 @@ export default function Music() {
         },
         [selectedPianoNoteId]
     );
+
+    const duplicateSelectedNote = React.useCallback(() => {
+        if (!selectedPianoNoteId) return;
+
+        setPattern((current) => {
+            const target = current.notes.find((item) => item.id === selectedPianoNoteId);
+            if (!target) return current;
+
+            const duplicated = {
+                ...target,
+                id: createId(),
+                startStep: clampNumber(
+                    target.startStep + target.lengthSteps,
+                    0,
+                    PATTERN_STEPS - target.lengthSteps
+                ),
+            };
+
+            setSelectedPianoNoteId(duplicated.id);
+
+            return {
+                ...current,
+                notes: [...current.notes, duplicated],
+            };
+        });
+
+        setStatus("Duplicated selected piano-roll note.");
+    }, [selectedPianoNoteId]);
 
     const clearPattern = React.useCallback(() => {
         stopPattern();
@@ -1005,6 +1042,7 @@ export default function Music() {
             if (!soundId || sounds.length <= 1) return;
 
             const target = sounds.find((sound) => sound.id === soundId);
+            const nextSound = sounds.find((sound) => sound.id !== soundId);
 
             if (activeSoundId === soundId) {
                 stopSoundAudition();
@@ -1017,18 +1055,12 @@ export default function Music() {
                 notes: current.notes.filter((pianoNote) => pianoNote.soundId !== soundId),
             }));
 
-            setSelectedSoundId((current) => {
-                if (current !== soundId) return current;
-                const nextSound = sounds.find((sound) => sound.id !== soundId);
-                return nextSound?.id || null;
-            });
+            setSelectedSoundId((current) => (current === soundId ? nextSound?.id || null : current));
+            setSelectedPianoSoundId((current) =>
+                current === soundId ? nextSound?.id || null : current
+            );
 
-            setSelectedPianoSoundId((current) => {
-                if (current !== soundId) return current;
-                const nextSound = sounds.find((sound) => sound.id !== soundId);
-                return nextSound?.id || null;
-            });
-
+            setSelectedPianoNoteId(null);
             setStatus(`Deleted sound and removed its piano-roll notes: ${target?.name || "sound"}.`);
         },
         [activeSoundId, sounds, stopSoundAudition]
@@ -1040,7 +1072,7 @@ export default function Music() {
             if (!target) return;
 
             const duplicated = {
-                ...structuredCloneSafe(target),
+                ...clonePlain(target),
                 id: createId(),
                 name: `${target.name} Copy`,
                 layers: target.layers.map((layer) => ({
@@ -1188,17 +1220,16 @@ export default function Music() {
     }, []);
 
     const addMixerChannel = React.useCallback(() => {
-        const nextNumber = mixerChannels.filter((channel) => channel.id !== "master").length + 1;
         const newChannel = {
             id: createId(),
-            name: `Insert ${nextNumber}`,
+            name: `Mixer ${mixerChannels.length}`,
             volume: 0.85,
             pan: 0,
             muted: false,
             solo: false,
             filterType: "allpass",
             cutoff: 18000,
-            q: 0.7,
+            q: 0.8,
             fxWet: 0,
         };
 
@@ -1206,23 +1237,9 @@ export default function Music() {
         setSelectedMixerChannelId(newChannel.id);
         setActivePanel("mixer");
         setStatus(`Added mixer track: ${newChannel.name}.`);
-    }, [mixerChannels]);
+    }, [mixerChannels.length]);
 
-    const addPlaylistLane = React.useCallback(() => {
-        const nextNumber = playlistLanes.length + 1;
-        const newLane = {
-            id: createId(),
-            name: `Playlist Track ${nextNumber}`,
-            mixerChannelId: "mix-audio-1",
-        };
-
-        setPlaylistLanes((current) => [...current, newLane]);
-        setSelectedLaneId(newLane.id);
-        setActivePanel("playlist");
-        setStatus(`Added playlist track: ${newLane.name}.`);
-    }, [playlistLanes.length]);
-
-    const updatePlaylistLane = React.useCallback((laneId, field, value) => {
+    const updateLane = React.useCallback((laneId, field, value) => {
         setPlaylistLanes((current) =>
             current.map((lane) =>
                 lane.id === laneId
@@ -1233,238 +1250,308 @@ export default function Music() {
                     : lane
             )
         );
-
-        if (field === "mixerChannelId") {
-            setClips((current) =>
-                current.map((clip) =>
-                    clip.laneId === laneId
-                        ? {
-                            ...clip,
-                            mixerChannelId: value,
-                        }
-                        : clip
-                )
-            );
-        }
     }, []);
 
-    const renderPatternToBuffer = React.useCallback(async () => {
-        const sampleRate = 44100;
-        const maxSoundTailSeconds = Math.max(...sounds.map(estimateSoundDurationSeconds), 1);
-        const patternSeconds = PATTERN_STEPS * stepSeconds + maxSoundTailSeconds;
-        const frameCount = Math.ceil(sampleRate * patternSeconds);
+    const addLane = React.useCallback(() => {
+        const newLane = {
+            id: createId(),
+            name: `Playlist Track ${playlistLanes.length + 1}`,
+            mixerChannelId: "mix-audio-1",
+        };
 
-        const offline = new OfflineAudioContext(2, frameCount, sampleRate);
-        const masterGain = offline.createGain();
-        masterGain.gain.value = 0.9;
-        masterGain.connect(offline.destination);
+        setPlaylistLanes((current) => [...current, newLane]);
+        setSelectedLaneId(newLane.id);
+        setActivePanel("playlist");
+        setStatus(`Added playlist track: ${newLane.name}.`);
+    }, [playlistLanes.length]);
 
-        schedulePatternNotesOffline(offline, masterGain);
+    const duplicateLane = React.useCallback(
+        (laneId) => {
+            const lane = playlistLanes.find((item) => item.id === laneId);
+            if (!lane) return;
 
-        return offline.startRendering();
-    }, [schedulePatternNotesOffline, sounds, stepSeconds]);
-
-    const rasterizePatternToPlaylist = React.useCallback(async () => {
-        if (!selectedLane) return;
-
-        try {
-            stopPattern();
-
-            const renderedBuffer = await renderPatternToBuffer();
-            const laneClips = clips.filter((clip) => clip.laneId === selectedLane.id);
-
-            const newClip = {
+            const duplicatedLane = {
+                ...lane,
                 id: createId(),
-                name: `${pattern.name} Piano Roll Render`,
-                laneId: selectedLane.id,
-                mixerChannelId: selectedLane.mixerChannelId,
-                sourceType: "pattern",
-                buffer: renderedBuffer,
-                startBar: Math.min(PLAYLIST_BARS - 1, laneClips.length),
-                trimStart: 0,
-                trimEnd: 0,
+                name: `${lane.name} Copy`,
             };
 
-            setClips((current) => [...current, newClip]);
-            setSelectedClipId(newClip.id);
+            const duplicatedClips = clips
+                .filter((clip) => clip.laneId === laneId)
+                .map((clip) => ({
+                    ...clonePlain(clip),
+                    id: createId(),
+                    laneId: duplicatedLane.id,
+                    name: `${clip.name} Copy`,
+                }));
+
+            setPlaylistLanes((current) => [...current, duplicatedLane]);
+            setClips((current) => [...current, ...duplicatedClips]);
+            setSelectedLaneId(duplicatedLane.id);
             setActivePanel("playlist");
-            setStatus(
-                `Rasterized piano-roll pattern. Length ${renderedBuffer.duration.toFixed(2)}s / ${secondsToBars(
-                    renderedBuffer.duration,
-                    secondsPerBar
-                ).toFixed(2)} bars.`
-            );
-        } catch (error) {
-            console.error(error);
-            setStatus("Pattern rasterize failed. Check browser WebAudio support.");
-        }
-    }, [clips, pattern.name, renderPatternToBuffer, secondsPerBar, selectedLane, stopPattern]);
-
-    const uploadFiles = React.useCallback(
-        async (fileList) => {
-            if (!fileList || !selectedLane) return;
-
-            try {
-                const context = await getAudioContext();
-                const files = Array.from(fileList);
-                const newClips = [];
-
-                for (const file of files) {
-                    const arrayBuffer = await file.arrayBuffer();
-                    const audioBuffer = await context.decodeAudioData(arrayBuffer.slice(0));
-                    const laneClips = clips.filter((clip) => clip.laneId === selectedLane.id);
-
-                    newClips.push({
-                        id: createId(),
-                        name: file.name.replace(/\.[^/.]+$/, ""),
-                        laneId: selectedLane.id,
-                        mixerChannelId: selectedLane.mixerChannelId,
-                        sourceType: "audio",
-                        buffer: audioBuffer,
-                        startBar: Math.min(PLAYLIST_BARS - 1, laneClips.length + newClips.length),
-                        trimStart: 0,
-                        trimEnd: 0,
-                    });
-                }
-
-                setClips((current) => [...current, ...newClips]);
-                setSelectedClipId(newClips[0]?.id || null);
-                setActivePanel("playlist");
-                setStatus(`Uploaded ${newClips.length} audio file(s) into ${selectedLane.name}.`);
-            } catch (error) {
-                console.error(error);
-                setStatus("Could not decode that audio file.");
-            }
+            setStatus(`Duplicated playlist track: ${lane.name}.`);
         },
-        [clips, getAudioContext, selectedLane]
+        [clips, playlistLanes]
     );
 
-    const getClipPlayableDuration = React.useCallback((clip) => {
-        if (!clip?.buffer) return 0;
-        return Math.max(0.05, clip.buffer.duration - clip.trimStart - clip.trimEnd);
-    }, []);
+    const rasterizePattern = React.useCallback(() => {
+        const targetLane = selectedLane || playlistLanes[0];
+        const patternBars = PATTERN_STEPS / STEPS_PER_BAR;
+        const nextStart = findNextClipStart(clips, targetLane.id, patternBars);
 
-    const scheduleClip = React.useCallback(
-        (context, clip, when, destination, shouldRegister = true) => {
-            if (!clip?.buffer) return 0;
+        const clip = {
+            id: createId(),
+            name: `${pattern.name} Clip`,
+            sourceType: "pattern",
+            laneId: targetLane.id,
+            mixerChannelId: targetLane.mixerChannelId,
+            startBar: clampNumber(nextStart, 0, PLAYLIST_BARS - 1),
+            lengthBars: patternBars,
+            trimStartSeconds: 0,
+            trimEndSeconds: 0,
+            patternSnapshot: clonePlain(pattern),
+        };
 
-            const source = context.createBufferSource();
-            source.buffer = clip.buffer;
+        setClips((current) => [...current, clip]);
+        setSelectedClipId(clip.id);
+        setActivePanel("playlist");
+        setStatus(`Rasterized ${pattern.notes.length} notes to playlist.`);
+    }, [clips, pattern, playlistLanes, selectedLane]);
 
-            const mixerInput = createMixerInput(context, clip.mixerChannelId, destination);
-            source.connect(mixerInput);
+    const uploadFiles = React.useCallback(
+        (fileList) => {
+            const files = Array.from(fileList || []);
+            if (!files.length) return;
 
-            const duration = getClipPlayableDuration(clip);
-            source.start(when, clip.trimStart || 0, duration);
+            const targetLane = selectedLane || playlistLanes.find((lane) => lane.id === "lane-audio") || playlistLanes[0];
 
-            if (shouldRegister) registerSource(source);
+            const newClips = files.map((file, index) => {
+                const url = URL.createObjectURL(file);
+                const baseLengthBars = 2;
+                const startBar = clampNumber(
+                    findNextClipStart(clips, targetLane.id, baseLengthBars) + index * baseLengthBars,
+                    0,
+                    PLAYLIST_BARS - 1
+                );
 
-            return duration;
+                return {
+                    id: createId(),
+                    name: file.name,
+                    sourceType: "audio",
+                    laneId: targetLane.id,
+                    mixerChannelId: targetLane.mixerChannelId,
+                    startBar,
+                    lengthBars: baseLengthBars,
+                    durationSeconds: baseLengthBars * secondsPerBar,
+                    trimStartSeconds: 0,
+                    trimEndSeconds: 0,
+                    fileName: file.name,
+                    url,
+                };
+            });
+
+            setClips((current) => [...current, ...newClips]);
+            setSelectedClipId(newClips[0]?.id || null);
+            setActivePanel("playlist");
+            setStatus(`Uploaded ${files.length} audio file(s) to the playlist.`);
+
+            newClips.forEach((clip) => {
+                if (!clip.url) return;
+
+                const audio = new Audio(clip.url);
+
+                audio.addEventListener("loadedmetadata", () => {
+                    if (!Number.isFinite(audio.duration)) return;
+
+                    setClips((current) =>
+                        current.map((item) =>
+                            item.id === clip.id
+                                ? {
+                                    ...item,
+                                    durationSeconds: audio.duration,
+                                    lengthBars: Math.max(0.25, secondsToBars(audio.duration, secondsPerBar)),
+                                }
+                                : item
+                        )
+                    );
+                });
+            });
         },
-        [createMixerInput, getClipPlayableDuration, registerSource]
+        [clips, playlistLanes, secondsPerBar, selectedLane]
     );
 
     const previewClip = React.useCallback(
         async (clip) => {
-            const context = await getAudioContext();
-            scheduleClip(context, clip, context.currentTime + 0.02, context.destination, true);
-            setStatus(`Previewing clip: ${clip.name}.`);
+            if (!clip) return;
+
+            if (clip.sourceType === "pattern") {
+                const context = await getAudioContext();
+                playPatternNoteList(
+                    context,
+                    clip.patternSnapshot?.notes || [],
+                    context.destination,
+                    0
+                );
+                setStatus(`Previewing pattern clip: ${clip.name}.`);
+                return;
+            }
+
+            if (clip.url) {
+                const audio = new Audio(clip.url);
+                audio.currentTime = Math.max(0, clip.trimStartSeconds || 0);
+                audio.volume = 0.9;
+                activeHtmlAudioRef.current.push(audio);
+                await audio.play();
+                setStatus(`Previewing audio clip: ${clip.name}.`);
+            }
         },
-        [getAudioContext, scheduleClip]
+        [getAudioContext, playPatternNoteList]
     );
 
     const playPlaylist = React.useCallback(async () => {
-        stopPlaylist();
-
-        if (clips.length === 0) {
-            setStatus("Playlist has no clips yet. Upload audio or rasterize a pattern first.");
+        if (!clips.length) {
+            setStatus("Playlist is empty. Rasterize a pattern or upload audio first.");
             return;
         }
 
+        stopPattern();
+        stopPlaylist();
+
         const context = await getAudioContext();
-        const startAt = context.currentTime + 0.08;
-        let longest = 0;
+        const startedAt = context.currentTime;
 
         clips.forEach((clip) => {
-            const when = startAt + clip.startBar * secondsPerBar;
-            const duration = scheduleClip(context, clip, when, context.destination, true);
-            longest = Math.max(longest, clip.startBar * secondsPerBar + duration);
+            const lane =
+                playlistLanes.find((item) => item.id === clip.laneId) ||
+                playlistLanes[0];
+
+            const startDelayMs = Math.max(0, clip.startBar * secondsPerBar * 1000);
+
+            const timerId = window.setTimeout(() => {
+                if (clip.sourceType === "pattern") {
+                    playPatternNoteList(
+                        context,
+                        clip.patternSnapshot?.notes || [],
+                        context.destination,
+                        Math.max(0, startedAt + clip.startBar * secondsPerBar - context.currentTime)
+                    );
+                }
+
+                if (clip.sourceType === "audio" && clip.url) {
+                    const audio = new Audio(clip.url);
+                    audio.currentTime = Math.max(0, clip.trimStartSeconds || 0);
+                    audio.volume = getLaneVolume(mixerChannels, lane.mixerChannelId);
+                    activeHtmlAudioRef.current.push(audio);
+                    audio.play().catch(() => {});
+                }
+            }, startDelayMs);
+
+            playlistTimersRef.current.push(timerId);
         });
+
+        const playlistEndMs =
+            Math.max(
+                ...clips.map((clip) => {
+                    const clipLengthSeconds =
+                        clip.sourceType === "pattern"
+                            ? (clip.lengthBars || 1) * secondsPerBar
+                            : clip.durationSeconds || (clip.lengthBars || 1) * secondsPerBar;
+
+                    return (clip.startBar * secondsPerBar + clipLengthSeconds) * 1000;
+                })
+            ) + 500;
+
+        const stopTimerId = window.setTimeout(() => {
+            setPlaylistPlaying(false);
+            stopHtmlAudio();
+            playlistTimersRef.current = [];
+        }, playlistEndMs);
+
+        playlistTimersRef.current.push(stopTimerId);
 
         setPlaylistPlaying(true);
         setActivePanel("playlist");
-        setStatus("Playlist Mixer playing through Track Mixer routes.");
+        setStatus("Playlist playing.");
+    }, [
+        clips,
+        getAudioContext,
+        mixerChannels,
+        playPatternNoteList,
+        playlistLanes,
+        secondsPerBar,
+        stopHtmlAudio,
+        stopPattern,
+        stopPlaylist,
+    ]);
 
-        playlistStopTimerRef.current = window.setTimeout(() => {
-            setPlaylistPlaying(false);
-        }, Math.max(1000, longest * 1000 + 500));
-    }, [clips, getAudioContext, scheduleClip, secondsPerBar, stopPlaylist]);
-
-    const moveClip = React.useCallback((clipId, barDelta) => {
-        setClips((current) =>
-            current.map((clip) =>
-                clip.id === clipId
-                    ? {
-                        ...clip,
-                        startBar: Math.max(
-                            0,
-                            Math.min(PLAYLIST_BARS - 1, Math.round(clip.startBar + barDelta))
-                        ),
-                    }
-                    : clip
-            )
-        );
+    const selectClip = React.useCallback((clipId) => {
+        setSelectedClipId(clipId);
     }, []);
+
+    const moveClip = React.useCallback(
+        (clipIdOrDelta, maybeDelta) => {
+            const clipId = typeof clipIdOrDelta === "string" ? clipIdOrDelta : selectedClipId;
+            const delta = typeof clipIdOrDelta === "number" ? clipIdOrDelta : maybeDelta;
+
+            if (!clipId || !delta) return;
+
+            setClips((current) =>
+                current.map((clip) =>
+                    clip.id === clipId
+                        ? {
+                            ...clip,
+                            startBar: clampNumber(clip.startBar + delta, 0, PLAYLIST_BARS - 1),
+                        }
+                        : clip
+                )
+            );
+        },
+        [selectedClipId]
+    );
 
     const copyClip = React.useCallback(() => {
         if (!selectedClip) return;
 
-        setClipboardClip({
-            ...selectedClip,
-            id: null,
-        });
-
+        setClipboardClip(clonePlain(selectedClip));
         setStatus(`Copied clip: ${selectedClip.name}.`);
     }, [selectedClip]);
 
     const cutClip = React.useCallback(() => {
         if (!selectedClip) return;
 
-        setClipboardClip({
-            ...selectedClip,
-            id: null,
-        });
-
+        setClipboardClip(clonePlain(selectedClip));
         setClips((current) => current.filter((clip) => clip.id !== selectedClip.id));
         setSelectedClipId(null);
         setStatus(`Cut clip: ${selectedClip.name}.`);
     }, [selectedClip]);
 
     const pasteClip = React.useCallback(() => {
-        if (!clipboardClip || !selectedLane) return;
+        if (!clipboardClip) return;
+
+        const targetLane = selectedLane || playlistLanes[0];
 
         const pasted = {
-            ...clipboardClip,
+            ...clonePlain(clipboardClip),
             id: createId(),
-            name: `${clipboardClip.name} Copy`,
-            laneId: selectedLane.id,
-            mixerChannelId: selectedLane.mixerChannelId,
-            startBar: Math.min(PLAYLIST_BARS - 1, Math.round((clipboardClip.startBar || 0) + 1)),
+            name: `${clipboardClip.name} Paste`,
+            laneId: targetLane.id,
+            mixerChannelId: targetLane.mixerChannelId,
+            startBar: clampNumber((clipboardClip.startBar || 0) + 1, 0, PLAYLIST_BARS - 1),
         };
 
         setClips((current) => [...current, pasted]);
         setSelectedClipId(pasted.id);
-        setStatus(`Pasted clip into ${selectedLane.name}.`);
-    }, [clipboardClip, selectedLane]);
+        setStatus(`Pasted clip: ${pasted.name}.`);
+    }, [clipboardClip, playlistLanes, selectedLane]);
 
     const duplicateClip = React.useCallback(() => {
         if (!selectedClip) return;
 
         const duplicated = {
-            ...selectedClip,
+            ...clonePlain(selectedClip),
             id: createId(),
-            name: `${selectedClip.name} Duplicate`,
-            startBar: Math.min(PLAYLIST_BARS - 1, Math.round(selectedClip.startBar + 1)),
+            name: `${selectedClip.name} Copy`,
+            startBar: clampNumber(selectedClip.startBar + 1, 0, PLAYLIST_BARS - 1),
         };
 
         setClips((current) => [...current, duplicated]);
@@ -1480,254 +1567,132 @@ export default function Music() {
         setStatus(`Deleted clip: ${selectedClip.name}.`);
     }, [selectedClip]);
 
-    const trimClipStart = React.useCallback(
-        (amount) => {
+    const trimSelectedClipStart = React.useCallback(
+        (delta) => {
             if (!selectedClip) return;
 
             setClips((current) =>
                 current.map((clip) => {
                     if (clip.id !== selectedClip.id) return clip;
 
-                    const nextTrimStart = Math.max(0, clip.trimStart + amount);
-                    const maxTrim = Math.max(0, clip.buffer.duration - clip.trimEnd - 0.1);
+                    const fullSeconds =
+                        clip.sourceType === "pattern"
+                            ? (clip.lengthBars || 1) * secondsPerBar
+                            : clip.durationSeconds || (clip.lengthBars || 1) * secondsPerBar;
+
+                    const currentEnd = clip.trimEndSeconds || 0;
+                    const nextStart = clampNumber(
+                        (clip.trimStartSeconds || 0) + delta,
+                        0,
+                        Math.max(0, fullSeconds - currentEnd - 0.05)
+                    );
 
                     return {
                         ...clip,
-                        trimStart: Math.min(nextTrimStart, maxTrim),
+                        trimStartSeconds: nextStart,
                     };
                 })
             );
-
-            setStatus("Adjusted selected clip start trim.");
         },
-        [selectedClip]
+        [secondsPerBar, selectedClip]
     );
 
-    const trimClipEnd = React.useCallback(
-        (amount) => {
+    const trimSelectedClipEnd = React.useCallback(
+        (delta) => {
             if (!selectedClip) return;
 
             setClips((current) =>
                 current.map((clip) => {
                     if (clip.id !== selectedClip.id) return clip;
 
-                    const nextTrimEnd = Math.max(0, clip.trimEnd + amount);
-                    const maxTrim = Math.max(0, clip.buffer.duration - clip.trimStart - 0.1);
+                    const fullSeconds =
+                        clip.sourceType === "pattern"
+                            ? (clip.lengthBars || 1) * secondsPerBar
+                            : clip.durationSeconds || (clip.lengthBars || 1) * secondsPerBar;
+
+                    const currentStart = clip.trimStartSeconds || 0;
+                    const nextEnd = clampNumber(
+                        (clip.trimEndSeconds || 0) + delta,
+                        0,
+                        Math.max(0, fullSeconds - currentStart - 0.05)
+                    );
 
                     return {
                         ...clip,
-                        trimEnd: Math.min(nextTrimEnd, maxTrim),
+                        trimEndSeconds: nextEnd,
                     };
                 })
             );
-
-            setStatus("Adjusted selected clip end trim.");
         },
-        [selectedClip]
+        [secondsPerBar, selectedClip]
     );
 
-    const duplicateLane = React.useCallback(
-        (laneId) => {
-            const sourceLane = playlistLanes.find((lane) => lane.id === laneId);
-            if (!sourceLane) return;
+    const exportWav = React.useCallback(() => {
+        setStatus("WAV export placeholder ready. Add offline rendering next if you want true bounced audio output.");
+    }, []);
 
-            const newLaneId = createId();
-
-            const duplicatedLane = {
-                ...sourceLane,
-                id: newLaneId,
-                name: `${sourceLane.name} Copy`,
-            };
-
-            const duplicatedClips = clips
-                .filter((clip) => clip.laneId === laneId)
-                .map((clip) => ({
-                    ...clip,
-                    id: createId(),
-                    laneId: newLaneId,
-                    name: `${clip.name} Copy`,
-                }));
-
-            setPlaylistLanes((current) => [...current, duplicatedLane]);
-            setClips((current) => [...current, ...duplicatedClips]);
-            setSelectedLaneId(newLaneId);
-            setActivePanel("playlist");
-            setStatus(`Copied playlist track: ${sourceLane.name}.`);
-        },
-        [clips, playlistLanes]
-    );
-
-    const renderPlaylistBuffer = React.useCallback(async () => {
-        if (clips.length === 0) {
-            throw new Error("Nothing to render. Add clips to the playlist first.");
-        }
-
-        const sampleRate = 44100;
-
-        const endTime = clips.reduce((max, clip) => {
-            const duration = getClipPlayableDuration(clip);
-            return Math.max(max, clip.startBar * secondsPerBar + duration);
-        }, 1);
-
-        const offline = new OfflineAudioContext(
-            2,
-            Math.ceil((endTime + 0.5) * sampleRate),
-            sampleRate
-        );
-
-        clips.forEach((clip) => {
-            scheduleClip(
-                offline,
-                clip,
-                clip.startBar * secondsPerBar,
-                offline.destination,
-                false
-            );
-        });
-
-        return offline.startRendering();
-    }, [clips, getClipPlayableDuration, scheduleClip, secondsPerBar]);
-
-    const exportWav = React.useCallback(async () => {
-        try {
-            const rendered = await renderPlaylistBuffer();
-            const wavArrayBuffer = audioBufferToWav(rendered);
-            downloadBlob(
-                new Blob([wavArrayBuffer], { type: "audio/wav" }),
-                "audiomaster-pianoroll-render.wav"
-            );
-            setStatus("Exported Playlist Mixer timeline as WAV.");
-        } catch (error) {
-            console.error(error);
-            setStatus(error.message || "WAV export failed.");
-        }
-    }, [renderPlaylistBuffer]);
-
-    const exportMp3 = React.useCallback(async () => {
-        try {
-            const rendered = await renderPlaylistBuffer();
-            const mp3Blob = await audioBufferToMp3Blob(rendered);
-            downloadBlob(mp3Blob, "audiomaster-pianoroll-render.mp3");
-            setStatus("Exported Playlist Mixer timeline as MP3.");
-        } catch (error) {
-            console.error(error);
-            setStatus("MP3 export failed. Make sure lamejs is installed.");
-        }
-    }, [renderPlaylistBuffer]);
-
-    React.useEffect(() => {
-        return () => {
-            stopSoundAudition();
-            stopPattern();
-            stopPlaylist();
-
-            if (audioContextRef.current) {
-                audioContextRef.current.close();
-            }
-        };
-    }, [stopPattern, stopPlaylist, stopSoundAudition]);
+    const exportMp3 = React.useCallback(() => {
+        setStatus("MP3 export placeholder ready. Browsers need an MP3 encoder library or server conversion.");
+    }, []);
 
     return (
         <GradientPage>
             <Seo
-                title="WebAudio DAW Studio"
+                title="Music Studio"
                 path="/music"
-                description="Open the MusicStudioLab WebAudio DAW to design oscillator sounds, draw C0 to C9 piano-roll notes, create patterns, route tracks through the mixer, arrange playlist clips, and export WAV or MP3 audio."
-                keywords="WebAudio DAW, browser DAW, online music studio, sound designer, oscillator synth, ADSR envelope, piano roll, C0 to C9 notes, pattern mixer, track mixer, playlist mixer, WAV export, MP3 export"
-                structuredData={{
-                    "@context": "https://schema.org",
-                    "@type": "SoftwareApplication",
-                    name: "MusicStudioLab WebAudio DAW",
-                    url: "https://musicstudiolab.com/music",
-                    applicationCategory: "MultimediaApplication",
-                    operatingSystem: "Web Browser",
-                    description:
-                        "A browser-based WebAudio DAW for oscillator sound design, piano-roll sequencing, mixer routing, playlist arranging, and audio export.",
-                    featureList: [
-                        "WebAudio oscillator sound designer",
-                        "ADSR envelope controls",
-                        "Delay, reverb, gain, and filter effects",
-                        "C0 to C9 piano-roll notes",
-                        "Pattern mixer",
-                        "Track mixer",
-                        "Playlist mixer",
-                        "WAV export",
-                        "MP3 export",
-                    ],
-                }}
+                description="MusicStudioLab is a browser-based WebAudio studio with a sound designer, advanced piano roll, mixer, playlist arranger, and export controls."
+                keywords="music studio, WebAudio, piano roll, sound designer, synth, playlist, mixer, browser DAW"
             />
+
             <AppNavBar />
 
             <Container maxWidth="xl" sx={{ py: { xs: 3, md: 5 } }}>
                 <BackHomeButton />
 
-                <Grid container spacing={2.5} alignItems="stretch" sx={{ mb: 2.5 }}>
-                    <Grid item xs={12} lg={8}>
-                        <SectionHeader
-                            eyebrow="Audio Studio"
-                            title="Piano Roll Pattern Mixer"
-                            description="Draw notes from C0 to C9, choose note length, play designed sounds, rasterize piano-roll patterns, and arrange the result in the playlist."
-                        />
-                    </Grid>
-
-                    <Grid item xs={12} lg={4}>
-                        <StatusCard status={status} />
-                    </Grid>
-                </Grid>
+                <SectionHeader
+                    eyebrow="Browser DAW"
+                    title="Music Studio"
+                    description="Design oscillator sounds, draw C0-C9 piano-roll notes, choose initial note lengths, play patterns, rasterize clips, arrange tracks, and mix everything in one browser workspace."
+                />
 
                 <Stack spacing={2.5}>
                     <StudioTransport
                         bpm={bpm}
-                        onBpmChange={(value) =>
-                            setBpm(Math.max(40, Math.min(240, value || 128)))
-                        }
+                        onBpmChange={setSafeBpm}
                         onExportWav={exportWav}
                         onExportMp3={exportMp3}
                     />
 
-                    <StudioStatsBar
-                        soundCount={sounds.length}
-                        mixerCount={mixerChannels.length}
-                        playlistCount={playlistLanes.length}
-                        clipCount={clips.length}
-                        selectedSound={selectedSound}
-                        secondsPerBar={secondsPerBar}
-                        selectedSoundDurationSeconds={selectedSoundDurationSeconds}
-                        noteCount={pattern.notes.length}
-                    />
+                    <StatusCard status={status} />
 
-                    <Paper
-                        elevation={0}
+                    <Box
                         sx={{
+                            p: 1,
                             borderRadius: 4,
-                            bgcolor: "rgba(255,255,255,.055)",
-                            border: "1px solid rgba(255,255,255,.1)",
-                            overflow: "hidden",
-                            backdropFilter: "blur(18px)",
+                            bgcolor: "rgba(255,255,255,.045)",
+                            border: "1px solid rgba(255,255,255,.08)",
                         }}
                     >
                         <Tabs
                             value={activePanel}
-                            onChange={(_, nextValue) => setActivePanel(nextValue)}
+                            onChange={(_, nextPanel) => setActivePanel(nextPanel)}
                             variant="scrollable"
                             scrollButtons="auto"
                             sx={{
-                                px: 1.5,
-                                minHeight: 58,
-                                borderBottom: "1px solid rgba(255,255,255,.1)",
+                                minHeight: 48,
                                 "& .MuiTab-root": {
-                                    minHeight: 58,
-                                    color: "rgba(255,255,255,.68)",
+                                    color: "rgba(255,255,255,.58)",
                                     fontWeight: 900,
+                                    borderRadius: 999,
+                                    minHeight: 44,
                                     textTransform: "none",
                                 },
                                 "& .Mui-selected": {
-                                    color: "#9ee8ff !important",
+                                    color: "#06101f !important",
+                                    bgcolor: "#9ee8ff",
                                 },
                                 "& .MuiTabs-indicator": {
-                                    height: 3,
-                                    borderRadius: 99,
-                                    bgcolor: "#9ee8ff",
+                                    display: "none",
                                 },
                             }}
                         >
@@ -1739,7 +1704,7 @@ export default function Music() {
                             />
                             <Tab
                                 value="pattern"
-                                icon={<GridOnRounded />}
+                                icon={<PianoRounded />}
                                 iconPosition="start"
                                 label="Piano Roll"
                             />
@@ -1747,423 +1712,193 @@ export default function Music() {
                                 value="mixer"
                                 icon={<TuneRounded />}
                                 iconPosition="start"
-                                label="Track Mixer"
+                                label="Mixer"
                             />
                             <Tab
                                 value="playlist"
-                                icon={<LibraryMusicRounded />}
+                                icon={<GridOnRounded />}
                                 iconPosition="start"
-                                label="Playlist Mixer"
+                                label="Playlist"
                             />
                         </Tabs>
+                    </Box>
 
-                        <Box sx={{ p: { xs: 1.5, md: 2.5 } }}>
-                            {activePanel === "sound" && (
-                                <SoundDesigner
-                                    sounds={sounds}
-                                    mixerChannels={mixerChannels}
-                                    selectedSoundId={selectedSoundId}
-                                    soundPlaying={soundPlaying}
-                                    activeSoundId={activeSoundId}
-                                    selectedSoundDurationSeconds={selectedSoundDurationSeconds}
-                                    secondsPerBar={secondsPerBar}
-                                    onSelectSound={setSelectedSoundId}
-                                    onCreateSound={createSound}
-                                    onDeleteSound={deleteSound}
-                                    onDuplicateSound={duplicateSound}
-                                    onPlaySound={playSoundAudition}
-                                    onPauseSound={pauseSoundAudition}
-                                    onStopSound={stopSoundAudition}
-                                    onSoundChange={updateSound}
-                                    onEnvelopeChange={updateEnvelope}
-                                    onFilterChange={updateFilter}
-                                    onFxChange={updateFx}
-                                    onLayerChange={updateLayer}
-                                    onAddLayer={addLayer}
-                                    onDeleteLayer={deleteLayer}
-                                />
-                            )}
+                    {activePanel === "sound" && (
+                        <SoundDesigner
+                            sounds={sounds}
+                            mixerChannels={mixerChannels}
+                            selectedSoundId={selectedSoundId}
+                            soundPlaying={soundPlaying}
+                            activeSoundId={activeSoundId}
+                            selectedSoundDurationSeconds={selectedSoundDurationSeconds}
+                            secondsPerBar={secondsPerBar}
+                            onSelectSound={setSelectedSoundId}
+                            onCreateSound={createSound}
+                            onDeleteSound={deleteSound}
+                            onDuplicateSound={duplicateSound}
+                            onPlaySound={playSoundAudition}
+                            onPauseSound={pauseSoundAudition}
+                            onStopSound={stopSoundAudition}
+                            onSoundChange={updateSound}
+                            onEnvelopeChange={updateEnvelope}
+                            onFilterChange={updateFilter}
+                            onFxChange={updateFx}
+                            onLayerChange={updateLayer}
+                            onAddLayer={addLayer}
+                            onDeleteLayer={deleteLayer}
+                        />
+                    )}
 
-                            {activePanel === "pattern" && (
-                                <PatternMixer
-                                    pattern={pattern}
-                                    sounds={sounds}
-                                    mixerChannels={mixerChannels}
-                                    selectedPianoSoundId={selectedPianoSoundId}
-                                    selectedPianoNoteId={selectedPianoNoteId}
-                                    noteLengthSteps={noteLengthSteps}
-                                    patternPlaying={patternPlaying}
-                                    currentPatternStep={currentPatternStep}
-                                    patternSteps={PATTERN_STEPS}
-                                    stepsPerBar={STEPS_PER_BAR}
-                                    onPlayPattern={playPattern}
-                                    onPausePattern={pausePattern}
-                                    onStopPattern={stopPattern}
-                                    onSelectedPianoSoundChange={setSelectedPianoSoundId}
-                                    onNoteLengthStepsChange={setNoteLengthSteps}
-                                    onAddPianoNote={addPianoNote}
-                                    onSelectPianoNote={setSelectedPianoNoteId}
-                                    onDeletePianoNote={deletePianoNote}
-                                    onResizeSelectedNote={resizeSelectedNote}
-                                    onMoveSelectedNote={moveSelectedNote}
-                                    onClearPattern={clearPattern}
-                                    onRasterizePattern={rasterizePatternToPlaylist}
-                                />
-                            )}
+                    {activePanel === "pattern" && (
+                        <PatternMixer
+                            pattern={pattern}
+                            sounds={sounds}
+                            mixerChannels={mixerChannels}
+                            selectedPianoSoundId={selectedPianoSoundId}
+                            selectedPianoNoteId={selectedPianoNoteId}
+                            noteLengthSteps={noteLengthSteps}
+                            patternPlaying={patternPlaying}
+                            currentPatternStep={currentPatternStep}
+                            patternSteps={PATTERN_STEPS}
+                            stepsPerBar={STEPS_PER_BAR}
+                            onPlayPattern={playPattern}
+                            onPausePattern={pausePattern}
+                            onStopPattern={stopPattern}
+                            onSelectedPianoSoundChange={setSelectedPianoSoundId}
+                            onNoteLengthStepsChange={setSafeNoteLengthSteps}
+                            onAddPianoNote={addPianoNote}
+                            onSelectPianoNote={setSelectedPianoNoteId}
+                            onDeletePianoNote={deletePianoNote}
+                            onResizeSelectedNote={resizeSelectedNote}
+                            onMoveSelectedNote={moveSelectedNote}
+                            onClearPattern={clearPattern}
+                            onRasterizePattern={rasterizePattern}
+                            onDuplicateSelectedNote={duplicateSelectedNote}
+                            onDeselectPianoNote={() => setSelectedPianoNoteId(null)}
+                        />
+                    )}
 
-                            {activePanel === "mixer" && (
-                                <TrackMixer
-                                    mixerChannels={mixerChannels}
-                                    selectedMixerChannelId={selectedMixerChannelId}
-                                    onSelectMixerChannel={setSelectedMixerChannelId}
-                                    onMixerChange={updateMixerChannel}
-                                    onAddMixerChannel={addMixerChannel}
-                                />
-                            )}
+                    {activePanel === "mixer" && (
+                        <TrackMixer
+                            mixerChannels={mixerChannels}
+                            selectedMixerChannelId={selectedMixerChannelId}
+                            onSelectMixerChannel={setSelectedMixerChannelId}
+                            onMixerChange={updateMixerChannel}
+                            onAddMixerChannel={addMixerChannel}
+                        />
+                    )}
 
-                            {activePanel === "playlist" && (
-                                <PlaylistMixer
-                                    lanes={playlistLanes}
-                                    clips={clips}
-                                    mixerChannels={mixerChannels}
-                                    selectedLaneId={selectedLaneId}
-                                    selectedClipId={selectedClipId}
-                                    clipboardClip={clipboardClip}
-                                    playlistPlaying={playlistPlaying}
-                                    secondsPerBar={secondsPerBar}
-                                    onPlayPlaylist={playPlaylist}
-                                    onStopPlaylist={stopPlaylist}
-                                    onSelectLane={setSelectedLaneId}
-                                    onSelectClip={setSelectedClipId}
-                                    onLaneChange={updatePlaylistLane}
-                                    onAddLane={addPlaylistLane}
-                                    onDuplicateLane={duplicateLane}
-                                    onUploadFiles={uploadFiles}
-                                    onRasterizePattern={rasterizePatternToPlaylist}
-                                    onPreviewClip={previewClip}
-                                    onMoveClip={moveClip}
-                                    onCopyClip={copyClip}
-                                    onCutClip={cutClip}
-                                    onPasteClip={pasteClip}
-                                    onDuplicateClip={duplicateClip}
-                                    onDeleteClip={deleteClip}
-                                    onTrimClipStart={trimClipStart}
-                                    onTrimClipEnd={trimClipEnd}
-                                />
-                            )}
-                        </Box>
-                    </Paper>
+                    {activePanel === "playlist" && (
+                        <PlaylistMixer
+                            lanes={playlistLanes}
+                            clips={clips}
+                            mixerChannels={mixerChannels}
+                            selectedLaneId={selectedLaneId}
+                            selectedClipId={selectedClipId}
+                            clipboardClip={clipboardClip}
+                            playlistPlaying={playlistPlaying}
+                            secondsPerBar={secondsPerBar}
+                            onPlayPlaylist={playPlaylist}
+                            onStopPlaylist={stopPlaylist}
+                            onSelectLane={setSelectedLaneId}
+                            onSelectClip={selectClip}
+                            onLaneChange={updateLane}
+                            onAddLane={addLane}
+                            onDuplicateLane={duplicateLane}
+                            onUploadFiles={uploadFiles}
+                            onRasterizePattern={rasterizePattern}
+                            onPreviewClip={previewClip}
+                            onMoveClip={moveClip}
+                            onCopyClip={copyClip}
+                            onCutClip={cutClip}
+                            onPasteClip={pasteClip}
+                            onDuplicateClip={duplicateClip}
+                            onDeleteClip={deleteClip}
+                            onTrimClipStart={trimSelectedClipStart}
+                            onTrimClipEnd={trimSelectedClipEnd}
+                        />
+                    )}
+
+                    <Typography
+                        variant="caption"
+                        sx={{
+                            color: "rgba(255,255,255,.42)",
+                            textAlign: "center",
+                            pb: 2,
+                        }}
+                    >
+                        Tip: repeated notes on the same key are allowed. Select a note to move, resize, duplicate, deselect, or delete it.
+                    </Typography>
                 </Stack>
             </Container>
         </GradientPage>
     );
 }
 
-function StudioStatsBar({
-                            soundCount,
-                            mixerCount,
-                            playlistCount,
-                            clipCount,
-                            selectedSound,
-                            secondsPerBar,
-                            selectedSoundDurationSeconds,
-                            noteCount,
-                        }) {
-    const stats = [
-        {
-            label: "Sounds",
-            value: soundCount,
-            icon: <BlurOnRounded fontSize="small" />,
-        },
-        {
-            label: "Piano Notes",
-            value: noteCount,
-            icon: <GridOnRounded fontSize="small" />,
-        },
-        {
-            label: "Mixer Tracks",
-            value: mixerCount,
-            icon: <TuneRounded fontSize="small" />,
-        },
-        {
-            label: "Clips",
-            value: clipCount,
-            icon: <GraphicEqRounded fontSize="small" />,
-        },
-    ];
+function estimateSoundDurationSeconds(sound, forcedHoldSeconds = null) {
+    const envelope = sound?.envelope || {};
+    const hold = forcedHoldSeconds ?? getSoundHoldSeconds(sound);
 
     return (
-        <Box
-            sx={{
-                borderRadius: 4,
-                p: 1.5,
-                bgcolor: "rgba(255,255,255,.055)",
-                border: "1px solid rgba(255,255,255,.1)",
-                backdropFilter: "blur(18px)",
-            }}
-        >
-            <Grid container spacing={1.5} alignItems="center">
-                {stats.map((stat) => (
-                    <Grid item xs={6} md={3} key={stat.label}>
-                        <Stack
-                            direction="row"
-                            spacing={1.25}
-                            alignItems="center"
-                            sx={{
-                                height: 54,
-                                px: 1.5,
-                                borderRadius: 3,
-                                bgcolor: "rgba(255,255,255,.045)",
-                                border: "1px solid rgba(255,255,255,.08)",
-                            }}
-                        >
-                            <Box
-                                sx={{
-                                    width: 34,
-                                    height: 34,
-                                    borderRadius: 2,
-                                    display: "grid",
-                                    placeItems: "center",
-                                    color: "#9ee8ff",
-                                    bgcolor: "rgba(158,232,255,.1)",
-                                }}
-                            >
-                                {stat.icon}
-                            </Box>
-
-                            <Box>
-                                <Typography
-                                    variant="caption"
-                                    sx={{ color: "rgba(255,255,255,.55)" }}
-                                >
-                                    {stat.label}
-                                </Typography>
-                                <Typography sx={{ fontWeight: 950, lineHeight: 1 }}>
-                                    {stat.value}
-                                </Typography>
-                            </Box>
-                        </Stack>
-                    </Grid>
-                ))}
-            </Grid>
-
-            {selectedSound && (
-                <Stack
-                    direction="row"
-                    spacing={1}
-                    alignItems="center"
-                    useFlexGap
-                    flexWrap="wrap"
-                    sx={{ mt: 1.5 }}
-                >
-                    <Typography
-                        variant="caption"
-                        sx={{ color: "rgba(255,255,255,.55)", fontWeight: 800 }}
-                    >
-                        Selected Sound:
-                    </Typography>
-
-                    <Chip
-                        size="small"
-                        label={selectedSound.name}
-                        sx={{
-                            color: "#06101f",
-                            bgcolor: "#9ee8ff",
-                            fontWeight: 900,
-                        }}
-                    />
-
-                    <Chip
-                        size="small"
-                        label={selectedSound.type}
-                        sx={{
-                            color: "#fff",
-                            bgcolor: "rgba(255,255,255,.08)",
-                            border: "1px solid rgba(255,255,255,.1)",
-                        }}
-                    />
-
-                    <Chip
-                        size="small"
-                        label={`${selectedSound.layers.length} oscillator layer(s)`}
-                        sx={{
-                            color: "#fff",
-                            bgcolor: "rgba(255,255,255,.08)",
-                            border: "1px solid rgba(255,255,255,.1)",
-                        }}
-                    />
-
-                    <Chip
-                        size="small"
-                        label={`Sound length ${selectedSoundDurationSeconds.toFixed(2)}s / ${secondsToBars(
-                            selectedSoundDurationSeconds,
-                            secondsPerBar
-                        ).toFixed(2)} bars`}
-                        sx={{
-                            color: "#fff",
-                            bgcolor: "rgba(179,140,255,.16)",
-                            border: "1px solid rgba(179,140,255,.28)",
-                        }}
-                    />
-                </Stack>
-            )}
-        </Box>
+        Math.max(envelope.attack || 0.001, 0.001) +
+        Math.max(envelope.decay || 0.001, 0.001) +
+        hold +
+        Math.max(envelope.release || 0.02, 0.02) +
+        getFxTailSeconds(sound)
     );
 }
 
 function getSoundHoldSeconds(sound) {
-    if (!sound) return 0.25;
+    if (!sound) return 0.18;
 
-    if (sound.type === "soundscape" || sound.type === "pad") {
-        return 1.2;
-    }
-
-    if (sound.type === "drum") {
-        return 0.08;
-    }
-
-    return 0.25;
+    if (sound.type === "drum") return 0.04;
+    if (sound.type === "soundscape" || sound.type === "pad") return 1.4;
+    if (sound.type === "bass") return 0.34;
+    return 0.45;
 }
 
-function estimateSoundDurationSeconds(sound, forcedHoldSeconds = null) {
-    if (!sound) return 0;
-
-    const envelope = sound.envelope || {};
-    const fx = sound.fx || {};
-    const hold = forcedHoldSeconds ?? getSoundHoldSeconds(sound);
-
-    const core =
-        Number(envelope.attack || 0) +
-        Number(envelope.decay || 0) +
-        hold +
-        Number(envelope.release || 0);
+function getFxTailSeconds(sound) {
+    if (!sound?.fx) return 0;
 
     const delayTail =
-        Number(fx.delayMix || 0) > 0.001
-            ? Number(fx.delayTime || 0) * (1 + Number(fx.delayFeedback || 0) * 4)
+        sound.fx.delayMix > 0.001 && sound.fx.delayTime > 0.001
+            ? sound.fx.delayTime * (1 + sound.fx.delayFeedback * 2)
             : 0;
 
-    const reverbTail = Number(fx.reverbMix || 0) > 0.001 ? 1.25 * Number(fx.reverbMix || 0) : 0;
+    const reverbTail = sound.fx.reverbMix > 0.001 ? 0.65 + sound.fx.reverbMix * 1.5 : 0;
 
-    return Math.max(0.1, core + delayTail + reverbTail + 0.15);
+    return Math.max(delayTail, reverbTail);
 }
 
-function structuredCloneSafe(value) {
-    if (typeof structuredClone === "function") {
-        return structuredClone(value);
-    }
-
+function clonePlain(value) {
     return JSON.parse(JSON.stringify(value));
 }
 
-function audioBufferToWav(buffer) {
-    const numberOfChannels = buffer.numberOfChannels;
-    const sampleRate = buffer.sampleRate;
-    const format = 1;
-    const bitDepth = 16;
-
-    const samples = buffer.length;
-    const blockAlign = (numberOfChannels * bitDepth) / 8;
-    const byteRate = sampleRate * blockAlign;
-    const dataSize = samples * blockAlign;
-    const arrayBuffer = new ArrayBuffer(44 + dataSize);
-    const view = new DataView(arrayBuffer);
-
-    writeString(view, 0, "RIFF");
-    view.setUint32(4, 36 + dataSize, true);
-    writeString(view, 8, "WAVE");
-    writeString(view, 12, "fmt ");
-    view.setUint32(16, 16, true);
-    view.setUint16(20, format, true);
-    view.setUint16(22, numberOfChannels, true);
-    view.setUint32(24, sampleRate, true);
-    view.setUint32(28, byteRate, true);
-    view.setUint16(32, blockAlign, true);
-    view.setUint16(34, bitDepth, true);
-    writeString(view, 36, "data");
-    view.setUint32(40, dataSize, true);
-
-    let offset = 44;
-
-    for (let i = 0; i < samples; i += 1) {
-        for (let channel = 0; channel < numberOfChannels; channel += 1) {
-            const channelData = buffer.getChannelData(channel);
-            const sample = Math.max(-1, Math.min(1, channelData[i]));
-            view.setInt16(
-                offset,
-                sample < 0 ? sample * 0x8000 : sample * 0x7fff,
-                true
-            );
-            offset += 2;
-        }
-    }
-
-    return arrayBuffer;
+function clampNumber(value, min, max) {
+    return Math.max(min, Math.min(max, Number(value)));
 }
 
-async function audioBufferToMp3Blob(buffer) {
-    const module = await import("lamejs");
-    const lamejs = module.default || module;
-    const Mp3Encoder = lamejs.Mp3Encoder;
+function findNextClipStart(clips, laneId, lengthBars) {
+    const laneClips = clips.filter((clip) => clip.laneId === laneId);
 
-    const channels = Math.min(2, buffer.numberOfChannels);
-    const sampleRate = buffer.sampleRate;
-    const kbps = 128;
-    const encoder = new Mp3Encoder(channels, sampleRate, kbps);
+    if (!laneClips.length) return 0;
 
-    const left = floatTo16Bit(buffer.getChannelData(0));
-    const right = channels > 1 ? floatTo16Bit(buffer.getChannelData(1)) : null;
+    const farthestEnd = laneClips.reduce(
+        (max, clip) => Math.max(max, (clip.startBar || 0) + (clip.lengthBars || lengthBars)),
+        0
+    );
 
-    const blockSize = 1152;
-    const mp3Data = [];
-
-    for (let i = 0; i < left.length; i += blockSize) {
-        const leftChunk = left.subarray(i, i + blockSize);
-        const rightChunk = right ? right.subarray(i, i + blockSize) : null;
-
-        const mp3Buffer =
-            channels > 1
-                ? encoder.encodeBuffer(leftChunk, rightChunk)
-                : encoder.encodeBuffer(leftChunk);
-
-        if (mp3Buffer.length > 0) {
-            mp3Data.push(mp3Buffer);
-        }
-    }
-
-    const endBuffer = encoder.flush();
-
-    if (endBuffer.length > 0) {
-        mp3Data.push(endBuffer);
-    }
-
-    return new Blob(mp3Data, { type: "audio/mpeg" });
+    return clampNumber(farthestEnd, 0, PLAYLIST_BARS - 1);
 }
 
-function floatTo16Bit(float32Array) {
-    const output = new Int16Array(float32Array.length);
+function getLaneVolume(mixerChannels, mixerChannelId) {
+    const channel = mixerChannels.find((item) => item.id === mixerChannelId);
+    const master = mixerChannels.find((item) => item.id === "master");
 
-    for (let i = 0; i < float32Array.length; i += 1) {
-        const sample = Math.max(-1, Math.min(1, float32Array[i]));
-        output[i] = sample < 0 ? sample * 0x8000 : sample * 0x7fff;
-    }
+    if (!channel) return 0.85;
+    if (channel.muted) return 0;
 
-    return output;
-}
+    const masterVolume = master?.muted ? 0 : master?.volume ?? 1;
 
-function writeString(view, offset, string) {
-    for (let i = 0; i < string.length; i += 1) {
-        view.setUint8(offset + i, string.charCodeAt(i));
-    }
-}
-
-function downloadBlob(blob, fileName) {
-    const url = URL.createObjectURL(blob);
-    const anchor = document.createElement("a");
-
-    anchor.href = url;
-    anchor.download = fileName;
-    anchor.click();
-
-    URL.revokeObjectURL(url);
+    return clampNumber((channel.volume || 0.85) * masterVolume, 0, 1);
 }
