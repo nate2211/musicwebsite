@@ -1,0 +1,44 @@
+{
+  "product": "MusicStudioLab Enterprise Beat Workstation",
+  "revision": "6.0.0",
+  "generated": "2026-07-15",
+  "factorySamples": 332,
+  "factorySampleBytesApprox": 122683392,
+  "instrumentPresets": 168,
+  "presetCategories": 14,
+  "drumKits": 8,
+  "workspaces": [
+    "Channel Rack",
+    "Piano Roll",
+    "Playlist",
+    "Mixer",
+    "Synth Lab",
+    "Automation",
+    "Mastering"
+  ],
+  "synthesis": {
+    "mainOscillators": 3,
+    "subOscillator": true,
+    "noiseColors": 4,
+    "customWaveforms": 8,
+    "maxUnisonVoices": 9,
+    "filters": 2,
+    "lfos": 2,
+    "fm": true,
+    "ringModulation": true,
+    "performanceMacros": 4,
+    "customPatchImportExport": true
+  },
+  "capabilities": [
+    "Web Audio look-ahead scheduling",
+    "Offline stereo WAV rendering",
+    "Web MIDI preview",
+    "Project autosave",
+    "Project import/export",
+    "Factory sample browser",
+    "Per-track effects",
+    "Custom synth patch library",
+    "Live and offline automation",
+    "Reproducible original factory generators"
+  ]
+}

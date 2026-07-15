@@ -1,70 +1,128 @@
-# Getting Started with Create React App
+# MusicStudioLab Enterprise Production Website 5
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+MusicStudioLab is a browser-based hip-hop, trap, drill, R&B, and electronic production workstation built with React, Vite, and the Web Audio API. Version 6 combines the expanded workstation with a complete public-facing product website inspired by the original MusicStudioLab dark glass interface and the connected AudioMasterLab, ImageMasterLab, and SuiteOfficeLab product family.
 
-## Available Scripts
+The earlier monolithic studio remains under `src/pages/legacyMusic.js` for reference. The active workstation is split into maintainable audio, state, data, and UI modules under `src/studio`, while the public website is split into reusable navigation, page, SEO, layout, and routing modules under `src/site`.
 
-In the project directory, you can run:
+## Public website
 
-### `npm start`
+The application now includes:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Responsive sticky MusicStudioLab navigation with desktop dropdowns and a mobile menu.
+- Home page with product positioning, original asset counts, workflow explanation, studio modules, and launch actions.
+- `/music` and `/studio` full-height production-workstation routes.
+- `/synth-lab` synthesizer architecture and sound-design page.
+- `/sounds` original factory sample and preset library page.
+- `/workflow` guided production workflow from sound selection to WAV render.
+- `/help` product help and troubleshooting center.
+- `/about`, `/contact`, `/privacy`, `/terms`, and `/copyright` trust and support pages.
+- Shared footer links for AudioMasterLab, ImageMasterLab, and SuiteOfficeLab.
+- Route-aware titles, descriptions, canonical URLs, Open Graph data, structured data, sitemap, robots file, PWA metadata, and Cloudflare SPA routing.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Production workstation
 
-### `npm test`
+- Seven production workspaces: Channel Rack, Piano Roll, Playlist, Mixer, Synth Lab, Automation, and Mastering.
+- 332 original local WAV assets totaling about 117 MB before the production build is copied.
+- 168 original factory synthesizer patches across 14 categories.
+- Three main oscillators plus sub and colored-noise generators.
+- Built-in sine, triangle, saw, square, pulse, warm-saw, organ, hollow, digital, metallic, and vowel waveforms.
+- Unison up to nine voices, detune, stereo spread, drift, tuning, glide, mono/legato metadata, and velocity response.
+- FM and ring modulation, pitch envelope, dual multimode filters, serial/parallel filter routing, two tempo-syncable LFOs, and four performance macros.
+- Per-voice chorus, saturation, and bit reduction.
+- Custom patch save, deletion, mutation, random generation, JSON import, and JSON export.
+- Tuned 808s, kicks, snares, claps, closed/open hats, percussion, transitions, impacts, textures, drum loops, melody loops, wavetables, and reverb impulse responses.
+- Per-track high-pass/low-pass filters, three-band tone controls, compressor, makeup gain, saturation, chorus, delay, and convolution reverb.
+- 64-step automation lanes for volume, pan, low-pass cutoff, delay/reverb sends, and Synth Lab macros.
+- Live Web Audio scheduling and offline stereo WAV rendering through the same instrument, channel, automation, and master paths.
+- Local project autosave plus portable project import/export.
+- Web MIDI note preview and keyboard shortcuts.
+- Reproducible Python generators for the full sound and preset libraries.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Install and run
 
-### `npm run build`
+The ZIP intentionally does **not** contain `node_modules`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm ci
+npm run dev
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Open the local URL printed by Vite, normally `http://localhost:5173`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Windows clean installation
 
-### `npm run eject`
+The package uses the public npm registry in both `.npmrc` and `package-lock.json`. The lockfile contains no OpenAI-internal or private Artifactory URLs.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```powershell
+npm run install:windows
+npm run dev
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The Windows script removes a partially installed `node_modules`, retries after stopping a locking Node process when necessary, runs `npm ci` against `registry.npmjs.org`, and verifies the production build.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Manual equivalent:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```powershell
+Get-Process node -ErrorAction SilentlyContinue | Stop-Process -Force
+Remove-Item node_modules -Recurse -Force -ErrorAction SilentlyContinue
+npm cache verify
+npm ci --registry=https://registry.npmjs.org/
+npm run build
+```
 
-## Learn More
+Vite 8 requires Node.js `20.19+` or `22.12+`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Production build and validation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm run check
+```
 
-### Code Splitting
+The compiled site is written to `dist/`. A validated production build is included in the distributed ZIP. `public/_redirects` and `wrangler.toml` provide single-page route fallback for Cloudflare deployments.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Main source areas
 
-### Analyzing the Bundle Size
+- `src/site/components`: shared navbar, footer, SEO, icons, route links, cards, heroes, and public layout components.
+- `src/site/pages`: home, Synth Lab, sound library, workflow, help, about, contact, privacy, terms, and copyright pages.
+- `src/studio/audio`: real-time/offline audio, synth voices, channel effects, automation, waveforms, and WAV export.
+- `src/studio/components`: independent workstation workspaces and controls.
+- `src/studio/data`: 168 factory presets, drum kits, and preset-resolution helpers.
+- `src/studio/state`: project schema, immutable reducer commands, and browser storage.
+- `public/sounds`: 332 original local WAV assets plus searchable manifest.
+- `scripts`: deterministic factory generators, Windows clean installation, and integrity validation.
+- `docs`: architecture and beat-production workflow documentation.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Application entries
 
-### Making a Progressive Web App
+- `src/App.jsx` contains the active route and website implementation.
+- `src/App.js` re-exports `App.jsx` for CRA-style, WebStorm, Jest, Vite, and extensionless compatibility.
+- `src/main.jsx` is the Vite browser entry.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Regenerating factory content
 
-### Advanced Configuration
+Python 3 and NumPy are required only when regenerating assets; normal app use does not require Python.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+npm run generate:presets
+npm run generate:sounds
+npm run validate
+npm run build
+```
 
-### Deployment
+All bundled factory WAV files and patches are procedurally generated originals. The generator seed is fixed so the library can be rebuilt deterministically.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Browser behavior
 
-### `npm run build` fails to minify
+A browser must receive a user gesture before it can start audio. Click a preview button or Play once to unlock the audio context. Large projects and long renders use more memory because offline rendering constructs the output buffer in the browser. Project saving uses browser storage, so export a project file for important backups.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## SEO and Google Search Console
+
+Version 6 includes route-level prerendering, canonical metadata, structured data, sitemap/robots files, page-specific social images, a true 404 document, lazy-loaded studio code, cache headers, and an automated SEO validator.
+
+Build and validate everything:
+
+```powershell
+npm run check
+```
+
+Deploy only the generated `dist` directory. See `SEO_IMPLEMENTATION.md` and `SEARCH_CONSOLE_CHECKLIST.md` for verification, sitemap submission, URL inspection, rich-result testing, and maintenance steps.

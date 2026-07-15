@@ -1,48 +1,28 @@
 {
-  "name": "musicwebsite",
-  "version": "0.1.0",
+  "name": "musicstudiolab-enterprise",
+  "version": "6.0.0",
   "private": true,
-  "dependencies": {
-    "@emotion/react": "11.11.4",
-    "@emotion/styled": "11.11.5",
-    "@mui/icons-material": "5.15.21",
-    "@mui/material": "5.15.21",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "lamejs": "^1.2.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-helmet-async": "^3.0.0",
-    "react-router-dom": "6.30.1",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
-  },
+  "type": "module",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "cross-env CI=false DISABLE_ESLINT_PLUGIN=true react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "vite",
+    "start": "vite",
+    "build": "npm run build:client && npm run build:ssr && npm run prerender",
+    "preview": "vite preview",
+    "check": "npm run validate && npm run build && npm run validate:seo",
+    "validate": "python scripts/validate_project.py",
+    "generate:sounds": "python scripts/generate_factory_sounds.py",
+    "generate:presets": "python scripts/generate_instrument_presets.py",
+    "generate:factory": "npm run generate:presets && npm run generate:sounds",
+    "install:windows": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/windows-clean-install.ps1",
+    "build:client": "vite build",
+    "build:ssr": "vite build --ssr src/entry-server.jsx --outDir .seo-ssr",
+    "prerender": "node scripts/prerender.mjs",
+    "validate:seo": "python scripts/validate_seo.py"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "cross-env": "^10.1.0"
+  "dependencies": {
+    "@vitejs/plugin-react": "6.0.3",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "vite": "8.1.4"
   }
 }

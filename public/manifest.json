@@ -1,25 +1,23 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "id": "/",
+  "short_name": "MusicStudioLab",
+  "name": "MusicStudioLab Online Beat Maker and Browser DAW",
+  "description": "Create hip-hop beats with original sounds, synthesis, sequencing, arrangement, mixing, automation, mastering and WAV export in the browser.",
   "icons": [
-    {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/logo192.png", "type": "image/png", "sizes": "192x192", "purpose": "any maskable" },
+    { "src": "/logo512.png", "type": "image/png", "sizes": "512x512", "purpose": "any maskable" }
   ],
-  "start_url": ".",
+  "start_url": "/music",
+  "scope": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "orientation": "any",
+  "theme_color": "#050711",
+  "background_color": "#050711",
+  "categories": ["music", "productivity", "utilities"],
+  "shortcuts": [
+    { "name": "Open Production Studio", "short_name": "Studio", "url": "/music", "icons": [{ "src": "/logo192.png", "sizes": "192x192" }] },
+    { "name": "Open Synth Lab", "short_name": "Synth Lab", "url": "/synth-lab", "icons": [{ "src": "/logo192.png", "sizes": "192x192" }] },
+    { "name": "Browse Factory Sounds", "short_name": "Sounds", "url": "/sounds", "icons": [{ "src": "/logo192.png", "sizes": "192x192" }] }
+  ]
 }
