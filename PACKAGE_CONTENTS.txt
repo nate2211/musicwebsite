@@ -1,814 +1,1042 @@
-MusicStudioLab Google Search Console SEO v6 package
-Generated: 2026-07-15
-
-Total files (excluding this manifest): 802
-Source/document files: 434
-Compiled dist files: 368
-WAV files: 664
-Total uncompressed bytes: 247849138
-
-Excluded: node_modules, .git, IDE metadata, temporary SSR output, Vite cache.
-
-FILES
-.gitignore	357
-.npmrc	174
-dist/404.html	9321
-dist/404/index.html	9321
-dist/_headers	927
-dist/_redirects	49
-dist/about/index.html	13329
-dist/assets/index-BabbrCOu.js	71278
-dist/assets/index-wrdIan46.css	31198
-dist/assets/react-vendor-CUUhlmBj.js	139929
-dist/assets/rolldown-runtime-Bh1tDfsg.js	567
-dist/assets/StudioPage-C7LeJyGz.js	397444
-dist/assets/StudioPage-DKOb_bmf.css	23502
-dist/contact/index.html	11787
-dist/copyright/index.html	12075
-dist/favicon.ico	1694
-dist/favicon.svg	427
-dist/help/index.html	18668
-dist/index.html	38119
-dist/logo192.png	5347
-dist/logo512.png	9664
-dist/manifest.json	1229
-dist/music/index.html	20149
-dist/og/musicstudiolab-808-drum-sounds.png	99166
-dist/og/musicstudiolab-browser-daw.png	97109
-dist/og/musicstudiolab-help-guide.png	100831
-dist/og/musicstudiolab-hip-hop-workflow.png	95545
-dist/og/musicstudiolab-online-beat-maker.png	98772
-dist/og/musicstudiolab-online-synthesizer.png	96094
-dist/privacy/index.html	12711
-dist/robots.txt	72
-dist/site.webmanifest	1229
-dist/sitemap.xml	1066
-dist/sounds/808/808_01_c.wav	211724
-dist/sounds/808/808_02_cs.wav	232890
-dist/sounds/808/808_03_d.wav	254060
-dist/sounds/808/808_04_ds.wav	275228
-dist/sounds/808/808_05_e.wav	296396
-dist/sounds/808/808_06_f.wav	317562
-dist/sounds/808/808_07_fs.wav	338732
-dist/sounds/808/808_08_g.wav	211724
-dist/sounds/808/808_09_gs.wav	232890
-dist/sounds/808/808_10_a.wav	254060
-dist/sounds/808/808_11_as.wav	275228
-dist/sounds/808/808_12_b.wav	296396
-dist/sounds/808/808_13_c.wav	317562
-dist/sounds/808/808_14_cs.wav	338732
-dist/sounds/808/808_15_d.wav	211724
-dist/sounds/808/808_16_ds.wav	232890
-dist/sounds/808/808_17_e.wav	254060
-dist/sounds/808/808_18_f.wav	275228
-dist/sounds/808/808_19_fs.wav	296396
-dist/sounds/808/808_20_g.wav	317562
-dist/sounds/808/808_21_gs.wav	338732
-dist/sounds/808/808_22_a.wav	211724
-dist/sounds/808/808_23_as.wav	232890
-dist/sounds/808/808_24_b.wav	254060
-dist/sounds/808/808_25_c.wav	275228
-dist/sounds/808/808_26_cs.wav	296396
-dist/sounds/808/808_27_d.wav	317562
-dist/sounds/808/808_28_ds.wav	338732
-dist/sounds/808/808_29_e.wav	211724
-dist/sounds/808/808_30_f.wav	232890
-dist/sounds/808/808_31_fs.wav	254060
-dist/sounds/808/808_32_g.wav	275228
-dist/sounds/808/808_33_gs.wav	296396
-dist/sounds/808/808_34_a.wav	317562
-dist/sounds/808/808_35_as.wav	338732
-dist/sounds/808/808_36_b.wav	211724
-dist/sounds/drums/clap_01.wav	37088
-dist/sounds/drums/clap_02.wav	41056
-dist/sounds/drums/clap_03.wav	45026
-dist/sounds/drums/clap_04.wav	48994
-dist/sounds/drums/clap_05.wav	52964
-dist/sounds/drums/clap_06.wav	37088
-dist/sounds/drums/clap_07.wav	41056
-dist/sounds/drums/clap_08.wav	45026
-dist/sounds/drums/clap_09.wav	48994
-dist/sounds/drums/clap_10.wav	52964
-dist/sounds/drums/clap_11.wav	37088
-dist/sounds/drums/clap_12.wav	41056
-dist/sounds/drums/clap_13.wav	45026
-dist/sounds/drums/clap_14.wav	48994
-dist/sounds/drums/clap_15.wav	52964
-dist/sounds/drums/clap_16.wav	37088
-dist/sounds/drums/clap_17.wav	41056
-dist/sounds/drums/clap_18.wav	45026
-dist/sounds/drums/clap_19.wav	48994
-dist/sounds/drums/clap_20.wav	52964
-dist/sounds/drums/hat_closed_01.wav	7540
-dist/sounds/drums/hat_closed_02.wav	8774
-dist/sounds/drums/hat_closed_03.wav	10010
-dist/sounds/drums/hat_closed_04.wav	11244
-dist/sounds/drums/hat_closed_05.wav	12480
-dist/sounds/drums/hat_closed_06.wav	13714
-dist/sounds/drums/hat_closed_07.wav	14948
-dist/sounds/drums/hat_closed_08.wav	7540
-dist/sounds/drums/hat_closed_09.wav	8774
-dist/sounds/drums/hat_closed_10.wav	10010
-dist/sounds/drums/hat_closed_11.wav	11244
-dist/sounds/drums/hat_closed_12.wav	12480
-dist/sounds/drums/hat_closed_13.wav	13714
-dist/sounds/drums/hat_closed_14.wav	14948
-dist/sounds/drums/hat_closed_15.wav	7540
-dist/sounds/drums/hat_closed_16.wav	8774
-dist/sounds/drums/hat_closed_17.wav	10010
-dist/sounds/drums/hat_closed_18.wav	11244
-dist/sounds/drums/hat_closed_19.wav	12480
-dist/sounds/drums/hat_closed_20.wav	13714
-dist/sounds/drums/hat_closed_21.wav	14948
-dist/sounds/drums/hat_closed_22.wav	7540
-dist/sounds/drums/hat_closed_23.wav	8774
-dist/sounds/drums/hat_closed_24.wav	10010
-dist/sounds/drums/hat_open_01.wav	57374
-dist/sounds/drums/hat_open_02.wav	65312
-dist/sounds/drums/hat_open_03.wav	73250
-dist/sounds/drums/hat_open_04.wav	81188
-dist/sounds/drums/hat_open_05.wav	89126
-dist/sounds/drums/hat_open_06.wav	57374
-dist/sounds/drums/hat_open_07.wav	65312
-dist/sounds/drums/hat_open_08.wav	73250
-dist/sounds/drums/hat_open_09.wav	81188
-dist/sounds/drums/hat_open_10.wav	89126
-dist/sounds/drums/hat_open_11.wav	57374
-dist/sounds/drums/hat_open_12.wav	65312
-dist/sounds/drums/hat_open_13.wav	73250
-dist/sounds/drums/hat_open_14.wav	81188
-dist/sounds/drums/hat_open_15.wav	89126
-dist/sounds/drums/hat_open_16.wav	57374
-dist/sounds/drums/kick_01.wav	54728
-dist/sounds/drums/kick_02.wav	59578
-dist/sounds/drums/kick_03.wav	64430
-dist/sounds/drums/kick_04.wav	69280
-dist/sounds/drums/kick_05.wav	74132
-dist/sounds/drums/kick_06.wav	78982
-dist/sounds/drums/kick_07.wav	83834
-dist/sounds/drums/kick_08.wav	88684
-dist/sounds/drums/kick_09.wav	54728
-dist/sounds/drums/kick_10.wav	59578
-dist/sounds/drums/kick_11.wav	64430
-dist/sounds/drums/kick_12.wav	69280
-dist/sounds/drums/kick_13.wav	74132
-dist/sounds/drums/kick_14.wav	78982
-dist/sounds/drums/kick_15.wav	83834
-dist/sounds/drums/kick_16.wav	88684
-dist/sounds/drums/kick_17.wav	54728
-dist/sounds/drums/kick_18.wav	59578
-dist/sounds/drums/kick_19.wav	64430
-dist/sounds/drums/kick_20.wav	69280
-dist/sounds/drums/kick_21.wav	74132
-dist/sounds/drums/kick_22.wav	78982
-dist/sounds/drums/kick_23.wav	83834
-dist/sounds/drums/kick_24.wav	88684
-dist/sounds/drums/kick_25.wav	54728
-dist/sounds/drums/kick_26.wav	59578
-dist/sounds/drums/kick_27.wav	64430
-dist/sounds/drums/kick_28.wav	69280
-dist/sounds/drums/kick_29.wav	74132
-dist/sounds/drums/kick_30.wav	78982
-dist/sounds/drums/kick_31.wav	83834
-dist/sounds/drums/kick_32.wav	88684
-dist/sounds/drums/perc_01.wav	24740
-dist/sounds/drums/perc_02.wav	29590
-dist/sounds/drums/perc_03.wav	34442
-dist/sounds/drums/perc_04.wav	39292
-dist/sounds/drums/perc_05.wav	44144
-dist/sounds/drums/perc_06.wav	48994
-dist/sounds/drums/perc_07.wav	53846
-dist/sounds/drums/perc_08.wav	58696
-dist/sounds/drums/perc_09.wav	63548
-dist/sounds/drums/perc_10.wav	24740
-dist/sounds/drums/perc_11.wav	29590
-dist/sounds/drums/perc_12.wav	34442
-dist/sounds/drums/perc_13.wav	39292
-dist/sounds/drums/perc_14.wav	44144
-dist/sounds/drums/perc_15.wav	48994
-dist/sounds/drums/perc_16.wav	53846
-dist/sounds/drums/perc_17.wav	58696
-dist/sounds/drums/perc_18.wav	63548
-dist/sounds/drums/perc_19.wav	24740
-dist/sounds/drums/perc_20.wav	29590
-dist/sounds/drums/perc_21.wav	34442
-dist/sounds/drums/perc_22.wav	39292
-dist/sounds/drums/perc_23.wav	44144
-dist/sounds/drums/perc_24.wav	48994
-dist/sounds/drums/perc_25.wav	53846
-dist/sounds/drums/perc_26.wav	58696
-dist/sounds/drums/perc_27.wav	63548
-dist/sounds/drums/perc_28.wav	24740
-dist/sounds/drums/snare_01.wav	42380
-dist/sounds/drums/snare_02.wav	47230
-dist/sounds/drums/snare_03.wav	52082
-dist/sounds/drums/snare_04.wav	56932
-dist/sounds/drums/snare_05.wav	61782
-dist/sounds/drums/snare_06.wav	66634
-dist/sounds/drums/snare_07.wav	42380
-dist/sounds/drums/snare_08.wav	47230
-dist/sounds/drums/snare_09.wav	52082
-dist/sounds/drums/snare_10.wav	56932
-dist/sounds/drums/snare_11.wav	61782
-dist/sounds/drums/snare_12.wav	66634
-dist/sounds/drums/snare_13.wav	42380
-dist/sounds/drums/snare_14.wav	47230
-dist/sounds/drums/snare_15.wav	52082
-dist/sounds/drums/snare_16.wav	56932
-dist/sounds/drums/snare_17.wav	61782
-dist/sounds/drums/snare_18.wav	66634
-dist/sounds/drums/snare_19.wav	42380
-dist/sounds/drums/snare_20.wav	47230
-dist/sounds/drums/snare_21.wav	52082
-dist/sounds/drums/snare_22.wav	56932
-dist/sounds/drums/snare_23.wav	61782
-dist/sounds/drums/snare_24.wav	66634
-dist/sounds/fx/downlifter/downlifter_01.wav	388124
-dist/sounds/fx/downlifter/downlifter_02.wav	467504
-dist/sounds/fx/downlifter/downlifter_03.wav	546884
-dist/sounds/fx/downlifter/downlifter_04.wav	626264
-dist/sounds/fx/downlifter/downlifter_05.wav	705644
-dist/sounds/fx/downlifter/downlifter_06.wav	785024
-dist/sounds/fx/downlifter/downlifter_07.wav	388124
-dist/sounds/fx/downlifter/downlifter_08.wav	467504
-dist/sounds/fx/downlifter/downlifter_09.wav	546884
-dist/sounds/fx/downlifter/downlifter_10.wav	626264
-dist/sounds/fx/downlifter/downlifter_11.wav	705644
-dist/sounds/fx/downlifter/downlifter_12.wav	785024
-dist/sounds/fx/impact/impact_01.wav	388124
-dist/sounds/fx/impact/impact_02.wav	467504
-dist/sounds/fx/impact/impact_03.wav	546884
-dist/sounds/fx/impact/impact_04.wav	626264
-dist/sounds/fx/impact/impact_05.wav	705644
-dist/sounds/fx/impact/impact_06.wav	785024
-dist/sounds/fx/impact/impact_07.wav	388124
-dist/sounds/fx/impact/impact_08.wav	467504
-dist/sounds/fx/impact/impact_09.wav	546884
-dist/sounds/fx/impact/impact_10.wav	626264
-dist/sounds/fx/impact/impact_11.wav	705644
-dist/sounds/fx/impact/impact_12.wav	785024
-dist/sounds/fx/riser/riser_01.wav	388124
-dist/sounds/fx/riser/riser_02.wav	467504
-dist/sounds/fx/riser/riser_03.wav	546884
-dist/sounds/fx/riser/riser_04.wav	626264
-dist/sounds/fx/riser/riser_05.wav	705644
-dist/sounds/fx/riser/riser_06.wav	785024
-dist/sounds/fx/riser/riser_07.wav	388124
-dist/sounds/fx/riser/riser_08.wav	467504
-dist/sounds/fx/riser/riser_09.wav	546884
-dist/sounds/fx/riser/riser_10.wav	626264
-dist/sounds/fx/riser/riser_11.wav	705644
-dist/sounds/fx/riser/riser_12.wav	785024
-dist/sounds/impulses/impulse_01.wav	211724
-dist/sounds/impulses/impulse_02.wav	285812
-dist/sounds/impulses/impulse_03.wav	359900
-dist/sounds/impulses/impulse_04.wav	433988
-dist/sounds/impulses/impulse_05.wav	508076
-dist/sounds/impulses/impulse_06.wav	582164
-dist/sounds/impulses/impulse_07.wav	211724
-dist/sounds/impulses/impulse_08.wav	285812
-dist/sounds/impulses/impulse_09.wav	359900
-dist/sounds/impulses/impulse_10.wav	433988
-dist/sounds/impulses/impulse_11.wav	508076
-dist/sounds/impulses/impulse_12.wav	582164
-dist/sounds/index.html	19998
-dist/sounds/loops/drums/drum_loop_120_01.wav	1411244
-dist/sounds/loops/drums/drum_loop_120_13.wav	1411244
-dist/sounds/loops/drums/drum_loop_128_02.wav	1323044
-dist/sounds/loops/drums/drum_loop_128_14.wav	1323044
-dist/sounds/loops/drums/drum_loop_132_03.wav	1282952
-dist/sounds/loops/drums/drum_loop_132_15.wav	1282952
-dist/sounds/loops/drums/drum_loop_136_04.wav	1245220
-dist/sounds/loops/drums/drum_loop_136_16.wav	1245220
-dist/sounds/loops/drums/drum_loop_140_05.wav	1209644
-dist/sounds/loops/drums/drum_loop_140_17.wav	1209644
-dist/sounds/loops/drums/drum_loop_142_06.wav	1192604
-dist/sounds/loops/drums/drum_loop_142_18.wav	1192604
-dist/sounds/loops/drums/drum_loop_145_07.wav	1167932
-dist/sounds/loops/drums/drum_loop_145_19.wav	1167932
-dist/sounds/loops/drums/drum_loop_148_08.wav	1144260
-dist/sounds/loops/drums/drum_loop_148_20.wav	1144260
-dist/sounds/loops/drums/drum_loop_150_09.wav	1129004
-dist/sounds/loops/drums/drum_loop_150_21.wav	1129004
-dist/sounds/loops/drums/drum_loop_154_10.wav	1099680
-dist/sounds/loops/drums/drum_loop_154_22.wav	1099680
-dist/sounds/loops/drums/drum_loop_160_11.wav	1058444
-dist/sounds/loops/drums/drum_loop_160_23.wav	1058444
-dist/sounds/loops/drums/drum_loop_164_12.wav	1032628
-dist/sounds/loops/drums/drum_loop_164_24.wav	1032628
-dist/sounds/loops/melody/melody_loop_120_01.wav	1411244
-dist/sounds/loops/melody/melody_loop_120_13.wav	1411244
-dist/sounds/loops/melody/melody_loop_128_06.wav	1323044
-dist/sounds/loops/melody/melody_loop_128_18.wav	1323044
-dist/sounds/loops/melody/melody_loop_132_11.wav	1282952
-dist/sounds/loops/melody/melody_loop_132_23.wav	1282952
-dist/sounds/loops/melody/melody_loop_136_04.wav	1245220
-dist/sounds/loops/melody/melody_loop_136_16.wav	1245220
-dist/sounds/loops/melody/melody_loop_140_09.wav	1209644
-dist/sounds/loops/melody/melody_loop_140_21.wav	1209644
-dist/sounds/loops/melody/melody_loop_142_02.wav	1192604
-dist/sounds/loops/melody/melody_loop_142_14.wav	1192604
-dist/sounds/loops/melody/melody_loop_145_07.wav	1167932
-dist/sounds/loops/melody/melody_loop_145_19.wav	1167932
-dist/sounds/loops/melody/melody_loop_148_12.wav	1144260
-dist/sounds/loops/melody/melody_loop_148_24.wav	1144260
-dist/sounds/loops/melody/melody_loop_150_05.wav	1129004
-dist/sounds/loops/melody/melody_loop_150_17.wav	1129004
-dist/sounds/loops/melody/melody_loop_154_10.wav	1099680
-dist/sounds/loops/melody/melody_loop_154_22.wav	1099680
-dist/sounds/loops/melody/melody_loop_160_03.wav	1058444
-dist/sounds/loops/melody/melody_loop_160_15.wav	1058444
-dist/sounds/loops/melody/melody_loop_164_08.wav	1032628
-dist/sounds/loops/melody/melody_loop_164_20.wav	1032628
-dist/sounds/manifest.json	151718
-dist/sounds/textures/texture_01.wav	617444
-dist/sounds/textures/texture_02.wav	691532
-dist/sounds/textures/texture_03.wav	765620
-dist/sounds/textures/texture_04.wav	839708
-dist/sounds/textures/texture_05.wav	913796
-dist/sounds/textures/texture_06.wav	987880
-dist/sounds/textures/texture_07.wav	1061972
-dist/sounds/textures/texture_08.wav	1136060
-dist/sounds/textures/texture_09.wav	617444
-dist/sounds/textures/texture_10.wav	691532
-dist/sounds/textures/texture_11.wav	765620
-dist/sounds/textures/texture_12.wav	839708
-dist/sounds/textures/texture_13.wav	913796
-dist/sounds/textures/texture_14.wav	987880
-dist/sounds/textures/texture_15.wav	1061972
-dist/sounds/textures/texture_16.wav	1136060
-dist/sounds/textures/texture_17.wav	617444
-dist/sounds/textures/texture_18.wav	691532
-dist/sounds/textures/texture_19.wav	765620
-dist/sounds/textures/texture_20.wav	839708
-dist/sounds/textures/texture_21.wav	913796
-dist/sounds/textures/texture_22.wav	987880
-dist/sounds/textures/texture_23.wav	1061972
-dist/sounds/textures/texture_24.wav	1136060
-dist/sounds/wavetables/wavetable_01.wav	30912
-dist/sounds/wavetables/wavetable_02.wav	30912
-dist/sounds/wavetables/wavetable_03.wav	30912
-dist/sounds/wavetables/wavetable_04.wav	30912
-dist/sounds/wavetables/wavetable_05.wav	30912
-dist/sounds/wavetables/wavetable_06.wav	30912
-dist/sounds/wavetables/wavetable_07.wav	30912
-dist/sounds/wavetables/wavetable_08.wav	30912
-dist/sounds/wavetables/wavetable_09.wav	30912
-dist/sounds/wavetables/wavetable_10.wav	30912
-dist/sounds/wavetables/wavetable_11.wav	30912
-dist/sounds/wavetables/wavetable_12.wav	30912
-dist/sounds/wavetables/wavetable_13.wav	30912
-dist/sounds/wavetables/wavetable_14.wav	30912
-dist/sounds/wavetables/wavetable_15.wav	30912
-dist/sounds/wavetables/wavetable_16.wav	30912
-dist/sounds/wavetables/wavetable_17.wav	30912
-dist/sounds/wavetables/wavetable_18.wav	30912
-dist/sounds/wavetables/wavetable_19.wav	30912
-dist/sounds/wavetables/wavetable_20.wav	30912
-dist/sounds/wavetables/wavetable_21.wav	30912
-dist/sounds/wavetables/wavetable_22.wav	30912
-dist/sounds/wavetables/wavetable_23.wav	30912
-dist/sounds/wavetables/wavetable_24.wav	30912
-dist/sounds/wavetables/wavetable_25.wav	30912
-dist/sounds/wavetables/wavetable_26.wav	30912
-dist/sounds/wavetables/wavetable_27.wav	30912
-dist/sounds/wavetables/wavetable_28.wav	30912
-dist/sounds/wavetables/wavetable_29.wav	30912
-dist/sounds/wavetables/wavetable_30.wav	30912
-dist/sounds/wavetables/wavetable_31.wav	30912
-dist/sounds/wavetables/wavetable_32.wav	30912
-dist/synth-lab/index.html	24982
-dist/terms/index.html	12716
-dist/workflow/index.html	18129
-docs/ARCHITECTURE.md	2536
-docs/PRODUCTION_GUIDE.md	2888
-docs/WEBSITE_STRUCTURE.md	1309
-index.html	1795
-LICENSE_FACTORY_CONTENT.md	612
-package-lock.json	29384
-package.json	1077
-public/_headers	927
-public/_redirects	49
-public/favicon.ico	1694
-public/favicon.svg	427
-public/logo192.png	5347
-public/logo512.png	9664
-public/manifest.json	1229
-public/og/musicstudiolab-808-drum-sounds.png	99166
-public/og/musicstudiolab-browser-daw.png	97109
-public/og/musicstudiolab-help-guide.png	100831
-public/og/musicstudiolab-hip-hop-workflow.png	95545
-public/og/musicstudiolab-online-beat-maker.png	98772
-public/og/musicstudiolab-online-synthesizer.png	96094
-public/robots.txt	72
-public/site.webmanifest	1229
-public/sitemap.xml	1066
-public/sounds/808/808_01_c.wav	211724
-public/sounds/808/808_02_cs.wav	232890
-public/sounds/808/808_03_d.wav	254060
-public/sounds/808/808_04_ds.wav	275228
-public/sounds/808/808_05_e.wav	296396
-public/sounds/808/808_06_f.wav	317562
-public/sounds/808/808_07_fs.wav	338732
-public/sounds/808/808_08_g.wav	211724
-public/sounds/808/808_09_gs.wav	232890
-public/sounds/808/808_10_a.wav	254060
-public/sounds/808/808_11_as.wav	275228
-public/sounds/808/808_12_b.wav	296396
-public/sounds/808/808_13_c.wav	317562
-public/sounds/808/808_14_cs.wav	338732
-public/sounds/808/808_15_d.wav	211724
-public/sounds/808/808_16_ds.wav	232890
-public/sounds/808/808_17_e.wav	254060
-public/sounds/808/808_18_f.wav	275228
-public/sounds/808/808_19_fs.wav	296396
-public/sounds/808/808_20_g.wav	317562
-public/sounds/808/808_21_gs.wav	338732
-public/sounds/808/808_22_a.wav	211724
-public/sounds/808/808_23_as.wav	232890
-public/sounds/808/808_24_b.wav	254060
-public/sounds/808/808_25_c.wav	275228
-public/sounds/808/808_26_cs.wav	296396
-public/sounds/808/808_27_d.wav	317562
-public/sounds/808/808_28_ds.wav	338732
-public/sounds/808/808_29_e.wav	211724
-public/sounds/808/808_30_f.wav	232890
-public/sounds/808/808_31_fs.wav	254060
-public/sounds/808/808_32_g.wav	275228
-public/sounds/808/808_33_gs.wav	296396
-public/sounds/808/808_34_a.wav	317562
-public/sounds/808/808_35_as.wav	338732
-public/sounds/808/808_36_b.wav	211724
-public/sounds/drums/clap_01.wav	37088
-public/sounds/drums/clap_02.wav	41056
-public/sounds/drums/clap_03.wav	45026
-public/sounds/drums/clap_04.wav	48994
-public/sounds/drums/clap_05.wav	52964
-public/sounds/drums/clap_06.wav	37088
-public/sounds/drums/clap_07.wav	41056
-public/sounds/drums/clap_08.wav	45026
-public/sounds/drums/clap_09.wav	48994
-public/sounds/drums/clap_10.wav	52964
-public/sounds/drums/clap_11.wav	37088
-public/sounds/drums/clap_12.wav	41056
-public/sounds/drums/clap_13.wav	45026
-public/sounds/drums/clap_14.wav	48994
-public/sounds/drums/clap_15.wav	52964
-public/sounds/drums/clap_16.wav	37088
-public/sounds/drums/clap_17.wav	41056
-public/sounds/drums/clap_18.wav	45026
-public/sounds/drums/clap_19.wav	48994
-public/sounds/drums/clap_20.wav	52964
-public/sounds/drums/hat_closed_01.wav	7540
-public/sounds/drums/hat_closed_02.wav	8774
-public/sounds/drums/hat_closed_03.wav	10010
-public/sounds/drums/hat_closed_04.wav	11244
-public/sounds/drums/hat_closed_05.wav	12480
-public/sounds/drums/hat_closed_06.wav	13714
-public/sounds/drums/hat_closed_07.wav	14948
-public/sounds/drums/hat_closed_08.wav	7540
-public/sounds/drums/hat_closed_09.wav	8774
-public/sounds/drums/hat_closed_10.wav	10010
-public/sounds/drums/hat_closed_11.wav	11244
-public/sounds/drums/hat_closed_12.wav	12480
-public/sounds/drums/hat_closed_13.wav	13714
-public/sounds/drums/hat_closed_14.wav	14948
-public/sounds/drums/hat_closed_15.wav	7540
-public/sounds/drums/hat_closed_16.wav	8774
-public/sounds/drums/hat_closed_17.wav	10010
-public/sounds/drums/hat_closed_18.wav	11244
-public/sounds/drums/hat_closed_19.wav	12480
-public/sounds/drums/hat_closed_20.wav	13714
-public/sounds/drums/hat_closed_21.wav	14948
-public/sounds/drums/hat_closed_22.wav	7540
-public/sounds/drums/hat_closed_23.wav	8774
-public/sounds/drums/hat_closed_24.wav	10010
-public/sounds/drums/hat_open_01.wav	57374
-public/sounds/drums/hat_open_02.wav	65312
-public/sounds/drums/hat_open_03.wav	73250
-public/sounds/drums/hat_open_04.wav	81188
-public/sounds/drums/hat_open_05.wav	89126
-public/sounds/drums/hat_open_06.wav	57374
-public/sounds/drums/hat_open_07.wav	65312
-public/sounds/drums/hat_open_08.wav	73250
-public/sounds/drums/hat_open_09.wav	81188
-public/sounds/drums/hat_open_10.wav	89126
-public/sounds/drums/hat_open_11.wav	57374
-public/sounds/drums/hat_open_12.wav	65312
-public/sounds/drums/hat_open_13.wav	73250
-public/sounds/drums/hat_open_14.wav	81188
-public/sounds/drums/hat_open_15.wav	89126
-public/sounds/drums/hat_open_16.wav	57374
-public/sounds/drums/kick_01.wav	54728
-public/sounds/drums/kick_02.wav	59578
-public/sounds/drums/kick_03.wav	64430
-public/sounds/drums/kick_04.wav	69280
-public/sounds/drums/kick_05.wav	74132
-public/sounds/drums/kick_06.wav	78982
-public/sounds/drums/kick_07.wav	83834
-public/sounds/drums/kick_08.wav	88684
-public/sounds/drums/kick_09.wav	54728
-public/sounds/drums/kick_10.wav	59578
-public/sounds/drums/kick_11.wav	64430
-public/sounds/drums/kick_12.wav	69280
-public/sounds/drums/kick_13.wav	74132
-public/sounds/drums/kick_14.wav	78982
-public/sounds/drums/kick_15.wav	83834
-public/sounds/drums/kick_16.wav	88684
-public/sounds/drums/kick_17.wav	54728
-public/sounds/drums/kick_18.wav	59578
-public/sounds/drums/kick_19.wav	64430
-public/sounds/drums/kick_20.wav	69280
-public/sounds/drums/kick_21.wav	74132
-public/sounds/drums/kick_22.wav	78982
-public/sounds/drums/kick_23.wav	83834
-public/sounds/drums/kick_24.wav	88684
-public/sounds/drums/kick_25.wav	54728
-public/sounds/drums/kick_26.wav	59578
-public/sounds/drums/kick_27.wav	64430
-public/sounds/drums/kick_28.wav	69280
-public/sounds/drums/kick_29.wav	74132
-public/sounds/drums/kick_30.wav	78982
-public/sounds/drums/kick_31.wav	83834
-public/sounds/drums/kick_32.wav	88684
-public/sounds/drums/perc_01.wav	24740
-public/sounds/drums/perc_02.wav	29590
-public/sounds/drums/perc_03.wav	34442
-public/sounds/drums/perc_04.wav	39292
-public/sounds/drums/perc_05.wav	44144
-public/sounds/drums/perc_06.wav	48994
-public/sounds/drums/perc_07.wav	53846
-public/sounds/drums/perc_08.wav	58696
-public/sounds/drums/perc_09.wav	63548
-public/sounds/drums/perc_10.wav	24740
-public/sounds/drums/perc_11.wav	29590
-public/sounds/drums/perc_12.wav	34442
-public/sounds/drums/perc_13.wav	39292
-public/sounds/drums/perc_14.wav	44144
-public/sounds/drums/perc_15.wav	48994
-public/sounds/drums/perc_16.wav	53846
-public/sounds/drums/perc_17.wav	58696
-public/sounds/drums/perc_18.wav	63548
-public/sounds/drums/perc_19.wav	24740
-public/sounds/drums/perc_20.wav	29590
-public/sounds/drums/perc_21.wav	34442
-public/sounds/drums/perc_22.wav	39292
-public/sounds/drums/perc_23.wav	44144
-public/sounds/drums/perc_24.wav	48994
-public/sounds/drums/perc_25.wav	53846
-public/sounds/drums/perc_26.wav	58696
-public/sounds/drums/perc_27.wav	63548
-public/sounds/drums/perc_28.wav	24740
-public/sounds/drums/snare_01.wav	42380
-public/sounds/drums/snare_02.wav	47230
-public/sounds/drums/snare_03.wav	52082
-public/sounds/drums/snare_04.wav	56932
-public/sounds/drums/snare_05.wav	61782
-public/sounds/drums/snare_06.wav	66634
-public/sounds/drums/snare_07.wav	42380
-public/sounds/drums/snare_08.wav	47230
-public/sounds/drums/snare_09.wav	52082
-public/sounds/drums/snare_10.wav	56932
-public/sounds/drums/snare_11.wav	61782
-public/sounds/drums/snare_12.wav	66634
-public/sounds/drums/snare_13.wav	42380
-public/sounds/drums/snare_14.wav	47230
-public/sounds/drums/snare_15.wav	52082
-public/sounds/drums/snare_16.wav	56932
-public/sounds/drums/snare_17.wav	61782
-public/sounds/drums/snare_18.wav	66634
-public/sounds/drums/snare_19.wav	42380
-public/sounds/drums/snare_20.wav	47230
-public/sounds/drums/snare_21.wav	52082
-public/sounds/drums/snare_22.wav	56932
-public/sounds/drums/snare_23.wav	61782
-public/sounds/drums/snare_24.wav	66634
-public/sounds/fx/downlifter/downlifter_01.wav	388124
-public/sounds/fx/downlifter/downlifter_02.wav	467504
-public/sounds/fx/downlifter/downlifter_03.wav	546884
-public/sounds/fx/downlifter/downlifter_04.wav	626264
-public/sounds/fx/downlifter/downlifter_05.wav	705644
-public/sounds/fx/downlifter/downlifter_06.wav	785024
-public/sounds/fx/downlifter/downlifter_07.wav	388124
-public/sounds/fx/downlifter/downlifter_08.wav	467504
-public/sounds/fx/downlifter/downlifter_09.wav	546884
-public/sounds/fx/downlifter/downlifter_10.wav	626264
-public/sounds/fx/downlifter/downlifter_11.wav	705644
-public/sounds/fx/downlifter/downlifter_12.wav	785024
-public/sounds/fx/impact/impact_01.wav	388124
-public/sounds/fx/impact/impact_02.wav	467504
-public/sounds/fx/impact/impact_03.wav	546884
-public/sounds/fx/impact/impact_04.wav	626264
-public/sounds/fx/impact/impact_05.wav	705644
-public/sounds/fx/impact/impact_06.wav	785024
-public/sounds/fx/impact/impact_07.wav	388124
-public/sounds/fx/impact/impact_08.wav	467504
-public/sounds/fx/impact/impact_09.wav	546884
-public/sounds/fx/impact/impact_10.wav	626264
-public/sounds/fx/impact/impact_11.wav	705644
-public/sounds/fx/impact/impact_12.wav	785024
-public/sounds/fx/riser/riser_01.wav	388124
-public/sounds/fx/riser/riser_02.wav	467504
-public/sounds/fx/riser/riser_03.wav	546884
-public/sounds/fx/riser/riser_04.wav	626264
-public/sounds/fx/riser/riser_05.wav	705644
-public/sounds/fx/riser/riser_06.wav	785024
-public/sounds/fx/riser/riser_07.wav	388124
-public/sounds/fx/riser/riser_08.wav	467504
-public/sounds/fx/riser/riser_09.wav	546884
-public/sounds/fx/riser/riser_10.wav	626264
-public/sounds/fx/riser/riser_11.wav	705644
-public/sounds/fx/riser/riser_12.wav	785024
-public/sounds/impulses/impulse_01.wav	211724
-public/sounds/impulses/impulse_02.wav	285812
-public/sounds/impulses/impulse_03.wav	359900
-public/sounds/impulses/impulse_04.wav	433988
-public/sounds/impulses/impulse_05.wav	508076
-public/sounds/impulses/impulse_06.wav	582164
-public/sounds/impulses/impulse_07.wav	211724
-public/sounds/impulses/impulse_08.wav	285812
-public/sounds/impulses/impulse_09.wav	359900
-public/sounds/impulses/impulse_10.wav	433988
-public/sounds/impulses/impulse_11.wav	508076
-public/sounds/impulses/impulse_12.wav	582164
-public/sounds/loops/drums/drum_loop_120_01.wav	1411244
-public/sounds/loops/drums/drum_loop_120_13.wav	1411244
-public/sounds/loops/drums/drum_loop_128_02.wav	1323044
-public/sounds/loops/drums/drum_loop_128_14.wav	1323044
-public/sounds/loops/drums/drum_loop_132_03.wav	1282952
-public/sounds/loops/drums/drum_loop_132_15.wav	1282952
-public/sounds/loops/drums/drum_loop_136_04.wav	1245220
-public/sounds/loops/drums/drum_loop_136_16.wav	1245220
-public/sounds/loops/drums/drum_loop_140_05.wav	1209644
-public/sounds/loops/drums/drum_loop_140_17.wav	1209644
-public/sounds/loops/drums/drum_loop_142_06.wav	1192604
-public/sounds/loops/drums/drum_loop_142_18.wav	1192604
-public/sounds/loops/drums/drum_loop_145_07.wav	1167932
-public/sounds/loops/drums/drum_loop_145_19.wav	1167932
-public/sounds/loops/drums/drum_loop_148_08.wav	1144260
-public/sounds/loops/drums/drum_loop_148_20.wav	1144260
-public/sounds/loops/drums/drum_loop_150_09.wav	1129004
-public/sounds/loops/drums/drum_loop_150_21.wav	1129004
-public/sounds/loops/drums/drum_loop_154_10.wav	1099680
-public/sounds/loops/drums/drum_loop_154_22.wav	1099680
-public/sounds/loops/drums/drum_loop_160_11.wav	1058444
-public/sounds/loops/drums/drum_loop_160_23.wav	1058444
-public/sounds/loops/drums/drum_loop_164_12.wav	1032628
-public/sounds/loops/drums/drum_loop_164_24.wav	1032628
-public/sounds/loops/melody/melody_loop_120_01.wav	1411244
-public/sounds/loops/melody/melody_loop_120_13.wav	1411244
-public/sounds/loops/melody/melody_loop_128_06.wav	1323044
-public/sounds/loops/melody/melody_loop_128_18.wav	1323044
-public/sounds/loops/melody/melody_loop_132_11.wav	1282952
-public/sounds/loops/melody/melody_loop_132_23.wav	1282952
-public/sounds/loops/melody/melody_loop_136_04.wav	1245220
-public/sounds/loops/melody/melody_loop_136_16.wav	1245220
-public/sounds/loops/melody/melody_loop_140_09.wav	1209644
-public/sounds/loops/melody/melody_loop_140_21.wav	1209644
-public/sounds/loops/melody/melody_loop_142_02.wav	1192604
-public/sounds/loops/melody/melody_loop_142_14.wav	1192604
-public/sounds/loops/melody/melody_loop_145_07.wav	1167932
-public/sounds/loops/melody/melody_loop_145_19.wav	1167932
-public/sounds/loops/melody/melody_loop_148_12.wav	1144260
-public/sounds/loops/melody/melody_loop_148_24.wav	1144260
-public/sounds/loops/melody/melody_loop_150_05.wav	1129004
-public/sounds/loops/melody/melody_loop_150_17.wav	1129004
-public/sounds/loops/melody/melody_loop_154_10.wav	1099680
-public/sounds/loops/melody/melody_loop_154_22.wav	1099680
-public/sounds/loops/melody/melody_loop_160_03.wav	1058444
-public/sounds/loops/melody/melody_loop_160_15.wav	1058444
-public/sounds/loops/melody/melody_loop_164_08.wav	1032628
-public/sounds/loops/melody/melody_loop_164_20.wav	1032628
-public/sounds/manifest.json	151718
-public/sounds/textures/texture_01.wav	617444
-public/sounds/textures/texture_02.wav	691532
-public/sounds/textures/texture_03.wav	765620
-public/sounds/textures/texture_04.wav	839708
-public/sounds/textures/texture_05.wav	913796
-public/sounds/textures/texture_06.wav	987880
-public/sounds/textures/texture_07.wav	1061972
-public/sounds/textures/texture_08.wav	1136060
-public/sounds/textures/texture_09.wav	617444
-public/sounds/textures/texture_10.wav	691532
-public/sounds/textures/texture_11.wav	765620
-public/sounds/textures/texture_12.wav	839708
-public/sounds/textures/texture_13.wav	913796
-public/sounds/textures/texture_14.wav	987880
-public/sounds/textures/texture_15.wav	1061972
-public/sounds/textures/texture_16.wav	1136060
-public/sounds/textures/texture_17.wav	617444
-public/sounds/textures/texture_18.wav	691532
-public/sounds/textures/texture_19.wav	765620
-public/sounds/textures/texture_20.wav	839708
-public/sounds/textures/texture_21.wav	913796
-public/sounds/textures/texture_22.wav	987880
-public/sounds/textures/texture_23.wav	1061972
-public/sounds/textures/texture_24.wav	1136060
-public/sounds/wavetables/wavetable_01.wav	30912
-public/sounds/wavetables/wavetable_02.wav	30912
-public/sounds/wavetables/wavetable_03.wav	30912
-public/sounds/wavetables/wavetable_04.wav	30912
-public/sounds/wavetables/wavetable_05.wav	30912
-public/sounds/wavetables/wavetable_06.wav	30912
-public/sounds/wavetables/wavetable_07.wav	30912
-public/sounds/wavetables/wavetable_08.wav	30912
-public/sounds/wavetables/wavetable_09.wav	30912
-public/sounds/wavetables/wavetable_10.wav	30912
-public/sounds/wavetables/wavetable_11.wav	30912
-public/sounds/wavetables/wavetable_12.wav	30912
-public/sounds/wavetables/wavetable_13.wav	30912
-public/sounds/wavetables/wavetable_14.wav	30912
-public/sounds/wavetables/wavetable_15.wav	30912
-public/sounds/wavetables/wavetable_16.wav	30912
-public/sounds/wavetables/wavetable_17.wav	30912
-public/sounds/wavetables/wavetable_18.wav	30912
-public/sounds/wavetables/wavetable_19.wav	30912
-public/sounds/wavetables/wavetable_20.wav	30912
-public/sounds/wavetables/wavetable_21.wav	30912
-public/sounds/wavetables/wavetable_22.wav	30912
-public/sounds/wavetables/wavetable_23.wav	30912
-public/sounds/wavetables/wavetable_24.wav	30912
-public/sounds/wavetables/wavetable_25.wav	30912
-public/sounds/wavetables/wavetable_26.wav	30912
-public/sounds/wavetables/wavetable_27.wav	30912
-public/sounds/wavetables/wavetable_28.wav	30912
-public/sounds/wavetables/wavetable_29.wav	30912
-public/sounds/wavetables/wavetable_30.wav	30912
-public/sounds/wavetables/wavetable_31.wav	30912
-public/sounds/wavetables/wavetable_32.wav	30912
-README.md	6839
-scripts/generate_factory_sounds.py	18846
-scripts/generate_instrument_presets.py	10791
-scripts/generate_seo_images.py	5277
-scripts/prerender.mjs	4940
-scripts/validate_project.py	3067
-scripts/validate_seo.py	5993
-scripts/windows-clean-install.ps1	1169
-SEARCH_CONSOLE_CHECKLIST.md	2274
-SEO_IMPLEMENTATION.md	2919
-src/App.css	564
-src/App.js	351
-src/App.jsx	2450
-src/App.test.js	249
-src/components/archivekitbrowser.js	50991
-src/components/components.js	122907
-src/components/seo.js	1976
-src/entry-server.jsx	406
-src/index.css	502
-src/index.js	538
-src/logo.svg	2632
-src/main.jsx	539
-src/pages/home.js	11188
-src/pages/legacyMusic.js	125229
-src/pages/music.js	48
-src/reportWebVitals.js	362
-src/setupTests.js	241
-src/site/components/PageParts.jsx	7570
-src/site/components/Seo.jsx	3500
-src/site/components/SiteChrome.jsx	6671
-src/site/components/SiteIcon.jsx	2728
-src/site/pages/HomePage.jsx	7102
-src/site/pages/InfoPages.jsx	18533
-src/site/pages/SoundsPage.jsx	4837
-src/site/pages/StudioLandingPage.jsx	4122
-src/site/pages/SynthPage.jsx	5324
-src/site/pages/WorkflowPage.jsx	3782
-src/site/router.jsx	2495
-src/site/seo/metadata.js	11741
-src/site/Site.css	34679
-src/studio/audio/AudioEngine.js	8280
-src/studio/audio/automation.js	3325
-src/studio/audio/effects.js	4708
-src/studio/audio/musicTheory.js	1159
-src/studio/audio/offlineRender.js	5076
-src/studio/audio/synthDefaults.js	5964
-src/studio/audio/synthPatchTools.js	6914
-src/studio/audio/voices.js	17255
-src/studio/audio/wav.js	1295
-src/studio/audio/waveforms.js	4430
-src/studio/components/AutomationEditor.jsx	4740
-src/studio/components/BrowserPanel.jsx	4686
-src/studio/components/ChannelRack.jsx	1907
-src/studio/components/Controls.jsx	4017
-src/studio/components/Mastering.jsx	4407
-src/studio/components/Mixer.jsx	8471
-src/studio/components/PianoRoll.jsx	2827
-src/studio/components/Playlist.jsx	1884
-src/studio/components/ProjectDialog.jsx	1295
-src/studio/components/SoundDesigner.jsx	33383
-src/studio/components/TopBar.jsx	2059
-src/studio/components/TrackHeader.jsx	939
-src/studio/components/TrackSidebar.jsx	683
-src/studio/data/drumKits.js	2390
-src/studio/data/instrumentPresets.js	556631
-src/studio/data/presetLibrary.js	925
-src/studio/hooks/useKeyboardShortcuts.js	874
-src/studio/hooks/useMidi.js	704
-src/studio/state/createProject.js	4347
-src/studio/state/storage.js	1091
-src/studio/state/studioReducer.js	10794
-src/studio/StudioPage.css	23343
-src/studio/StudioPage.jsx	11009
-STUDIO_FEATURES.json	1030
-vite.config.js	599
-wrangler.toml	136
+.gitignore
+.npmrc
+BUILD_REPORT_DAW_6_7.txt
+BUILD_REPORT_DAW_6_8.txt
+BUILD_REPORT_DAW_6_9.txt
+LICENSE_FACTORY_CONTENT.md
+PACKAGE_CONTENTS.txt
+README.md
+RELEASE_NOTES_DAW_6_2.md
+RELEASE_NOTES_DAW_6_4.md
+RELEASE_NOTES_DAW_6_5.md
+RELEASE_NOTES_DAW_6_6.md
+RELEASE_NOTES_DAW_6_7.md
+RELEASE_NOTES_DAW_6_8.md
+RELEASE_NOTES_DAW_6_9.md
+SEARCH_CONSOLE_CHECKLIST.md
+SEO_IMPLEMENTATION.md
+STUDIO_FEATURES.json
+assemble-and-build.sh
+dist/404.html
+dist/404/index.html
+dist/_headers
+dist/_redirects
+dist/about/index.html
+dist/assets/StudioPage-Ce5sAzAQ.js
+dist/assets/StudioPage-bGA7Wsmf.css
+dist/assets/index-B8UPbCW-.js
+dist/assets/index-wrdIan46.css
+dist/assets/react-vendor-CUUhlmBj.js
+dist/assets/rolldown-runtime-Bh1tDfsg.js
+dist/contact/index.html
+dist/copyright/index.html
+dist/favicon.ico
+dist/favicon.svg
+dist/help/index.html
+dist/index.html
+dist/logo192.png
+dist/logo512.png
+dist/manifest.json
+dist/music/index.html
+dist/og/musicstudiolab-808-drum-sounds.png
+dist/og/musicstudiolab-browser-daw.png
+dist/og/musicstudiolab-help-guide.png
+dist/og/musicstudiolab-hip-hop-workflow.png
+dist/og/musicstudiolab-online-beat-maker.png
+dist/og/musicstudiolab-online-synthesizer.png
+dist/privacy/index.html
+dist/robots.txt
+dist/site.webmanifest
+dist/sitemap.xml
+dist/sounds/808/808_01_c.wav
+dist/sounds/808/808_02_cs.wav
+dist/sounds/808/808_03_d.wav
+dist/sounds/808/808_04_ds.wav
+dist/sounds/808/808_05_e.wav
+dist/sounds/808/808_06_f.wav
+dist/sounds/808/808_07_fs.wav
+dist/sounds/808/808_08_g.wav
+dist/sounds/808/808_09_gs.wav
+dist/sounds/808/808_10_a.wav
+dist/sounds/808/808_11_as.wav
+dist/sounds/808/808_12_b.wav
+dist/sounds/808/808_13_c.wav
+dist/sounds/808/808_14_cs.wav
+dist/sounds/808/808_15_d.wav
+dist/sounds/808/808_16_ds.wav
+dist/sounds/808/808_17_e.wav
+dist/sounds/808/808_18_f.wav
+dist/sounds/808/808_19_fs.wav
+dist/sounds/808/808_20_g.wav
+dist/sounds/808/808_21_gs.wav
+dist/sounds/808/808_22_a.wav
+dist/sounds/808/808_23_as.wav
+dist/sounds/808/808_24_b.wav
+dist/sounds/808/808_25_c.wav
+dist/sounds/808/808_26_cs.wav
+dist/sounds/808/808_27_d.wav
+dist/sounds/808/808_28_ds.wav
+dist/sounds/808/808_29_e.wav
+dist/sounds/808/808_30_f.wav
+dist/sounds/808/808_31_fs.wav
+dist/sounds/808/808_32_g.wav
+dist/sounds/808/808_33_gs.wav
+dist/sounds/808/808_34_a.wav
+dist/sounds/808/808_35_as.wav
+dist/sounds/808/808_36_b.wav
+dist/sounds/808/808_37_c.wav
+dist/sounds/808/808_38_cs.wav
+dist/sounds/808/808_39_d.wav
+dist/sounds/808/808_40_ds.wav
+dist/sounds/808/808_41_e.wav
+dist/sounds/808/808_42_f.wav
+dist/sounds/808/808_43_fs.wav
+dist/sounds/808/808_44_g.wav
+dist/sounds/808/808_45_gs.wav
+dist/sounds/808/808_46_a.wav
+dist/sounds/808/808_47_as.wav
+dist/sounds/808/808_48_b.wav
+dist/sounds/drums/clap_01.wav
+dist/sounds/drums/clap_02.wav
+dist/sounds/drums/clap_03.wav
+dist/sounds/drums/clap_04.wav
+dist/sounds/drums/clap_05.wav
+dist/sounds/drums/clap_06.wav
+dist/sounds/drums/clap_07.wav
+dist/sounds/drums/clap_08.wav
+dist/sounds/drums/clap_09.wav
+dist/sounds/drums/clap_10.wav
+dist/sounds/drums/clap_11.wav
+dist/sounds/drums/clap_12.wav
+dist/sounds/drums/clap_13.wav
+dist/sounds/drums/clap_14.wav
+dist/sounds/drums/clap_15.wav
+dist/sounds/drums/clap_16.wav
+dist/sounds/drums/clap_17.wav
+dist/sounds/drums/clap_18.wav
+dist/sounds/drums/clap_19.wav
+dist/sounds/drums/clap_20.wav
+dist/sounds/drums/clap_21.wav
+dist/sounds/drums/clap_22.wav
+dist/sounds/drums/clap_23.wav
+dist/sounds/drums/clap_24.wav
+dist/sounds/drums/clap_25.wav
+dist/sounds/drums/clap_26.wav
+dist/sounds/drums/clap_27.wav
+dist/sounds/drums/clap_28.wav
+dist/sounds/drums/hat_closed_01.wav
+dist/sounds/drums/hat_closed_02.wav
+dist/sounds/drums/hat_closed_03.wav
+dist/sounds/drums/hat_closed_04.wav
+dist/sounds/drums/hat_closed_05.wav
+dist/sounds/drums/hat_closed_06.wav
+dist/sounds/drums/hat_closed_07.wav
+dist/sounds/drums/hat_closed_08.wav
+dist/sounds/drums/hat_closed_09.wav
+dist/sounds/drums/hat_closed_10.wav
+dist/sounds/drums/hat_closed_11.wav
+dist/sounds/drums/hat_closed_12.wav
+dist/sounds/drums/hat_closed_13.wav
+dist/sounds/drums/hat_closed_14.wav
+dist/sounds/drums/hat_closed_15.wav
+dist/sounds/drums/hat_closed_16.wav
+dist/sounds/drums/hat_closed_17.wav
+dist/sounds/drums/hat_closed_18.wav
+dist/sounds/drums/hat_closed_19.wav
+dist/sounds/drums/hat_closed_20.wav
+dist/sounds/drums/hat_closed_21.wav
+dist/sounds/drums/hat_closed_22.wav
+dist/sounds/drums/hat_closed_23.wav
+dist/sounds/drums/hat_closed_24.wav
+dist/sounds/drums/hat_closed_25.wav
+dist/sounds/drums/hat_closed_26.wav
+dist/sounds/drums/hat_closed_27.wav
+dist/sounds/drums/hat_closed_28.wav
+dist/sounds/drums/hat_closed_29.wav
+dist/sounds/drums/hat_closed_30.wav
+dist/sounds/drums/hat_closed_31.wav
+dist/sounds/drums/hat_closed_32.wav
+dist/sounds/drums/hat_open_01.wav
+dist/sounds/drums/hat_open_02.wav
+dist/sounds/drums/hat_open_03.wav
+dist/sounds/drums/hat_open_04.wav
+dist/sounds/drums/hat_open_05.wav
+dist/sounds/drums/hat_open_06.wav
+dist/sounds/drums/hat_open_07.wav
+dist/sounds/drums/hat_open_08.wav
+dist/sounds/drums/hat_open_09.wav
+dist/sounds/drums/hat_open_10.wav
+dist/sounds/drums/hat_open_11.wav
+dist/sounds/drums/hat_open_12.wav
+dist/sounds/drums/hat_open_13.wav
+dist/sounds/drums/hat_open_14.wav
+dist/sounds/drums/hat_open_15.wav
+dist/sounds/drums/hat_open_16.wav
+dist/sounds/drums/hat_open_17.wav
+dist/sounds/drums/hat_open_18.wav
+dist/sounds/drums/hat_open_19.wav
+dist/sounds/drums/hat_open_20.wav
+dist/sounds/drums/kick_01.wav
+dist/sounds/drums/kick_02.wav
+dist/sounds/drums/kick_03.wav
+dist/sounds/drums/kick_04.wav
+dist/sounds/drums/kick_05.wav
+dist/sounds/drums/kick_06.wav
+dist/sounds/drums/kick_07.wav
+dist/sounds/drums/kick_08.wav
+dist/sounds/drums/kick_09.wav
+dist/sounds/drums/kick_10.wav
+dist/sounds/drums/kick_11.wav
+dist/sounds/drums/kick_12.wav
+dist/sounds/drums/kick_13.wav
+dist/sounds/drums/kick_14.wav
+dist/sounds/drums/kick_15.wav
+dist/sounds/drums/kick_16.wav
+dist/sounds/drums/kick_17.wav
+dist/sounds/drums/kick_18.wav
+dist/sounds/drums/kick_19.wav
+dist/sounds/drums/kick_20.wav
+dist/sounds/drums/kick_21.wav
+dist/sounds/drums/kick_22.wav
+dist/sounds/drums/kick_23.wav
+dist/sounds/drums/kick_24.wav
+dist/sounds/drums/kick_25.wav
+dist/sounds/drums/kick_26.wav
+dist/sounds/drums/kick_27.wav
+dist/sounds/drums/kick_28.wav
+dist/sounds/drums/kick_29.wav
+dist/sounds/drums/kick_30.wav
+dist/sounds/drums/kick_31.wav
+dist/sounds/drums/kick_32.wav
+dist/sounds/drums/kick_33.wav
+dist/sounds/drums/kick_34.wav
+dist/sounds/drums/kick_35.wav
+dist/sounds/drums/kick_36.wav
+dist/sounds/drums/kick_37.wav
+dist/sounds/drums/kick_38.wav
+dist/sounds/drums/kick_39.wav
+dist/sounds/drums/kick_40.wav
+dist/sounds/drums/perc_01.wav
+dist/sounds/drums/perc_02.wav
+dist/sounds/drums/perc_03.wav
+dist/sounds/drums/perc_04.wav
+dist/sounds/drums/perc_05.wav
+dist/sounds/drums/perc_06.wav
+dist/sounds/drums/perc_07.wav
+dist/sounds/drums/perc_08.wav
+dist/sounds/drums/perc_09.wav
+dist/sounds/drums/perc_10.wav
+dist/sounds/drums/perc_11.wav
+dist/sounds/drums/perc_12.wav
+dist/sounds/drums/perc_13.wav
+dist/sounds/drums/perc_14.wav
+dist/sounds/drums/perc_15.wav
+dist/sounds/drums/perc_16.wav
+dist/sounds/drums/perc_17.wav
+dist/sounds/drums/perc_18.wav
+dist/sounds/drums/perc_19.wav
+dist/sounds/drums/perc_20.wav
+dist/sounds/drums/perc_21.wav
+dist/sounds/drums/perc_22.wav
+dist/sounds/drums/perc_23.wav
+dist/sounds/drums/perc_24.wav
+dist/sounds/drums/perc_25.wav
+dist/sounds/drums/perc_26.wav
+dist/sounds/drums/perc_27.wav
+dist/sounds/drums/perc_28.wav
+dist/sounds/drums/perc_29.wav
+dist/sounds/drums/perc_30.wav
+dist/sounds/drums/perc_31.wav
+dist/sounds/drums/perc_32.wav
+dist/sounds/drums/perc_33.wav
+dist/sounds/drums/perc_34.wav
+dist/sounds/drums/perc_35.wav
+dist/sounds/drums/perc_36.wav
+dist/sounds/drums/snare_01.wav
+dist/sounds/drums/snare_02.wav
+dist/sounds/drums/snare_03.wav
+dist/sounds/drums/snare_04.wav
+dist/sounds/drums/snare_05.wav
+dist/sounds/drums/snare_06.wav
+dist/sounds/drums/snare_07.wav
+dist/sounds/drums/snare_08.wav
+dist/sounds/drums/snare_09.wav
+dist/sounds/drums/snare_10.wav
+dist/sounds/drums/snare_11.wav
+dist/sounds/drums/snare_12.wav
+dist/sounds/drums/snare_13.wav
+dist/sounds/drums/snare_14.wav
+dist/sounds/drums/snare_15.wav
+dist/sounds/drums/snare_16.wav
+dist/sounds/drums/snare_17.wav
+dist/sounds/drums/snare_18.wav
+dist/sounds/drums/snare_19.wav
+dist/sounds/drums/snare_20.wav
+dist/sounds/drums/snare_21.wav
+dist/sounds/drums/snare_22.wav
+dist/sounds/drums/snare_23.wav
+dist/sounds/drums/snare_24.wav
+dist/sounds/drums/snare_25.wav
+dist/sounds/drums/snare_26.wav
+dist/sounds/drums/snare_27.wav
+dist/sounds/drums/snare_28.wav
+dist/sounds/drums/snare_29.wav
+dist/sounds/drums/snare_30.wav
+dist/sounds/drums/snare_31.wav
+dist/sounds/drums/snare_32.wav
+dist/sounds/fx/downlifter/downlifter_01.wav
+dist/sounds/fx/downlifter/downlifter_02.wav
+dist/sounds/fx/downlifter/downlifter_03.wav
+dist/sounds/fx/downlifter/downlifter_04.wav
+dist/sounds/fx/downlifter/downlifter_05.wav
+dist/sounds/fx/downlifter/downlifter_06.wav
+dist/sounds/fx/downlifter/downlifter_07.wav
+dist/sounds/fx/downlifter/downlifter_08.wav
+dist/sounds/fx/downlifter/downlifter_09.wav
+dist/sounds/fx/downlifter/downlifter_10.wav
+dist/sounds/fx/downlifter/downlifter_11.wav
+dist/sounds/fx/downlifter/downlifter_12.wav
+dist/sounds/fx/downlifter/downlifter_13.wav
+dist/sounds/fx/downlifter/downlifter_14.wav
+dist/sounds/fx/downlifter/downlifter_15.wav
+dist/sounds/fx/downlifter/downlifter_16.wav
+dist/sounds/fx/impact/impact_01.wav
+dist/sounds/fx/impact/impact_02.wav
+dist/sounds/fx/impact/impact_03.wav
+dist/sounds/fx/impact/impact_04.wav
+dist/sounds/fx/impact/impact_05.wav
+dist/sounds/fx/impact/impact_06.wav
+dist/sounds/fx/impact/impact_07.wav
+dist/sounds/fx/impact/impact_08.wav
+dist/sounds/fx/impact/impact_09.wav
+dist/sounds/fx/impact/impact_10.wav
+dist/sounds/fx/impact/impact_11.wav
+dist/sounds/fx/impact/impact_12.wav
+dist/sounds/fx/impact/impact_13.wav
+dist/sounds/fx/impact/impact_14.wav
+dist/sounds/fx/impact/impact_15.wav
+dist/sounds/fx/impact/impact_16.wav
+dist/sounds/fx/riser/riser_01.wav
+dist/sounds/fx/riser/riser_02.wav
+dist/sounds/fx/riser/riser_03.wav
+dist/sounds/fx/riser/riser_04.wav
+dist/sounds/fx/riser/riser_05.wav
+dist/sounds/fx/riser/riser_06.wav
+dist/sounds/fx/riser/riser_07.wav
+dist/sounds/fx/riser/riser_08.wav
+dist/sounds/fx/riser/riser_09.wav
+dist/sounds/fx/riser/riser_10.wav
+dist/sounds/fx/riser/riser_11.wav
+dist/sounds/fx/riser/riser_12.wav
+dist/sounds/fx/riser/riser_13.wav
+dist/sounds/fx/riser/riser_14.wav
+dist/sounds/fx/riser/riser_15.wav
+dist/sounds/fx/riser/riser_16.wav
+dist/sounds/impulses/impulse_01.wav
+dist/sounds/impulses/impulse_02.wav
+dist/sounds/impulses/impulse_03.wav
+dist/sounds/impulses/impulse_04.wav
+dist/sounds/impulses/impulse_05.wav
+dist/sounds/impulses/impulse_06.wav
+dist/sounds/impulses/impulse_07.wav
+dist/sounds/impulses/impulse_08.wav
+dist/sounds/impulses/impulse_09.wav
+dist/sounds/impulses/impulse_10.wav
+dist/sounds/impulses/impulse_11.wav
+dist/sounds/impulses/impulse_12.wav
+dist/sounds/impulses/impulse_13.wav
+dist/sounds/impulses/impulse_14.wav
+dist/sounds/impulses/impulse_15.wav
+dist/sounds/impulses/impulse_16.wav
+dist/sounds/index.html
+dist/sounds/loops/drums/drum_loop_120_01.wav
+dist/sounds/loops/drums/drum_loop_120_13.wav
+dist/sounds/loops/drums/drum_loop_120_25.wav
+dist/sounds/loops/drums/drum_loop_128_02.wav
+dist/sounds/loops/drums/drum_loop_128_14.wav
+dist/sounds/loops/drums/drum_loop_128_26.wav
+dist/sounds/loops/drums/drum_loop_132_03.wav
+dist/sounds/loops/drums/drum_loop_132_15.wav
+dist/sounds/loops/drums/drum_loop_132_27.wav
+dist/sounds/loops/drums/drum_loop_136_04.wav
+dist/sounds/loops/drums/drum_loop_136_16.wav
+dist/sounds/loops/drums/drum_loop_136_28.wav
+dist/sounds/loops/drums/drum_loop_140_05.wav
+dist/sounds/loops/drums/drum_loop_140_17.wav
+dist/sounds/loops/drums/drum_loop_140_29.wav
+dist/sounds/loops/drums/drum_loop_142_06.wav
+dist/sounds/loops/drums/drum_loop_142_18.wav
+dist/sounds/loops/drums/drum_loop_142_30.wav
+dist/sounds/loops/drums/drum_loop_145_07.wav
+dist/sounds/loops/drums/drum_loop_145_19.wav
+dist/sounds/loops/drums/drum_loop_145_31.wav
+dist/sounds/loops/drums/drum_loop_148_08.wav
+dist/sounds/loops/drums/drum_loop_148_20.wav
+dist/sounds/loops/drums/drum_loop_148_32.wav
+dist/sounds/loops/drums/drum_loop_150_09.wav
+dist/sounds/loops/drums/drum_loop_150_21.wav
+dist/sounds/loops/drums/drum_loop_154_10.wav
+dist/sounds/loops/drums/drum_loop_154_22.wav
+dist/sounds/loops/drums/drum_loop_160_11.wav
+dist/sounds/loops/drums/drum_loop_160_23.wav
+dist/sounds/loops/drums/drum_loop_164_12.wav
+dist/sounds/loops/drums/drum_loop_164_24.wav
+dist/sounds/loops/melody/melody_loop_120_01.wav
+dist/sounds/loops/melody/melody_loop_120_13.wav
+dist/sounds/loops/melody/melody_loop_120_25.wav
+dist/sounds/loops/melody/melody_loop_128_06.wav
+dist/sounds/loops/melody/melody_loop_128_18.wav
+dist/sounds/loops/melody/melody_loop_128_30.wav
+dist/sounds/loops/melody/melody_loop_132_11.wav
+dist/sounds/loops/melody/melody_loop_132_23.wav
+dist/sounds/loops/melody/melody_loop_136_04.wav
+dist/sounds/loops/melody/melody_loop_136_16.wav
+dist/sounds/loops/melody/melody_loop_136_28.wav
+dist/sounds/loops/melody/melody_loop_140_09.wav
+dist/sounds/loops/melody/melody_loop_140_21.wav
+dist/sounds/loops/melody/melody_loop_142_02.wav
+dist/sounds/loops/melody/melody_loop_142_14.wav
+dist/sounds/loops/melody/melody_loop_142_26.wav
+dist/sounds/loops/melody/melody_loop_145_07.wav
+dist/sounds/loops/melody/melody_loop_145_19.wav
+dist/sounds/loops/melody/melody_loop_145_31.wav
+dist/sounds/loops/melody/melody_loop_148_12.wav
+dist/sounds/loops/melody/melody_loop_148_24.wav
+dist/sounds/loops/melody/melody_loop_150_05.wav
+dist/sounds/loops/melody/melody_loop_150_17.wav
+dist/sounds/loops/melody/melody_loop_150_29.wav
+dist/sounds/loops/melody/melody_loop_154_10.wav
+dist/sounds/loops/melody/melody_loop_154_22.wav
+dist/sounds/loops/melody/melody_loop_160_03.wav
+dist/sounds/loops/melody/melody_loop_160_15.wav
+dist/sounds/loops/melody/melody_loop_160_27.wav
+dist/sounds/loops/melody/melody_loop_164_08.wav
+dist/sounds/loops/melody/melody_loop_164_20.wav
+dist/sounds/loops/melody/melody_loop_164_32.wav
+dist/sounds/manifest.json
+dist/sounds/textures/texture_01.wav
+dist/sounds/textures/texture_02.wav
+dist/sounds/textures/texture_03.wav
+dist/sounds/textures/texture_04.wav
+dist/sounds/textures/texture_05.wav
+dist/sounds/textures/texture_06.wav
+dist/sounds/textures/texture_07.wav
+dist/sounds/textures/texture_08.wav
+dist/sounds/textures/texture_09.wav
+dist/sounds/textures/texture_10.wav
+dist/sounds/textures/texture_11.wav
+dist/sounds/textures/texture_12.wav
+dist/sounds/textures/texture_13.wav
+dist/sounds/textures/texture_14.wav
+dist/sounds/textures/texture_15.wav
+dist/sounds/textures/texture_16.wav
+dist/sounds/textures/texture_17.wav
+dist/sounds/textures/texture_18.wav
+dist/sounds/textures/texture_19.wav
+dist/sounds/textures/texture_20.wav
+dist/sounds/textures/texture_21.wav
+dist/sounds/textures/texture_22.wav
+dist/sounds/textures/texture_23.wav
+dist/sounds/textures/texture_24.wav
+dist/sounds/textures/texture_25.wav
+dist/sounds/textures/texture_26.wav
+dist/sounds/textures/texture_27.wav
+dist/sounds/textures/texture_28.wav
+dist/sounds/textures/texture_29.wav
+dist/sounds/textures/texture_30.wav
+dist/sounds/textures/texture_31.wav
+dist/sounds/textures/texture_32.wav
+dist/sounds/wavetables/wavetable_01.wav
+dist/sounds/wavetables/wavetable_02.wav
+dist/sounds/wavetables/wavetable_03.wav
+dist/sounds/wavetables/wavetable_04.wav
+dist/sounds/wavetables/wavetable_05.wav
+dist/sounds/wavetables/wavetable_06.wav
+dist/sounds/wavetables/wavetable_07.wav
+dist/sounds/wavetables/wavetable_08.wav
+dist/sounds/wavetables/wavetable_09.wav
+dist/sounds/wavetables/wavetable_10.wav
+dist/sounds/wavetables/wavetable_11.wav
+dist/sounds/wavetables/wavetable_12.wav
+dist/sounds/wavetables/wavetable_13.wav
+dist/sounds/wavetables/wavetable_14.wav
+dist/sounds/wavetables/wavetable_15.wav
+dist/sounds/wavetables/wavetable_16.wav
+dist/sounds/wavetables/wavetable_17.wav
+dist/sounds/wavetables/wavetable_18.wav
+dist/sounds/wavetables/wavetable_19.wav
+dist/sounds/wavetables/wavetable_20.wav
+dist/sounds/wavetables/wavetable_21.wav
+dist/sounds/wavetables/wavetable_22.wav
+dist/sounds/wavetables/wavetable_23.wav
+dist/sounds/wavetables/wavetable_24.wav
+dist/sounds/wavetables/wavetable_25.wav
+dist/sounds/wavetables/wavetable_26.wav
+dist/sounds/wavetables/wavetable_27.wav
+dist/sounds/wavetables/wavetable_28.wav
+dist/sounds/wavetables/wavetable_29.wav
+dist/sounds/wavetables/wavetable_30.wav
+dist/sounds/wavetables/wavetable_31.wav
+dist/sounds/wavetables/wavetable_32.wav
+dist/sounds/wavetables/wavetable_33.wav
+dist/sounds/wavetables/wavetable_34.wav
+dist/sounds/wavetables/wavetable_35.wav
+dist/sounds/wavetables/wavetable_36.wav
+dist/sounds/wavetables/wavetable_37.wav
+dist/sounds/wavetables/wavetable_38.wav
+dist/sounds/wavetables/wavetable_39.wav
+dist/sounds/wavetables/wavetable_40.wav
+dist/sounds/wavetables/wavetable_41.wav
+dist/sounds/wavetables/wavetable_42.wav
+dist/sounds/wavetables/wavetable_43.wav
+dist/sounds/wavetables/wavetable_44.wav
+dist/sounds/wavetables/wavetable_45.wav
+dist/sounds/wavetables/wavetable_46.wav
+dist/sounds/wavetables/wavetable_47.wav
+dist/sounds/wavetables/wavetable_48.wav
+dist/synth-lab/index.html
+dist/terms/index.html
+dist/workflow/index.html
+docs/ARCHITECTURE.md
+docs/PRODUCTION_GUIDE.md
+docs/WEBSITE_STRUCTURE.md
+index.html
+package-lock.json
+package.json
+public/_headers
+public/_redirects
+public/favicon.ico
+public/favicon.svg
+public/index.html
+public/logo192.png
+public/logo512.png
+public/manifest.json
+public/og/musicstudiolab-808-drum-sounds.png
+public/og/musicstudiolab-browser-daw.png
+public/og/musicstudiolab-help-guide.png
+public/og/musicstudiolab-hip-hop-workflow.png
+public/og/musicstudiolab-online-beat-maker.png
+public/og/musicstudiolab-online-synthesizer.png
+public/robots.txt
+public/site.webmanifest
+public/sitemap.xml
+public/sounds/808/808_01_c.wav
+public/sounds/808/808_02_cs.wav
+public/sounds/808/808_03_d.wav
+public/sounds/808/808_04_ds.wav
+public/sounds/808/808_05_e.wav
+public/sounds/808/808_06_f.wav
+public/sounds/808/808_07_fs.wav
+public/sounds/808/808_08_g.wav
+public/sounds/808/808_09_gs.wav
+public/sounds/808/808_10_a.wav
+public/sounds/808/808_11_as.wav
+public/sounds/808/808_12_b.wav
+public/sounds/808/808_13_c.wav
+public/sounds/808/808_14_cs.wav
+public/sounds/808/808_15_d.wav
+public/sounds/808/808_16_ds.wav
+public/sounds/808/808_17_e.wav
+public/sounds/808/808_18_f.wav
+public/sounds/808/808_19_fs.wav
+public/sounds/808/808_20_g.wav
+public/sounds/808/808_21_gs.wav
+public/sounds/808/808_22_a.wav
+public/sounds/808/808_23_as.wav
+public/sounds/808/808_24_b.wav
+public/sounds/808/808_25_c.wav
+public/sounds/808/808_26_cs.wav
+public/sounds/808/808_27_d.wav
+public/sounds/808/808_28_ds.wav
+public/sounds/808/808_29_e.wav
+public/sounds/808/808_30_f.wav
+public/sounds/808/808_31_fs.wav
+public/sounds/808/808_32_g.wav
+public/sounds/808/808_33_gs.wav
+public/sounds/808/808_34_a.wav
+public/sounds/808/808_35_as.wav
+public/sounds/808/808_36_b.wav
+public/sounds/808/808_37_c.wav
+public/sounds/808/808_38_cs.wav
+public/sounds/808/808_39_d.wav
+public/sounds/808/808_40_ds.wav
+public/sounds/808/808_41_e.wav
+public/sounds/808/808_42_f.wav
+public/sounds/808/808_43_fs.wav
+public/sounds/808/808_44_g.wav
+public/sounds/808/808_45_gs.wav
+public/sounds/808/808_46_a.wav
+public/sounds/808/808_47_as.wav
+public/sounds/808/808_48_b.wav
+public/sounds/drums/clap_01.wav
+public/sounds/drums/clap_02.wav
+public/sounds/drums/clap_03.wav
+public/sounds/drums/clap_04.wav
+public/sounds/drums/clap_05.wav
+public/sounds/drums/clap_06.wav
+public/sounds/drums/clap_07.wav
+public/sounds/drums/clap_08.wav
+public/sounds/drums/clap_09.wav
+public/sounds/drums/clap_10.wav
+public/sounds/drums/clap_11.wav
+public/sounds/drums/clap_12.wav
+public/sounds/drums/clap_13.wav
+public/sounds/drums/clap_14.wav
+public/sounds/drums/clap_15.wav
+public/sounds/drums/clap_16.wav
+public/sounds/drums/clap_17.wav
+public/sounds/drums/clap_18.wav
+public/sounds/drums/clap_19.wav
+public/sounds/drums/clap_20.wav
+public/sounds/drums/clap_21.wav
+public/sounds/drums/clap_22.wav
+public/sounds/drums/clap_23.wav
+public/sounds/drums/clap_24.wav
+public/sounds/drums/clap_25.wav
+public/sounds/drums/clap_26.wav
+public/sounds/drums/clap_27.wav
+public/sounds/drums/clap_28.wav
+public/sounds/drums/hat_closed_01.wav
+public/sounds/drums/hat_closed_02.wav
+public/sounds/drums/hat_closed_03.wav
+public/sounds/drums/hat_closed_04.wav
+public/sounds/drums/hat_closed_05.wav
+public/sounds/drums/hat_closed_06.wav
+public/sounds/drums/hat_closed_07.wav
+public/sounds/drums/hat_closed_08.wav
+public/sounds/drums/hat_closed_09.wav
+public/sounds/drums/hat_closed_10.wav
+public/sounds/drums/hat_closed_11.wav
+public/sounds/drums/hat_closed_12.wav
+public/sounds/drums/hat_closed_13.wav
+public/sounds/drums/hat_closed_14.wav
+public/sounds/drums/hat_closed_15.wav
+public/sounds/drums/hat_closed_16.wav
+public/sounds/drums/hat_closed_17.wav
+public/sounds/drums/hat_closed_18.wav
+public/sounds/drums/hat_closed_19.wav
+public/sounds/drums/hat_closed_20.wav
+public/sounds/drums/hat_closed_21.wav
+public/sounds/drums/hat_closed_22.wav
+public/sounds/drums/hat_closed_23.wav
+public/sounds/drums/hat_closed_24.wav
+public/sounds/drums/hat_closed_25.wav
+public/sounds/drums/hat_closed_26.wav
+public/sounds/drums/hat_closed_27.wav
+public/sounds/drums/hat_closed_28.wav
+public/sounds/drums/hat_closed_29.wav
+public/sounds/drums/hat_closed_30.wav
+public/sounds/drums/hat_closed_31.wav
+public/sounds/drums/hat_closed_32.wav
+public/sounds/drums/hat_open_01.wav
+public/sounds/drums/hat_open_02.wav
+public/sounds/drums/hat_open_03.wav
+public/sounds/drums/hat_open_04.wav
+public/sounds/drums/hat_open_05.wav
+public/sounds/drums/hat_open_06.wav
+public/sounds/drums/hat_open_07.wav
+public/sounds/drums/hat_open_08.wav
+public/sounds/drums/hat_open_09.wav
+public/sounds/drums/hat_open_10.wav
+public/sounds/drums/hat_open_11.wav
+public/sounds/drums/hat_open_12.wav
+public/sounds/drums/hat_open_13.wav
+public/sounds/drums/hat_open_14.wav
+public/sounds/drums/hat_open_15.wav
+public/sounds/drums/hat_open_16.wav
+public/sounds/drums/hat_open_17.wav
+public/sounds/drums/hat_open_18.wav
+public/sounds/drums/hat_open_19.wav
+public/sounds/drums/hat_open_20.wav
+public/sounds/drums/kick_01.wav
+public/sounds/drums/kick_02.wav
+public/sounds/drums/kick_03.wav
+public/sounds/drums/kick_04.wav
+public/sounds/drums/kick_05.wav
+public/sounds/drums/kick_06.wav
+public/sounds/drums/kick_07.wav
+public/sounds/drums/kick_08.wav
+public/sounds/drums/kick_09.wav
+public/sounds/drums/kick_10.wav
+public/sounds/drums/kick_11.wav
+public/sounds/drums/kick_12.wav
+public/sounds/drums/kick_13.wav
+public/sounds/drums/kick_14.wav
+public/sounds/drums/kick_15.wav
+public/sounds/drums/kick_16.wav
+public/sounds/drums/kick_17.wav
+public/sounds/drums/kick_18.wav
+public/sounds/drums/kick_19.wav
+public/sounds/drums/kick_20.wav
+public/sounds/drums/kick_21.wav
+public/sounds/drums/kick_22.wav
+public/sounds/drums/kick_23.wav
+public/sounds/drums/kick_24.wav
+public/sounds/drums/kick_25.wav
+public/sounds/drums/kick_26.wav
+public/sounds/drums/kick_27.wav
+public/sounds/drums/kick_28.wav
+public/sounds/drums/kick_29.wav
+public/sounds/drums/kick_30.wav
+public/sounds/drums/kick_31.wav
+public/sounds/drums/kick_32.wav
+public/sounds/drums/kick_33.wav
+public/sounds/drums/kick_34.wav
+public/sounds/drums/kick_35.wav
+public/sounds/drums/kick_36.wav
+public/sounds/drums/kick_37.wav
+public/sounds/drums/kick_38.wav
+public/sounds/drums/kick_39.wav
+public/sounds/drums/kick_40.wav
+public/sounds/drums/perc_01.wav
+public/sounds/drums/perc_02.wav
+public/sounds/drums/perc_03.wav
+public/sounds/drums/perc_04.wav
+public/sounds/drums/perc_05.wav
+public/sounds/drums/perc_06.wav
+public/sounds/drums/perc_07.wav
+public/sounds/drums/perc_08.wav
+public/sounds/drums/perc_09.wav
+public/sounds/drums/perc_10.wav
+public/sounds/drums/perc_11.wav
+public/sounds/drums/perc_12.wav
+public/sounds/drums/perc_13.wav
+public/sounds/drums/perc_14.wav
+public/sounds/drums/perc_15.wav
+public/sounds/drums/perc_16.wav
+public/sounds/drums/perc_17.wav
+public/sounds/drums/perc_18.wav
+public/sounds/drums/perc_19.wav
+public/sounds/drums/perc_20.wav
+public/sounds/drums/perc_21.wav
+public/sounds/drums/perc_22.wav
+public/sounds/drums/perc_23.wav
+public/sounds/drums/perc_24.wav
+public/sounds/drums/perc_25.wav
+public/sounds/drums/perc_26.wav
+public/sounds/drums/perc_27.wav
+public/sounds/drums/perc_28.wav
+public/sounds/drums/perc_29.wav
+public/sounds/drums/perc_30.wav
+public/sounds/drums/perc_31.wav
+public/sounds/drums/perc_32.wav
+public/sounds/drums/perc_33.wav
+public/sounds/drums/perc_34.wav
+public/sounds/drums/perc_35.wav
+public/sounds/drums/perc_36.wav
+public/sounds/drums/snare_01.wav
+public/sounds/drums/snare_02.wav
+public/sounds/drums/snare_03.wav
+public/sounds/drums/snare_04.wav
+public/sounds/drums/snare_05.wav
+public/sounds/drums/snare_06.wav
+public/sounds/drums/snare_07.wav
+public/sounds/drums/snare_08.wav
+public/sounds/drums/snare_09.wav
+public/sounds/drums/snare_10.wav
+public/sounds/drums/snare_11.wav
+public/sounds/drums/snare_12.wav
+public/sounds/drums/snare_13.wav
+public/sounds/drums/snare_14.wav
+public/sounds/drums/snare_15.wav
+public/sounds/drums/snare_16.wav
+public/sounds/drums/snare_17.wav
+public/sounds/drums/snare_18.wav
+public/sounds/drums/snare_19.wav
+public/sounds/drums/snare_20.wav
+public/sounds/drums/snare_21.wav
+public/sounds/drums/snare_22.wav
+public/sounds/drums/snare_23.wav
+public/sounds/drums/snare_24.wav
+public/sounds/drums/snare_25.wav
+public/sounds/drums/snare_26.wav
+public/sounds/drums/snare_27.wav
+public/sounds/drums/snare_28.wav
+public/sounds/drums/snare_29.wav
+public/sounds/drums/snare_30.wav
+public/sounds/drums/snare_31.wav
+public/sounds/drums/snare_32.wav
+public/sounds/fx/downlifter/downlifter_01.wav
+public/sounds/fx/downlifter/downlifter_02.wav
+public/sounds/fx/downlifter/downlifter_03.wav
+public/sounds/fx/downlifter/downlifter_04.wav
+public/sounds/fx/downlifter/downlifter_05.wav
+public/sounds/fx/downlifter/downlifter_06.wav
+public/sounds/fx/downlifter/downlifter_07.wav
+public/sounds/fx/downlifter/downlifter_08.wav
+public/sounds/fx/downlifter/downlifter_09.wav
+public/sounds/fx/downlifter/downlifter_10.wav
+public/sounds/fx/downlifter/downlifter_11.wav
+public/sounds/fx/downlifter/downlifter_12.wav
+public/sounds/fx/downlifter/downlifter_13.wav
+public/sounds/fx/downlifter/downlifter_14.wav
+public/sounds/fx/downlifter/downlifter_15.wav
+public/sounds/fx/downlifter/downlifter_16.wav
+public/sounds/fx/impact/impact_01.wav
+public/sounds/fx/impact/impact_02.wav
+public/sounds/fx/impact/impact_03.wav
+public/sounds/fx/impact/impact_04.wav
+public/sounds/fx/impact/impact_05.wav
+public/sounds/fx/impact/impact_06.wav
+public/sounds/fx/impact/impact_07.wav
+public/sounds/fx/impact/impact_08.wav
+public/sounds/fx/impact/impact_09.wav
+public/sounds/fx/impact/impact_10.wav
+public/sounds/fx/impact/impact_11.wav
+public/sounds/fx/impact/impact_12.wav
+public/sounds/fx/impact/impact_13.wav
+public/sounds/fx/impact/impact_14.wav
+public/sounds/fx/impact/impact_15.wav
+public/sounds/fx/impact/impact_16.wav
+public/sounds/fx/riser/riser_01.wav
+public/sounds/fx/riser/riser_02.wav
+public/sounds/fx/riser/riser_03.wav
+public/sounds/fx/riser/riser_04.wav
+public/sounds/fx/riser/riser_05.wav
+public/sounds/fx/riser/riser_06.wav
+public/sounds/fx/riser/riser_07.wav
+public/sounds/fx/riser/riser_08.wav
+public/sounds/fx/riser/riser_09.wav
+public/sounds/fx/riser/riser_10.wav
+public/sounds/fx/riser/riser_11.wav
+public/sounds/fx/riser/riser_12.wav
+public/sounds/fx/riser/riser_13.wav
+public/sounds/fx/riser/riser_14.wav
+public/sounds/fx/riser/riser_15.wav
+public/sounds/fx/riser/riser_16.wav
+public/sounds/impulses/impulse_01.wav
+public/sounds/impulses/impulse_02.wav
+public/sounds/impulses/impulse_03.wav
+public/sounds/impulses/impulse_04.wav
+public/sounds/impulses/impulse_05.wav
+public/sounds/impulses/impulse_06.wav
+public/sounds/impulses/impulse_07.wav
+public/sounds/impulses/impulse_08.wav
+public/sounds/impulses/impulse_09.wav
+public/sounds/impulses/impulse_10.wav
+public/sounds/impulses/impulse_11.wav
+public/sounds/impulses/impulse_12.wav
+public/sounds/impulses/impulse_13.wav
+public/sounds/impulses/impulse_14.wav
+public/sounds/impulses/impulse_15.wav
+public/sounds/impulses/impulse_16.wav
+public/sounds/loops/drums/drum_loop_120_01.wav
+public/sounds/loops/drums/drum_loop_120_13.wav
+public/sounds/loops/drums/drum_loop_120_25.wav
+public/sounds/loops/drums/drum_loop_128_02.wav
+public/sounds/loops/drums/drum_loop_128_14.wav
+public/sounds/loops/drums/drum_loop_128_26.wav
+public/sounds/loops/drums/drum_loop_132_03.wav
+public/sounds/loops/drums/drum_loop_132_15.wav
+public/sounds/loops/drums/drum_loop_132_27.wav
+public/sounds/loops/drums/drum_loop_136_04.wav
+public/sounds/loops/drums/drum_loop_136_16.wav
+public/sounds/loops/drums/drum_loop_136_28.wav
+public/sounds/loops/drums/drum_loop_140_05.wav
+public/sounds/loops/drums/drum_loop_140_17.wav
+public/sounds/loops/drums/drum_loop_140_29.wav
+public/sounds/loops/drums/drum_loop_142_06.wav
+public/sounds/loops/drums/drum_loop_142_18.wav
+public/sounds/loops/drums/drum_loop_142_30.wav
+public/sounds/loops/drums/drum_loop_145_07.wav
+public/sounds/loops/drums/drum_loop_145_19.wav
+public/sounds/loops/drums/drum_loop_145_31.wav
+public/sounds/loops/drums/drum_loop_148_08.wav
+public/sounds/loops/drums/drum_loop_148_20.wav
+public/sounds/loops/drums/drum_loop_148_32.wav
+public/sounds/loops/drums/drum_loop_150_09.wav
+public/sounds/loops/drums/drum_loop_150_21.wav
+public/sounds/loops/drums/drum_loop_154_10.wav
+public/sounds/loops/drums/drum_loop_154_22.wav
+public/sounds/loops/drums/drum_loop_160_11.wav
+public/sounds/loops/drums/drum_loop_160_23.wav
+public/sounds/loops/drums/drum_loop_164_12.wav
+public/sounds/loops/drums/drum_loop_164_24.wav
+public/sounds/loops/melody/melody_loop_120_01.wav
+public/sounds/loops/melody/melody_loop_120_13.wav
+public/sounds/loops/melody/melody_loop_120_25.wav
+public/sounds/loops/melody/melody_loop_128_06.wav
+public/sounds/loops/melody/melody_loop_128_18.wav
+public/sounds/loops/melody/melody_loop_128_30.wav
+public/sounds/loops/melody/melody_loop_132_11.wav
+public/sounds/loops/melody/melody_loop_132_23.wav
+public/sounds/loops/melody/melody_loop_136_04.wav
+public/sounds/loops/melody/melody_loop_136_16.wav
+public/sounds/loops/melody/melody_loop_136_28.wav
+public/sounds/loops/melody/melody_loop_140_09.wav
+public/sounds/loops/melody/melody_loop_140_21.wav
+public/sounds/loops/melody/melody_loop_142_02.wav
+public/sounds/loops/melody/melody_loop_142_14.wav
+public/sounds/loops/melody/melody_loop_142_26.wav
+public/sounds/loops/melody/melody_loop_145_07.wav
+public/sounds/loops/melody/melody_loop_145_19.wav
+public/sounds/loops/melody/melody_loop_145_31.wav
+public/sounds/loops/melody/melody_loop_148_12.wav
+public/sounds/loops/melody/melody_loop_148_24.wav
+public/sounds/loops/melody/melody_loop_150_05.wav
+public/sounds/loops/melody/melody_loop_150_17.wav
+public/sounds/loops/melody/melody_loop_150_29.wav
+public/sounds/loops/melody/melody_loop_154_10.wav
+public/sounds/loops/melody/melody_loop_154_22.wav
+public/sounds/loops/melody/melody_loop_160_03.wav
+public/sounds/loops/melody/melody_loop_160_15.wav
+public/sounds/loops/melody/melody_loop_160_27.wav
+public/sounds/loops/melody/melody_loop_164_08.wav
+public/sounds/loops/melody/melody_loop_164_20.wav
+public/sounds/loops/melody/melody_loop_164_32.wav
+public/sounds/manifest.json
+public/sounds/textures/texture_01.wav
+public/sounds/textures/texture_02.wav
+public/sounds/textures/texture_03.wav
+public/sounds/textures/texture_04.wav
+public/sounds/textures/texture_05.wav
+public/sounds/textures/texture_06.wav
+public/sounds/textures/texture_07.wav
+public/sounds/textures/texture_08.wav
+public/sounds/textures/texture_09.wav
+public/sounds/textures/texture_10.wav
+public/sounds/textures/texture_11.wav
+public/sounds/textures/texture_12.wav
+public/sounds/textures/texture_13.wav
+public/sounds/textures/texture_14.wav
+public/sounds/textures/texture_15.wav
+public/sounds/textures/texture_16.wav
+public/sounds/textures/texture_17.wav
+public/sounds/textures/texture_18.wav
+public/sounds/textures/texture_19.wav
+public/sounds/textures/texture_20.wav
+public/sounds/textures/texture_21.wav
+public/sounds/textures/texture_22.wav
+public/sounds/textures/texture_23.wav
+public/sounds/textures/texture_24.wav
+public/sounds/textures/texture_25.wav
+public/sounds/textures/texture_26.wav
+public/sounds/textures/texture_27.wav
+public/sounds/textures/texture_28.wav
+public/sounds/textures/texture_29.wav
+public/sounds/textures/texture_30.wav
+public/sounds/textures/texture_31.wav
+public/sounds/textures/texture_32.wav
+public/sounds/wavetables/wavetable_01.wav
+public/sounds/wavetables/wavetable_02.wav
+public/sounds/wavetables/wavetable_03.wav
+public/sounds/wavetables/wavetable_04.wav
+public/sounds/wavetables/wavetable_05.wav
+public/sounds/wavetables/wavetable_06.wav
+public/sounds/wavetables/wavetable_07.wav
+public/sounds/wavetables/wavetable_08.wav
+public/sounds/wavetables/wavetable_09.wav
+public/sounds/wavetables/wavetable_10.wav
+public/sounds/wavetables/wavetable_11.wav
+public/sounds/wavetables/wavetable_12.wav
+public/sounds/wavetables/wavetable_13.wav
+public/sounds/wavetables/wavetable_14.wav
+public/sounds/wavetables/wavetable_15.wav
+public/sounds/wavetables/wavetable_16.wav
+public/sounds/wavetables/wavetable_17.wav
+public/sounds/wavetables/wavetable_18.wav
+public/sounds/wavetables/wavetable_19.wav
+public/sounds/wavetables/wavetable_20.wav
+public/sounds/wavetables/wavetable_21.wav
+public/sounds/wavetables/wavetable_22.wav
+public/sounds/wavetables/wavetable_23.wav
+public/sounds/wavetables/wavetable_24.wav
+public/sounds/wavetables/wavetable_25.wav
+public/sounds/wavetables/wavetable_26.wav
+public/sounds/wavetables/wavetable_27.wav
+public/sounds/wavetables/wavetable_28.wav
+public/sounds/wavetables/wavetable_29.wav
+public/sounds/wavetables/wavetable_30.wav
+public/sounds/wavetables/wavetable_31.wav
+public/sounds/wavetables/wavetable_32.wav
+public/sounds/wavetables/wavetable_33.wav
+public/sounds/wavetables/wavetable_34.wav
+public/sounds/wavetables/wavetable_35.wav
+public/sounds/wavetables/wavetable_36.wav
+public/sounds/wavetables/wavetable_37.wav
+public/sounds/wavetables/wavetable_38.wav
+public/sounds/wavetables/wavetable_39.wav
+public/sounds/wavetables/wavetable_40.wav
+public/sounds/wavetables/wavetable_41.wav
+public/sounds/wavetables/wavetable_42.wav
+public/sounds/wavetables/wavetable_43.wav
+public/sounds/wavetables/wavetable_44.wav
+public/sounds/wavetables/wavetable_45.wav
+public/sounds/wavetables/wavetable_46.wav
+public/sounds/wavetables/wavetable_47.wav
+public/sounds/wavetables/wavetable_48.wav
+scripts/generate_factory_sounds.py
+scripts/generate_instrument_presets.py
+scripts/generate_seo_images.py
+scripts/prerender.mjs
+scripts/validate-daw-67.mjs
+scripts/validate-daw-68.mjs
+scripts/validate-daw-69.mjs
+scripts/validate_project.py
+scripts/validate_seo.py
+scripts/windows-clean-install.ps1
+src/App.css
+src/App.js
+src/App.jsx
+src/App.test.js
+src/components/archivekitbrowser.js
+src/components/components.js
+src/components/seo.js
+src/entry-server.jsx
+src/index.css
+src/index.js
+src/logo.svg
+src/main.jsx
+src/pages/home.js
+src/pages/legacyMusic.js
+src/pages/music.js
+src/reportWebVitals.js
+src/setupTests.js
+src/site/Site.css
+src/site/components/PageParts.jsx
+src/site/components/Seo.jsx
+src/site/components/SiteChrome.jsx
+src/site/components/SiteIcon.jsx
+src/site/pages/HomePage.jsx
+src/site/pages/InfoPages.jsx
+src/site/pages/SoundsPage.jsx
+src/site/pages/StudioLandingPage.jsx
+src/site/pages/SynthPage.jsx
+src/site/pages/WorkflowPage.jsx
+src/site/router.jsx
+src/site/seo/metadata.js
+src/studio/StudioPage.css
+src/studio/StudioPage.jsx
+src/studio/audio/AudioEngine.js
+src/studio/audio/automation.js
+src/studio/audio/effects.js
+src/studio/audio/musicTheory.js
+src/studio/audio/offlineRender.js
+src/studio/audio/synthDefaults.js
+src/studio/audio/synthPatchTools.js
+src/studio/audio/voices.js
+src/studio/audio/wav.js
+src/studio/audio/waveforms.js
+src/studio/components/AutomationEditor.jsx
+src/studio/components/BrowserPanel.jsx
+src/studio/components/ChannelRack.jsx
+src/studio/components/Controls.jsx
+src/studio/components/Mastering.jsx
+src/studio/components/Mixer.jsx
+src/studio/components/PianoRoll.jsx
+src/studio/components/Playlist.jsx
+src/studio/components/ProjectDialog.jsx
+src/studio/components/SoundDesigner.jsx
+src/studio/components/TopBar.jsx
+src/studio/components/TrackHeader.jsx
+src/studio/components/TrackSidebar.jsx
+src/studio/data/drumKits.js
+src/studio/data/instrumentPresets.js
+src/studio/data/presetLibrary.js
+src/studio/hooks/useKeyboardShortcuts.js
+src/studio/hooks/useMidi.js
+src/studio/state/createProject.js
+src/studio/state/storage.js
+src/studio/state/studioReducer.js
+vite.config.js
+wrangler.toml

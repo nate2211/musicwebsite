@@ -22,9 +22,15 @@ categories = {
     "Chord": ["Minor Stack", "Soul Chord", "Dark Seventh", "Dream Ninth", "Trap Choir", "Jazz Glass", "Wide Minor", "Neo Soul", "Suspended Air", "House Chord", "Noir Stab", "Tape Harmony"],
     "Arp": ["Midnight Runner", "Glass Steps", "Pulse Ladder", "Neon Sequence", "Tiny Motion", "Dark Orbit", "Digital Rain", "Trap Sequence", "Clockwork", "Hollow Steps", "Silver Run", "Prism Motion"],
     "FX": ["Riser Voice", "Downward Signal", "Impact Synth", "Laser Sweep", "Reverse Air", "Alarm Motion", "Sub Drop", "Noise Bend", "Digital Crash", "Portal Tone", "Tape Stop Synth", "Cinematic Pulse"],
+    "Atmosphere": ["Ethereal Horizon", "Midnight Nebula", "Frozen Distance", "Infinite Air", "Dream Corridor", "Solar Mist", "Velvet Expanse", "Rain Cathedral", "Quiet Orbit", "Ocean Above", "Memory Field", "Blue Infinity"],
+    "Cinematic": ["Titan Arrival", "Glass Fortress", "Ancient Signal", "Heroic Undercurrent", "Distant Empire", "Shadow Monument", "Ascension Bed", "Noir Orchestra", "Mechanical Dawn", "Falling Kingdom", "Suspense Engine", "Final Horizon"],
+    "Hybrid": ["Organic Circuit", "Analog Orchestra", "Digital Strings", "Resonant Machine", "Electric Chamber", "Synthetic Wood", "Pulse Ensemble", "Harmonic Alloy", "Living Voltage", "Prism Mechanism", "Future Acoustic", "Neural Instrument"],
+    "Choir": ["Human Halo", "Cathedral Breath", "Ghost Ensemble", "Velvet Voices", "Celestial Vowels", "Noir Choir", "Frozen Sopranos", "Ancient Men", "Synthetic Angels", "Hollow Hymn", "Dream Chorus", "Sacred Air"],
+    "World": ["Desert Strings", "Bamboo Temple", "Nordic Bow", "African Glass", "Eastern Pluck", "Island Mallet", "Mountain Reed", "Ceremonial Drumtone", "Silk Road Drone", "Arctic Flute", "Jungle Resonance", "Nomad Chime"],
+    "Motion": ["Orbiting Pulse", "Polyrhythm Cloud", "Elastic Sequence", "Rotating Glass", "Evolving Current", "Gravity Steps", "Phase Runner", "Kinetic Choir", "Moving Horizon", "Fractal Rhythm", "Breathing Machine", "Infinite Pattern"],
 }
 
-waves = ["sine", "triangle", "sawtooth", "square", "pulse25", "pulse12", "warmSaw", "organ", "hollow", "digital", "metallic", "vowel"]
+waves = ["sine", "triangle", "sawtooth", "square", "pulse25", "pulse12", "warmSaw", "organ", "hollow", "digital", "metallic", "vowel", "cinematic", "choir", "bowed", "glass", "air", "shimmer", "formant", "spectral"]
 
 def clamp(x, lo, hi): return max(lo, min(hi, x))
 
@@ -41,6 +47,11 @@ def template(category, idx):
       "oscC":{"enabled":idx%3==0,"waveform":waves[(idx*2+7)%len(waves)],"octave":1,"semitone":0,"fine":-7,"level":round(0.05+(idx%4)*0.03,3),"pan":0,"pulseWidth":0.5,"phase":0.5},
       "sub":{"enabled":idx%2==0,"waveform":"sine","octave":-1,"level":round(0.08+(idx%4)*0.055,3)},
       "noise":{"enabled":idx%4==0,"color":["pink","white","brown","blue"][idx%4],"level":round((idx%4)*0.018,3),"stereo":0.35},
+      "layers":[
+        {"id":"layer-a","name":"Layer A","enabled":idx%3==0,"waveform":["cinematic","bowed","glass","choir","spectral","air"][idx%6],"octave":0,"semitone":[0,7,12,-12,3,5][idx%6],"fine":-4-(idx%4),"level":round(0.1+(idx%4)*0.035,3),"pan":-0.18,"unison":2+idx%4,"detune":7+idx%5*3,"stereo":round(0.35+(idx%4)*0.12,3),"delay":round((idx%3)*0.008,3),"motion":round(0.08+(idx%5)*0.05,3),"motionRate":round(0.06+idx*0.018,3)},
+        {"id":"layer-b","name":"Layer B","enabled":idx%4==0,"waveform":["choir","shimmer","formant","air","spectral","glass"][idx%6],"octave":[1,0,1,-1,2,0][idx%6],"semitone":[0,12,7,0,0,5][idx%6],"fine":4+(idx%5),"level":round(0.07+(idx%4)*0.028,3),"pan":0.18,"unison":3+idx%4,"detune":9+idx%5*3,"stereo":round(0.45+(idx%4)*0.12,3),"delay":round(0.012+(idx%4)*0.006,3),"motion":round(0.1+(idx%5)*0.055,3),"motionRate":round(0.045+idx*0.014,3)}
+      ],
+      "textureLayer":{"enabled":idx%5==0,"color":["pink","brown","blue","white"][idx%4],"level":round(0.018+(idx%4)*0.012,3),"highpass":120+idx*75,"lowpass":12000-idx*420,"resonance":round(0.35+(idx%4)*0.25,2),"stereo":round(0.52+(idx%4)*0.12,3),"motion":round(0.1+(idx%5)*0.05,3),"motionRate":round(0.045+idx*0.012,3)},
       "ampEnv":{"attack":round(0.003+t*0.09,4),"hold":0,"decay":round(0.08+t*0.52,3),"sustain":round(0.42+(idx%5)*0.1,3),"release":round(0.09+t*0.72,3),"curve":"exponential"},
       "filter1":{"enabled":True,"type":"lowpass","cutoff":int(700+idx*1250),"resonance":round(0.4+(idx%6)*0.8,2),"drive":round((idx%5)*0.06,3),"keyTrack":round(0.2+(idx%4)*0.14,3)},
       "filter2":{"enabled":idx%4==0,"type":["highpass","bandpass","notch"][idx%3],"cutoff":int(80+idx*120),"resonance":round(0.2+(idx%4)*0.6,2),"drive":0,"keyTrack":0},
@@ -99,6 +110,31 @@ def template(category, idx):
         base["ampEnv"].update({"attack":0.02+idx*0.05,"decay":0.7,"sustain":0.2,"release":0.9})
         base["pitchEnv"].update({"amount":[-24,-12,12,24][idx%4],"decay":0.4+idx*0.1})
         base["noise"].update({"enabled":True,"color":["white","pink","blue"][idx%3],"level":0.08+(idx%5)*0.04})
+    elif category in ("Atmosphere", "Cinematic", "Hybrid", "Choir", "World", "Motion"):
+        base["engineMode"] = "spectral-hybrid" if category in ("Atmosphere", "Cinematic", "Choir") else "hybrid"
+        base["layers"][0].update({"enabled":True,"level":0.18+(idx%4)*0.025,"unison":4+idx%4,"detune":10+idx%5*3,"motion":0.16+(idx%4)*0.07})
+        base["layers"][1].update({"enabled":True,"level":0.12+(idx%4)*0.02,"unison":4+idx%5,"detune":12+idx%5*3,"motion":0.2+(idx%4)*0.06})
+        base["textureLayer"].update({"enabled":True,"level":0.025+(idx%4)*0.012,"motion":0.2+(idx%4)*0.06})
+        base["unison"] = 3+idx%5
+        base["stereo"] = 0.48+(idx%4)*0.12
+        base["voiceFx"].update({"chorus":0.28+(idx%4)*0.1,"chorusDepth":0.006+(idx%4)*0.0015,"saturation":0.04+(idx%4)*0.035})
+        base["ampEnv"].update({"attack":0.08+idx*0.035,"decay":0.6+idx*0.06,"sustain":0.62+(idx%3)*0.08,"release":0.9+idx*0.14})
+        if category == "Choir":
+            base["oscA"]["waveform"]="choir"; base["oscB"]["waveform"]="formant"; base["layers"][0]["waveform"]="choir"; base["layers"][1]["waveform"]="air"
+        elif category == "Cinematic":
+            base["oscA"]["waveform"]="cinematic"; base["layers"][0]["waveform"]="bowed"; base["layers"][1]["waveform"]="shimmer"
+            base["filter1"].update({"cutoff":2200+idx*520,"resonance":0.65+(idx%4)*0.35})
+        elif category == "Atmosphere":
+            base["oscA"]["waveform"]="air"; base["layers"][0]["waveform"]="shimmer"; base["layers"][1]["waveform"]="choir"
+            base["ampEnv"].update({"attack":0.3+idx*0.07,"release":1.8+idx*0.18})
+        elif category == "World":
+            base["oscA"]["waveform"] = ["hollow", "bowed", "glass", "air"][idx % 4]
+            base["layers"][0]["waveform"]=["bowed","hollow","glass","formant"][idx%4]
+            base["ampEnv"].update({"attack":0.004+idx*0.006,"decay":0.28+idx*0.04,"sustain":0.28+(idx%3)*0.11,"release":0.45+idx*0.05})
+        elif category == "Motion":
+            base["arp"].update({"enabled":True,"mode":["up","down","upDown","random"][idx%4],"rate":["1/8","1/16","1/16T","1/32"][idx%4],"octaves":2+idx%3})
+            base["lfo1"].update({"enabled":True,"sync":True,"target":"filter","amount":0.18+(idx%4)*0.08})
+            base["lfo2"].update({"enabled":True,"sync":True,"target":"pan","amount":0.14+(idx%4)*0.07})
     return base
 
 presets=[]
@@ -106,7 +142,13 @@ num=1
 for category,names in categories.items():
     for idx,name in enumerate(names):
         p=template(category,idx)
-        p={"id":f"preset-{num:03d}","name":name,"category":category,"description":f"Original {category.lower()} patch designed for hip-hop, trap, drill, R&B, and modern production.","author":"MusicStudioLab Factory",**p,"tags":[category.lower(),"hip-hop","factory","original","synth"]}
+        description = (
+            f"Original layered {category.lower()} instrument with three core oscillators, dual spectral sources, "
+            f"procedural texture, performance macros, and motion-ready modulation."
+            if category in ("Atmosphere", "Cinematic", "Hybrid", "Choir", "World", "Motion")
+            else f"Original enterprise {category.lower()} patch for modern production, with layered synthesis, modulation, and performance-ready macros."
+        )
+        p={"id":f"preset-{num:03d}","name":name,"category":category,"description":description,"author":"MusicStudioLab Factory",**p,"tags":[category.lower(),"enterprise","layered","factory","original","synth"]}
         presets.append(p); num+=1
 
 text = "// Generated by scripts/generate_instrument_presets.py. All patches are original.\n"

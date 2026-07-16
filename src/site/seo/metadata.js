@@ -9,7 +9,7 @@ export const FEATURE_LIST = [
   "Channel rack step sequencer",
   "Piano roll for melodies, chords and basslines",
   "Playlist arrangement timeline",
-  "Three-oscillator synthesizer with FM and ring modulation",
+  "Layered hybrid synthesizer with three core oscillators, dual spectral layers, FM and ring modulation",
   "Original 808, drum, loop, texture and transition library",
   "Mixer with EQ, compression, saturation, chorus, delay and reverb",
   "64-step automation lanes",
@@ -33,7 +33,7 @@ export const HOME_FAQS = [
   },
   {
     question: "Can I create and save custom synthesizer sounds?",
-    answer: "Yes. The Synth Lab includes three oscillators, a sub oscillator, noise, custom harmonics, FM, ring modulation, dual filters, envelopes, LFOs, unison, effects and performance macros. Custom patches can be saved, imported and exported.",
+    answer: "Yes. The Synth Lab includes three core oscillators, two independent spectral layers, a procedural texture bed, sub and noise sources, custom harmonics, FM, ring modulation, dual filters, envelopes, LFOs, per-layer unison, effects and performance macros. Custom patches can be saved, imported and exported.",
   },
   {
     question: "Can I export a finished beat as a WAV file?",
@@ -90,14 +90,14 @@ export const SEO_ROUTES = {
   ),
   "/synth-lab": route(
     "Online Synthesizer & Sound Design Lab | MusicStudioLab",
-    "Design custom basses, leads, pads, keys and 808-style sounds with three oscillators, FM, ring modulation, filters, envelopes, LFOs, unison and effects.",
+    "Design custom basses, leads, pads, keys and 808 sounds with core oscillators, dual spectral layers, textures, FM, filters, envelopes, LFOs, unison and effects.",
     "musicstudiolab-online-synthesizer.png",
     "Synth Lab",
     { schema: "software" },
   ),
   "/sounds": route(
     "Original 808s, Drum Sounds & Synth Presets | MusicStudioLab",
-    "Explore 332 original WAV sounds and 168 editable synth presets, including tuned 808s, kicks, snares, hats, loops, textures, transitions and impulses.",
+    "Explore 444 original WAV sounds and 240 soft, warm layered synth presets, including 808s, drums, loops, textures, transitions and impulses.",
     "musicstudiolab-808-drum-sounds.png",
     "Factory Sounds",
   ),
@@ -194,7 +194,7 @@ function softwareSchema(path, data) {
     applicationSubCategory: "Digital audio workstation",
     operatingSystem: "Any operating system with a modern web browser",
     browserRequirements: "Requires JavaScript and Web Audio API support",
-    softwareVersion: "6.0.0",
+    softwareVersion: "7.4.0",
     isAccessibleForFree: true,
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD", availability: "https://schema.org/InStock" },
     featureList: FEATURE_LIST,

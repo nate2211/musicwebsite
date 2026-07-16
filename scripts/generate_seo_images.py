@@ -12,7 +12,7 @@ PAGES = {
     "musicstudiolab-online-beat-maker.png": ("ONLINE BEAT MAKER", "Make beats. Design sounds.\nFinish the record.", "Browser DAW · Synth · Piano Roll · Mixer · WAV Export"),
     "musicstudiolab-browser-daw.png": ("PRODUCTION STUDIO", "A complete browser DAW\nfor modern hip-hop.", "Channel Rack · Playlist · Automation · Mastering"),
     "musicstudiolab-online-synthesizer.png": ("SYNTH LAB", "Build custom basses,\nleads, pads and keys.", "3 Oscillators · FM · Filters · LFOs · Unison · Effects"),
-    "musicstudiolab-808-drum-sounds.png": ("FACTORY SOUNDS", "Original 808s, drums,\nloops and synth presets.", "332 WAV Assets · 168 Editable Patches"),
+    "musicstudiolab-808-drum-sounds.png": ("FACTORY SOUNDS", "Original 808s, drums,\nloops and synth presets.", "444 WAV Assets · 240 Layered Patches"),
     "musicstudiolab-hip-hop-workflow.png": ("PRODUCTION WORKFLOW", "From the first drum hit\nto the final WAV.", "Sequence · Compose · Arrange · Mix · Automate · Master"),
     "musicstudiolab-help-guide.png": ("HELP CENTER", "Guides for the studio,\nsynth, projects and export.", "Browser Audio · MIDI · Troubleshooting · Windows Install"),
 }

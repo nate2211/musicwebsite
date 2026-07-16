@@ -336,12 +336,12 @@ def generate() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
 
     families = [
-        ("kick", 32, synth_kick, "Kick", "drums"),
-        ("snare", 24, synth_snare, "Snare", "drums"),
-        ("clap", 20, synth_clap, "Clap", "drums"),
-        ("hat_closed", 24, lambda i: synth_hat(i, False), "Closed Hat", "drums"),
-        ("hat_open", 16, lambda i: synth_hat(i, True), "Open Hat", "drums"),
-        ("perc", 28, synth_perc, "Percussion", "drums"),
+        ("kick", 40, synth_kick, "Kick", "drums"),
+        ("snare", 32, synth_snare, "Snare", "drums"),
+        ("clap", 28, synth_clap, "Clap", "drums"),
+        ("hat_closed", 32, lambda i: synth_hat(i, False), "Closed Hat", "drums"),
+        ("hat_open", 20, lambda i: synth_hat(i, True), "Open Hat", "drums"),
+        ("perc", 36, synth_perc, "Percussion", "drums"),
     ]
     for prefix, count, function, label, folder in families:
         for index in range(count):
@@ -352,7 +352,7 @@ def generate() -> None:
                      tags=[prefix, "hip-hop", "trap", "one-shot"], description=f"Original synthesized {label.lower()} one-shot.")
 
     roots = [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]
-    for index in range(36):
+    for index in range(48):
         midi = roots[index % len(roots)]
         note_name = f"{NOTE_NAMES[midi % 12]}{midi // 12 - 1}"
         sample_id = f"808_{index + 1:02d}_{NOTE_NAMES[midi % 12].replace('#', 's').lower()}"
@@ -362,7 +362,7 @@ def generate() -> None:
                  tags=["808", "sub", "tuned", "trap", "drill"], root_note=note_name,
                  description="Long tuned 808 one-shot with original harmonic and saturation profile.")
 
-    for kind, count, label in [("riser", 12, "Riser"), ("downlifter", 12, "Downlifter"), ("impact", 12, "Impact")]:
+    for kind, count, label in [("riser", 16, "Riser"), ("downlifter", 16, "Downlifter"), ("impact", 16, "Impact")]:
         for index in range(count):
             sample_id = f"{kind}_{index + 1:02d}"
             path = OUT / "fx" / kind / f"{sample_id}.wav"
@@ -370,7 +370,7 @@ def generate() -> None:
             register(path, sample_id=sample_id, name=f"{label} {index + 1:02d}", category="FX", subtype=label,
                      tags=[kind, "transition", "cinematic", "hip-hop"], description=f"Original {label.lower()} transition effect.")
 
-    for index in range(24):
+    for index in range(32):
         sample_id = f"texture_{index + 1:02d}"
         path = OUT / "textures" / f"{sample_id}.wav"
         write_wav(path, synth_texture(index))
@@ -378,7 +378,7 @@ def generate() -> None:
                  tags=["texture", "atmosphere", "noise", "stereo"], description="Original stereo atmosphere for intros, breakdowns, and layering.")
 
     bpms = [120, 128, 132, 136, 140, 142, 145, 148, 150, 154, 160, 164]
-    for index in range(24):
+    for index in range(32):
         bpm = bpms[index % len(bpms)]
         sample_id = f"drum_loop_{bpm}_{index + 1:02d}"
         path = OUT / "loops" / "drums" / f"{sample_id}.wav"
@@ -387,7 +387,7 @@ def generate() -> None:
                  tags=["loop", "drums", "hip-hop", "trap", "four-bars"], bpm=bpm,
                  description="Original four-bar drum loop with kick, snare, hats, swing, and percussion.")
 
-    for index in range(24):
+    for index in range(32):
         bpm = bpms[(index * 5) % len(bpms)]
         audio, root_note = make_melody_loop(index, bpm)
         sample_id = f"melody_loop_{bpm}_{index + 1:02d}"
@@ -397,7 +397,7 @@ def generate() -> None:
                  tags=["loop", "melody", "minor", "hip-hop", "original"], bpm=bpm, root_note=root_note,
                  description="Original four-bar minor-key synth melody loop.")
 
-    for index in range(32):
+    for index in range(48):
         sample_id = f"wavetable_{index + 1:02d}"
         path = OUT / "wavetables" / f"{sample_id}.wav"
         write_wav(path, make_wavetable(index))
@@ -405,7 +405,7 @@ def generate() -> None:
                  tags=["wavetable", "oscillator", "synthesis", "tone"], root_note="A2",
                  description="Original periodic source waveform for resampling and custom oscillator design.")
 
-    for index in range(12):
+    for index in range(16):
         sample_id = f"impulse_{index + 1:02d}"
         path = OUT / "impulses" / f"{sample_id}.wav"
         write_wav(path, make_impulse(index))

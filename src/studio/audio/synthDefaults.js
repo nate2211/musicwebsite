@@ -1,3 +1,41 @@
+
+export const SYNTH_LAYER_DEFAULTS = [
+  {
+    id: "layer-a",
+    name: "Layer A",
+    enabled: false,
+    waveform: "cinematic",
+    octave: 0,
+    semitone: 0,
+    fine: -4,
+    level: 0.18,
+    pan: -0.18,
+    unison: 3,
+    detune: 9,
+    stereo: 0.48,
+    delay: 0,
+    motion: 0.12,
+    motionRate: 0.18,
+  },
+  {
+    id: "layer-b",
+    name: "Layer B",
+    enabled: false,
+    waveform: "choir",
+    octave: 1,
+    semitone: 0,
+    fine: 5,
+    level: 0.12,
+    pan: 0.18,
+    unison: 4,
+    detune: 12,
+    stereo: 0.62,
+    delay: 0.018,
+    motion: 0.2,
+    motionRate: 0.11,
+  },
+];
+
 export const SYNTH_DEFAULTS = {
   engineMode: "subtractive",
   polyphony: 16,
@@ -13,6 +51,15 @@ export const SYNTH_DEFAULTS = {
   detune: 7,
   stereo: 0.35,
   phaseRandom: 0.15,
+  pitchSemitones: 0,
+  pitchFine: 0,
+  timbre: 0.5,
+  harmonics: 0.22,
+  body: 0.5,
+  air: 0.42,
+  transient: 0.5,
+  pitchLfoDepth: 0,
+  pitchLfoRate: 5.2,
 
   oscA: {
     enabled: true,
@@ -58,6 +105,18 @@ export const SYNTH_DEFAULTS = {
     color: "pink",
     level: 0,
     stereo: 0.35,
+  },
+  layers: SYNTH_LAYER_DEFAULTS,
+  textureLayer: {
+    enabled: false,
+    color: "pink",
+    level: 0.035,
+    highpass: 180,
+    lowpass: 9800,
+    resonance: 0.5,
+    stereo: 0.65,
+    motion: 0.18,
+    motionRate: 0.09,
   },
 
   ampEnv: {
@@ -221,6 +280,12 @@ export function normalizeSynthPatch(input = {}) {
     ...(oldValue || {}),
     ...(newValue || {}),
   });
+  const layerInput = Array.isArray(input.layers) ? input.layers : [];
+  const layers = SYNTH_LAYER_DEFAULTS.map((base, index) => ({
+    ...base,
+    ...(layerInput[index] || {}),
+    id: layerInput[index]?.id || base.id,
+  }));
 
   return {
     ...SYNTH_DEFAULTS,
@@ -231,6 +296,8 @@ export function normalizeSynthPatch(input = {}) {
     oscC: merge(SYNTH_DEFAULTS.oscC, null, input.oscC),
     sub: merge(SYNTH_DEFAULTS.sub, legacy.sub, input.sub),
     noise: merge(SYNTH_DEFAULTS.noise, legacy.noise, input.noise),
+    layers,
+    textureLayer: merge(SYNTH_DEFAULTS.textureLayer, null, input.textureLayer),
     ampEnv: merge(SYNTH_DEFAULTS.ampEnv, legacy.ampEnv, input.ampEnv),
     filter1: merge(SYNTH_DEFAULTS.filter1, legacy.filter1, input.filter1),
     filter2: merge(SYNTH_DEFAULTS.filter2, null, input.filter2),
@@ -259,6 +326,14 @@ export const SYNTH_WAVEFORMS = [
   "digital",
   "metallic",
   "vowel",
+  "cinematic",
+  "choir",
+  "bowed",
+  "glass",
+  "air",
+  "shimmer",
+  "formant",
+  "spectral",
 ];
 
 export const FILTER_TYPES = [

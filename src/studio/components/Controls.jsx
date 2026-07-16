@@ -1,4 +1,18 @@
-import React, { useId } from "react";
+import React, { useId, useRef, useState } from "react";
+
+const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+const stepPrecision = (step) => {
+  const text = String(step);
+  if (text.includes("e-")) return Number(text.split("e-")[1]) || 0;
+  return text.includes(".") ? text.split(".")[1].length : 0;
+};
+
+const snapToStep = (value, min, max, step) => {
+  const safeStep = Number(step) > 0 ? Number(step) : 0.01;
+  const snapped = min + Math.round((clamp(value, min, max) - min) / safeStep) * safeStep;
+  return Number(clamp(snapped, min, max).toFixed(Math.min(8, stepPrecision(safeStep) + 2)));
+};
 
 export function Knob({
   label,
@@ -12,12 +26,91 @@ export function Knob({
   disabled = false,
 }) {
   const id = useId();
+  const faceRef = useRef(null);
+  const dragRef = useRef(null);
+  const [dragging, setDragging] = useState(false);
   const safeValue = Number.isFinite(value) ? value : min;
   const percent = (safeValue - min) / Math.max(0.000001, max - min);
   const degrees = -135 + percent * 270;
+  const valueText = display ? display(safeValue) : formatDefault(safeValue, step);
+
+  const commit = (nextValue) => {
+    if (!disabled) onChange(snapToStep(nextValue, min, max, step));
+  };
+
+  const beginDrag = (event) => {
+    if (disabled || event.button !== 0) return;
+    event.preventDefault();
+    event.currentTarget.focus();
+    event.currentTarget.setPointerCapture?.(event.pointerId);
+    dragRef.current = {
+      pointerId: event.pointerId,
+      x: event.clientX,
+      y: event.clientY,
+      value: safeValue,
+    };
+    setDragging(true);
+  };
+
+  const drag = (event) => {
+    const active = dragRef.current;
+    if (!active || active.pointerId !== event.pointerId || disabled) return;
+    event.preventDefault();
+    const vertical = active.y - event.clientY;
+    const horizontal = (event.clientX - active.x) * 0.55;
+    const modifier = event.altKey ? 0.025 : event.shiftKey ? 0.1 : 1;
+    const nextValue = active.value + ((vertical + horizontal) / 120) * (max - min) * modifier;
+    const snapped = snapToStep(nextValue, min, max, step);
+    active.x = event.clientX;
+    active.y = event.clientY;
+    active.value = snapped;
+    onChange(snapped);
+  };
+
+  const endDrag = (event) => {
+    const active = dragRef.current;
+    if (!active || active.pointerId !== event.pointerId) return;
+    event.currentTarget.releasePointerCapture?.(event.pointerId);
+    dragRef.current = null;
+    setDragging(false);
+  };
+
+  const keyAdjust = (event) => {
+    if (disabled) return;
+    const multiplier = event.shiftKey ? 0.1 : 1;
+    const increment = step * multiplier;
+    let nextValue = safeValue;
+    if (["ArrowUp", "ArrowRight"].includes(event.key)) nextValue += increment;
+    else if (["ArrowDown", "ArrowLeft"].includes(event.key)) nextValue -= increment;
+    else if (event.key === "PageUp") nextValue += step * 10;
+    else if (event.key === "PageDown") nextValue -= step * 10;
+    else if (event.key === "Home") nextValue = min;
+    else if (event.key === "End") nextValue = max;
+    else return;
+    event.preventDefault();
+    commit(nextValue);
+  };
+
   return (
-    <label className={`knob knob-${size} ${disabled ? "disabled" : ""}`} htmlFor={id}>
-      <span className="knob-face">
+    <label className={`knob knob-${size} ${disabled ? "disabled" : ""} ${dragging ? "dragging" : ""}`} htmlFor={id}>
+      <span
+        ref={faceRef}
+        className="knob-face"
+        role="slider"
+        tabIndex={disabled ? -1 : 0}
+        aria-label={label}
+        aria-valuemin={min}
+        aria-valuemax={max}
+        aria-valuenow={safeValue}
+        aria-valuetext={String(valueText)}
+        aria-disabled={disabled}
+        title={`${label}: ${valueText} · drag up/down or left/right · Shift for fine control`}
+        onPointerDown={beginDrag}
+        onPointerMove={drag}
+        onPointerUp={endDrag}
+        onPointerCancel={endDrag}
+        onKeyDown={keyAdjust}
+      >
         <span className="knob-indicator" style={{ transform: `rotate(${degrees}deg)` }} />
       </span>
       <input
@@ -28,10 +121,12 @@ export function Knob({
         step={step}
         value={safeValue}
         disabled={disabled}
-        onChange={(event) => onChange(Number(event.target.value))}
+        tabIndex={-1}
+        aria-hidden="true"
+        onChange={(event) => commit(Number(event.target.value))}
       />
       <strong>{label}</strong>
-      <small>{display ? display(safeValue) : formatDefault(safeValue, step)}</small>
+      <small>{valueText}</small>
     </label>
   );
 }

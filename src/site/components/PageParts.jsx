@@ -135,7 +135,7 @@ export function ProductPreview() {
       <div className="product-preview__body">
         <aside>
           <strong>Factory Library</strong>
-          {['Drums','808 Bass','Instruments','Textures','Loops'].map((label, index) => <div key={label} className={index === 1 ? 'is-selected' : ''}><span>{label}</span><small>{[132,36,168,48,56][index]}</small></div>)}
+          {['Drums','808 Bass','Instruments','Textures','Loops'].map((label, index) => <div key={label} className={index === 1 ? 'is-selected' : ''}><span>{label}</span><small>{[132,36,240,48,56][index]}</small></div>)}
         </aside>
         <div className="preview-rack">
           {['Punch Kick 07','Air Hat 14','Wide Clap 06','Sub 808 C','Glass Pluck'].map((name, rowIndex) => (
@@ -146,7 +146,7 @@ export function ProductPreview() {
           ))}
         </div>
       </div>
-      <div className="product-preview__footer"><span>7 workspaces</span><span>332 original WAV assets</span><span>168 synth patches</span></div>
+      <div className="product-preview__footer"><span>7 workspaces</span><span>444 original WAV assets</span><span>240 layered synth patches</span></div>
     </div>
   );
 }

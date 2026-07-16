@@ -38,8 +38,8 @@ The master path is:
 
 ## Factory content
 
-- `scripts/generate_instrument_presets.py` writes the 168-patch JavaScript factory bank.
-- `scripts/generate_factory_sounds.py` writes 332 original PCM WAV files and their manifest.
+- `scripts/generate_instrument_presets.py` writes the 240-patch JavaScript factory bank.
+- `scripts/generate_factory_sounds.py` writes 444 original PCM WAV files and their manifest.
 - `scripts/validate_project.py` confirms sample files, WAV headers, IDs, preset counts, and core modules.
 
 ## Offline rendering

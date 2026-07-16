@@ -4,7 +4,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-001",
     "name": "Sub Monarch",
     "category": "808",
-    "description": "Original 808 patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise 808 patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 1,
@@ -64,6 +64,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.0,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "cinematic",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 7,
+        "stereo": 0.35,
+        "delay": 0.0,
+        "motion": 0.08,
+        "motionRate": 0.06
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 9,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.1,
+        "motionRate": 0.045
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 120,
+      "lowpass": 12000,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.1,
+      "motionRate": 0.045
     },
     "ampEnv": {
       "attack": 0.002,
@@ -158,7 +205,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "808",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -168,7 +216,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-002",
     "name": "Chrome 808",
     "category": "808",
-    "description": "Original 808 patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise 808 patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 1,
@@ -228,6 +276,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.018,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 10,
+        "stereo": 0.47,
+        "delay": 0.008,
+        "motion": 0.13,
+        "motionRate": 0.078
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 5,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 12,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.155,
+        "motionRate": 0.059
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 195,
+      "lowpass": 11580,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.15,
+      "motionRate": 0.057
     },
     "ampEnv": {
       "attack": 0.003,
@@ -322,7 +417,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "808",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -332,7 +428,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-003",
     "name": "Velvet Sub",
     "category": "808",
-    "description": "Original 808 patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise 808 patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 1,
@@ -392,6 +488,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "brown",
       "level": 0.036,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 13,
+        "stereo": 0.59,
+        "delay": 0.016,
+        "motion": 0.18,
+        "motionRate": 0.096
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 6,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 15,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.21,
+        "motionRate": 0.073
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 270,
+      "lowpass": 11160,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.2,
+      "motionRate": 0.069
     },
     "ampEnv": {
       "attack": 0.004,
@@ -486,7 +629,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "808",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -496,7 +640,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-004",
     "name": "Street Glide",
     "category": "808",
-    "description": "Original 808 patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise 808 patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 1,
@@ -536,7 +680,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "triangle",
+      "waveform": "choir",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -556,6 +700,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.054,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 16,
+        "stereo": 0.71,
+        "delay": 0.0,
+        "motion": 0.23,
+        "motionRate": 0.114
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 7,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 18,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.265,
+        "motionRate": 0.087
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 345,
+      "lowpass": 10740,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.25,
+      "motionRate": 0.081
     },
     "ampEnv": {
       "attack": 0.005,
@@ -650,7 +841,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "808",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -660,7 +852,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-005",
     "name": "Night Trunk",
     "category": "808",
-    "description": "Original 808 patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise 808 patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 1,
@@ -700,7 +892,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "square",
+      "waveform": "glass",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -720,6 +912,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.0,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 19,
+        "stereo": 0.35,
+        "delay": 0.008,
+        "motion": 0.28,
+        "motionRate": 0.132
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 21,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.32,
+        "motionRate": 0.101
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 420,
+      "lowpass": 10320,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.3,
+      "motionRate": 0.093
     },
     "ampEnv": {
       "attack": 0.006,
@@ -814,7 +1053,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "808",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -824,7 +1064,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-006",
     "name": "Rubber Bass",
     "category": "808",
-    "description": "Original 808 patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise 808 patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 1,
@@ -864,7 +1104,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "pulse12",
+      "waveform": "shimmer",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -884,6 +1124,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.018,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 7,
+        "stereo": 0.47,
+        "delay": 0.016,
+        "motion": 0.08,
+        "motionRate": 0.15
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 4,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 9,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.1,
+        "motionRate": 0.115
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 495,
+      "lowpass": 9900,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.1,
+      "motionRate": 0.105
     },
     "ampEnv": {
       "attack": 0.007,
@@ -978,7 +1265,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "808",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -988,7 +1276,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-007",
     "name": "Clean Sine",
     "category": "808",
-    "description": "Original 808 patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise 808 patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 1,
@@ -1028,7 +1316,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "organ",
+      "waveform": "spectral",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -1048,6 +1336,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "brown",
       "level": 0.036,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "cinematic",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 10,
+        "stereo": 0.59,
+        "delay": 0.0,
+        "motion": 0.13,
+        "motionRate": 0.168
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 5,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 12,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.155,
+        "motionRate": 0.129
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 570,
+      "lowpass": 9480,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.15,
+      "motionRate": 0.117
     },
     "ampEnv": {
       "attack": 0.008,
@@ -1142,7 +1477,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "808",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -1152,7 +1488,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-008",
     "name": "Overdrive 808",
     "category": "808",
-    "description": "Original 808 patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise 808 patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 1,
@@ -1192,7 +1528,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "digital",
+      "waveform": "triangle",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -1212,6 +1548,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.054,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 13,
+        "stereo": 0.71,
+        "delay": 0.008,
+        "motion": 0.18,
+        "motionRate": 0.186
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 6,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 15,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.21,
+        "motionRate": 0.143
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 645,
+      "lowpass": 9060,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.2,
+      "motionRate": 0.129
     },
     "ampEnv": {
       "attack": 0.009000000000000001,
@@ -1306,7 +1689,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "808",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -1316,7 +1700,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-009",
     "name": "Tunnel Low",
     "category": "808",
-    "description": "Original 808 patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise 808 patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 1,
@@ -1356,7 +1740,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "vowel",
+      "waveform": "square",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -1376,6 +1760,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.0,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 16,
+        "stereo": 0.35,
+        "delay": 0.016,
+        "motion": 0.23,
+        "motionRate": 0.204
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 7,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 18,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.265,
+        "motionRate": 0.157
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 720,
+      "lowpass": 8640,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.25,
+      "motionRate": 0.141
     },
     "ampEnv": {
       "attack": 0.01,
@@ -1470,7 +1901,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "808",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -1480,7 +1912,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-010",
     "name": "Memphis Tail",
     "category": "808",
-    "description": "Original 808 patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise 808 patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 1,
@@ -1520,7 +1952,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "triangle",
+      "waveform": "pulse12",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -1540,6 +1972,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.018,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 19,
+        "stereo": 0.47,
+        "delay": 0.0,
+        "motion": 0.28,
+        "motionRate": 0.222
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 21,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.32,
+        "motionRate": 0.171
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 795,
+      "lowpass": 8220,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.3,
+      "motionRate": 0.153
     },
     "ampEnv": {
       "attack": 0.011000000000000001,
@@ -1634,7 +2113,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "808",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -1644,7 +2124,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-011",
     "name": "Deep Current",
     "category": "808",
-    "description": "Original 808 patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise 808 patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 1,
@@ -1684,7 +2164,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "square",
+      "waveform": "organ",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -1704,6 +2184,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "brown",
       "level": 0.036,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 7,
+        "stereo": 0.59,
+        "delay": 0.008,
+        "motion": 0.08,
+        "motionRate": 0.24
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 9,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.1,
+        "motionRate": 0.185
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 870,
+      "lowpass": 7800,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.1,
+      "motionRate": 0.165
     },
     "ampEnv": {
       "attack": 0.012,
@@ -1798,7 +2325,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "808",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -1808,7 +2336,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-012",
     "name": "Pressure Tube",
     "category": "808",
-    "description": "Original 808 patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise 808 patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 1,
@@ -1848,7 +2376,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "pulse12",
+      "waveform": "digital",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -1868,6 +2396,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.054,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 10,
+        "stereo": 0.71,
+        "delay": 0.016,
+        "motion": 0.13,
+        "motionRate": 0.258
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 5,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 12,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.155,
+        "motionRate": 0.199
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 945,
+      "lowpass": 7380,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.15,
+      "motionRate": 0.177
     },
     "ampEnv": {
       "attack": 0.013,
@@ -1962,7 +2537,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "808",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -1972,7 +2548,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-013",
     "name": "Analog Weight",
     "category": "Bass",
-    "description": "Original bass patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise bass patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -2032,6 +2608,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.0,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "cinematic",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 7,
+        "stereo": 0.35,
+        "delay": 0.0,
+        "motion": 0.08,
+        "motionRate": 0.06
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 9,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.1,
+        "motionRate": 0.045
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 120,
+      "lowpass": 12000,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.1,
+      "motionRate": 0.045
     },
     "ampEnv": {
       "attack": 0.003,
@@ -2126,7 +2749,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "bass",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -2136,7 +2760,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-014",
     "name": "Grime Reese",
     "category": "Bass",
-    "description": "Original bass patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise bass patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -2196,6 +2820,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.018,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 10,
+        "stereo": 0.47,
+        "delay": 0.008,
+        "motion": 0.13,
+        "motionRate": 0.078
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 5,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 12,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.155,
+        "motionRate": 0.059
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 195,
+      "lowpass": 11580,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.15,
+      "motionRate": 0.057
     },
     "ampEnv": {
       "attack": 0.0112,
@@ -2290,7 +2961,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "bass",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -2300,7 +2972,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-015",
     "name": "Rubber Mono",
     "category": "Bass",
-    "description": "Original bass patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise bass patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -2360,6 +3032,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "brown",
       "level": 0.036,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 13,
+        "stereo": 0.59,
+        "delay": 0.016,
+        "motion": 0.18,
+        "motionRate": 0.096
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 6,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 15,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.21,
+        "motionRate": 0.073
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 270,
+      "lowpass": 11160,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.2,
+      "motionRate": 0.069
     },
     "ampEnv": {
       "attack": 0.0194,
@@ -2454,7 +3173,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "bass",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -2464,7 +3184,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-016",
     "name": "Midnight Moog",
     "category": "Bass",
-    "description": "Original bass patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise bass patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -2504,7 +3224,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "choir",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -2524,6 +3244,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.054,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 16,
+        "stereo": 0.71,
+        "delay": 0.0,
+        "motion": 0.23,
+        "motionRate": 0.114
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 7,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 18,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.265,
+        "motionRate": 0.087
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 345,
+      "lowpass": 10740,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.25,
+      "motionRate": 0.081
     },
     "ampEnv": {
       "attack": 0.0275,
@@ -2618,7 +3385,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "bass",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -2628,7 +3396,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-017",
     "name": "Dirty Square",
     "category": "Bass",
-    "description": "Original bass patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise bass patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -2668,7 +3436,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "square",
+      "waveform": "glass",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -2688,6 +3456,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.0,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 19,
+        "stereo": 0.35,
+        "delay": 0.008,
+        "motion": 0.28,
+        "motionRate": 0.132
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 21,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.32,
+        "motionRate": 0.101
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 420,
+      "lowpass": 10320,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.3,
+      "motionRate": 0.093
     },
     "ampEnv": {
       "attack": 0.0357,
@@ -2782,7 +3597,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "bass",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -2792,7 +3608,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-018",
     "name": "Neon Bass",
     "category": "Bass",
-    "description": "Original bass patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise bass patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -2821,7 +3637,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "choir",
       "octave": 0,
       "semitone": -12,
       "fine": -3,
@@ -2832,7 +3648,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "pulse12",
+      "waveform": "shimmer",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -2852,6 +3668,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.018,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 7,
+        "stereo": 0.47,
+        "delay": 0.016,
+        "motion": 0.08,
+        "motionRate": 0.15
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 4,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 9,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.1,
+        "motionRate": 0.115
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 495,
+      "lowpass": 9900,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.1,
+      "motionRate": 0.105
     },
     "ampEnv": {
       "attack": 0.0439,
@@ -2946,7 +3809,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "bass",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -2956,7 +3820,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-019",
     "name": "Funk Circuit",
     "category": "Bass",
-    "description": "Original bass patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise bass patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -2974,7 +3838,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.24,
     "oscA": {
       "enabled": true,
-      "waveform": "sine",
+      "waveform": "cinematic",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -2985,7 +3849,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "square",
+      "waveform": "glass",
       "octave": 0,
       "semitone": 0,
       "fine": 5,
@@ -2996,7 +3860,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "organ",
+      "waveform": "spectral",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -3016,6 +3880,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "brown",
       "level": 0.036,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "cinematic",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 10,
+        "stereo": 0.59,
+        "delay": 0.0,
+        "motion": 0.13,
+        "motionRate": 0.168
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 5,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 12,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.155,
+        "motionRate": 0.129
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 570,
+      "lowpass": 9480,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.15,
+      "motionRate": 0.117
     },
     "ampEnv": {
       "attack": 0.0521,
@@ -3110,7 +4021,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "bass",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -3120,7 +4032,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-020",
     "name": "Low Voltage",
     "category": "Bass",
-    "description": "Original bass patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise bass patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -3138,7 +4050,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.36,
     "oscA": {
       "enabled": true,
-      "waveform": "sawtooth",
+      "waveform": "bowed",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -3149,7 +4061,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "pulse12",
+      "waveform": "shimmer",
       "octave": 0,
       "semitone": 0,
       "fine": -7,
@@ -3160,7 +4072,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "digital",
+      "waveform": "triangle",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -3180,6 +4092,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.054,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 13,
+        "stereo": 0.71,
+        "delay": 0.008,
+        "motion": 0.18,
+        "motionRate": 0.186
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 6,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 15,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.21,
+        "motionRate": 0.143
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 645,
+      "lowpass": 9060,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.2,
+      "motionRate": 0.129
     },
     "ampEnv": {
       "attack": 0.0603,
@@ -3274,7 +4233,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "bass",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -3284,7 +4244,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-021",
     "name": "Wide Reese",
     "category": "Bass",
-    "description": "Original bass patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise bass patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -3302,7 +4262,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.0,
     "oscA": {
       "enabled": true,
-      "waveform": "pulse25",
+      "waveform": "air",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -3313,7 +4273,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "organ",
+      "waveform": "spectral",
       "octave": 0,
       "semitone": 7,
       "fine": 9,
@@ -3324,7 +4284,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "vowel",
+      "waveform": "square",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -3344,6 +4304,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.0,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 16,
+        "stereo": 0.35,
+        "delay": 0.016,
+        "motion": 0.23,
+        "motionRate": 0.204
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 7,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 18,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.265,
+        "motionRate": 0.157
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 720,
+      "lowpass": 8640,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.25,
+      "motionRate": 0.141
     },
     "ampEnv": {
       "attack": 0.0685,
@@ -3438,7 +4445,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "bass",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -3448,7 +4456,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-022",
     "name": "Plasma Bass",
     "category": "Bass",
-    "description": "Original bass patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise bass patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -3466,7 +4474,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.12,
     "oscA": {
       "enabled": true,
-      "waveform": "warmSaw",
+      "waveform": "formant",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -3477,7 +4485,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "digital",
+      "waveform": "triangle",
       "octave": 0,
       "semitone": 12,
       "fine": -11,
@@ -3488,7 +4496,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "pulse12",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -3508,6 +4516,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.018,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 19,
+        "stereo": 0.47,
+        "delay": 0.0,
+        "motion": 0.28,
+        "motionRate": 0.222
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 21,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.32,
+        "motionRate": 0.171
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 795,
+      "lowpass": 8220,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.3,
+      "motionRate": 0.153
     },
     "ampEnv": {
       "attack": 0.0766,
@@ -3602,7 +4657,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "bass",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -3612,7 +4668,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-023",
     "name": "Roundhouse",
     "category": "Bass",
-    "description": "Original bass patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise bass patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -3630,7 +4686,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.24,
     "oscA": {
       "enabled": true,
-      "waveform": "hollow",
+      "waveform": "sine",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -3641,7 +4697,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "vowel",
+      "waveform": "square",
       "octave": 0,
       "semitone": -12,
       "fine": 3,
@@ -3652,7 +4708,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "square",
+      "waveform": "organ",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -3672,6 +4728,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "brown",
       "level": 0.036,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 7,
+        "stereo": 0.59,
+        "delay": 0.008,
+        "motion": 0.08,
+        "motionRate": 0.24
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 9,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.1,
+        "motionRate": 0.185
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 870,
+      "lowpass": 7800,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.1,
+      "motionRate": 0.165
     },
     "ampEnv": {
       "attack": 0.0848,
@@ -3766,7 +4869,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "bass",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -3776,7 +4880,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-024",
     "name": "Substance",
     "category": "Bass",
-    "description": "Original bass patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise bass patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -3794,7 +4898,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.36,
     "oscA": {
       "enabled": true,
-      "waveform": "metallic",
+      "waveform": "sawtooth",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -3805,7 +4909,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "pulse12",
       "octave": 0,
       "semitone": 0,
       "fine": -5,
@@ -3816,7 +4920,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "pulse12",
+      "waveform": "digital",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -3836,6 +4940,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.054,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 10,
+        "stereo": 0.71,
+        "delay": 0.016,
+        "motion": 0.13,
+        "motionRate": 0.258
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 5,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 12,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.155,
+        "motionRate": 0.199
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 945,
+      "lowpass": 7380,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.15,
+      "motionRate": 0.177
     },
     "ampEnv": {
       "attack": 0.093,
@@ -3930,7 +5081,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "bass",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -3940,7 +5092,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-025",
     "name": "Velvet Keys",
     "category": "Keys",
-    "description": "Original keys patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise keys patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -4000,6 +5152,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.0,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "cinematic",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 7,
+        "stereo": 0.35,
+        "delay": 0.0,
+        "motion": 0.08,
+        "motionRate": 0.06
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 9,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.1,
+        "motionRate": 0.045
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 120,
+      "lowpass": 12000,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.1,
+      "motionRate": 0.045
     },
     "ampEnv": {
       "attack": 0.006,
@@ -4094,7 +5293,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "keys",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -4104,7 +5304,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-026",
     "name": "Tape Piano",
     "category": "Keys",
-    "description": "Original keys patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise keys patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -4164,6 +5364,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.018,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 10,
+        "stereo": 0.47,
+        "delay": 0.008,
+        "motion": 0.13,
+        "motionRate": 0.078
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 5,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 12,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.155,
+        "motionRate": 0.059
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 195,
+      "lowpass": 11580,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.15,
+      "motionRate": 0.057
     },
     "ampEnv": {
       "attack": 0.009000000000000001,
@@ -4258,7 +5505,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "keys",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -4268,7 +5516,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-027",
     "name": "Glass Rhodes",
     "category": "Keys",
-    "description": "Original keys patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise keys patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -4328,6 +5576,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "brown",
       "level": 0.036,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 13,
+        "stereo": 0.59,
+        "delay": 0.016,
+        "motion": 0.18,
+        "motionRate": 0.096
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 6,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 15,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.21,
+        "motionRate": 0.073
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 270,
+      "lowpass": 11160,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.2,
+      "motionRate": 0.069
     },
     "ampEnv": {
       "attack": 0.012,
@@ -4422,7 +5717,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "keys",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -4432,7 +5728,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-028",
     "name": "Dusty EP",
     "category": "Keys",
-    "description": "Original keys patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise keys patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -4472,7 +5768,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "choir",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -4492,6 +5788,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.054,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 16,
+        "stereo": 0.71,
+        "delay": 0.0,
+        "motion": 0.23,
+        "motionRate": 0.114
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 7,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 18,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.265,
+        "motionRate": 0.087
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 345,
+      "lowpass": 10740,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.25,
+      "motionRate": 0.081
     },
     "ampEnv": {
       "attack": 0.015000000000000001,
@@ -4586,7 +5929,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "keys",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -4596,7 +5940,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-029",
     "name": "Noir Chords",
     "category": "Keys",
-    "description": "Original keys patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise keys patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -4636,7 +5980,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "square",
+      "waveform": "glass",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -4656,6 +6000,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.0,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 19,
+        "stereo": 0.35,
+        "delay": 0.008,
+        "motion": 0.28,
+        "motionRate": 0.132
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 21,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.32,
+        "motionRate": 0.101
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 420,
+      "lowpass": 10320,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.3,
+      "motionRate": 0.093
     },
     "ampEnv": {
       "attack": 0.018000000000000002,
@@ -4750,7 +6141,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "keys",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -4760,7 +6152,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-030",
     "name": "Moonlit Keys",
     "category": "Keys",
-    "description": "Original keys patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise keys patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -4789,7 +6181,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "choir",
       "octave": 0,
       "semitone": -12,
       "fine": -3,
@@ -4800,7 +6192,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "pulse12",
+      "waveform": "shimmer",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -4820,6 +6212,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.018,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 7,
+        "stereo": 0.47,
+        "delay": 0.016,
+        "motion": 0.08,
+        "motionRate": 0.15
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 4,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 9,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.1,
+        "motionRate": 0.115
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 495,
+      "lowpass": 9900,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.1,
+      "motionRate": 0.105
     },
     "ampEnv": {
       "attack": 0.020999999999999998,
@@ -4914,7 +6353,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "keys",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -4924,7 +6364,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-031",
     "name": "Cassette Piano",
     "category": "Keys",
-    "description": "Original keys patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise keys patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -4953,7 +6393,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "square",
+      "waveform": "glass",
       "octave": 0,
       "semitone": 0,
       "fine": 5,
@@ -4964,7 +6404,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "organ",
+      "waveform": "spectral",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -4984,6 +6424,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "brown",
       "level": 0.036,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "cinematic",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 10,
+        "stereo": 0.59,
+        "delay": 0.0,
+        "motion": 0.13,
+        "motionRate": 0.168
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 5,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 12,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.155,
+        "motionRate": 0.129
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 570,
+      "lowpass": 9480,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.15,
+      "motionRate": 0.117
     },
     "ampEnv": {
       "attack": 0.024,
@@ -5078,7 +6565,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "keys",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -5088,7 +6576,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-032",
     "name": "Soft Tines",
     "category": "Keys",
-    "description": "Original keys patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise keys patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -5117,7 +6605,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "pulse12",
+      "waveform": "shimmer",
       "octave": 0,
       "semitone": 0,
       "fine": -7,
@@ -5128,7 +6616,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "digital",
+      "waveform": "triangle",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -5148,6 +6636,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.054,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 13,
+        "stereo": 0.71,
+        "delay": 0.008,
+        "motion": 0.18,
+        "motionRate": 0.186
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 6,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 15,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.21,
+        "motionRate": 0.143
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 645,
+      "lowpass": 9060,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.2,
+      "motionRate": 0.129
     },
     "ampEnv": {
       "attack": 0.027000000000000003,
@@ -5242,7 +6777,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "keys",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -5252,7 +6788,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-033",
     "name": "Lounge Electric",
     "category": "Keys",
-    "description": "Original keys patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise keys patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -5281,7 +6817,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "organ",
+      "waveform": "spectral",
       "octave": 0,
       "semitone": 7,
       "fine": 9,
@@ -5292,7 +6828,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "vowel",
+      "waveform": "square",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -5312,6 +6848,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.0,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 16,
+        "stereo": 0.35,
+        "delay": 0.016,
+        "motion": 0.23,
+        "motionRate": 0.204
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 7,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 18,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.265,
+        "motionRate": 0.157
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 720,
+      "lowpass": 8640,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.25,
+      "motionRate": 0.141
     },
     "ampEnv": {
       "attack": 0.03,
@@ -5406,7 +6989,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "keys",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -5416,7 +7000,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-034",
     "name": "Memory Keys",
     "category": "Keys",
-    "description": "Original keys patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise keys patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -5445,7 +7029,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "digital",
+      "waveform": "triangle",
       "octave": 0,
       "semitone": 12,
       "fine": -11,
@@ -5456,7 +7040,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "pulse12",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -5476,6 +7060,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.018,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 19,
+        "stereo": 0.47,
+        "delay": 0.0,
+        "motion": 0.28,
+        "motionRate": 0.222
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 21,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.32,
+        "motionRate": 0.171
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 795,
+      "lowpass": 8220,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.3,
+      "motionRate": 0.153
     },
     "ampEnv": {
       "attack": 0.033,
@@ -5570,7 +7201,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "keys",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -5580,7 +7212,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-035",
     "name": "Rainy Room",
     "category": "Keys",
-    "description": "Original keys patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise keys patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -5609,7 +7241,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "vowel",
+      "waveform": "square",
       "octave": 0,
       "semitone": -12,
       "fine": 3,
@@ -5620,7 +7252,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "square",
+      "waveform": "organ",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -5640,6 +7272,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "brown",
       "level": 0.036,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 7,
+        "stereo": 0.59,
+        "delay": 0.008,
+        "motion": 0.08,
+        "motionRate": 0.24
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 9,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.1,
+        "motionRate": 0.185
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 870,
+      "lowpass": 7800,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.1,
+      "motionRate": 0.165
     },
     "ampEnv": {
       "attack": 0.036,
@@ -5734,7 +7413,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "keys",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -5744,7 +7424,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-036",
     "name": "Afterhours EP",
     "category": "Keys",
-    "description": "Original keys patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise keys patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -5773,7 +7453,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "pulse12",
       "octave": 0,
       "semitone": 0,
       "fine": -5,
@@ -5784,7 +7464,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "pulse12",
+      "waveform": "digital",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -5804,6 +7484,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.054,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 10,
+        "stereo": 0.71,
+        "delay": 0.016,
+        "motion": 0.13,
+        "motionRate": 0.258
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 5,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 12,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.155,
+        "motionRate": 0.199
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 945,
+      "lowpass": 7380,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.15,
+      "motionRate": 0.177
     },
     "ampEnv": {
       "attack": 0.039,
@@ -5898,7 +7625,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "keys",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -5908,7 +7636,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-037",
     "name": "Crystal Pluck",
     "category": "Pluck",
-    "description": "Original pluck patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise pluck patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -5968,6 +7696,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.0,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "cinematic",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 7,
+        "stereo": 0.35,
+        "delay": 0.0,
+        "motion": 0.08,
+        "motionRate": 0.06
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 9,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.1,
+        "motionRate": 0.045
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 120,
+      "lowpass": 12000,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.1,
+      "motionRate": 0.045
     },
     "ampEnv": {
       "attack": 0.001,
@@ -6062,7 +7837,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "pluck",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -6072,7 +7848,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-038",
     "name": "Mallet Drop",
     "category": "Pluck",
-    "description": "Original pluck patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise pluck patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -6132,6 +7908,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.018,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 10,
+        "stereo": 0.47,
+        "delay": 0.008,
+        "motion": 0.13,
+        "motionRate": 0.078
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 5,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 12,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.155,
+        "motionRate": 0.059
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 195,
+      "lowpass": 11580,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.15,
+      "motionRate": 0.057
     },
     "ampEnv": {
       "attack": 0.001,
@@ -6226,7 +8049,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "pluck",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -6236,7 +8060,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-039",
     "name": "Wooden Pixel",
     "category": "Pluck",
-    "description": "Original pluck patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise pluck patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -6296,6 +8120,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "brown",
       "level": 0.036,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 13,
+        "stereo": 0.59,
+        "delay": 0.016,
+        "motion": 0.18,
+        "motionRate": 0.096
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 6,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 15,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.21,
+        "motionRate": 0.073
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 270,
+      "lowpass": 11160,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.2,
+      "motionRate": 0.069
     },
     "ampEnv": {
       "attack": 0.001,
@@ -6390,7 +8261,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "pluck",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -6400,7 +8272,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-040",
     "name": "Trap Harp",
     "category": "Pluck",
-    "description": "Original pluck patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise pluck patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -6440,7 +8312,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "choir",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -6460,6 +8332,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.054,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 16,
+        "stereo": 0.71,
+        "delay": 0.0,
+        "motion": 0.23,
+        "motionRate": 0.114
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 7,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 18,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.265,
+        "motionRate": 0.087
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 345,
+      "lowpass": 10740,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.25,
+      "motionRate": 0.081
     },
     "ampEnv": {
       "attack": 0.001,
@@ -6554,7 +8473,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "pluck",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -6564,7 +8484,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-041",
     "name": "Neon Kalimba",
     "category": "Pluck",
-    "description": "Original pluck patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise pluck patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -6604,7 +8524,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "square",
+      "waveform": "glass",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -6624,6 +8544,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.0,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 19,
+        "stereo": 0.35,
+        "delay": 0.008,
+        "motion": 0.28,
+        "motionRate": 0.132
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 21,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.32,
+        "motionRate": 0.101
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 420,
+      "lowpass": 10320,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.3,
+      "motionRate": 0.093
     },
     "ampEnv": {
       "attack": 0.001,
@@ -6718,7 +8685,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "pluck",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -6728,7 +8696,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-042",
     "name": "Silk Pluck",
     "category": "Pluck",
-    "description": "Original pluck patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise pluck patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -6757,7 +8725,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "choir",
       "octave": 0,
       "semitone": -12,
       "fine": -3,
@@ -6768,7 +8736,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "pulse12",
+      "waveform": "shimmer",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -6788,6 +8756,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.018,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 7,
+        "stereo": 0.47,
+        "delay": 0.016,
+        "motion": 0.08,
+        "motionRate": 0.15
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 4,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 9,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.1,
+        "motionRate": 0.115
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 495,
+      "lowpass": 9900,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.1,
+      "motionRate": 0.105
     },
     "ampEnv": {
       "attack": 0.001,
@@ -6882,7 +8897,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "pluck",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -6892,7 +8908,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-043",
     "name": "Tiny Guitar",
     "category": "Pluck",
-    "description": "Original pluck patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise pluck patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -6910,7 +8926,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.24,
     "oscA": {
       "enabled": true,
-      "waveform": "sine",
+      "waveform": "cinematic",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -6921,7 +8937,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "square",
+      "waveform": "glass",
       "octave": 0,
       "semitone": 0,
       "fine": 5,
@@ -6932,7 +8948,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "organ",
+      "waveform": "spectral",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -6952,6 +8968,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "brown",
       "level": 0.036,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "cinematic",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 10,
+        "stereo": 0.59,
+        "delay": 0.0,
+        "motion": 0.13,
+        "motionRate": 0.168
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 5,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 12,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.155,
+        "motionRate": 0.129
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 570,
+      "lowpass": 9480,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.15,
+      "motionRate": 0.117
     },
     "ampEnv": {
       "attack": 0.001,
@@ -7046,7 +9109,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "pluck",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -7056,7 +9120,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-044",
     "name": "Ice String",
     "category": "Pluck",
-    "description": "Original pluck patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise pluck patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -7074,7 +9138,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.36,
     "oscA": {
       "enabled": true,
-      "waveform": "sawtooth",
+      "waveform": "bowed",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -7085,7 +9149,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "pulse12",
+      "waveform": "shimmer",
       "octave": 0,
       "semitone": 0,
       "fine": -7,
@@ -7096,7 +9160,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "digital",
+      "waveform": "triangle",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -7116,6 +9180,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.054,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 13,
+        "stereo": 0.71,
+        "delay": 0.008,
+        "motion": 0.18,
+        "motionRate": 0.186
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 6,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 15,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.21,
+        "motionRate": 0.143
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 645,
+      "lowpass": 9060,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.2,
+      "motionRate": 0.129
     },
     "ampEnv": {
       "attack": 0.001,
@@ -7210,7 +9321,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "pluck",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -7220,7 +9332,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-045",
     "name": "Digital Thumb",
     "category": "Pluck",
-    "description": "Original pluck patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise pluck patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -7238,7 +9350,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.0,
     "oscA": {
       "enabled": true,
-      "waveform": "pulse25",
+      "waveform": "air",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -7249,7 +9361,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "organ",
+      "waveform": "spectral",
       "octave": 0,
       "semitone": 7,
       "fine": 9,
@@ -7260,7 +9372,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "vowel",
+      "waveform": "square",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -7280,6 +9392,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.0,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 16,
+        "stereo": 0.35,
+        "delay": 0.016,
+        "motion": 0.23,
+        "motionRate": 0.204
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 7,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 18,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.265,
+        "motionRate": 0.157
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 720,
+      "lowpass": 8640,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.25,
+      "motionRate": 0.141
     },
     "ampEnv": {
       "attack": 0.001,
@@ -7374,7 +9533,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "pluck",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -7384,7 +9544,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-046",
     "name": "Muted Nylon",
     "category": "Pluck",
-    "description": "Original pluck patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise pluck patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -7402,7 +9562,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.12,
     "oscA": {
       "enabled": true,
-      "waveform": "warmSaw",
+      "waveform": "formant",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -7413,7 +9573,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "digital",
+      "waveform": "triangle",
       "octave": 0,
       "semitone": 12,
       "fine": -11,
@@ -7424,7 +9584,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "pulse12",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -7444,6 +9604,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.018,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 19,
+        "stereo": 0.47,
+        "delay": 0.0,
+        "motion": 0.28,
+        "motionRate": 0.222
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 21,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.32,
+        "motionRate": 0.171
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 795,
+      "lowpass": 8220,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.3,
+      "motionRate": 0.153
     },
     "ampEnv": {
       "attack": 0.001,
@@ -7538,7 +9745,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "pluck",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -7548,7 +9756,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-047",
     "name": "Pearl Drop",
     "category": "Pluck",
-    "description": "Original pluck patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise pluck patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -7566,7 +9774,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.24,
     "oscA": {
       "enabled": true,
-      "waveform": "hollow",
+      "waveform": "sine",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -7577,7 +9785,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "vowel",
+      "waveform": "square",
       "octave": 0,
       "semitone": -12,
       "fine": 3,
@@ -7588,7 +9796,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "square",
+      "waveform": "organ",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -7608,6 +9816,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "brown",
       "level": 0.036,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 7,
+        "stereo": 0.59,
+        "delay": 0.008,
+        "motion": 0.08,
+        "motionRate": 0.24
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 9,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.1,
+        "motionRate": 0.185
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 870,
+      "lowpass": 7800,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.1,
+      "motionRate": 0.165
     },
     "ampEnv": {
       "attack": 0.001,
@@ -7702,7 +9957,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "pluck",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -7712,7 +9968,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-048",
     "name": "Cloud Pluck",
     "category": "Pluck",
-    "description": "Original pluck patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise pluck patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -7730,7 +9986,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.36,
     "oscA": {
       "enabled": true,
-      "waveform": "metallic",
+      "waveform": "sawtooth",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -7741,7 +9997,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "pulse12",
       "octave": 0,
       "semitone": 0,
       "fine": -5,
@@ -7752,7 +10008,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "pulse12",
+      "waveform": "digital",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -7772,6 +10028,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.054,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 10,
+        "stereo": 0.71,
+        "delay": 0.016,
+        "motion": 0.13,
+        "motionRate": 0.258
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 5,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 12,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.155,
+        "motionRate": 0.199
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 945,
+      "lowpass": 7380,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.15,
+      "motionRate": 0.177
     },
     "ampEnv": {
       "attack": 0.001,
@@ -7866,7 +10169,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "pluck",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -7876,7 +10180,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-049",
     "name": "Chrome Bell",
     "category": "Bell",
-    "description": "Original bell patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise bell patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -7936,6 +10240,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.0,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "cinematic",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 7,
+        "stereo": 0.35,
+        "delay": 0.0,
+        "motion": 0.08,
+        "motionRate": 0.06
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 9,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.1,
+        "motionRate": 0.045
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 120,
+      "lowpass": 12000,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.1,
+      "motionRate": 0.045
     },
     "ampEnv": {
       "attack": 0.001,
@@ -8030,7 +10381,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "bell",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -8040,7 +10392,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-050",
     "name": "Midnight Bell",
     "category": "Bell",
-    "description": "Original bell patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise bell patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -8100,6 +10452,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.018,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 10,
+        "stereo": 0.47,
+        "delay": 0.008,
+        "motion": 0.13,
+        "motionRate": 0.078
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 5,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 12,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.155,
+        "motionRate": 0.059
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 195,
+      "lowpass": 11580,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.15,
+      "motionRate": 0.057
     },
     "ampEnv": {
       "attack": 0.001,
@@ -8194,7 +10593,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "bell",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -8204,7 +10604,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-051",
     "name": "Glass Tower",
     "category": "Bell",
-    "description": "Original bell patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise bell patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -8264,6 +10664,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "brown",
       "level": 0.036,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 13,
+        "stereo": 0.59,
+        "delay": 0.016,
+        "motion": 0.18,
+        "motionRate": 0.096
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 6,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 15,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.21,
+        "motionRate": 0.073
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 270,
+      "lowpass": 11160,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.2,
+      "motionRate": 0.069
     },
     "ampEnv": {
       "attack": 0.001,
@@ -8358,7 +10805,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "bell",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -8368,7 +10816,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-052",
     "name": "Toy Celesta",
     "category": "Bell",
-    "description": "Original bell patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise bell patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -8408,7 +10856,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "choir",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -8428,6 +10876,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.054,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 16,
+        "stereo": 0.71,
+        "delay": 0.0,
+        "motion": 0.23,
+        "motionRate": 0.114
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 7,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 18,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.265,
+        "motionRate": 0.087
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 345,
+      "lowpass": 10740,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.25,
+      "motionRate": 0.081
     },
     "ampEnv": {
       "attack": 0.001,
@@ -8522,7 +11017,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "bell",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -8532,7 +11028,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-053",
     "name": "Haunted Bell",
     "category": "Bell",
-    "description": "Original bell patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise bell patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -8572,7 +11068,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "square",
+      "waveform": "glass",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -8592,6 +11088,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.0,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 19,
+        "stereo": 0.35,
+        "delay": 0.008,
+        "motion": 0.28,
+        "motionRate": 0.132
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 21,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.32,
+        "motionRate": 0.101
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 420,
+      "lowpass": 10320,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.3,
+      "motionRate": 0.093
     },
     "ampEnv": {
       "attack": 0.001,
@@ -8686,7 +11229,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "bell",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -8696,7 +11240,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-054",
     "name": "Digital Chime",
     "category": "Bell",
-    "description": "Original bell patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise bell patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -8736,7 +11280,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "pulse12",
+      "waveform": "shimmer",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -8756,6 +11300,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.018,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 7,
+        "stereo": 0.47,
+        "delay": 0.016,
+        "motion": 0.08,
+        "motionRate": 0.15
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 4,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 9,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.1,
+        "motionRate": 0.115
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 495,
+      "lowpass": 9900,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.1,
+      "motionRate": 0.105
     },
     "ampEnv": {
       "attack": 0.001,
@@ -8850,7 +11441,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "bell",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -8860,7 +11452,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-055",
     "name": "Bronze Air",
     "category": "Bell",
-    "description": "Original bell patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise bell patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -8900,7 +11492,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "organ",
+      "waveform": "spectral",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -8920,6 +11512,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "brown",
       "level": 0.036,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "cinematic",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 10,
+        "stereo": 0.59,
+        "delay": 0.0,
+        "motion": 0.13,
+        "motionRate": 0.168
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 5,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 12,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.155,
+        "motionRate": 0.129
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 570,
+      "lowpass": 9480,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.15,
+      "motionRate": 0.117
     },
     "ampEnv": {
       "attack": 0.001,
@@ -9014,7 +11653,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "bell",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -9024,7 +11664,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-056",
     "name": "Frozen Bell",
     "category": "Bell",
-    "description": "Original bell patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise bell patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -9064,7 +11704,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "digital",
+      "waveform": "triangle",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -9084,6 +11724,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.054,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 13,
+        "stereo": 0.71,
+        "delay": 0.008,
+        "motion": 0.18,
+        "motionRate": 0.186
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 6,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 15,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.21,
+        "motionRate": 0.143
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 645,
+      "lowpass": 9060,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.2,
+      "motionRate": 0.129
     },
     "ampEnv": {
       "attack": 0.001,
@@ -9178,7 +11865,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "bell",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -9188,7 +11876,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-057",
     "name": "Temple Metal",
     "category": "Bell",
-    "description": "Original bell patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise bell patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -9228,7 +11916,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "vowel",
+      "waveform": "square",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -9248,6 +11936,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.0,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 16,
+        "stereo": 0.35,
+        "delay": 0.016,
+        "motion": 0.23,
+        "motionRate": 0.204
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 7,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 18,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.265,
+        "motionRate": 0.157
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 720,
+      "lowpass": 8640,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.25,
+      "motionRate": 0.141
     },
     "ampEnv": {
       "attack": 0.001,
@@ -9342,7 +12077,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "bell",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -9352,7 +12088,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-058",
     "name": "Soft Alarm",
     "category": "Bell",
-    "description": "Original bell patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise bell patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -9392,7 +12128,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "pulse12",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -9412,6 +12148,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.018,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 19,
+        "stereo": 0.47,
+        "delay": 0.0,
+        "motion": 0.28,
+        "motionRate": 0.222
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 21,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.32,
+        "motionRate": 0.171
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 795,
+      "lowpass": 8220,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.3,
+      "motionRate": 0.153
     },
     "ampEnv": {
       "attack": 0.001,
@@ -9506,7 +12289,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "bell",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -9516,7 +12300,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-059",
     "name": "Prism Bell",
     "category": "Bell",
-    "description": "Original bell patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise bell patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -9556,7 +12340,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "square",
+      "waveform": "organ",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -9576,6 +12360,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "brown",
       "level": 0.036,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 7,
+        "stereo": 0.59,
+        "delay": 0.008,
+        "motion": 0.08,
+        "motionRate": 0.24
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 9,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.1,
+        "motionRate": 0.185
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 870,
+      "lowpass": 7800,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.1,
+      "motionRate": 0.165
     },
     "ampEnv": {
       "attack": 0.001,
@@ -9670,7 +12501,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "bell",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -9680,7 +12512,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-060",
     "name": "Moon Chime",
     "category": "Bell",
-    "description": "Original bell patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise bell patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -9720,7 +12552,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "pulse12",
+      "waveform": "digital",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -9740,6 +12572,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.054,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 10,
+        "stereo": 0.71,
+        "delay": 0.016,
+        "motion": 0.13,
+        "motionRate": 0.258
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 5,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 12,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.155,
+        "motionRate": 0.199
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 945,
+      "lowpass": 7380,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.15,
+      "motionRate": 0.177
     },
     "ampEnv": {
       "attack": 0.001,
@@ -9834,7 +12713,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "bell",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -9844,7 +12724,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-061",
     "name": "Siren Lead",
     "category": "Lead",
-    "description": "Original lead patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise lead patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 1,
@@ -9904,6 +12784,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.0,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "cinematic",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 7,
+        "stereo": 0.35,
+        "delay": 0.0,
+        "motion": 0.08,
+        "motionRate": 0.06
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 9,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.1,
+        "motionRate": 0.045
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 120,
+      "lowpass": 12000,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.1,
+      "motionRate": 0.045
     },
     "ampEnv": {
       "attack": 0.004,
@@ -9998,7 +12925,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "lead",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -10008,7 +12936,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-062",
     "name": "Vocal Razor",
     "category": "Lead",
-    "description": "Original lead patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise lead patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 1,
@@ -10068,6 +12996,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.018,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 10,
+        "stereo": 0.47,
+        "delay": 0.008,
+        "motion": 0.13,
+        "motionRate": 0.078
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 5,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 12,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.155,
+        "motionRate": 0.059
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 195,
+      "lowpass": 11580,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.15,
+      "motionRate": 0.057
     },
     "ampEnv": {
       "attack": 0.004,
@@ -10162,7 +13137,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "lead",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -10172,7 +13148,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-063",
     "name": "Porta Star",
     "category": "Lead",
-    "description": "Original lead patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise lead patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 1,
@@ -10232,6 +13208,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "brown",
       "level": 0.036,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 13,
+        "stereo": 0.59,
+        "delay": 0.016,
+        "motion": 0.18,
+        "motionRate": 0.096
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 6,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 15,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.21,
+        "motionRate": 0.073
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 270,
+      "lowpass": 11160,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.2,
+      "motionRate": 0.069
     },
     "ampEnv": {
       "attack": 0.004,
@@ -10326,7 +13349,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "lead",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -10336,7 +13360,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-064",
     "name": "Laser Whine",
     "category": "Lead",
-    "description": "Original lead patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise lead patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 1,
@@ -10376,7 +13400,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "choir",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -10396,6 +13420,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.054,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 16,
+        "stereo": 0.71,
+        "delay": 0.0,
+        "motion": 0.23,
+        "motionRate": 0.114
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 7,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 18,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.265,
+        "motionRate": 0.087
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 345,
+      "lowpass": 10740,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.25,
+      "motionRate": 0.081
     },
     "ampEnv": {
       "attack": 0.004,
@@ -10490,7 +13561,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "lead",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -10500,7 +13572,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-065",
     "name": "Street Synth",
     "category": "Lead",
-    "description": "Original lead patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise lead patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 1,
@@ -10540,7 +13612,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "square",
+      "waveform": "glass",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -10560,6 +13632,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.0,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 19,
+        "stereo": 0.35,
+        "delay": 0.008,
+        "motion": 0.28,
+        "motionRate": 0.132
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 21,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.32,
+        "motionRate": 0.101
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 420,
+      "lowpass": 10320,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.3,
+      "motionRate": 0.093
     },
     "ampEnv": {
       "attack": 0.004,
@@ -10654,7 +13773,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "lead",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -10664,7 +13784,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-066",
     "name": "Satin Lead",
     "category": "Lead",
-    "description": "Original lead patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise lead patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 1,
@@ -10693,7 +13813,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "choir",
       "octave": 0,
       "semitone": -12,
       "fine": -3,
@@ -10704,7 +13824,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "pulse12",
+      "waveform": "shimmer",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -10724,6 +13844,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.018,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 7,
+        "stereo": 0.47,
+        "delay": 0.016,
+        "motion": 0.08,
+        "motionRate": 0.15
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 4,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 9,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.1,
+        "motionRate": 0.115
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 495,
+      "lowpass": 9900,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.1,
+      "motionRate": 0.105
     },
     "ampEnv": {
       "attack": 0.004,
@@ -10818,7 +13985,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "lead",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -10828,7 +13996,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-067",
     "name": "Acid Flute",
     "category": "Lead",
-    "description": "Original lead patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise lead patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 1,
@@ -10846,7 +14014,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.24,
     "oscA": {
       "enabled": true,
-      "waveform": "sine",
+      "waveform": "cinematic",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -10857,7 +14025,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "square",
+      "waveform": "glass",
       "octave": 0,
       "semitone": 0,
       "fine": 5,
@@ -10868,7 +14036,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "organ",
+      "waveform": "spectral",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -10888,6 +14056,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "brown",
       "level": 0.036,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "cinematic",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 10,
+        "stereo": 0.59,
+        "delay": 0.0,
+        "motion": 0.13,
+        "motionRate": 0.168
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 5,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 12,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.155,
+        "motionRate": 0.129
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 570,
+      "lowpass": 9480,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.15,
+      "motionRate": 0.117
     },
     "ampEnv": {
       "attack": 0.004,
@@ -10982,7 +14197,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "lead",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -10992,7 +14208,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-068",
     "name": "Wide Mono",
     "category": "Lead",
-    "description": "Original lead patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise lead patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 1,
@@ -11010,7 +14226,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.36,
     "oscA": {
       "enabled": true,
-      "waveform": "sawtooth",
+      "waveform": "bowed",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -11021,7 +14237,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "pulse12",
+      "waveform": "shimmer",
       "octave": 0,
       "semitone": 0,
       "fine": -7,
@@ -11032,7 +14248,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "digital",
+      "waveform": "triangle",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -11052,6 +14268,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.054,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 13,
+        "stereo": 0.71,
+        "delay": 0.008,
+        "motion": 0.18,
+        "motionRate": 0.186
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 6,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 15,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.21,
+        "motionRate": 0.143
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 645,
+      "lowpass": 9060,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.2,
+      "motionRate": 0.129
     },
     "ampEnv": {
       "attack": 0.004,
@@ -11146,7 +14409,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "lead",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -11156,7 +14420,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-069",
     "name": "Neon Cry",
     "category": "Lead",
-    "description": "Original lead patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise lead patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 1,
@@ -11174,7 +14438,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.0,
     "oscA": {
       "enabled": true,
-      "waveform": "pulse25",
+      "waveform": "air",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -11185,7 +14449,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "organ",
+      "waveform": "spectral",
       "octave": 0,
       "semitone": 7,
       "fine": 9,
@@ -11196,7 +14460,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "vowel",
+      "waveform": "square",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -11216,6 +14480,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.0,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 16,
+        "stereo": 0.35,
+        "delay": 0.016,
+        "motion": 0.23,
+        "motionRate": 0.204
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 7,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 18,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.265,
+        "motionRate": 0.157
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 720,
+      "lowpass": 8640,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.25,
+      "motionRate": 0.141
     },
     "ampEnv": {
       "attack": 0.004,
@@ -11310,7 +14621,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "lead",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -11320,7 +14632,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-070",
     "name": "Hollow Lead",
     "category": "Lead",
-    "description": "Original lead patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise lead patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 1,
@@ -11338,7 +14650,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.12,
     "oscA": {
       "enabled": true,
-      "waveform": "warmSaw",
+      "waveform": "formant",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -11349,7 +14661,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "digital",
+      "waveform": "triangle",
       "octave": 0,
       "semitone": 12,
       "fine": -11,
@@ -11360,7 +14672,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "pulse12",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -11380,6 +14692,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.018,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 19,
+        "stereo": 0.47,
+        "delay": 0.0,
+        "motion": 0.28,
+        "motionRate": 0.222
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 21,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.32,
+        "motionRate": 0.171
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 795,
+      "lowpass": 8220,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.3,
+      "motionRate": 0.153
     },
     "ampEnv": {
       "attack": 0.004,
@@ -11474,7 +14833,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "lead",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -11484,7 +14844,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-071",
     "name": "Tape Solo",
     "category": "Lead",
-    "description": "Original lead patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise lead patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 1,
@@ -11502,7 +14862,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.24,
     "oscA": {
       "enabled": true,
-      "waveform": "hollow",
+      "waveform": "sine",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -11513,7 +14873,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "vowel",
+      "waveform": "square",
       "octave": 0,
       "semitone": -12,
       "fine": 3,
@@ -11524,7 +14884,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "square",
+      "waveform": "organ",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -11544,6 +14904,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "brown",
       "level": 0.036,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 7,
+        "stereo": 0.59,
+        "delay": 0.008,
+        "motion": 0.08,
+        "motionRate": 0.24
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 9,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.1,
+        "motionRate": 0.185
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 870,
+      "lowpass": 7800,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.1,
+      "motionRate": 0.165
     },
     "ampEnv": {
       "attack": 0.004,
@@ -11638,7 +15045,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "lead",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -11648,7 +15056,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-072",
     "name": "Electric Reed",
     "category": "Lead",
-    "description": "Original lead patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise lead patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 1,
@@ -11666,7 +15074,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.36,
     "oscA": {
       "enabled": true,
-      "waveform": "metallic",
+      "waveform": "sawtooth",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -11677,7 +15085,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "pulse12",
       "octave": 0,
       "semitone": 0,
       "fine": -5,
@@ -11688,7 +15096,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "pulse12",
+      "waveform": "digital",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -11708,6 +15116,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.054,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 10,
+        "stereo": 0.71,
+        "delay": 0.016,
+        "motion": 0.13,
+        "motionRate": 0.258
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 5,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 12,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.155,
+        "motionRate": 0.199
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 945,
+      "lowpass": 7380,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.15,
+      "motionRate": 0.177
     },
     "ampEnv": {
       "attack": 0.004,
@@ -11802,7 +15257,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "lead",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -11812,7 +15268,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-073",
     "name": "Cloud Chamber",
     "category": "Pad",
-    "description": "Original pad patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise pad patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -11872,6 +15328,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.025,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "cinematic",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 7,
+        "stereo": 0.35,
+        "delay": 0.0,
+        "motion": 0.08,
+        "motionRate": 0.06
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 9,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.1,
+        "motionRate": 0.045
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 120,
+      "lowpass": 12000,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.1,
+      "motionRate": 0.045
     },
     "ampEnv": {
       "attack": 0.18,
@@ -11966,7 +15469,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "pad",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -11976,7 +15480,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-074",
     "name": "Velvet Atmos",
     "category": "Pad",
-    "description": "Original pad patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise pad patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -12036,6 +15540,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.04,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 10,
+        "stereo": 0.47,
+        "delay": 0.008,
+        "motion": 0.13,
+        "motionRate": 0.078
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 5,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 12,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.155,
+        "motionRate": 0.059
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 195,
+      "lowpass": 11580,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.15,
+      "motionRate": 0.057
     },
     "ampEnv": {
       "attack": 0.25,
@@ -12130,7 +15681,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "pad",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -12140,7 +15692,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-075",
     "name": "Choir Haze",
     "category": "Pad",
-    "description": "Original pad patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise pad patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -12200,6 +15752,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.055,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 13,
+        "stereo": 0.59,
+        "delay": 0.016,
+        "motion": 0.18,
+        "motionRate": 0.096
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 6,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 15,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.21,
+        "motionRate": 0.073
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 270,
+      "lowpass": 11160,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.2,
+      "motionRate": 0.069
     },
     "ampEnv": {
       "attack": 0.32,
@@ -12294,7 +15893,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "pad",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -12304,7 +15904,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-076",
     "name": "Night Canvas",
     "category": "Pad",
-    "description": "Original pad patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise pad patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -12344,7 +15944,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "choir",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -12364,6 +15964,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.07,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 16,
+        "stereo": 0.71,
+        "delay": 0.0,
+        "motion": 0.23,
+        "motionRate": 0.114
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 7,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 18,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.265,
+        "motionRate": 0.087
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 345,
+      "lowpass": 10740,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.25,
+      "motionRate": 0.081
     },
     "ampEnv": {
       "attack": 0.39,
@@ -12458,7 +16105,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "pad",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -12468,7 +16116,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-077",
     "name": "Floating Tape",
     "category": "Pad",
-    "description": "Original pad patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise pad patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -12508,7 +16156,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "square",
+      "waveform": "glass",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -12528,6 +16176,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.025,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 19,
+        "stereo": 0.35,
+        "delay": 0.008,
+        "motion": 0.28,
+        "motionRate": 0.132
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 21,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.32,
+        "motionRate": 0.101
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 420,
+      "lowpass": 10320,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.3,
+      "motionRate": 0.093
     },
     "ampEnv": {
       "attack": 0.46,
@@ -12622,7 +16317,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "pad",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -12632,7 +16328,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-078",
     "name": "Analog Mist",
     "category": "Pad",
-    "description": "Original pad patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise pad patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -12661,7 +16357,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "choir",
       "octave": 0,
       "semitone": -12,
       "fine": -3,
@@ -12672,7 +16368,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "pulse12",
+      "waveform": "shimmer",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -12692,6 +16388,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.04,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 7,
+        "stereo": 0.47,
+        "delay": 0.016,
+        "motion": 0.08,
+        "motionRate": 0.15
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 4,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 9,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.1,
+        "motionRate": 0.115
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 495,
+      "lowpass": 9900,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.1,
+      "motionRate": 0.105
     },
     "ampEnv": {
       "attack": 0.53,
@@ -12786,7 +16529,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "pad",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -12796,7 +16540,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-079",
     "name": "Frozen Choir",
     "category": "Pad",
-    "description": "Original pad patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise pad patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -12814,7 +16558,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.24,
     "oscA": {
       "enabled": true,
-      "waveform": "sine",
+      "waveform": "cinematic",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -12825,7 +16569,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "square",
+      "waveform": "glass",
       "octave": 0,
       "semitone": 0,
       "fine": 5,
@@ -12836,7 +16580,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "organ",
+      "waveform": "spectral",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -12856,6 +16600,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.055,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "cinematic",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 10,
+        "stereo": 0.59,
+        "delay": 0.0,
+        "motion": 0.13,
+        "motionRate": 0.168
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 5,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 12,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.155,
+        "motionRate": 0.129
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 570,
+      "lowpass": 9480,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.15,
+      "motionRate": 0.117
     },
     "ampEnv": {
       "attack": 0.6,
@@ -12950,7 +16741,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "pad",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -12960,7 +16752,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-080",
     "name": "Dream Stack",
     "category": "Pad",
-    "description": "Original pad patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise pad patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -12978,7 +16770,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.36,
     "oscA": {
       "enabled": true,
-      "waveform": "sawtooth",
+      "waveform": "bowed",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -12989,7 +16781,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "pulse12",
+      "waveform": "shimmer",
       "octave": 0,
       "semitone": 0,
       "fine": -7,
@@ -13000,7 +16792,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "digital",
+      "waveform": "triangle",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -13020,6 +16812,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.07,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 13,
+        "stereo": 0.71,
+        "delay": 0.008,
+        "motion": 0.18,
+        "motionRate": 0.186
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 6,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 15,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.21,
+        "motionRate": 0.143
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 645,
+      "lowpass": 9060,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.2,
+      "motionRate": 0.129
     },
     "ampEnv": {
       "attack": 0.67,
@@ -13114,7 +16953,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "pad",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -13124,7 +16964,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-081",
     "name": "Aurora Pad",
     "category": "Pad",
-    "description": "Original pad patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise pad patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -13142,7 +16982,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.0,
     "oscA": {
       "enabled": true,
-      "waveform": "pulse25",
+      "waveform": "air",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -13153,7 +16993,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "organ",
+      "waveform": "spectral",
       "octave": 0,
       "semitone": 7,
       "fine": 9,
@@ -13164,7 +17004,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "vowel",
+      "waveform": "square",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -13184,6 +17024,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.025,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 16,
+        "stereo": 0.35,
+        "delay": 0.016,
+        "motion": 0.23,
+        "motionRate": 0.204
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 7,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 18,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.265,
+        "motionRate": 0.157
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 720,
+      "lowpass": 8640,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.25,
+      "motionRate": 0.141
     },
     "ampEnv": {
       "attack": 0.74,
@@ -13278,7 +17165,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "pad",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -13288,7 +17176,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-082",
     "name": "Slow Motion",
     "category": "Pad",
-    "description": "Original pad patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise pad patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -13306,7 +17194,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.12,
     "oscA": {
       "enabled": true,
-      "waveform": "warmSaw",
+      "waveform": "formant",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -13317,7 +17205,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "digital",
+      "waveform": "triangle",
       "octave": 0,
       "semitone": 12,
       "fine": -11,
@@ -13328,7 +17216,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "pulse12",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -13348,6 +17236,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.04,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 19,
+        "stereo": 0.47,
+        "delay": 0.0,
+        "motion": 0.28,
+        "motionRate": 0.222
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 21,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.32,
+        "motionRate": 0.171
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 795,
+      "lowpass": 8220,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.3,
+      "motionRate": 0.153
     },
     "ampEnv": {
       "attack": 0.81,
@@ -13442,7 +17377,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "pad",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -13452,7 +17388,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-083",
     "name": "Cinema Air",
     "category": "Pad",
-    "description": "Original pad patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise pad patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -13470,7 +17406,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.24,
     "oscA": {
       "enabled": true,
-      "waveform": "hollow",
+      "waveform": "sine",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -13481,7 +17417,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "vowel",
+      "waveform": "square",
       "octave": 0,
       "semitone": -12,
       "fine": 3,
@@ -13492,7 +17428,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "square",
+      "waveform": "organ",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -13512,6 +17448,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.055,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 7,
+        "stereo": 0.59,
+        "delay": 0.008,
+        "motion": 0.08,
+        "motionRate": 0.24
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 9,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.1,
+        "motionRate": 0.185
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 870,
+      "lowpass": 7800,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.1,
+      "motionRate": 0.165
     },
     "ampEnv": {
       "attack": 0.88,
@@ -13606,7 +17589,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "pad",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -13616,7 +17600,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-084",
     "name": "Afterglow",
     "category": "Pad",
-    "description": "Original pad patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise pad patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -13634,7 +17618,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.36,
     "oscA": {
       "enabled": true,
-      "waveform": "metallic",
+      "waveform": "sawtooth",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -13645,7 +17629,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "pulse12",
       "octave": 0,
       "semitone": 0,
       "fine": -5,
@@ -13656,7 +17640,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "pulse12",
+      "waveform": "digital",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -13676,6 +17660,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.07,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 10,
+        "stereo": 0.71,
+        "delay": 0.016,
+        "motion": 0.13,
+        "motionRate": 0.258
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 5,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 12,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.155,
+        "motionRate": 0.199
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 945,
+      "lowpass": 7380,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.15,
+      "motionRate": 0.177
     },
     "ampEnv": {
       "attack": 0.95,
@@ -13770,7 +17801,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "pad",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -13780,7 +17812,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-085",
     "name": "Super Stack",
     "category": "Synth",
-    "description": "Original synth patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise synth patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -13840,6 +17872,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.0,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "cinematic",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 7,
+        "stereo": 0.35,
+        "delay": 0.0,
+        "motion": 0.08,
+        "motionRate": 0.06
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 9,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.1,
+        "motionRate": 0.045
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 120,
+      "lowpass": 12000,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.1,
+      "motionRate": 0.045
     },
     "ampEnv": {
       "attack": 0.003,
@@ -13934,7 +18013,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "synth",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -13944,7 +18024,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-086",
     "name": "Pulse Engine",
     "category": "Synth",
-    "description": "Original synth patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise synth patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -14004,6 +18084,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.018,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 10,
+        "stereo": 0.47,
+        "delay": 0.008,
+        "motion": 0.13,
+        "motionRate": 0.078
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 5,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 12,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.155,
+        "motionRate": 0.059
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 195,
+      "lowpass": 11580,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.15,
+      "motionRate": 0.057
     },
     "ampEnv": {
       "attack": 0.0112,
@@ -14098,7 +18225,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "synth",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -14108,7 +18236,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-087",
     "name": "Analog Crown",
     "category": "Synth",
-    "description": "Original synth patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise synth patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -14168,6 +18296,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "brown",
       "level": 0.036,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 13,
+        "stereo": 0.59,
+        "delay": 0.016,
+        "motion": 0.18,
+        "motionRate": 0.096
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 6,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 15,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.21,
+        "motionRate": 0.073
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 270,
+      "lowpass": 11160,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.2,
+      "motionRate": 0.069
     },
     "ampEnv": {
       "attack": 0.0194,
@@ -14262,7 +18437,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "synth",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -14272,7 +18448,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-088",
     "name": "Digital Silk",
     "category": "Synth",
-    "description": "Original synth patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise synth patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -14312,7 +18488,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "choir",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -14332,6 +18508,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.054,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 16,
+        "stereo": 0.71,
+        "delay": 0.0,
+        "motion": 0.23,
+        "motionRate": 0.114
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 7,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 18,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.265,
+        "motionRate": 0.087
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 345,
+      "lowpass": 10740,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.25,
+      "motionRate": 0.081
     },
     "ampEnv": {
       "attack": 0.0275,
@@ -14426,7 +18649,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "synth",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -14436,7 +18660,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-089",
     "name": "Warm Poly",
     "category": "Synth",
-    "description": "Original synth patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise synth patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -14476,7 +18700,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "square",
+      "waveform": "glass",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -14496,6 +18720,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.0,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 19,
+        "stereo": 0.35,
+        "delay": 0.008,
+        "motion": 0.28,
+        "motionRate": 0.132
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 21,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.32,
+        "motionRate": 0.101
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 420,
+      "lowpass": 10320,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.3,
+      "motionRate": 0.093
     },
     "ampEnv": {
       "attack": 0.0357,
@@ -14590,7 +18861,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "synth",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -14600,7 +18872,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-090",
     "name": "Future Chord",
     "category": "Synth",
-    "description": "Original synth patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise synth patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -14629,7 +18901,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "choir",
       "octave": 0,
       "semitone": -12,
       "fine": -3,
@@ -14640,7 +18912,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "pulse12",
+      "waveform": "shimmer",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -14660,6 +18932,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.018,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 7,
+        "stereo": 0.47,
+        "delay": 0.016,
+        "motion": 0.08,
+        "motionRate": 0.15
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 4,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 9,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.1,
+        "motionRate": 0.115
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 495,
+      "lowpass": 9900,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.1,
+      "motionRate": 0.105
     },
     "ampEnv": {
       "attack": 0.0439,
@@ -14754,7 +19073,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "synth",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -14764,7 +19084,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-091",
     "name": "Hyper Saw",
     "category": "Synth",
-    "description": "Original synth patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise synth patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -14782,7 +19102,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.24,
     "oscA": {
       "enabled": true,
-      "waveform": "sine",
+      "waveform": "cinematic",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -14793,7 +19113,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "square",
+      "waveform": "glass",
       "octave": 0,
       "semitone": 0,
       "fine": 5,
@@ -14804,7 +19124,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "organ",
+      "waveform": "spectral",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -14824,6 +19144,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "brown",
       "level": 0.036,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "cinematic",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 10,
+        "stereo": 0.59,
+        "delay": 0.0,
+        "motion": 0.13,
+        "motionRate": 0.168
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 5,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 12,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.155,
+        "motionRate": 0.129
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 570,
+      "lowpass": 9480,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.15,
+      "motionRate": 0.117
     },
     "ampEnv": {
       "attack": 0.0521,
@@ -14918,7 +19285,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "synth",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -14928,7 +19296,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-092",
     "name": "Soft Square",
     "category": "Synth",
-    "description": "Original synth patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise synth patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -14946,7 +19314,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.36,
     "oscA": {
       "enabled": true,
-      "waveform": "sawtooth",
+      "waveform": "bowed",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -14957,7 +19325,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "pulse12",
+      "waveform": "shimmer",
       "octave": 0,
       "semitone": 0,
       "fine": -7,
@@ -14968,7 +19336,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "digital",
+      "waveform": "triangle",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -14988,6 +19356,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.054,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 13,
+        "stereo": 0.71,
+        "delay": 0.008,
+        "motion": 0.18,
+        "motionRate": 0.186
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 6,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 15,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.21,
+        "motionRate": 0.143
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 645,
+      "lowpass": 9060,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.2,
+      "motionRate": 0.129
     },
     "ampEnv": {
       "attack": 0.0603,
@@ -15082,7 +19497,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "synth",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -15092,7 +19508,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-093",
     "name": "Circuit Bloom",
     "category": "Synth",
-    "description": "Original synth patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise synth patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -15110,7 +19526,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.0,
     "oscA": {
       "enabled": true,
-      "waveform": "pulse25",
+      "waveform": "air",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -15121,7 +19537,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "organ",
+      "waveform": "spectral",
       "octave": 0,
       "semitone": 7,
       "fine": 9,
@@ -15132,7 +19548,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "vowel",
+      "waveform": "square",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -15152,6 +19568,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.0,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 16,
+        "stereo": 0.35,
+        "delay": 0.016,
+        "motion": 0.23,
+        "motionRate": 0.204
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 7,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 18,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.265,
+        "motionRate": 0.157
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 720,
+      "lowpass": 8640,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.25,
+      "motionRate": 0.141
     },
     "ampEnv": {
       "attack": 0.0685,
@@ -15246,7 +19709,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "synth",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -15256,7 +19720,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-094",
     "name": "Tape Synth",
     "category": "Synth",
-    "description": "Original synth patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise synth patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -15274,7 +19738,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.12,
     "oscA": {
       "enabled": true,
-      "waveform": "warmSaw",
+      "waveform": "formant",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -15285,7 +19749,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "digital",
+      "waveform": "triangle",
       "octave": 0,
       "semitone": 12,
       "fine": -11,
@@ -15296,7 +19760,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "pulse12",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -15316,6 +19780,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.018,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 19,
+        "stereo": 0.47,
+        "delay": 0.0,
+        "motion": 0.28,
+        "motionRate": 0.222
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 21,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.32,
+        "motionRate": 0.171
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 795,
+      "lowpass": 8220,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.3,
+      "motionRate": 0.153
     },
     "ampEnv": {
       "attack": 0.0766,
@@ -15410,7 +19921,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "synth",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -15420,7 +19932,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-095",
     "name": "Prism Poly",
     "category": "Synth",
-    "description": "Original synth patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise synth patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -15438,7 +19950,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.24,
     "oscA": {
       "enabled": true,
-      "waveform": "hollow",
+      "waveform": "sine",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -15449,7 +19961,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "vowel",
+      "waveform": "square",
       "octave": 0,
       "semitone": -12,
       "fine": 3,
@@ -15460,7 +19972,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "square",
+      "waveform": "organ",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -15480,6 +19992,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "brown",
       "level": 0.036,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 7,
+        "stereo": 0.59,
+        "delay": 0.008,
+        "motion": 0.08,
+        "motionRate": 0.24
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 9,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.1,
+        "motionRate": 0.185
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 870,
+      "lowpass": 7800,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.1,
+      "motionRate": 0.165
     },
     "ampEnv": {
       "attack": 0.0848,
@@ -15574,7 +20133,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "synth",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -15584,7 +20144,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-096",
     "name": "Retro Motion",
     "category": "Synth",
-    "description": "Original synth patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise synth patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -15602,7 +20162,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.36,
     "oscA": {
       "enabled": true,
-      "waveform": "metallic",
+      "waveform": "sawtooth",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -15613,7 +20173,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "pulse12",
       "octave": 0,
       "semitone": 0,
       "fine": -5,
@@ -15624,7 +20184,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "pulse12",
+      "waveform": "digital",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -15644,6 +20204,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.054,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 10,
+        "stereo": 0.71,
+        "delay": 0.016,
+        "motion": 0.13,
+        "motionRate": 0.258
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 5,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 12,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.155,
+        "motionRate": 0.199
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 945,
+      "lowpass": 7380,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.15,
+      "motionRate": 0.177
     },
     "ampEnv": {
       "attack": 0.093,
@@ -15738,7 +20345,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "synth",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -15748,7 +20356,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-097",
     "name": "Trap Brass",
     "category": "Brass",
-    "description": "Original brass patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise brass patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -15808,6 +20416,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.0,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "cinematic",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 7,
+        "stereo": 0.35,
+        "delay": 0.0,
+        "motion": 0.08,
+        "motionRate": 0.06
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 9,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.1,
+        "motionRate": 0.045
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 120,
+      "lowpass": 12000,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.1,
+      "motionRate": 0.045
     },
     "ampEnv": {
       "attack": 0.025,
@@ -15902,7 +20557,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "brass",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -15912,7 +20568,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-098",
     "name": "Dark Horns",
     "category": "Brass",
-    "description": "Original brass patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise brass patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -15972,6 +20628,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.018,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 10,
+        "stereo": 0.47,
+        "delay": 0.008,
+        "motion": 0.13,
+        "motionRate": 0.078
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 5,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 12,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.155,
+        "motionRate": 0.059
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 195,
+      "lowpass": 11580,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.15,
+      "motionRate": 0.057
     },
     "ampEnv": {
       "attack": 0.029,
@@ -16066,7 +20769,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "brass",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -16076,7 +20780,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-099",
     "name": "Stadium Stack",
     "category": "Brass",
-    "description": "Original brass patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise brass patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -16136,6 +20840,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "brown",
       "level": 0.036,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 13,
+        "stereo": 0.59,
+        "delay": 0.016,
+        "motion": 0.18,
+        "motionRate": 0.096
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 6,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 15,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.21,
+        "motionRate": 0.073
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 270,
+      "lowpass": 11160,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.2,
+      "motionRate": 0.069
     },
     "ampEnv": {
       "attack": 0.033,
@@ -16230,7 +20981,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "brass",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -16240,7 +20992,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-100",
     "name": "Muted Brass",
     "category": "Brass",
-    "description": "Original brass patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise brass patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -16280,7 +21032,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "choir",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -16300,6 +21052,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.054,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 16,
+        "stereo": 0.71,
+        "delay": 0.0,
+        "motion": 0.23,
+        "motionRate": 0.114
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 7,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 18,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.265,
+        "motionRate": 0.087
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 345,
+      "lowpass": 10740,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.25,
+      "motionRate": 0.081
     },
     "ampEnv": {
       "attack": 0.037000000000000005,
@@ -16394,7 +21193,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "brass",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -16404,7 +21204,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-101",
     "name": "Synth Trombone",
     "category": "Brass",
-    "description": "Original brass patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise brass patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -16444,7 +21244,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "square",
+      "waveform": "glass",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -16464,6 +21264,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.0,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 19,
+        "stereo": 0.35,
+        "delay": 0.008,
+        "motion": 0.28,
+        "motionRate": 0.132
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 21,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.32,
+        "motionRate": 0.101
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 420,
+      "lowpass": 10320,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.3,
+      "motionRate": 0.093
     },
     "ampEnv": {
       "attack": 0.041,
@@ -16558,7 +21405,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "brass",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -16568,7 +21416,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-102",
     "name": "Royal Hit",
     "category": "Brass",
-    "description": "Original brass patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise brass patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -16597,7 +21445,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "choir",
       "octave": 0,
       "semitone": -12,
       "fine": -3,
@@ -16608,7 +21456,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "pulse12",
+      "waveform": "shimmer",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -16628,6 +21476,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.018,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 7,
+        "stereo": 0.47,
+        "delay": 0.016,
+        "motion": 0.08,
+        "motionRate": 0.15
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 4,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 9,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.1,
+        "motionRate": 0.115
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 495,
+      "lowpass": 9900,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.1,
+      "motionRate": 0.105
     },
     "ampEnv": {
       "attack": 0.045,
@@ -16722,7 +21617,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "brass",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -16732,7 +21628,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-103",
     "name": "Noir Horn",
     "category": "Brass",
-    "description": "Original brass patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise brass patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -16750,7 +21646,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.24,
     "oscA": {
       "enabled": true,
-      "waveform": "sine",
+      "waveform": "cinematic",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -16761,7 +21657,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "square",
+      "waveform": "glass",
       "octave": 0,
       "semitone": 0,
       "fine": 5,
@@ -16772,7 +21668,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "organ",
+      "waveform": "spectral",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -16792,6 +21688,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "brown",
       "level": 0.036,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "cinematic",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 10,
+        "stereo": 0.59,
+        "delay": 0.0,
+        "motion": 0.13,
+        "motionRate": 0.168
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 5,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 12,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.155,
+        "motionRate": 0.129
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 570,
+      "lowpass": 9480,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.15,
+      "motionRate": 0.117
     },
     "ampEnv": {
       "attack": 0.049,
@@ -16886,7 +21829,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "brass",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -16896,7 +21840,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-104",
     "name": "Wide Section",
     "category": "Brass",
-    "description": "Original brass patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise brass patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -16914,7 +21858,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.36,
     "oscA": {
       "enabled": true,
-      "waveform": "sawtooth",
+      "waveform": "bowed",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -16925,7 +21869,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "pulse12",
+      "waveform": "shimmer",
       "octave": 0,
       "semitone": 0,
       "fine": -7,
@@ -16936,7 +21880,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "digital",
+      "waveform": "triangle",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -16956,6 +21900,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.054,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 13,
+        "stereo": 0.71,
+        "delay": 0.008,
+        "motion": 0.18,
+        "motionRate": 0.186
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 6,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 15,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.21,
+        "motionRate": 0.143
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 645,
+      "lowpass": 9060,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.2,
+      "motionRate": 0.129
     },
     "ampEnv": {
       "attack": 0.053000000000000005,
@@ -17050,7 +22041,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "brass",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -17060,7 +22052,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-105",
     "name": "Dirty Trumpet",
     "category": "Brass",
-    "description": "Original brass patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise brass patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -17078,7 +22070,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.0,
     "oscA": {
       "enabled": true,
-      "waveform": "pulse25",
+      "waveform": "air",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -17089,7 +22081,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "organ",
+      "waveform": "spectral",
       "octave": 0,
       "semitone": 7,
       "fine": 9,
@@ -17100,7 +22092,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "vowel",
+      "waveform": "square",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -17120,6 +22112,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.0,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 16,
+        "stereo": 0.35,
+        "delay": 0.016,
+        "motion": 0.23,
+        "motionRate": 0.204
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 7,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 18,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.265,
+        "motionRate": 0.157
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 720,
+      "lowpass": 8640,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.25,
+      "motionRate": 0.141
     },
     "ampEnv": {
       "attack": 0.057,
@@ -17214,7 +22253,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "brass",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -17224,7 +22264,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-106",
     "name": "Low Brass",
     "category": "Brass",
-    "description": "Original brass patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise brass patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -17242,7 +22282,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.12,
     "oscA": {
       "enabled": true,
-      "waveform": "warmSaw",
+      "waveform": "formant",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -17253,7 +22293,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "digital",
+      "waveform": "triangle",
       "octave": 0,
       "semitone": 12,
       "fine": -11,
@@ -17264,7 +22304,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "pulse12",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -17284,6 +22324,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.018,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 19,
+        "stereo": 0.47,
+        "delay": 0.0,
+        "motion": 0.28,
+        "motionRate": 0.222
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 21,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.32,
+        "motionRate": 0.171
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 795,
+      "lowpass": 8220,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.3,
+      "motionRate": 0.153
     },
     "ampEnv": {
       "attack": 0.061000000000000006,
@@ -17378,7 +22465,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "brass",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -17388,7 +22476,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-107",
     "name": "Cinematic Stab",
     "category": "Brass",
-    "description": "Original brass patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise brass patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -17406,7 +22494,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.24,
     "oscA": {
       "enabled": true,
-      "waveform": "hollow",
+      "waveform": "sine",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -17417,7 +22505,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "vowel",
+      "waveform": "square",
       "octave": 0,
       "semitone": -12,
       "fine": 3,
@@ -17428,7 +22516,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "square",
+      "waveform": "organ",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -17448,6 +22536,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "brown",
       "level": 0.036,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 7,
+        "stereo": 0.59,
+        "delay": 0.008,
+        "motion": 0.08,
+        "motionRate": 0.24
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 9,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.1,
+        "motionRate": 0.185
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 870,
+      "lowpass": 7800,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.1,
+      "motionRate": 0.165
     },
     "ampEnv": {
       "attack": 0.065,
@@ -17542,7 +22677,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "brass",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -17552,7 +22688,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-108",
     "name": "Victory Horn",
     "category": "Brass",
-    "description": "Original brass patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise brass patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -17570,7 +22706,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.36,
     "oscA": {
       "enabled": true,
-      "waveform": "metallic",
+      "waveform": "sawtooth",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -17581,7 +22717,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "pulse12",
       "octave": 0,
       "semitone": 0,
       "fine": -5,
@@ -17592,7 +22728,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "pulse12",
+      "waveform": "digital",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -17612,6 +22748,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.054,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 10,
+        "stereo": 0.71,
+        "delay": 0.016,
+        "motion": 0.13,
+        "motionRate": 0.258
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 5,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 12,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.155,
+        "motionRate": 0.199
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 945,
+      "lowpass": 7380,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.15,
+      "motionRate": 0.177
     },
     "ampEnv": {
       "attack": 0.069,
@@ -17706,7 +22889,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "brass",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -17716,7 +22900,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-109",
     "name": "Air Flute",
     "category": "Flute",
-    "description": "Original flute patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise flute patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -17776,6 +22960,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.04,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "cinematic",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 7,
+        "stereo": 0.35,
+        "delay": 0.0,
+        "motion": 0.08,
+        "motionRate": 0.06
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 9,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.1,
+        "motionRate": 0.045
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 120,
+      "lowpass": 12000,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.1,
+      "motionRate": 0.045
     },
     "ampEnv": {
       "attack": 0.035,
@@ -17870,7 +23101,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "flute",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -17880,7 +23112,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-110",
     "name": "Bamboo Night",
     "category": "Flute",
-    "description": "Original flute patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise flute patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -17940,6 +23172,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.055,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 10,
+        "stereo": 0.47,
+        "delay": 0.008,
+        "motion": 0.13,
+        "motionRate": 0.078
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 5,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 12,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.155,
+        "motionRate": 0.059
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 195,
+      "lowpass": 11580,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.15,
+      "motionRate": 0.057
     },
     "ampEnv": {
       "attack": 0.041,
@@ -18034,7 +23313,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "flute",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -18044,7 +23324,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-111",
     "name": "Digital Breath",
     "category": "Flute",
-    "description": "Original flute patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise flute patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -18104,6 +23384,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.07,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 13,
+        "stereo": 0.59,
+        "delay": 0.016,
+        "motion": 0.18,
+        "motionRate": 0.096
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 6,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 15,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.21,
+        "motionRate": 0.073
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 270,
+      "lowpass": 11160,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.2,
+      "motionRate": 0.069
     },
     "ampEnv": {
       "attack": 0.047,
@@ -18198,7 +23525,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "flute",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -18208,7 +23536,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-112",
     "name": "Pan Drift",
     "category": "Flute",
-    "description": "Original flute patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise flute patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -18248,7 +23576,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "choir",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -18268,6 +23596,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.08499999999999999,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 16,
+        "stereo": 0.71,
+        "delay": 0.0,
+        "motion": 0.23,
+        "motionRate": 0.114
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 7,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 18,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.265,
+        "motionRate": 0.087
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 345,
+      "lowpass": 10740,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.25,
+      "motionRate": 0.081
     },
     "ampEnv": {
       "attack": 0.053000000000000005,
@@ -18362,7 +23737,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "flute",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -18372,7 +23748,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-113",
     "name": "Whistle Lead",
     "category": "Flute",
-    "description": "Original flute patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise flute patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -18412,7 +23788,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "square",
+      "waveform": "glass",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -18432,6 +23808,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.04,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 19,
+        "stereo": 0.35,
+        "delay": 0.008,
+        "motion": 0.28,
+        "motionRate": 0.132
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 21,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.32,
+        "motionRate": 0.101
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 420,
+      "lowpass": 10320,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.3,
+      "motionRate": 0.093
     },
     "ampEnv": {
       "attack": 0.059000000000000004,
@@ -18526,7 +23949,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "flute",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -18536,7 +23960,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-114",
     "name": "Ghost Flute",
     "category": "Flute",
-    "description": "Original flute patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise flute patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -18576,7 +24000,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "pulse12",
+      "waveform": "shimmer",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -18596,6 +24020,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.055,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 7,
+        "stereo": 0.47,
+        "delay": 0.016,
+        "motion": 0.08,
+        "motionRate": 0.15
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 4,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 9,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.1,
+        "motionRate": 0.115
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 495,
+      "lowpass": 9900,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.1,
+      "motionRate": 0.105
     },
     "ampEnv": {
       "attack": 0.065,
@@ -18690,7 +24161,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "flute",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -18700,7 +24172,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-115",
     "name": "Soft Recorder",
     "category": "Flute",
-    "description": "Original flute patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise flute patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -18740,7 +24212,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "organ",
+      "waveform": "spectral",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -18760,6 +24232,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.07,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "cinematic",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 10,
+        "stereo": 0.59,
+        "delay": 0.0,
+        "motion": 0.13,
+        "motionRate": 0.168
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 5,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 12,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.155,
+        "motionRate": 0.129
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 570,
+      "lowpass": 9480,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.15,
+      "motionRate": 0.117
     },
     "ampEnv": {
       "attack": 0.07100000000000001,
@@ -18854,7 +24373,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "flute",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -18864,7 +24384,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-116",
     "name": "Woodwind Air",
     "category": "Flute",
-    "description": "Original flute patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise flute patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -18904,7 +24424,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "digital",
+      "waveform": "triangle",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -18924,6 +24444,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.08499999999999999,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 13,
+        "stereo": 0.71,
+        "delay": 0.008,
+        "motion": 0.18,
+        "motionRate": 0.186
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 6,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 15,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.21,
+        "motionRate": 0.143
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 645,
+      "lowpass": 9060,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.2,
+      "motionRate": 0.129
     },
     "ampEnv": {
       "attack": 0.07700000000000001,
@@ -19018,7 +24585,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "flute",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -19028,7 +24596,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-117",
     "name": "Cloud Pipe",
     "category": "Flute",
-    "description": "Original flute patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise flute patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -19068,7 +24636,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "vowel",
+      "waveform": "square",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -19088,6 +24656,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.04,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 16,
+        "stereo": 0.35,
+        "delay": 0.016,
+        "motion": 0.23,
+        "motionRate": 0.204
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 7,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 18,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.265,
+        "motionRate": 0.157
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 720,
+      "lowpass": 8640,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.25,
+      "motionRate": 0.141
     },
     "ampEnv": {
       "attack": 0.083,
@@ -19182,7 +24797,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "flute",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -19192,7 +24808,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-118",
     "name": "Breath Stack",
     "category": "Flute",
-    "description": "Original flute patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise flute patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -19232,7 +24848,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "pulse12",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -19252,6 +24868,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.055,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 19,
+        "stereo": 0.47,
+        "delay": 0.0,
+        "motion": 0.28,
+        "motionRate": 0.222
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 21,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.32,
+        "motionRate": 0.171
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 795,
+      "lowpass": 8220,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.3,
+      "motionRate": 0.153
     },
     "ampEnv": {
       "attack": 0.089,
@@ -19346,7 +25009,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "flute",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -19356,7 +25020,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-119",
     "name": "Glass Flute",
     "category": "Flute",
-    "description": "Original flute patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise flute patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -19396,7 +25060,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "square",
+      "waveform": "organ",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -19416,6 +25080,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.07,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 7,
+        "stereo": 0.59,
+        "delay": 0.008,
+        "motion": 0.08,
+        "motionRate": 0.24
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 9,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.1,
+        "motionRate": 0.185
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 870,
+      "lowpass": 7800,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.1,
+      "motionRate": 0.165
     },
     "ampEnv": {
       "attack": 0.095,
@@ -19510,7 +25221,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "flute",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -19520,7 +25232,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-120",
     "name": "Street Whistle",
     "category": "Flute",
-    "description": "Original flute patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise flute patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -19560,7 +25272,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "pulse12",
+      "waveform": "digital",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -19580,6 +25292,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.08499999999999999,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 10,
+        "stereo": 0.71,
+        "delay": 0.016,
+        "motion": 0.13,
+        "motionRate": 0.258
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 5,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 12,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.155,
+        "motionRate": 0.199
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 945,
+      "lowpass": 7380,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.15,
+      "motionRate": 0.177
     },
     "ampEnv": {
       "attack": 0.101,
@@ -19674,7 +25433,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "flute",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -19684,7 +25444,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-121",
     "name": "Vinyl Spirit",
     "category": "Texture",
-    "description": "Original texture patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise texture patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -19744,6 +25504,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.025,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "cinematic",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 7,
+        "stereo": 0.35,
+        "delay": 0.0,
+        "motion": 0.08,
+        "motionRate": 0.06
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 9,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.1,
+        "motionRate": 0.045
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 120,
+      "lowpass": 12000,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.1,
+      "motionRate": 0.045
     },
     "ampEnv": {
       "attack": 0.18,
@@ -19838,7 +25645,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "texture",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -19848,7 +25656,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-122",
     "name": "Radio Dust",
     "category": "Texture",
-    "description": "Original texture patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise texture patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -19908,6 +25716,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.04,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 10,
+        "stereo": 0.47,
+        "delay": 0.008,
+        "motion": 0.13,
+        "motionRate": 0.078
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 5,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 12,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.155,
+        "motionRate": 0.059
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 195,
+      "lowpass": 11580,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.15,
+      "motionRate": 0.057
     },
     "ampEnv": {
       "attack": 0.25,
@@ -20002,7 +25857,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "texture",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -20012,7 +25868,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-123",
     "name": "Granular Rain",
     "category": "Texture",
-    "description": "Original texture patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise texture patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -20072,6 +25928,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.055,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 13,
+        "stereo": 0.59,
+        "delay": 0.016,
+        "motion": 0.18,
+        "motionRate": 0.096
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 6,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 15,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.21,
+        "motionRate": 0.073
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 270,
+      "lowpass": 11160,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.2,
+      "motionRate": 0.069
     },
     "ampEnv": {
       "attack": 0.32,
@@ -20166,7 +26069,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "texture",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -20176,7 +26080,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-124",
     "name": "Tape Ghost",
     "category": "Texture",
-    "description": "Original texture patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise texture patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -20216,7 +26120,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "choir",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -20236,6 +26140,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.07,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 16,
+        "stereo": 0.71,
+        "delay": 0.0,
+        "motion": 0.23,
+        "motionRate": 0.114
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 7,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 18,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.265,
+        "motionRate": 0.087
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 345,
+      "lowpass": 10740,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.25,
+      "motionRate": 0.081
     },
     "ampEnv": {
       "attack": 0.39,
@@ -20330,7 +26281,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "texture",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -20340,7 +26292,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-125",
     "name": "Dark Room",
     "category": "Texture",
-    "description": "Original texture patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise texture patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -20380,7 +26332,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "square",
+      "waveform": "glass",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -20400,6 +26352,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.025,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 19,
+        "stereo": 0.35,
+        "delay": 0.008,
+        "motion": 0.28,
+        "motionRate": 0.132
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 21,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.32,
+        "motionRate": 0.101
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 420,
+      "lowpass": 10320,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.3,
+      "motionRate": 0.093
     },
     "ampEnv": {
       "attack": 0.46,
@@ -20494,7 +26493,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "texture",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -20504,7 +26504,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-126",
     "name": "Air Traffic",
     "category": "Texture",
-    "description": "Original texture patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise texture patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -20533,7 +26533,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "choir",
       "octave": 0,
       "semitone": -12,
       "fine": -3,
@@ -20544,7 +26544,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "pulse12",
+      "waveform": "shimmer",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -20564,6 +26564,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.04,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 7,
+        "stereo": 0.47,
+        "delay": 0.016,
+        "motion": 0.08,
+        "motionRate": 0.15
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 4,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 9,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.1,
+        "motionRate": 0.115
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 495,
+      "lowpass": 9900,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.1,
+      "motionRate": 0.105
     },
     "ampEnv": {
       "attack": 0.53,
@@ -20658,7 +26705,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "texture",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -20668,7 +26716,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-127",
     "name": "Memory Noise",
     "category": "Texture",
-    "description": "Original texture patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise texture patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -20686,7 +26734,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.24,
     "oscA": {
       "enabled": true,
-      "waveform": "sine",
+      "waveform": "cinematic",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -20697,7 +26745,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "square",
+      "waveform": "glass",
       "octave": 0,
       "semitone": 0,
       "fine": 5,
@@ -20708,7 +26756,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "organ",
+      "waveform": "spectral",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -20728,6 +26776,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.055,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "cinematic",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 10,
+        "stereo": 0.59,
+        "delay": 0.0,
+        "motion": 0.13,
+        "motionRate": 0.168
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 5,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 12,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.155,
+        "motionRate": 0.129
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 570,
+      "lowpass": 9480,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.15,
+      "motionRate": 0.117
     },
     "ampEnv": {
       "attack": 0.6,
@@ -20822,7 +26917,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "texture",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -20832,7 +26928,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-128",
     "name": "Broken Signal",
     "category": "Texture",
-    "description": "Original texture patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise texture patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -20850,7 +26946,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.36,
     "oscA": {
       "enabled": true,
-      "waveform": "sawtooth",
+      "waveform": "bowed",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -20861,7 +26957,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "pulse12",
+      "waveform": "shimmer",
       "octave": 0,
       "semitone": 0,
       "fine": -7,
@@ -20872,7 +26968,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "digital",
+      "waveform": "triangle",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -20892,6 +26988,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.07,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 13,
+        "stereo": 0.71,
+        "delay": 0.008,
+        "motion": 0.18,
+        "motionRate": 0.186
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 6,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 15,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.21,
+        "motionRate": 0.143
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 645,
+      "lowpass": 9060,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.2,
+      "motionRate": 0.129
     },
     "ampEnv": {
       "attack": 0.67,
@@ -20986,7 +27129,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "texture",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -20996,7 +27140,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-129",
     "name": "Frost Texture",
     "category": "Texture",
-    "description": "Original texture patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise texture patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -21014,7 +27158,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.0,
     "oscA": {
       "enabled": true,
-      "waveform": "pulse25",
+      "waveform": "air",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -21025,7 +27169,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "organ",
+      "waveform": "spectral",
       "octave": 0,
       "semitone": 7,
       "fine": 9,
@@ -21036,7 +27180,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "vowel",
+      "waveform": "square",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -21056,6 +27200,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.025,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 16,
+        "stereo": 0.35,
+        "delay": 0.016,
+        "motion": 0.23,
+        "motionRate": 0.204
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 7,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 18,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.265,
+        "motionRate": 0.157
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 720,
+      "lowpass": 8640,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.25,
+      "motionRate": 0.141
     },
     "ampEnv": {
       "attack": 0.74,
@@ -21150,7 +27341,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "texture",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -21160,7 +27352,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-130",
     "name": "Warm Static",
     "category": "Texture",
-    "description": "Original texture patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise texture patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -21178,7 +27370,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.12,
     "oscA": {
       "enabled": true,
-      "waveform": "warmSaw",
+      "waveform": "formant",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -21189,7 +27381,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "digital",
+      "waveform": "triangle",
       "octave": 0,
       "semitone": 12,
       "fine": -11,
@@ -21200,7 +27392,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "pulse12",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -21220,6 +27412,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.04,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 19,
+        "stereo": 0.47,
+        "delay": 0.0,
+        "motion": 0.28,
+        "motionRate": 0.222
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 21,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.32,
+        "motionRate": 0.171
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 795,
+      "lowpass": 8220,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.3,
+      "motionRate": 0.153
     },
     "ampEnv": {
       "attack": 0.81,
@@ -21314,7 +27553,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "texture",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -21324,7 +27564,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-131",
     "name": "City Fog",
     "category": "Texture",
-    "description": "Original texture patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise texture patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -21342,7 +27582,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.24,
     "oscA": {
       "enabled": true,
-      "waveform": "hollow",
+      "waveform": "sine",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -21353,7 +27593,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "vowel",
+      "waveform": "square",
       "octave": 0,
       "semitone": -12,
       "fine": 3,
@@ -21364,7 +27604,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "square",
+      "waveform": "organ",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -21384,6 +27624,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.055,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 7,
+        "stereo": 0.59,
+        "delay": 0.008,
+        "motion": 0.08,
+        "motionRate": 0.24
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 9,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.1,
+        "motionRate": 0.185
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 870,
+      "lowpass": 7800,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.1,
+      "motionRate": 0.165
     },
     "ampEnv": {
       "attack": 0.88,
@@ -21478,7 +27765,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "texture",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -21488,7 +27776,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-132",
     "name": "Digital Ash",
     "category": "Texture",
-    "description": "Original texture patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise texture patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -21506,7 +27794,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.36,
     "oscA": {
       "enabled": true,
-      "waveform": "metallic",
+      "waveform": "sawtooth",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -21517,7 +27805,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "pulse12",
       "octave": 0,
       "semitone": 0,
       "fine": -5,
@@ -21528,7 +27816,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "pulse12",
+      "waveform": "digital",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -21548,6 +27836,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.07,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 10,
+        "stereo": 0.71,
+        "delay": 0.016,
+        "motion": 0.13,
+        "motionRate": 0.258
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 5,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 12,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.155,
+        "motionRate": 0.199
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 945,
+      "lowpass": 7380,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.15,
+      "motionRate": 0.177
     },
     "ampEnv": {
       "attack": 0.95,
@@ -21642,7 +27977,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "texture",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -21652,7 +27988,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-133",
     "name": "Minor Stack",
     "category": "Chord",
-    "description": "Original chord patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise chord patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -21712,6 +28048,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.0,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "cinematic",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 7,
+        "stereo": 0.35,
+        "delay": 0.0,
+        "motion": 0.08,
+        "motionRate": 0.06
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 9,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.1,
+        "motionRate": 0.045
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 120,
+      "lowpass": 12000,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.1,
+      "motionRate": 0.045
     },
     "ampEnv": {
       "attack": 0.003,
@@ -21806,7 +28189,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "chord",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -21816,7 +28200,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-134",
     "name": "Soul Chord",
     "category": "Chord",
-    "description": "Original chord patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise chord patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -21876,6 +28260,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.018,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 10,
+        "stereo": 0.47,
+        "delay": 0.008,
+        "motion": 0.13,
+        "motionRate": 0.078
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 5,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 12,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.155,
+        "motionRate": 0.059
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 195,
+      "lowpass": 11580,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.15,
+      "motionRate": 0.057
     },
     "ampEnv": {
       "attack": 0.0112,
@@ -21970,7 +28401,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "chord",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -21980,7 +28412,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-135",
     "name": "Dark Seventh",
     "category": "Chord",
-    "description": "Original chord patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise chord patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -22040,6 +28472,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "brown",
       "level": 0.036,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 13,
+        "stereo": 0.59,
+        "delay": 0.016,
+        "motion": 0.18,
+        "motionRate": 0.096
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 6,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 15,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.21,
+        "motionRate": 0.073
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 270,
+      "lowpass": 11160,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.2,
+      "motionRate": 0.069
     },
     "ampEnv": {
       "attack": 0.0194,
@@ -22134,7 +28613,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "chord",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -22144,7 +28624,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-136",
     "name": "Dream Ninth",
     "category": "Chord",
-    "description": "Original chord patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise chord patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -22184,7 +28664,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "choir",
       "octave": 0,
       "semitone": 14,
       "fine": -7,
@@ -22204,6 +28684,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.054,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 16,
+        "stereo": 0.71,
+        "delay": 0.0,
+        "motion": 0.23,
+        "motionRate": 0.114
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 7,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 18,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.265,
+        "motionRate": 0.087
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 345,
+      "lowpass": 10740,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.25,
+      "motionRate": 0.081
     },
     "ampEnv": {
       "attack": 0.0275,
@@ -22298,7 +28825,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "chord",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -22308,7 +28836,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-137",
     "name": "Trap Choir",
     "category": "Chord",
-    "description": "Original chord patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise chord patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -22348,7 +28876,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "square",
+      "waveform": "glass",
       "octave": 0,
       "semitone": 7,
       "fine": -7,
@@ -22368,6 +28896,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.0,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 19,
+        "stereo": 0.35,
+        "delay": 0.008,
+        "motion": 0.28,
+        "motionRate": 0.132
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 21,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.32,
+        "motionRate": 0.101
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 420,
+      "lowpass": 10320,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.3,
+      "motionRate": 0.093
     },
     "ampEnv": {
       "attack": 0.0357,
@@ -22462,7 +29037,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "chord",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -22472,7 +29048,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-138",
     "name": "Jazz Glass",
     "category": "Chord",
-    "description": "Original chord patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise chord patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -22501,7 +29077,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "choir",
       "octave": 0,
       "semitone": 12,
       "fine": -3,
@@ -22512,7 +29088,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "pulse12",
+      "waveform": "shimmer",
       "octave": 0,
       "semitone": 10,
       "fine": -7,
@@ -22532,6 +29108,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.018,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 7,
+        "stereo": 0.47,
+        "delay": 0.016,
+        "motion": 0.08,
+        "motionRate": 0.15
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 4,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 9,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.1,
+        "motionRate": 0.115
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 495,
+      "lowpass": 9900,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.1,
+      "motionRate": 0.105
     },
     "ampEnv": {
       "attack": 0.0439,
@@ -22626,7 +29249,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "chord",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -22636,7 +29260,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-139",
     "name": "Wide Minor",
     "category": "Chord",
-    "description": "Original chord patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise chord patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -22654,7 +29278,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.24,
     "oscA": {
       "enabled": true,
-      "waveform": "sine",
+      "waveform": "cinematic",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -22665,7 +29289,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "square",
+      "waveform": "glass",
       "octave": 0,
       "semitone": 3,
       "fine": 5,
@@ -22676,7 +29300,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "organ",
+      "waveform": "spectral",
       "octave": 0,
       "semitone": 12,
       "fine": -7,
@@ -22696,6 +29320,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "brown",
       "level": 0.036,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "cinematic",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 10,
+        "stereo": 0.59,
+        "delay": 0.0,
+        "motion": 0.13,
+        "motionRate": 0.168
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 5,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 12,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.155,
+        "motionRate": 0.129
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 570,
+      "lowpass": 9480,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.15,
+      "motionRate": 0.117
     },
     "ampEnv": {
       "attack": 0.0521,
@@ -22790,7 +29461,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "chord",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -22800,7 +29472,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-140",
     "name": "Neo Soul",
     "category": "Chord",
-    "description": "Original chord patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise chord patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -22818,7 +29490,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.36,
     "oscA": {
       "enabled": true,
-      "waveform": "sawtooth",
+      "waveform": "bowed",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -22829,7 +29501,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "pulse12",
+      "waveform": "shimmer",
       "octave": 0,
       "semitone": 4,
       "fine": -7,
@@ -22840,7 +29512,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "digital",
+      "waveform": "triangle",
       "octave": 0,
       "semitone": 14,
       "fine": -7,
@@ -22860,6 +29532,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.054,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 13,
+        "stereo": 0.71,
+        "delay": 0.008,
+        "motion": 0.18,
+        "motionRate": 0.186
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 6,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 15,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.21,
+        "motionRate": 0.143
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 645,
+      "lowpass": 9060,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.2,
+      "motionRate": 0.129
     },
     "ampEnv": {
       "attack": 0.0603,
@@ -22954,7 +29673,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "chord",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -22964,7 +29684,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-141",
     "name": "Suspended Air",
     "category": "Chord",
-    "description": "Original chord patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise chord patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -22982,7 +29702,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.0,
     "oscA": {
       "enabled": true,
-      "waveform": "pulse25",
+      "waveform": "air",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -22993,7 +29713,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "organ",
+      "waveform": "spectral",
       "octave": 0,
       "semitone": 5,
       "fine": 9,
@@ -23004,7 +29724,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "vowel",
+      "waveform": "square",
       "octave": 0,
       "semitone": 7,
       "fine": -7,
@@ -23024,6 +29744,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.0,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 16,
+        "stereo": 0.35,
+        "delay": 0.016,
+        "motion": 0.23,
+        "motionRate": 0.204
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 7,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 18,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.265,
+        "motionRate": 0.157
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 720,
+      "lowpass": 8640,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.25,
+      "motionRate": 0.141
     },
     "ampEnv": {
       "attack": 0.0685,
@@ -23118,7 +29885,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "chord",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -23128,7 +29896,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-142",
     "name": "House Chord",
     "category": "Chord",
-    "description": "Original chord patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise chord patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -23146,7 +29914,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.12,
     "oscA": {
       "enabled": true,
-      "waveform": "warmSaw",
+      "waveform": "formant",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -23157,7 +29925,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "digital",
+      "waveform": "triangle",
       "octave": 0,
       "semitone": 7,
       "fine": -11,
@@ -23168,7 +29936,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "pulse12",
       "octave": 0,
       "semitone": 10,
       "fine": -7,
@@ -23188,6 +29956,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.018,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 19,
+        "stereo": 0.47,
+        "delay": 0.0,
+        "motion": 0.28,
+        "motionRate": 0.222
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 21,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.32,
+        "motionRate": 0.171
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 795,
+      "lowpass": 8220,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.3,
+      "motionRate": 0.153
     },
     "ampEnv": {
       "attack": 0.0766,
@@ -23282,7 +30097,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "chord",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -23292,7 +30108,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-143",
     "name": "Noir Stab",
     "category": "Chord",
-    "description": "Original chord patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise chord patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -23310,7 +30126,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.24,
     "oscA": {
       "enabled": true,
-      "waveform": "hollow",
+      "waveform": "sine",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -23321,7 +30137,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "vowel",
+      "waveform": "square",
       "octave": 0,
       "semitone": 10,
       "fine": 3,
@@ -23332,7 +30148,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "square",
+      "waveform": "organ",
       "octave": 0,
       "semitone": 12,
       "fine": -7,
@@ -23352,6 +30168,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "brown",
       "level": 0.036,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 7,
+        "stereo": 0.59,
+        "delay": 0.008,
+        "motion": 0.08,
+        "motionRate": 0.24
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 9,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.1,
+        "motionRate": 0.185
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 870,
+      "lowpass": 7800,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.1,
+      "motionRate": 0.165
     },
     "ampEnv": {
       "attack": 0.0848,
@@ -23446,7 +30309,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "chord",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -23456,7 +30320,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-144",
     "name": "Tape Harmony",
     "category": "Chord",
-    "description": "Original chord patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise chord patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -23474,7 +30338,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.36,
     "oscA": {
       "enabled": true,
-      "waveform": "metallic",
+      "waveform": "sawtooth",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -23485,7 +30349,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "pulse12",
       "octave": 0,
       "semitone": 12,
       "fine": -5,
@@ -23496,7 +30360,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "pulse12",
+      "waveform": "digital",
       "octave": 0,
       "semitone": 14,
       "fine": -7,
@@ -23516,6 +30380,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.054,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 10,
+        "stereo": 0.71,
+        "delay": 0.016,
+        "motion": 0.13,
+        "motionRate": 0.258
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 5,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 12,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.155,
+        "motionRate": 0.199
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 945,
+      "lowpass": 7380,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.15,
+      "motionRate": 0.177
     },
     "ampEnv": {
       "attack": 0.093,
@@ -23610,7 +30521,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "chord",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -23620,7 +30532,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-145",
     "name": "Midnight Runner",
     "category": "Arp",
-    "description": "Original arp patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise arp patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -23680,6 +30592,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.0,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "cinematic",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 7,
+        "stereo": 0.35,
+        "delay": 0.0,
+        "motion": 0.08,
+        "motionRate": 0.06
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 9,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.1,
+        "motionRate": 0.045
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 120,
+      "lowpass": 12000,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.1,
+      "motionRate": 0.045
     },
     "ampEnv": {
       "attack": 0.003,
@@ -23774,7 +30733,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "arp",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -23784,7 +30744,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-146",
     "name": "Glass Steps",
     "category": "Arp",
-    "description": "Original arp patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise arp patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -23844,6 +30804,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.018,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 10,
+        "stereo": 0.47,
+        "delay": 0.008,
+        "motion": 0.13,
+        "motionRate": 0.078
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 5,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 12,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.155,
+        "motionRate": 0.059
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 195,
+      "lowpass": 11580,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.15,
+      "motionRate": 0.057
     },
     "ampEnv": {
       "attack": 0.0112,
@@ -23938,7 +30945,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "arp",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -23948,7 +30956,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-147",
     "name": "Pulse Ladder",
     "category": "Arp",
-    "description": "Original arp patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise arp patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -24008,6 +31016,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "brown",
       "level": 0.036,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 13,
+        "stereo": 0.59,
+        "delay": 0.016,
+        "motion": 0.18,
+        "motionRate": 0.096
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 6,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 15,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.21,
+        "motionRate": 0.073
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 270,
+      "lowpass": 11160,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.2,
+      "motionRate": 0.069
     },
     "ampEnv": {
       "attack": 0.0194,
@@ -24102,7 +31157,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "arp",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -24112,7 +31168,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-148",
     "name": "Neon Sequence",
     "category": "Arp",
-    "description": "Original arp patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise arp patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -24152,7 +31208,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "choir",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -24172,6 +31228,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.054,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 16,
+        "stereo": 0.71,
+        "delay": 0.0,
+        "motion": 0.23,
+        "motionRate": 0.114
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 7,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 18,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.265,
+        "motionRate": 0.087
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 345,
+      "lowpass": 10740,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.25,
+      "motionRate": 0.081
     },
     "ampEnv": {
       "attack": 0.0275,
@@ -24266,7 +31369,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "arp",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -24276,7 +31380,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-149",
     "name": "Tiny Motion",
     "category": "Arp",
-    "description": "Original arp patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise arp patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -24316,7 +31420,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "square",
+      "waveform": "glass",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -24336,6 +31440,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.0,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 19,
+        "stereo": 0.35,
+        "delay": 0.008,
+        "motion": 0.28,
+        "motionRate": 0.132
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 21,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.32,
+        "motionRate": 0.101
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 420,
+      "lowpass": 10320,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.3,
+      "motionRate": 0.093
     },
     "ampEnv": {
       "attack": 0.0357,
@@ -24430,7 +31581,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "arp",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -24440,7 +31592,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-150",
     "name": "Dark Orbit",
     "category": "Arp",
-    "description": "Original arp patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise arp patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -24469,7 +31621,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "choir",
       "octave": 0,
       "semitone": -12,
       "fine": -3,
@@ -24480,7 +31632,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "pulse12",
+      "waveform": "shimmer",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -24500,6 +31652,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.018,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 7,
+        "stereo": 0.47,
+        "delay": 0.016,
+        "motion": 0.08,
+        "motionRate": 0.15
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 4,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 9,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.1,
+        "motionRate": 0.115
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 495,
+      "lowpass": 9900,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.1,
+      "motionRate": 0.105
     },
     "ampEnv": {
       "attack": 0.0439,
@@ -24594,7 +31793,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "arp",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -24604,7 +31804,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-151",
     "name": "Digital Rain",
     "category": "Arp",
-    "description": "Original arp patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise arp patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -24622,7 +31822,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.24,
     "oscA": {
       "enabled": true,
-      "waveform": "sine",
+      "waveform": "cinematic",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -24633,7 +31833,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "square",
+      "waveform": "glass",
       "octave": 0,
       "semitone": 0,
       "fine": 5,
@@ -24644,7 +31844,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "organ",
+      "waveform": "spectral",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -24664,6 +31864,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "brown",
       "level": 0.036,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "cinematic",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 10,
+        "stereo": 0.59,
+        "delay": 0.0,
+        "motion": 0.13,
+        "motionRate": 0.168
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 5,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 12,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.155,
+        "motionRate": 0.129
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 570,
+      "lowpass": 9480,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.15,
+      "motionRate": 0.117
     },
     "ampEnv": {
       "attack": 0.0521,
@@ -24758,7 +32005,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "arp",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -24768,7 +32016,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-152",
     "name": "Trap Sequence",
     "category": "Arp",
-    "description": "Original arp patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise arp patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -24786,7 +32034,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.36,
     "oscA": {
       "enabled": true,
-      "waveform": "sawtooth",
+      "waveform": "bowed",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -24797,7 +32045,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "pulse12",
+      "waveform": "shimmer",
       "octave": 0,
       "semitone": 0,
       "fine": -7,
@@ -24808,7 +32056,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "digital",
+      "waveform": "triangle",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -24828,6 +32076,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.054,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 13,
+        "stereo": 0.71,
+        "delay": 0.008,
+        "motion": 0.18,
+        "motionRate": 0.186
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 6,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 15,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.21,
+        "motionRate": 0.143
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 645,
+      "lowpass": 9060,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.2,
+      "motionRate": 0.129
     },
     "ampEnv": {
       "attack": 0.0603,
@@ -24922,7 +32217,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "arp",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -24932,7 +32228,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-153",
     "name": "Clockwork",
     "category": "Arp",
-    "description": "Original arp patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise arp patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -24950,7 +32246,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.0,
     "oscA": {
       "enabled": true,
-      "waveform": "pulse25",
+      "waveform": "air",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -24961,7 +32257,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "organ",
+      "waveform": "spectral",
       "octave": 0,
       "semitone": 7,
       "fine": 9,
@@ -24972,7 +32268,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "vowel",
+      "waveform": "square",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -24992,6 +32288,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.0,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 16,
+        "stereo": 0.35,
+        "delay": 0.016,
+        "motion": 0.23,
+        "motionRate": 0.204
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 7,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 18,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.265,
+        "motionRate": 0.157
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 720,
+      "lowpass": 8640,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.25,
+      "motionRate": 0.141
     },
     "ampEnv": {
       "attack": 0.0685,
@@ -25086,7 +32429,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "arp",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -25096,7 +32440,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-154",
     "name": "Hollow Steps",
     "category": "Arp",
-    "description": "Original arp patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise arp patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -25114,7 +32458,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.12,
     "oscA": {
       "enabled": true,
-      "waveform": "warmSaw",
+      "waveform": "formant",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -25125,7 +32469,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "digital",
+      "waveform": "triangle",
       "octave": 0,
       "semitone": 12,
       "fine": -11,
@@ -25136,7 +32480,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "pulse12",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -25156,6 +32500,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.018,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 19,
+        "stereo": 0.47,
+        "delay": 0.0,
+        "motion": 0.28,
+        "motionRate": 0.222
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 21,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.32,
+        "motionRate": 0.171
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 795,
+      "lowpass": 8220,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.3,
+      "motionRate": 0.153
     },
     "ampEnv": {
       "attack": 0.0766,
@@ -25250,7 +32641,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "arp",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -25260,7 +32652,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-155",
     "name": "Silver Run",
     "category": "Arp",
-    "description": "Original arp patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise arp patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -25278,7 +32670,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.24,
     "oscA": {
       "enabled": true,
-      "waveform": "hollow",
+      "waveform": "sine",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -25289,7 +32681,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "vowel",
+      "waveform": "square",
       "octave": 0,
       "semitone": -12,
       "fine": 3,
@@ -25300,7 +32692,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "square",
+      "waveform": "organ",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -25320,6 +32712,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "brown",
       "level": 0.036,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 7,
+        "stereo": 0.59,
+        "delay": 0.008,
+        "motion": 0.08,
+        "motionRate": 0.24
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 9,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.1,
+        "motionRate": 0.185
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 870,
+      "lowpass": 7800,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.1,
+      "motionRate": 0.165
     },
     "ampEnv": {
       "attack": 0.0848,
@@ -25414,7 +32853,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "arp",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -25424,7 +32864,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-156",
     "name": "Prism Motion",
     "category": "Arp",
-    "description": "Original arp patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise arp patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -25442,7 +32882,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.36,
     "oscA": {
       "enabled": true,
-      "waveform": "metallic",
+      "waveform": "sawtooth",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -25453,7 +32893,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "pulse12",
       "octave": 0,
       "semitone": 0,
       "fine": -5,
@@ -25464,7 +32904,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "pulse12",
+      "waveform": "digital",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -25484,6 +32924,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.054,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 10,
+        "stereo": 0.71,
+        "delay": 0.016,
+        "motion": 0.13,
+        "motionRate": 0.258
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 5,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 12,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.155,
+        "motionRate": 0.199
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 945,
+      "lowpass": 7380,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.15,
+      "motionRate": 0.177
     },
     "ampEnv": {
       "attack": 0.093,
@@ -25578,7 +33065,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "arp",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -25588,7 +33076,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-157",
     "name": "Riser Voice",
     "category": "FX",
-    "description": "Original fx patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise fx patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -25648,6 +33136,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.08,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "cinematic",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 7,
+        "stereo": 0.35,
+        "delay": 0.0,
+        "motion": 0.08,
+        "motionRate": 0.06
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 9,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.1,
+        "motionRate": 0.045
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 120,
+      "lowpass": 12000,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.1,
+      "motionRate": 0.045
     },
     "ampEnv": {
       "attack": 0.02,
@@ -25742,7 +33277,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "fx",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -25752,7 +33288,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-158",
     "name": "Downward Signal",
     "category": "FX",
-    "description": "Original fx patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise fx patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -25812,6 +33348,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.12,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 10,
+        "stereo": 0.47,
+        "delay": 0.008,
+        "motion": 0.13,
+        "motionRate": 0.078
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 5,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 12,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.155,
+        "motionRate": 0.059
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 195,
+      "lowpass": 11580,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.15,
+      "motionRate": 0.057
     },
     "ampEnv": {
       "attack": 0.07,
@@ -25906,7 +33489,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "fx",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -25916,7 +33500,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-159",
     "name": "Impact Synth",
     "category": "FX",
-    "description": "Original fx patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise fx patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -25976,6 +33560,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.16,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 13,
+        "stereo": 0.59,
+        "delay": 0.016,
+        "motion": 0.18,
+        "motionRate": 0.096
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 6,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 15,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.21,
+        "motionRate": 0.073
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 270,
+      "lowpass": 11160,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.2,
+      "motionRate": 0.069
     },
     "ampEnv": {
       "attack": 0.12000000000000001,
@@ -26070,7 +33701,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "fx",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -26080,7 +33712,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-160",
     "name": "Laser Sweep",
     "category": "FX",
-    "description": "Original fx patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise fx patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -26120,7 +33752,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "choir",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -26140,6 +33772,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.2,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 16,
+        "stereo": 0.71,
+        "delay": 0.0,
+        "motion": 0.23,
+        "motionRate": 0.114
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 7,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 18,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.265,
+        "motionRate": 0.087
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 345,
+      "lowpass": 10740,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.25,
+      "motionRate": 0.081
     },
     "ampEnv": {
       "attack": 0.17,
@@ -26234,7 +33913,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "fx",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -26244,7 +33924,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-161",
     "name": "Reverse Air",
     "category": "FX",
-    "description": "Original fx patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise fx patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -26284,7 +33964,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "square",
+      "waveform": "glass",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -26304,6 +33984,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.24,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 19,
+        "stereo": 0.35,
+        "delay": 0.008,
+        "motion": 0.28,
+        "motionRate": 0.132
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 21,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.32,
+        "motionRate": 0.101
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 420,
+      "lowpass": 10320,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.3,
+      "motionRate": 0.093
     },
     "ampEnv": {
       "attack": 0.22,
@@ -26398,7 +34125,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "fx",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -26408,7 +34136,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-162",
     "name": "Alarm Motion",
     "category": "FX",
-    "description": "Original fx patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise fx patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -26437,7 +34165,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "choir",
       "octave": 0,
       "semitone": -12,
       "fine": -3,
@@ -26448,7 +34176,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "pulse12",
+      "waveform": "shimmer",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -26468,6 +34196,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.08,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 7,
+        "stereo": 0.47,
+        "delay": 0.016,
+        "motion": 0.08,
+        "motionRate": 0.15
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 4,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 9,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.1,
+        "motionRate": 0.115
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 495,
+      "lowpass": 9900,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.1,
+      "motionRate": 0.105
     },
     "ampEnv": {
       "attack": 0.27,
@@ -26562,7 +34337,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "fx",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -26572,7 +34348,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-163",
     "name": "Sub Drop",
     "category": "FX",
-    "description": "Original fx patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise fx patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -26590,7 +34366,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.24,
     "oscA": {
       "enabled": true,
-      "waveform": "sine",
+      "waveform": "cinematic",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -26601,7 +34377,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "square",
+      "waveform": "glass",
       "octave": 0,
       "semitone": 0,
       "fine": 5,
@@ -26612,7 +34388,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "organ",
+      "waveform": "spectral",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -26632,6 +34408,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.12,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "cinematic",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 10,
+        "stereo": 0.59,
+        "delay": 0.0,
+        "motion": 0.13,
+        "motionRate": 0.168
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 5,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 12,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.155,
+        "motionRate": 0.129
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 570,
+      "lowpass": 9480,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.15,
+      "motionRate": 0.117
     },
     "ampEnv": {
       "attack": 0.32000000000000006,
@@ -26726,7 +34549,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "fx",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -26736,7 +34560,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-164",
     "name": "Noise Bend",
     "category": "FX",
-    "description": "Original fx patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise fx patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -26754,7 +34578,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.36,
     "oscA": {
       "enabled": true,
-      "waveform": "sawtooth",
+      "waveform": "bowed",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -26765,7 +34589,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "pulse12",
+      "waveform": "shimmer",
       "octave": 0,
       "semitone": 0,
       "fine": -7,
@@ -26776,7 +34600,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "digital",
+      "waveform": "triangle",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -26796,6 +34620,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.16,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 13,
+        "stereo": 0.71,
+        "delay": 0.008,
+        "motion": 0.18,
+        "motionRate": 0.186
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 6,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 15,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.21,
+        "motionRate": 0.143
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 645,
+      "lowpass": 9060,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.2,
+      "motionRate": 0.129
     },
     "ampEnv": {
       "attack": 0.37000000000000005,
@@ -26890,7 +34761,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "fx",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -26900,7 +34772,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-165",
     "name": "Digital Crash",
     "category": "FX",
-    "description": "Original fx patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise fx patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -26918,7 +34790,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.0,
     "oscA": {
       "enabled": true,
-      "waveform": "pulse25",
+      "waveform": "air",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -26929,7 +34801,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "organ",
+      "waveform": "spectral",
       "octave": 0,
       "semitone": 7,
       "fine": 9,
@@ -26940,7 +34812,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "vowel",
+      "waveform": "square",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -26960,6 +34832,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.2,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -4,
+        "level": 0.1,
+        "pan": -0.18,
+        "unison": 2,
+        "detune": 16,
+        "stereo": 0.35,
+        "delay": 0.016,
+        "motion": 0.23,
+        "motionRate": 0.204
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 7,
+        "level": 0.07,
+        "pan": 0.18,
+        "unison": 3,
+        "detune": 18,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.265,
+        "motionRate": 0.157
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "pink",
+      "level": 0.018,
+      "highpass": 720,
+      "lowpass": 8640,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.25,
+      "motionRate": 0.141
     },
     "ampEnv": {
       "attack": 0.42000000000000004,
@@ -27054,7 +34973,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "fx",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -27064,7 +34984,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-166",
     "name": "Portal Tone",
     "category": "FX",
-    "description": "Original fx patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise fx patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -27082,7 +35002,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.12,
     "oscA": {
       "enabled": true,
-      "waveform": "warmSaw",
+      "waveform": "formant",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -27093,7 +35013,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "digital",
+      "waveform": "triangle",
       "octave": 0,
       "semitone": 12,
       "fine": -11,
@@ -27104,7 +35024,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "pulse12",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -27124,6 +35044,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "white",
       "level": 0.24,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -5,
+        "level": 0.135,
+        "pan": -0.18,
+        "unison": 3,
+        "detune": 19,
+        "stereo": 0.47,
+        "delay": 0.0,
+        "motion": 0.28,
+        "motionRate": 0.222
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.098,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 21,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.32,
+        "motionRate": 0.171
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.03,
+      "highpass": 795,
+      "lowpass": 8220,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.3,
+      "motionRate": 0.153
     },
     "ampEnv": {
       "attack": 0.47000000000000003,
@@ -27218,7 +35185,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "fx",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -27228,7 +35196,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-167",
     "name": "Tape Stop Synth",
     "category": "FX",
-    "description": "Original fx patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise fx patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -27246,7 +35214,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.24,
     "oscA": {
       "enabled": true,
-      "waveform": "hollow",
+      "waveform": "sine",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -27257,7 +35225,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "vowel",
+      "waveform": "square",
       "octave": 0,
       "semitone": -12,
       "fine": 3,
@@ -27268,7 +35236,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "square",
+      "waveform": "organ",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -27288,6 +35256,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "pink",
       "level": 0.08,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -6,
+        "level": 0.17,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 7,
+        "stereo": 0.59,
+        "delay": 0.008,
+        "motion": 0.08,
+        "motionRate": 0.24
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.126,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 9,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.1,
+        "motionRate": 0.185
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "blue",
+      "level": 0.042,
+      "highpass": 870,
+      "lowpass": 7800,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.1,
+      "motionRate": 0.165
     },
     "ampEnv": {
       "attack": 0.52,
@@ -27382,7 +35397,8 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "fx",
-      "hip-hop",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -27392,7 +35408,7 @@ export const INSTRUMENT_PRESETS = [
     "id": "preset-168",
     "name": "Cinematic Pulse",
     "category": "FX",
-    "description": "Original fx patch designed for hip-hop, trap, drill, R&B, and modern production.",
+    "description": "Original enterprise fx patch for modern production, with layered synthesis, modulation, and performance-ready macros.",
     "author": "MusicStudioLab Factory",
     "engineMode": "subtractive",
     "polyphony": 16,
@@ -27410,7 +35426,7 @@ export const INSTRUMENT_PRESETS = [
     "phaseRandom": 0.36,
     "oscA": {
       "enabled": true,
-      "waveform": "metallic",
+      "waveform": "sawtooth",
       "octave": 0,
       "semitone": 0,
       "fine": 0,
@@ -27421,7 +35437,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscB": {
       "enabled": true,
-      "waveform": "triangle",
+      "waveform": "pulse12",
       "octave": 0,
       "semitone": 0,
       "fine": -5,
@@ -27432,7 +35448,7 @@ export const INSTRUMENT_PRESETS = [
     },
     "oscC": {
       "enabled": false,
-      "waveform": "pulse12",
+      "waveform": "digital",
       "octave": 1,
       "semitone": 0,
       "fine": -7,
@@ -27452,6 +35468,53 @@ export const INSTRUMENT_PRESETS = [
       "color": "blue",
       "level": 0.12,
       "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": false,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -7,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 10,
+        "stereo": 0.71,
+        "delay": 0.016,
+        "motion": 0.13,
+        "motionRate": 0.258
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": false,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 5,
+        "level": 0.154,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 12,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.155,
+        "motionRate": 0.199
+      }
+    ],
+    "textureLayer": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.054,
+      "highpass": 945,
+      "lowpass": 7380,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.15,
+      "motionRate": 0.177
     },
     "ampEnv": {
       "attack": 0.5700000000000001,
@@ -27546,7 +35609,15272 @@ export const INSTRUMENT_PRESETS = [
     },
     "tags": [
       "fx",
-      "hip-hop",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-169",
+    "name": "Ethereal Horizon",
+    "category": "Atmosphere",
+    "description": "Original layered atmosphere instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.01,
+    "masterTune": 0,
+    "voiceDrift": 1.0,
+    "velocityToAmp": 0.58,
+    "velocityToFilter": 0.18,
+    "keyTracking": 0.25,
+    "unison": 3,
+    "detune": 3,
+    "stereo": 0.48,
+    "phaseRandom": 0.0,
+    "oscA": {
+      "enabled": true,
+      "waveform": "air",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "square",
+      "octave": 0,
+      "semitone": -12,
+      "fine": 3,
+      "level": 0.12,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": true,
+      "waveform": "organ",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.05,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.08
+    },
+    "noise": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.0,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -4,
+        "level": 0.18,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 10,
+        "stereo": 0.35,
+        "delay": 0.0,
+        "motion": 0.16,
+        "motionRate": 0.06
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.12,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 12,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.2,
+        "motionRate": 0.045
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.025,
+      "highpass": 120,
+      "lowpass": 12000,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.2,
+      "motionRate": 0.045
+    },
+    "ampEnv": {
+      "attack": 0.3,
+      "hold": 0,
+      "decay": 0.6,
+      "sustain": 0.62,
+      "release": 1.8,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 700,
+      "resonance": 0.4,
+      "drive": 0.0,
+      "keyTrack": 0.2
+    },
+    "filter2": {
+      "enabled": true,
+      "type": "highpass",
+      "cutoff": 80,
+      "resonance": 0.2,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "parallel",
+    "filterBlend": 0.32,
+    "filterEnv": {
+      "attack": 0.003,
+      "hold": 0,
+      "decay": 0.12,
+      "sustain": 0.18,
+      "release": 0.16,
+      "amount": 0.16
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.04,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": true,
+      "source": "B",
+      "target": "A",
+      "ratio": 0.5,
+      "amount": 0.0
+    },
+    "ring": {
+      "enabled": true,
+      "amount": 0.0,
+      "ratio": 0.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sine",
+      "rate": 2.2,
+      "sync": true,
+      "division": "1/2",
+      "amount": 0.0,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 0.12,
+      "sync": true,
+      "division": "1/1",
+      "amount": 0.0,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.15,
+      "brightness": 0.28,
+      "motion": 0.0,
+      "width": 0.22
+    },
+    "voiceFx": {
+      "chorus": 0.28,
+      "chorusRate": 0.18,
+      "chorusDepth": 0.006,
+      "bitcrush": 0.12,
+      "saturation": 0.04
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "up",
+      "rate": "1/8",
+      "octaves": 1,
+      "gate": 0.48
+    },
+    "tags": [
+      "atmosphere",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-170",
+    "name": "Midnight Nebula",
+    "category": "Atmosphere",
+    "description": "Original layered atmosphere instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.02,
+    "masterTune": 0,
+    "voiceDrift": 1.45,
+    "velocityToAmp": 0.603,
+    "velocityToFilter": 0.218,
+    "keyTracking": 0.288,
+    "unison": 4,
+    "detune": 6,
+    "stereo": 0.6,
+    "phaseRandom": 0.12,
+    "oscA": {
+      "enabled": true,
+      "waveform": "air",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "pulse12",
+      "octave": 0,
+      "semitone": 0,
+      "fine": -5,
+      "level": 0.195,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "digital",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.08,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.135
+    },
+    "noise": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.018,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -5,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 13,
+        "stereo": 0.47,
+        "delay": 0.008,
+        "motion": 0.23,
+        "motionRate": 0.078
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 5,
+        "level": 0.13999999999999999,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 15,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.26,
+        "motionRate": 0.059
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "brown",
+      "level": 0.037000000000000005,
+      "highpass": 195,
+      "lowpass": 11580,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.26,
+      "motionRate": 0.057
+    },
+    "ampEnv": {
+      "attack": 0.37,
+      "hold": 0,
+      "decay": 0.6599999999999999,
+      "sustain": 0.7,
+      "release": 1.98,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 1950,
+      "resonance": 1.2,
+      "drive": 0.06,
+      "keyTrack": 0.34
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "bandpass",
+      "cutoff": 200,
+      "resonance": 0.8,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.44,
+    "filterEnv": {
+      "attack": 0.0085,
+      "hold": 0,
+      "decay": 0.164,
+      "sustain": 0.3,
+      "release": 0.207,
+      "amount": 0.28
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.051,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 1,
+      "amount": 0.04
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.06,
+      "ratio": 1
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 2.62,
+      "sync": false,
+      "division": "1/4",
+      "amount": 0.018,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.19,
+      "sync": false,
+      "division": "1/2",
+      "amount": 0.05,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.31,
+      "brightness": 0.4,
+      "motion": 0.12,
+      "width": 0.37
+    },
+    "voiceFx": {
+      "chorus": 0.38,
+      "chorusRate": 0.29,
+      "chorusDepth": 0.0075,
+      "bitcrush": 0.0,
+      "saturation": 0.07500000000000001
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "down",
+      "rate": "1/16",
+      "octaves": 2,
+      "gate": 0.58
+    },
+    "tags": [
+      "atmosphere",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-171",
+    "name": "Frozen Distance",
+    "category": "Atmosphere",
+    "description": "Original layered atmosphere instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.03,
+    "masterTune": 0,
+    "voiceDrift": 1.91,
+    "velocityToAmp": 0.625,
+    "velocityToFilter": 0.256,
+    "keyTracking": 0.326,
+    "unison": 5,
+    "detune": 9,
+    "stereo": 0.72,
+    "phaseRandom": 0.24,
+    "oscA": {
+      "enabled": true,
+      "waveform": "air",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "organ",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 7,
+      "level": 0.27,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "vowel",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.11,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.19
+    },
+    "noise": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.036,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -6,
+        "level": 0.22999999999999998,
+        "pan": -0.18,
+        "unison": 6,
+        "detune": 16,
+        "stereo": 0.59,
+        "delay": 0.016,
+        "motion": 0.30000000000000004,
+        "motionRate": 0.096
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 6,
+        "level": 0.16,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 18,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.32,
+        "motionRate": 0.073
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "blue",
+      "level": 0.049,
+      "highpass": 270,
+      "lowpass": 11160,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.32,
+      "motionRate": 0.069
+    },
+    "ampEnv": {
+      "attack": 0.44,
+      "hold": 0,
+      "decay": 0.72,
+      "sustain": 0.78,
+      "release": 2.16,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 3200,
+      "resonance": 2.0,
+      "drive": 0.12,
+      "keyTrack": 0.48
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "notch",
+      "cutoff": 320,
+      "resonance": 1.4,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.56,
+    "filterEnv": {
+      "attack": 0.0139,
+      "hold": 0,
+      "decay": 0.207,
+      "sustain": 0.42,
+      "release": 0.255,
+      "amount": 0.4
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.062,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 2,
+      "amount": 0.08
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.12,
+      "ratio": 1.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sawtooth",
+      "rate": 3.04,
+      "sync": false,
+      "division": "1/8",
+      "amount": 0.036,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.26,
+      "sync": false,
+      "division": "1/4",
+      "amount": 0.1,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.47,
+      "brightness": 0.52,
+      "motion": 0.24,
+      "width": 0.52
+    },
+    "voiceFx": {
+      "chorus": 0.48000000000000004,
+      "chorusRate": 0.4,
+      "chorusDepth": 0.009000000000000001,
+      "bitcrush": 0.0,
+      "saturation": 0.11000000000000001
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "upDown",
+      "rate": "1/16T",
+      "octaves": 3,
+      "gate": 0.68
+    },
+    "tags": [
+      "atmosphere",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-172",
+    "name": "Infinite Air",
+    "category": "Atmosphere",
+    "description": "Original layered atmosphere instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.04,
+    "masterTune": 0,
+    "voiceDrift": 2.36,
+    "velocityToAmp": 0.648,
+    "velocityToFilter": 0.295,
+    "keyTracking": 0.365,
+    "unison": 6,
+    "detune": 12,
+    "stereo": 0.84,
+    "phaseRandom": 0.36,
+    "oscA": {
+      "enabled": true,
+      "waveform": "air",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "digital",
+      "octave": 0,
+      "semitone": 7,
+      "fine": -9,
+      "level": 0.345,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": true,
+      "waveform": "choir",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.14,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.245
+    },
+    "noise": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.054,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -7,
+        "level": 0.255,
+        "pan": -0.18,
+        "unison": 7,
+        "detune": 19,
+        "stereo": 0.71,
+        "delay": 0.0,
+        "motion": 0.37,
+        "motionRate": 0.114
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 7,
+        "level": 0.18,
+        "pan": 0.18,
+        "unison": 7,
+        "detune": 21,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.38,
+        "motionRate": 0.087
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "white",
+      "level": 0.061000000000000006,
+      "highpass": 345,
+      "lowpass": 10740,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.38,
+      "motionRate": 0.081
+    },
+    "ampEnv": {
+      "attack": 0.51,
+      "hold": 0,
+      "decay": 0.78,
+      "sustain": 0.62,
+      "release": 2.34,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 4450,
+      "resonance": 2.8,
+      "drive": 0.18,
+      "keyTrack": 0.62
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "highpass",
+      "cutoff": 440,
+      "resonance": 2.0,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.68,
+    "filterEnv": {
+      "attack": 0.0194,
+      "hold": 0,
+      "decay": 0.251,
+      "sustain": 0.54,
+      "release": 0.302,
+      "amount": 0.52
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.073,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 3,
+      "amount": 0.12
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.18,
+      "ratio": 2
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "square",
+      "rate": 3.46,
+      "sync": true,
+      "division": "1/16",
+      "amount": 0.054,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 0.33,
+      "sync": false,
+      "division": "1/8",
+      "amount": 0.15,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.63,
+      "brightness": 0.64,
+      "motion": 0.36,
+      "width": 0.67
+    },
+    "voiceFx": {
+      "chorus": 0.5800000000000001,
+      "chorusRate": 0.51,
+      "chorusDepth": 0.0105,
+      "bitcrush": 0.0,
+      "saturation": 0.14500000000000002
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "random",
+      "rate": "1/32",
+      "octaves": 1,
+      "gate": 0.78
+    },
+    "tags": [
+      "atmosphere",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-173",
+    "name": "Dream Corridor",
+    "category": "Atmosphere",
+    "description": "Original layered atmosphere instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.05,
+    "masterTune": 0,
+    "voiceDrift": 2.82,
+    "velocityToAmp": 0.671,
+    "velocityToFilter": 0.333,
+    "keyTracking": 0.403,
+    "unison": 7,
+    "detune": 15,
+    "stereo": 0.48,
+    "phaseRandom": 0.0,
+    "oscA": {
+      "enabled": true,
+      "waveform": "air",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "vowel",
+      "octave": 0,
+      "semitone": 12,
+      "fine": 11,
+      "level": 0.42,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "glass",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.05,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.08
+    },
+    "noise": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.0,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -4,
+        "level": 0.18,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 22,
+        "stereo": 0.35,
+        "delay": 0.008,
+        "motion": 0.16,
+        "motionRate": 0.132
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.12,
+        "pan": 0.18,
+        "unison": 8,
+        "detune": 24,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.2,
+        "motionRate": 0.101
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.025,
+      "highpass": 420,
+      "lowpass": 10320,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.2,
+      "motionRate": 0.093
+    },
+    "ampEnv": {
+      "attack": 0.5800000000000001,
+      "hold": 0,
+      "decay": 0.84,
+      "sustain": 0.7,
+      "release": 2.52,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 5700,
+      "resonance": 3.6,
+      "drive": 0.24,
+      "keyTrack": 0.2
+    },
+    "filter2": {
+      "enabled": true,
+      "type": "bandpass",
+      "cutoff": 560,
+      "resonance": 0.2,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.32,
+    "filterEnv": {
+      "attack": 0.0248,
+      "hold": 0,
+      "decay": 0.295,
+      "sustain": 0.66,
+      "release": 0.349,
+      "amount": 0.64
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.084,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 4,
+      "amount": 0.16
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.0,
+      "ratio": 0.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sine",
+      "rate": 3.88,
+      "sync": false,
+      "division": "1/2",
+      "amount": 0.072,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.4,
+      "sync": true,
+      "division": "1/1",
+      "amount": 0.0,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.79,
+      "brightness": 0.76,
+      "motion": 0.48,
+      "width": 0.82
+    },
+    "voiceFx": {
+      "chorus": 0.28,
+      "chorusRate": 0.62,
+      "chorusDepth": 0.006,
+      "bitcrush": 0.0,
+      "saturation": 0.04
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "up",
+      "rate": "1/8",
+      "octaves": 2,
+      "gate": 0.88
+    },
+    "tags": [
+      "atmosphere",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-174",
+    "name": "Solar Mist",
+    "category": "Atmosphere",
+    "description": "Original layered atmosphere instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.06,
+    "masterTune": 0,
+    "voiceDrift": 3.27,
+    "velocityToAmp": 0.694,
+    "velocityToFilter": 0.371,
+    "keyTracking": 0.441,
+    "unison": 3,
+    "detune": 18,
+    "stereo": 0.6,
+    "phaseRandom": 0.12,
+    "oscA": {
+      "enabled": true,
+      "waveform": "air",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "choir",
+      "octave": 0,
+      "semitone": -12,
+      "fine": -3,
+      "level": 0.12,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "shimmer",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.08,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.135
+    },
+    "noise": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.018,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -5,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 10,
+        "stereo": 0.47,
+        "delay": 0.016,
+        "motion": 0.23,
+        "motionRate": 0.15
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 4,
+        "level": 0.13999999999999999,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 12,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.26,
+        "motionRate": 0.115
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "brown",
+      "level": 0.037000000000000005,
+      "highpass": 495,
+      "lowpass": 9900,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.26,
+      "motionRate": 0.105
+    },
+    "ampEnv": {
+      "attack": 0.65,
+      "hold": 0,
+      "decay": 0.8999999999999999,
+      "sustain": 0.78,
+      "release": 2.7,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 6950,
+      "resonance": 4.4,
+      "drive": 0.0,
+      "keyTrack": 0.34
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "notch",
+      "cutoff": 680,
+      "resonance": 0.8,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "parallel",
+    "filterBlend": 0.44,
+    "filterEnv": {
+      "attack": 0.0303,
+      "hold": 0,
+      "decay": 0.338,
+      "sustain": 0.18,
+      "release": 0.396,
+      "amount": 0.76
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.095,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": true,
+      "source": "B",
+      "target": "A",
+      "ratio": 0.5,
+      "amount": 0.0
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.06,
+      "ratio": 1
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 4.3,
+      "sync": false,
+      "division": "1/4",
+      "amount": 0.0,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.47,
+      "sync": false,
+      "division": "1/2",
+      "amount": 0.05,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.15,
+      "brightness": 0.88,
+      "motion": 0.0,
+      "width": 0.22
+    },
+    "voiceFx": {
+      "chorus": 0.38,
+      "chorusRate": 0.18,
+      "chorusDepth": 0.0075,
+      "bitcrush": 0.0,
+      "saturation": 0.07500000000000001
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "down",
+      "rate": "1/16",
+      "octaves": 3,
+      "gate": 0.48
+    },
+    "tags": [
+      "atmosphere",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-175",
+    "name": "Velvet Expanse",
+    "category": "Atmosphere",
+    "description": "Original layered atmosphere instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.07,
+    "masterTune": 0,
+    "voiceDrift": 3.73,
+    "velocityToAmp": 0.716,
+    "velocityToFilter": 0.409,
+    "keyTracking": 0.479,
+    "unison": 4,
+    "detune": 3,
+    "stereo": 0.72,
+    "phaseRandom": 0.24,
+    "oscA": {
+      "enabled": true,
+      "waveform": "air",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "glass",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 5,
+      "level": 0.195,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": true,
+      "waveform": "spectral",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.11,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.19
+    },
+    "noise": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.036,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -6,
+        "level": 0.22999999999999998,
+        "pan": -0.18,
+        "unison": 6,
+        "detune": 13,
+        "stereo": 0.59,
+        "delay": 0.0,
+        "motion": 0.30000000000000004,
+        "motionRate": 0.168
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 5,
+        "level": 0.16,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 15,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.32,
+        "motionRate": 0.129
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "blue",
+      "level": 0.049,
+      "highpass": 570,
+      "lowpass": 9480,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.32,
+      "motionRate": 0.117
+    },
+    "ampEnv": {
+      "attack": 0.72,
+      "hold": 0,
+      "decay": 0.96,
+      "sustain": 0.62,
+      "release": 2.88,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 8200,
+      "resonance": 0.4,
+      "drive": 0.06,
+      "keyTrack": 0.48
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "highpass",
+      "cutoff": 800,
+      "resonance": 1.4,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.56,
+    "filterEnv": {
+      "attack": 0.0357,
+      "hold": 0,
+      "decay": 0.382,
+      "sustain": 0.3,
+      "release": 0.444,
+      "amount": 0.16
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.105,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 1,
+      "amount": 0.04
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.12,
+      "ratio": 1.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sawtooth",
+      "rate": 4.72,
+      "sync": true,
+      "division": "1/8",
+      "amount": 0.018,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 0.54,
+      "sync": false,
+      "division": "1/4",
+      "amount": 0.1,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.31,
+      "brightness": 0.28,
+      "motion": 0.12,
+      "width": 0.37
+    },
+    "voiceFx": {
+      "chorus": 0.48000000000000004,
+      "chorusRate": 0.29,
+      "chorusDepth": 0.009000000000000001,
+      "bitcrush": 0.0,
+      "saturation": 0.11000000000000001
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "upDown",
+      "rate": "1/16T",
+      "octaves": 1,
+      "gate": 0.58
+    },
+    "tags": [
+      "atmosphere",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-176",
+    "name": "Rain Cathedral",
+    "category": "Atmosphere",
+    "description": "Original layered atmosphere instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.08,
+    "masterTune": 0,
+    "voiceDrift": 4.18,
+    "velocityToAmp": 0.739,
+    "velocityToFilter": 0.447,
+    "keyTracking": 0.517,
+    "unison": 5,
+    "detune": 6,
+    "stereo": 0.84,
+    "phaseRandom": 0.36,
+    "oscA": {
+      "enabled": true,
+      "waveform": "air",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "shimmer",
+      "octave": 0,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.27,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "triangle",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.14,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.245
+    },
+    "noise": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.054,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -7,
+        "level": 0.255,
+        "pan": -0.18,
+        "unison": 7,
+        "detune": 16,
+        "stereo": 0.71,
+        "delay": 0.008,
+        "motion": 0.37,
+        "motionRate": 0.186
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 6,
+        "level": 0.18,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 18,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.38,
+        "motionRate": 0.143
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "white",
+      "level": 0.061000000000000006,
+      "highpass": 645,
+      "lowpass": 9060,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.38,
+      "motionRate": 0.129
+    },
+    "ampEnv": {
+      "attack": 0.79,
+      "hold": 0,
+      "decay": 1.02,
+      "sustain": 0.7,
+      "release": 3.06,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 9450,
+      "resonance": 1.2,
+      "drive": 0.12,
+      "keyTrack": 0.62
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "bandpass",
+      "cutoff": 920,
+      "resonance": 2.0,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.68,
+    "filterEnv": {
+      "attack": 0.0412,
+      "hold": 0,
+      "decay": 0.425,
+      "sustain": 0.42,
+      "release": 0.491,
+      "amount": 0.28
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.116,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 2,
+      "amount": 0.08
+    },
+    "ring": {
+      "enabled": true,
+      "amount": 0.18,
+      "ratio": 2
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "square",
+      "rate": 5.14,
+      "sync": false,
+      "division": "1/16",
+      "amount": 0.036,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.61,
+      "sync": false,
+      "division": "1/8",
+      "amount": 0.15,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.47,
+      "brightness": 0.4,
+      "motion": 0.24,
+      "width": 0.52
+    },
+    "voiceFx": {
+      "chorus": 0.5800000000000001,
+      "chorusRate": 0.4,
+      "chorusDepth": 0.0105,
+      "bitcrush": 0.12,
+      "saturation": 0.14500000000000002
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "random",
+      "rate": "1/32",
+      "octaves": 2,
+      "gate": 0.68
+    },
+    "tags": [
+      "atmosphere",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-177",
+    "name": "Quiet Orbit",
+    "category": "Atmosphere",
+    "description": "Original layered atmosphere instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.09,
+    "masterTune": 0,
+    "voiceDrift": 4.64,
+    "velocityToAmp": 0.762,
+    "velocityToFilter": 0.485,
+    "keyTracking": 0.555,
+    "unison": 6,
+    "detune": 9,
+    "stereo": 0.48,
+    "phaseRandom": 0.0,
+    "oscA": {
+      "enabled": true,
+      "waveform": "air",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "spectral",
+      "octave": 0,
+      "semitone": 7,
+      "fine": 9,
+      "level": 0.345,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "square",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.05,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.08
+    },
+    "noise": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.0,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -4,
+        "level": 0.18,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 19,
+        "stereo": 0.35,
+        "delay": 0.016,
+        "motion": 0.16,
+        "motionRate": 0.204
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 7,
+        "level": 0.12,
+        "pan": 0.18,
+        "unison": 7,
+        "detune": 21,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.2,
+        "motionRate": 0.157
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.025,
+      "highpass": 720,
+      "lowpass": 8640,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.2,
+      "motionRate": 0.141
+    },
+    "ampEnv": {
+      "attack": 0.8600000000000001,
+      "hold": 0,
+      "decay": 1.08,
+      "sustain": 0.78,
+      "release": 3.24,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 10700,
+      "resonance": 2.0,
+      "drive": 0.18,
+      "keyTrack": 0.2
+    },
+    "filter2": {
+      "enabled": true,
+      "type": "notch",
+      "cutoff": 1040,
+      "resonance": 0.2,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.32,
+    "filterEnv": {
+      "attack": 0.0466,
+      "hold": 0,
+      "decay": 0.469,
+      "sustain": 0.54,
+      "release": 0.538,
+      "amount": 0.4
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.127,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 3,
+      "amount": 0.12
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.0,
+      "ratio": 0.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sine",
+      "rate": 5.56,
+      "sync": false,
+      "division": "1/2",
+      "amount": 0.054,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.68,
+      "sync": true,
+      "division": "1/1",
+      "amount": 0.0,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.63,
+      "brightness": 0.52,
+      "motion": 0.36,
+      "width": 0.67
+    },
+    "voiceFx": {
+      "chorus": 0.28,
+      "chorusRate": 0.51,
+      "chorusDepth": 0.006,
+      "bitcrush": 0.0,
+      "saturation": 0.04
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "up",
+      "rate": "1/8",
+      "octaves": 3,
+      "gate": 0.78
+    },
+    "tags": [
+      "atmosphere",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-178",
+    "name": "Ocean Above",
+    "category": "Atmosphere",
+    "description": "Original layered atmosphere instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.1,
+    "masterTune": 0,
+    "voiceDrift": 5.09,
+    "velocityToAmp": 0.785,
+    "velocityToFilter": 0.524,
+    "keyTracking": 0.594,
+    "unison": 7,
+    "detune": 12,
+    "stereo": 0.6,
+    "phaseRandom": 0.12,
+    "oscA": {
+      "enabled": true,
+      "waveform": "air",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "triangle",
+      "octave": 0,
+      "semitone": 12,
+      "fine": -11,
+      "level": 0.42,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": true,
+      "waveform": "pulse12",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.08,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.135
+    },
+    "noise": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.018,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -5,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 22,
+        "stereo": 0.47,
+        "delay": 0.0,
+        "motion": 0.23,
+        "motionRate": 0.222
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.13999999999999999,
+        "pan": 0.18,
+        "unison": 8,
+        "detune": 24,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.26,
+        "motionRate": 0.171
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "brown",
+      "level": 0.037000000000000005,
+      "highpass": 795,
+      "lowpass": 8220,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.26,
+      "motionRate": 0.153
+    },
+    "ampEnv": {
+      "attack": 0.9300000000000002,
+      "hold": 0,
+      "decay": 1.1400000000000001,
+      "sustain": 0.62,
+      "release": 3.42,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 11950,
+      "resonance": 2.8,
+      "drive": 0.24,
+      "keyTrack": 0.34
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "highpass",
+      "cutoff": 1160,
+      "resonance": 0.8,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.44,
+    "filterEnv": {
+      "attack": 0.0521,
+      "hold": 0,
+      "decay": 0.513,
+      "sustain": 0.66,
+      "release": 0.585,
+      "amount": 0.52
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.138,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 4,
+      "amount": 0.16
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.06,
+      "ratio": 1
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 5.98,
+      "sync": true,
+      "division": "1/4",
+      "amount": 0.072,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 0.75,
+      "sync": false,
+      "division": "1/2",
+      "amount": 0.05,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.79,
+      "brightness": 0.64,
+      "motion": 0.48,
+      "width": 0.82
+    },
+    "voiceFx": {
+      "chorus": 0.38,
+      "chorusRate": 0.62,
+      "chorusDepth": 0.0075,
+      "bitcrush": 0.0,
+      "saturation": 0.07500000000000001
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "down",
+      "rate": "1/16",
+      "octaves": 1,
+      "gate": 0.88
+    },
+    "tags": [
+      "atmosphere",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-179",
+    "name": "Memory Field",
+    "category": "Atmosphere",
+    "description": "Original layered atmosphere instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.11,
+    "masterTune": 0,
+    "voiceDrift": 5.55,
+    "velocityToAmp": 0.807,
+    "velocityToFilter": 0.562,
+    "keyTracking": 0.632,
+    "unison": 3,
+    "detune": 15,
+    "stereo": 0.72,
+    "phaseRandom": 0.24,
+    "oscA": {
+      "enabled": true,
+      "waveform": "air",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "square",
+      "octave": 0,
+      "semitone": -12,
+      "fine": 3,
+      "level": 0.12,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "organ",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.11,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.19
+    },
+    "noise": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.036,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -6,
+        "level": 0.22999999999999998,
+        "pan": -0.18,
+        "unison": 6,
+        "detune": 10,
+        "stereo": 0.59,
+        "delay": 0.008,
+        "motion": 0.30000000000000004,
+        "motionRate": 0.24
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.16,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 12,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.32,
+        "motionRate": 0.185
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "blue",
+      "level": 0.049,
+      "highpass": 870,
+      "lowpass": 7800,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.32,
+      "motionRate": 0.165
+    },
+    "ampEnv": {
+      "attack": 1.0,
+      "hold": 0,
+      "decay": 1.2,
+      "sustain": 0.7,
+      "release": 3.5999999999999996,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 13200,
+      "resonance": 3.6,
+      "drive": 0.0,
+      "keyTrack": 0.48
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "bandpass",
+      "cutoff": 1280,
+      "resonance": 1.4,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "parallel",
+    "filterBlend": 0.56,
+    "filterEnv": {
+      "attack": 0.0575,
+      "hold": 0,
+      "decay": 0.556,
+      "sustain": 0.18,
+      "release": 0.633,
+      "amount": 0.64
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.149,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": true,
+      "source": "B",
+      "target": "A",
+      "ratio": 0.5,
+      "amount": 0.0
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.12,
+      "ratio": 1.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sawtooth",
+      "rate": 6.4,
+      "sync": false,
+      "division": "1/8",
+      "amount": 0.0,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.82,
+      "sync": false,
+      "division": "1/4",
+      "amount": 0.1,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.15,
+      "brightness": 0.76,
+      "motion": 0.0,
+      "width": 0.22
+    },
+    "voiceFx": {
+      "chorus": 0.48000000000000004,
+      "chorusRate": 0.18,
+      "chorusDepth": 0.009000000000000001,
+      "bitcrush": 0.0,
+      "saturation": 0.11000000000000001
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "upDown",
+      "rate": "1/16T",
+      "octaves": 2,
+      "gate": 0.48
+    },
+    "tags": [
+      "atmosphere",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-180",
+    "name": "Blue Infinity",
+    "category": "Atmosphere",
+    "description": "Original layered atmosphere instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.12,
+    "masterTune": 0,
+    "voiceDrift": 6.0,
+    "velocityToAmp": 0.83,
+    "velocityToFilter": 0.6,
+    "keyTracking": 0.67,
+    "unison": 4,
+    "detune": 18,
+    "stereo": 0.84,
+    "phaseRandom": 0.36,
+    "oscA": {
+      "enabled": true,
+      "waveform": "air",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "pulse12",
+      "octave": 0,
+      "semitone": 0,
+      "fine": -5,
+      "level": 0.195,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "digital",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.14,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.245
+    },
+    "noise": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.054,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -7,
+        "level": 0.255,
+        "pan": -0.18,
+        "unison": 7,
+        "detune": 13,
+        "stereo": 0.71,
+        "delay": 0.016,
+        "motion": 0.37,
+        "motionRate": 0.258
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 5,
+        "level": 0.18,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 15,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.38,
+        "motionRate": 0.199
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "white",
+      "level": 0.061000000000000006,
+      "highpass": 945,
+      "lowpass": 7380,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.38,
+      "motionRate": 0.177
+    },
+    "ampEnv": {
+      "attack": 1.07,
+      "hold": 0,
+      "decay": 1.2599999999999998,
+      "sustain": 0.78,
+      "release": 3.7800000000000002,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 14450,
+      "resonance": 4.4,
+      "drive": 0.06,
+      "keyTrack": 0.62
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "notch",
+      "cutoff": 1400,
+      "resonance": 2.0,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.68,
+    "filterEnv": {
+      "attack": 0.063,
+      "hold": 0,
+      "decay": 0.6,
+      "sustain": 0.3,
+      "release": 0.68,
+      "amount": 0.76
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.16,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 1,
+      "amount": 0.04
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.18,
+      "ratio": 2
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "square",
+      "rate": 6.82,
+      "sync": false,
+      "division": "1/16",
+      "amount": 0.018,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.89,
+      "sync": false,
+      "division": "1/8",
+      "amount": 0.15,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.31,
+      "brightness": 0.88,
+      "motion": 0.12,
+      "width": 0.37
+    },
+    "voiceFx": {
+      "chorus": 0.5800000000000001,
+      "chorusRate": 0.29,
+      "chorusDepth": 0.0105,
+      "bitcrush": 0.0,
+      "saturation": 0.14500000000000002
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "random",
+      "rate": "1/32",
+      "octaves": 3,
+      "gate": 0.58
+    },
+    "tags": [
+      "atmosphere",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-181",
+    "name": "Titan Arrival",
+    "category": "Cinematic",
+    "description": "Original layered cinematic instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.01,
+    "masterTune": 0,
+    "voiceDrift": 1.0,
+    "velocityToAmp": 0.58,
+    "velocityToFilter": 0.18,
+    "keyTracking": 0.25,
+    "unison": 3,
+    "detune": 3,
+    "stereo": 0.48,
+    "phaseRandom": 0.0,
+    "oscA": {
+      "enabled": true,
+      "waveform": "cinematic",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "square",
+      "octave": 0,
+      "semitone": -12,
+      "fine": 3,
+      "level": 0.12,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": true,
+      "waveform": "organ",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.05,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.08
+    },
+    "noise": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.0,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -4,
+        "level": 0.18,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 10,
+        "stereo": 0.35,
+        "delay": 0.0,
+        "motion": 0.16,
+        "motionRate": 0.06
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "shimmer",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.12,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 12,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.2,
+        "motionRate": 0.045
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.025,
+      "highpass": 120,
+      "lowpass": 12000,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.2,
+      "motionRate": 0.045
+    },
+    "ampEnv": {
+      "attack": 0.08,
+      "hold": 0,
+      "decay": 0.6,
+      "sustain": 0.62,
+      "release": 0.9,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 2200,
+      "resonance": 0.65,
+      "drive": 0.0,
+      "keyTrack": 0.2
+    },
+    "filter2": {
+      "enabled": true,
+      "type": "highpass",
+      "cutoff": 80,
+      "resonance": 0.2,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "parallel",
+    "filterBlend": 0.32,
+    "filterEnv": {
+      "attack": 0.003,
+      "hold": 0,
+      "decay": 0.12,
+      "sustain": 0.18,
+      "release": 0.16,
+      "amount": 0.16
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.04,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": true,
+      "source": "B",
+      "target": "A",
+      "ratio": 0.5,
+      "amount": 0.0
+    },
+    "ring": {
+      "enabled": true,
+      "amount": 0.0,
+      "ratio": 0.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sine",
+      "rate": 2.2,
+      "sync": true,
+      "division": "1/2",
+      "amount": 0.0,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 0.12,
+      "sync": true,
+      "division": "1/1",
+      "amount": 0.0,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.15,
+      "brightness": 0.28,
+      "motion": 0.0,
+      "width": 0.22
+    },
+    "voiceFx": {
+      "chorus": 0.28,
+      "chorusRate": 0.18,
+      "chorusDepth": 0.006,
+      "bitcrush": 0.12,
+      "saturation": 0.04
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "up",
+      "rate": "1/8",
+      "octaves": 1,
+      "gate": 0.48
+    },
+    "tags": [
+      "cinematic",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-182",
+    "name": "Glass Fortress",
+    "category": "Cinematic",
+    "description": "Original layered cinematic instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.02,
+    "masterTune": 0,
+    "voiceDrift": 1.45,
+    "velocityToAmp": 0.603,
+    "velocityToFilter": 0.218,
+    "keyTracking": 0.288,
+    "unison": 4,
+    "detune": 6,
+    "stereo": 0.6,
+    "phaseRandom": 0.12,
+    "oscA": {
+      "enabled": true,
+      "waveform": "cinematic",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "pulse12",
+      "octave": 0,
+      "semitone": 0,
+      "fine": -5,
+      "level": 0.195,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "digital",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.08,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.135
+    },
+    "noise": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.018,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -5,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 13,
+        "stereo": 0.47,
+        "delay": 0.008,
+        "motion": 0.23,
+        "motionRate": 0.078
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 5,
+        "level": 0.13999999999999999,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 15,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.26,
+        "motionRate": 0.059
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "brown",
+      "level": 0.037000000000000005,
+      "highpass": 195,
+      "lowpass": 11580,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.26,
+      "motionRate": 0.057
+    },
+    "ampEnv": {
+      "attack": 0.115,
+      "hold": 0,
+      "decay": 0.6599999999999999,
+      "sustain": 0.7,
+      "release": 1.04,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 2720,
+      "resonance": 1.0,
+      "drive": 0.06,
+      "keyTrack": 0.34
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "bandpass",
+      "cutoff": 200,
+      "resonance": 0.8,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.44,
+    "filterEnv": {
+      "attack": 0.0085,
+      "hold": 0,
+      "decay": 0.164,
+      "sustain": 0.3,
+      "release": 0.207,
+      "amount": 0.28
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.051,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 1,
+      "amount": 0.04
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.06,
+      "ratio": 1
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 2.62,
+      "sync": false,
+      "division": "1/4",
+      "amount": 0.018,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.19,
+      "sync": false,
+      "division": "1/2",
+      "amount": 0.05,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.31,
+      "brightness": 0.4,
+      "motion": 0.12,
+      "width": 0.37
+    },
+    "voiceFx": {
+      "chorus": 0.38,
+      "chorusRate": 0.29,
+      "chorusDepth": 0.0075,
+      "bitcrush": 0.0,
+      "saturation": 0.07500000000000001
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "down",
+      "rate": "1/16",
+      "octaves": 2,
+      "gate": 0.58
+    },
+    "tags": [
+      "cinematic",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-183",
+    "name": "Ancient Signal",
+    "category": "Cinematic",
+    "description": "Original layered cinematic instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.03,
+    "masterTune": 0,
+    "voiceDrift": 1.91,
+    "velocityToAmp": 0.625,
+    "velocityToFilter": 0.256,
+    "keyTracking": 0.326,
+    "unison": 5,
+    "detune": 9,
+    "stereo": 0.72,
+    "phaseRandom": 0.24,
+    "oscA": {
+      "enabled": true,
+      "waveform": "cinematic",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "organ",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 7,
+      "level": 0.27,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "vowel",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.11,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.19
+    },
+    "noise": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.036,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -6,
+        "level": 0.22999999999999998,
+        "pan": -0.18,
+        "unison": 6,
+        "detune": 16,
+        "stereo": 0.59,
+        "delay": 0.016,
+        "motion": 0.30000000000000004,
+        "motionRate": 0.096
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "shimmer",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 6,
+        "level": 0.16,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 18,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.32,
+        "motionRate": 0.073
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "blue",
+      "level": 0.049,
+      "highpass": 270,
+      "lowpass": 11160,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.32,
+      "motionRate": 0.069
+    },
+    "ampEnv": {
+      "attack": 0.15000000000000002,
+      "hold": 0,
+      "decay": 0.72,
+      "sustain": 0.78,
+      "release": 1.1800000000000002,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 3240,
+      "resonance": 1.35,
+      "drive": 0.12,
+      "keyTrack": 0.48
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "notch",
+      "cutoff": 320,
+      "resonance": 1.4,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.56,
+    "filterEnv": {
+      "attack": 0.0139,
+      "hold": 0,
+      "decay": 0.207,
+      "sustain": 0.42,
+      "release": 0.255,
+      "amount": 0.4
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.062,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 2,
+      "amount": 0.08
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.12,
+      "ratio": 1.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sawtooth",
+      "rate": 3.04,
+      "sync": false,
+      "division": "1/8",
+      "amount": 0.036,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.26,
+      "sync": false,
+      "division": "1/4",
+      "amount": 0.1,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.47,
+      "brightness": 0.52,
+      "motion": 0.24,
+      "width": 0.52
+    },
+    "voiceFx": {
+      "chorus": 0.48000000000000004,
+      "chorusRate": 0.4,
+      "chorusDepth": 0.009000000000000001,
+      "bitcrush": 0.0,
+      "saturation": 0.11000000000000001
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "upDown",
+      "rate": "1/16T",
+      "octaves": 3,
+      "gate": 0.68
+    },
+    "tags": [
+      "cinematic",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-184",
+    "name": "Heroic Undercurrent",
+    "category": "Cinematic",
+    "description": "Original layered cinematic instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.04,
+    "masterTune": 0,
+    "voiceDrift": 2.36,
+    "velocityToAmp": 0.648,
+    "velocityToFilter": 0.295,
+    "keyTracking": 0.365,
+    "unison": 6,
+    "detune": 12,
+    "stereo": 0.84,
+    "phaseRandom": 0.36,
+    "oscA": {
+      "enabled": true,
+      "waveform": "cinematic",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "digital",
+      "octave": 0,
+      "semitone": 7,
+      "fine": -9,
+      "level": 0.345,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": true,
+      "waveform": "choir",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.14,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.245
+    },
+    "noise": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.054,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -7,
+        "level": 0.255,
+        "pan": -0.18,
+        "unison": 7,
+        "detune": 19,
+        "stereo": 0.71,
+        "delay": 0.0,
+        "motion": 0.37,
+        "motionRate": 0.114
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "shimmer",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 7,
+        "level": 0.18,
+        "pan": 0.18,
+        "unison": 7,
+        "detune": 21,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.38,
+        "motionRate": 0.087
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "white",
+      "level": 0.061000000000000006,
+      "highpass": 345,
+      "lowpass": 10740,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.38,
+      "motionRate": 0.081
+    },
+    "ampEnv": {
+      "attack": 0.185,
+      "hold": 0,
+      "decay": 0.78,
+      "sustain": 0.62,
+      "release": 1.32,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 3760,
+      "resonance": 1.6999999999999997,
+      "drive": 0.18,
+      "keyTrack": 0.62
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "highpass",
+      "cutoff": 440,
+      "resonance": 2.0,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.68,
+    "filterEnv": {
+      "attack": 0.0194,
+      "hold": 0,
+      "decay": 0.251,
+      "sustain": 0.54,
+      "release": 0.302,
+      "amount": 0.52
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.073,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 3,
+      "amount": 0.12
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.18,
+      "ratio": 2
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "square",
+      "rate": 3.46,
+      "sync": true,
+      "division": "1/16",
+      "amount": 0.054,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 0.33,
+      "sync": false,
+      "division": "1/8",
+      "amount": 0.15,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.63,
+      "brightness": 0.64,
+      "motion": 0.36,
+      "width": 0.67
+    },
+    "voiceFx": {
+      "chorus": 0.5800000000000001,
+      "chorusRate": 0.51,
+      "chorusDepth": 0.0105,
+      "bitcrush": 0.0,
+      "saturation": 0.14500000000000002
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "random",
+      "rate": "1/32",
+      "octaves": 1,
+      "gate": 0.78
+    },
+    "tags": [
+      "cinematic",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-185",
+    "name": "Distant Empire",
+    "category": "Cinematic",
+    "description": "Original layered cinematic instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.05,
+    "masterTune": 0,
+    "voiceDrift": 2.82,
+    "velocityToAmp": 0.671,
+    "velocityToFilter": 0.333,
+    "keyTracking": 0.403,
+    "unison": 7,
+    "detune": 15,
+    "stereo": 0.48,
+    "phaseRandom": 0.0,
+    "oscA": {
+      "enabled": true,
+      "waveform": "cinematic",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "vowel",
+      "octave": 0,
+      "semitone": 12,
+      "fine": 11,
+      "level": 0.42,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "glass",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.05,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.08
+    },
+    "noise": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.0,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -4,
+        "level": 0.18,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 22,
+        "stereo": 0.35,
+        "delay": 0.008,
+        "motion": 0.16,
+        "motionRate": 0.132
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "shimmer",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.12,
+        "pan": 0.18,
+        "unison": 8,
+        "detune": 24,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.2,
+        "motionRate": 0.101
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.025,
+      "highpass": 420,
+      "lowpass": 10320,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.2,
+      "motionRate": 0.093
+    },
+    "ampEnv": {
+      "attack": 0.22000000000000003,
+      "hold": 0,
+      "decay": 0.84,
+      "sustain": 0.7,
+      "release": 1.46,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 4280,
+      "resonance": 0.65,
+      "drive": 0.24,
+      "keyTrack": 0.2
+    },
+    "filter2": {
+      "enabled": true,
+      "type": "bandpass",
+      "cutoff": 560,
+      "resonance": 0.2,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.32,
+    "filterEnv": {
+      "attack": 0.0248,
+      "hold": 0,
+      "decay": 0.295,
+      "sustain": 0.66,
+      "release": 0.349,
+      "amount": 0.64
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.084,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 4,
+      "amount": 0.16
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.0,
+      "ratio": 0.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sine",
+      "rate": 3.88,
+      "sync": false,
+      "division": "1/2",
+      "amount": 0.072,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.4,
+      "sync": true,
+      "division": "1/1",
+      "amount": 0.0,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.79,
+      "brightness": 0.76,
+      "motion": 0.48,
+      "width": 0.82
+    },
+    "voiceFx": {
+      "chorus": 0.28,
+      "chorusRate": 0.62,
+      "chorusDepth": 0.006,
+      "bitcrush": 0.0,
+      "saturation": 0.04
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "up",
+      "rate": "1/8",
+      "octaves": 2,
+      "gate": 0.88
+    },
+    "tags": [
+      "cinematic",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-186",
+    "name": "Shadow Monument",
+    "category": "Cinematic",
+    "description": "Original layered cinematic instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.06,
+    "masterTune": 0,
+    "voiceDrift": 3.27,
+    "velocityToAmp": 0.694,
+    "velocityToFilter": 0.371,
+    "keyTracking": 0.441,
+    "unison": 3,
+    "detune": 18,
+    "stereo": 0.6,
+    "phaseRandom": 0.12,
+    "oscA": {
+      "enabled": true,
+      "waveform": "cinematic",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "choir",
+      "octave": 0,
+      "semitone": -12,
+      "fine": -3,
+      "level": 0.12,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "shimmer",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.08,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.135
+    },
+    "noise": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.018,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -5,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 10,
+        "stereo": 0.47,
+        "delay": 0.016,
+        "motion": 0.23,
+        "motionRate": 0.15
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 4,
+        "level": 0.13999999999999999,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 12,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.26,
+        "motionRate": 0.115
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "brown",
+      "level": 0.037000000000000005,
+      "highpass": 495,
+      "lowpass": 9900,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.26,
+      "motionRate": 0.105
+    },
+    "ampEnv": {
+      "attack": 0.255,
+      "hold": 0,
+      "decay": 0.8999999999999999,
+      "sustain": 0.78,
+      "release": 1.6,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 4800,
+      "resonance": 1.0,
+      "drive": 0.0,
+      "keyTrack": 0.34
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "notch",
+      "cutoff": 680,
+      "resonance": 0.8,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "parallel",
+    "filterBlend": 0.44,
+    "filterEnv": {
+      "attack": 0.0303,
+      "hold": 0,
+      "decay": 0.338,
+      "sustain": 0.18,
+      "release": 0.396,
+      "amount": 0.76
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.095,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": true,
+      "source": "B",
+      "target": "A",
+      "ratio": 0.5,
+      "amount": 0.0
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.06,
+      "ratio": 1
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 4.3,
+      "sync": false,
+      "division": "1/4",
+      "amount": 0.0,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.47,
+      "sync": false,
+      "division": "1/2",
+      "amount": 0.05,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.15,
+      "brightness": 0.88,
+      "motion": 0.0,
+      "width": 0.22
+    },
+    "voiceFx": {
+      "chorus": 0.38,
+      "chorusRate": 0.18,
+      "chorusDepth": 0.0075,
+      "bitcrush": 0.0,
+      "saturation": 0.07500000000000001
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "down",
+      "rate": "1/16",
+      "octaves": 3,
+      "gate": 0.48
+    },
+    "tags": [
+      "cinematic",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-187",
+    "name": "Ascension Bed",
+    "category": "Cinematic",
+    "description": "Original layered cinematic instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.07,
+    "masterTune": 0,
+    "voiceDrift": 3.73,
+    "velocityToAmp": 0.716,
+    "velocityToFilter": 0.409,
+    "keyTracking": 0.479,
+    "unison": 4,
+    "detune": 3,
+    "stereo": 0.72,
+    "phaseRandom": 0.24,
+    "oscA": {
+      "enabled": true,
+      "waveform": "cinematic",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "glass",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 5,
+      "level": 0.195,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": true,
+      "waveform": "spectral",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.11,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.19
+    },
+    "noise": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.036,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -6,
+        "level": 0.22999999999999998,
+        "pan": -0.18,
+        "unison": 6,
+        "detune": 13,
+        "stereo": 0.59,
+        "delay": 0.0,
+        "motion": 0.30000000000000004,
+        "motionRate": 0.168
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "shimmer",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 5,
+        "level": 0.16,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 15,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.32,
+        "motionRate": 0.129
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "blue",
+      "level": 0.049,
+      "highpass": 570,
+      "lowpass": 9480,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.32,
+      "motionRate": 0.117
+    },
+    "ampEnv": {
+      "attack": 0.29000000000000004,
+      "hold": 0,
+      "decay": 0.96,
+      "sustain": 0.62,
+      "release": 1.7400000000000002,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 5320,
+      "resonance": 1.35,
+      "drive": 0.06,
+      "keyTrack": 0.48
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "highpass",
+      "cutoff": 800,
+      "resonance": 1.4,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.56,
+    "filterEnv": {
+      "attack": 0.0357,
+      "hold": 0,
+      "decay": 0.382,
+      "sustain": 0.3,
+      "release": 0.444,
+      "amount": 0.16
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.105,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 1,
+      "amount": 0.04
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.12,
+      "ratio": 1.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sawtooth",
+      "rate": 4.72,
+      "sync": true,
+      "division": "1/8",
+      "amount": 0.018,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 0.54,
+      "sync": false,
+      "division": "1/4",
+      "amount": 0.1,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.31,
+      "brightness": 0.28,
+      "motion": 0.12,
+      "width": 0.37
+    },
+    "voiceFx": {
+      "chorus": 0.48000000000000004,
+      "chorusRate": 0.29,
+      "chorusDepth": 0.009000000000000001,
+      "bitcrush": 0.0,
+      "saturation": 0.11000000000000001
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "upDown",
+      "rate": "1/16T",
+      "octaves": 1,
+      "gate": 0.58
+    },
+    "tags": [
+      "cinematic",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-188",
+    "name": "Noir Orchestra",
+    "category": "Cinematic",
+    "description": "Original layered cinematic instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.08,
+    "masterTune": 0,
+    "voiceDrift": 4.18,
+    "velocityToAmp": 0.739,
+    "velocityToFilter": 0.447,
+    "keyTracking": 0.517,
+    "unison": 5,
+    "detune": 6,
+    "stereo": 0.84,
+    "phaseRandom": 0.36,
+    "oscA": {
+      "enabled": true,
+      "waveform": "cinematic",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "shimmer",
+      "octave": 0,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.27,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "triangle",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.14,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.245
+    },
+    "noise": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.054,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -7,
+        "level": 0.255,
+        "pan": -0.18,
+        "unison": 7,
+        "detune": 16,
+        "stereo": 0.71,
+        "delay": 0.008,
+        "motion": 0.37,
+        "motionRate": 0.186
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 6,
+        "level": 0.18,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 18,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.38,
+        "motionRate": 0.143
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "white",
+      "level": 0.061000000000000006,
+      "highpass": 645,
+      "lowpass": 9060,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.38,
+      "motionRate": 0.129
+    },
+    "ampEnv": {
+      "attack": 0.325,
+      "hold": 0,
+      "decay": 1.02,
+      "sustain": 0.7,
+      "release": 1.8800000000000001,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 5840,
+      "resonance": 1.6999999999999997,
+      "drive": 0.12,
+      "keyTrack": 0.62
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "bandpass",
+      "cutoff": 920,
+      "resonance": 2.0,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.68,
+    "filterEnv": {
+      "attack": 0.0412,
+      "hold": 0,
+      "decay": 0.425,
+      "sustain": 0.42,
+      "release": 0.491,
+      "amount": 0.28
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.116,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 2,
+      "amount": 0.08
+    },
+    "ring": {
+      "enabled": true,
+      "amount": 0.18,
+      "ratio": 2
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "square",
+      "rate": 5.14,
+      "sync": false,
+      "division": "1/16",
+      "amount": 0.036,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.61,
+      "sync": false,
+      "division": "1/8",
+      "amount": 0.15,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.47,
+      "brightness": 0.4,
+      "motion": 0.24,
+      "width": 0.52
+    },
+    "voiceFx": {
+      "chorus": 0.5800000000000001,
+      "chorusRate": 0.4,
+      "chorusDepth": 0.0105,
+      "bitcrush": 0.12,
+      "saturation": 0.14500000000000002
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "random",
+      "rate": "1/32",
+      "octaves": 2,
+      "gate": 0.68
+    },
+    "tags": [
+      "cinematic",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-189",
+    "name": "Mechanical Dawn",
+    "category": "Cinematic",
+    "description": "Original layered cinematic instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.09,
+    "masterTune": 0,
+    "voiceDrift": 4.64,
+    "velocityToAmp": 0.762,
+    "velocityToFilter": 0.485,
+    "keyTracking": 0.555,
+    "unison": 6,
+    "detune": 9,
+    "stereo": 0.48,
+    "phaseRandom": 0.0,
+    "oscA": {
+      "enabled": true,
+      "waveform": "cinematic",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "spectral",
+      "octave": 0,
+      "semitone": 7,
+      "fine": 9,
+      "level": 0.345,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "square",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.05,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.08
+    },
+    "noise": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.0,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -4,
+        "level": 0.18,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 19,
+        "stereo": 0.35,
+        "delay": 0.016,
+        "motion": 0.16,
+        "motionRate": 0.204
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "shimmer",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 7,
+        "level": 0.12,
+        "pan": 0.18,
+        "unison": 7,
+        "detune": 21,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.2,
+        "motionRate": 0.157
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.025,
+      "highpass": 720,
+      "lowpass": 8640,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.2,
+      "motionRate": 0.141
+    },
+    "ampEnv": {
+      "attack": 0.36000000000000004,
+      "hold": 0,
+      "decay": 1.08,
+      "sustain": 0.78,
+      "release": 2.02,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 6360,
+      "resonance": 0.65,
+      "drive": 0.18,
+      "keyTrack": 0.2
+    },
+    "filter2": {
+      "enabled": true,
+      "type": "notch",
+      "cutoff": 1040,
+      "resonance": 0.2,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.32,
+    "filterEnv": {
+      "attack": 0.0466,
+      "hold": 0,
+      "decay": 0.469,
+      "sustain": 0.54,
+      "release": 0.538,
+      "amount": 0.4
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.127,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 3,
+      "amount": 0.12
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.0,
+      "ratio": 0.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sine",
+      "rate": 5.56,
+      "sync": false,
+      "division": "1/2",
+      "amount": 0.054,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.68,
+      "sync": true,
+      "division": "1/1",
+      "amount": 0.0,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.63,
+      "brightness": 0.52,
+      "motion": 0.36,
+      "width": 0.67
+    },
+    "voiceFx": {
+      "chorus": 0.28,
+      "chorusRate": 0.51,
+      "chorusDepth": 0.006,
+      "bitcrush": 0.0,
+      "saturation": 0.04
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "up",
+      "rate": "1/8",
+      "octaves": 3,
+      "gate": 0.78
+    },
+    "tags": [
+      "cinematic",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-190",
+    "name": "Falling Kingdom",
+    "category": "Cinematic",
+    "description": "Original layered cinematic instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.1,
+    "masterTune": 0,
+    "voiceDrift": 5.09,
+    "velocityToAmp": 0.785,
+    "velocityToFilter": 0.524,
+    "keyTracking": 0.594,
+    "unison": 7,
+    "detune": 12,
+    "stereo": 0.6,
+    "phaseRandom": 0.12,
+    "oscA": {
+      "enabled": true,
+      "waveform": "cinematic",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "triangle",
+      "octave": 0,
+      "semitone": 12,
+      "fine": -11,
+      "level": 0.42,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": true,
+      "waveform": "pulse12",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.08,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.135
+    },
+    "noise": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.018,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -5,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 22,
+        "stereo": 0.47,
+        "delay": 0.0,
+        "motion": 0.23,
+        "motionRate": 0.222
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "shimmer",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.13999999999999999,
+        "pan": 0.18,
+        "unison": 8,
+        "detune": 24,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.26,
+        "motionRate": 0.171
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "brown",
+      "level": 0.037000000000000005,
+      "highpass": 795,
+      "lowpass": 8220,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.26,
+      "motionRate": 0.153
+    },
+    "ampEnv": {
+      "attack": 0.3950000000000001,
+      "hold": 0,
+      "decay": 1.1400000000000001,
+      "sustain": 0.62,
+      "release": 2.16,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 6880,
+      "resonance": 1.0,
+      "drive": 0.24,
+      "keyTrack": 0.34
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "highpass",
+      "cutoff": 1160,
+      "resonance": 0.8,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.44,
+    "filterEnv": {
+      "attack": 0.0521,
+      "hold": 0,
+      "decay": 0.513,
+      "sustain": 0.66,
+      "release": 0.585,
+      "amount": 0.52
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.138,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 4,
+      "amount": 0.16
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.06,
+      "ratio": 1
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 5.98,
+      "sync": true,
+      "division": "1/4",
+      "amount": 0.072,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 0.75,
+      "sync": false,
+      "division": "1/2",
+      "amount": 0.05,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.79,
+      "brightness": 0.64,
+      "motion": 0.48,
+      "width": 0.82
+    },
+    "voiceFx": {
+      "chorus": 0.38,
+      "chorusRate": 0.62,
+      "chorusDepth": 0.0075,
+      "bitcrush": 0.0,
+      "saturation": 0.07500000000000001
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "down",
+      "rate": "1/16",
+      "octaves": 1,
+      "gate": 0.88
+    },
+    "tags": [
+      "cinematic",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-191",
+    "name": "Suspense Engine",
+    "category": "Cinematic",
+    "description": "Original layered cinematic instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.11,
+    "masterTune": 0,
+    "voiceDrift": 5.55,
+    "velocityToAmp": 0.807,
+    "velocityToFilter": 0.562,
+    "keyTracking": 0.632,
+    "unison": 3,
+    "detune": 15,
+    "stereo": 0.72,
+    "phaseRandom": 0.24,
+    "oscA": {
+      "enabled": true,
+      "waveform": "cinematic",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "square",
+      "octave": 0,
+      "semitone": -12,
+      "fine": 3,
+      "level": 0.12,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "organ",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.11,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.19
+    },
+    "noise": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.036,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -6,
+        "level": 0.22999999999999998,
+        "pan": -0.18,
+        "unison": 6,
+        "detune": 10,
+        "stereo": 0.59,
+        "delay": 0.008,
+        "motion": 0.30000000000000004,
+        "motionRate": 0.24
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "shimmer",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.16,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 12,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.32,
+        "motionRate": 0.185
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "blue",
+      "level": 0.049,
+      "highpass": 870,
+      "lowpass": 7800,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.32,
+      "motionRate": 0.165
+    },
+    "ampEnv": {
+      "attack": 0.43000000000000005,
+      "hold": 0,
+      "decay": 1.2,
+      "sustain": 0.7,
+      "release": 2.3000000000000003,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 7400,
+      "resonance": 1.35,
+      "drive": 0.0,
+      "keyTrack": 0.48
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "bandpass",
+      "cutoff": 1280,
+      "resonance": 1.4,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "parallel",
+    "filterBlend": 0.56,
+    "filterEnv": {
+      "attack": 0.0575,
+      "hold": 0,
+      "decay": 0.556,
+      "sustain": 0.18,
+      "release": 0.633,
+      "amount": 0.64
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.149,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": true,
+      "source": "B",
+      "target": "A",
+      "ratio": 0.5,
+      "amount": 0.0
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.12,
+      "ratio": 1.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sawtooth",
+      "rate": 6.4,
+      "sync": false,
+      "division": "1/8",
+      "amount": 0.0,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.82,
+      "sync": false,
+      "division": "1/4",
+      "amount": 0.1,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.15,
+      "brightness": 0.76,
+      "motion": 0.0,
+      "width": 0.22
+    },
+    "voiceFx": {
+      "chorus": 0.48000000000000004,
+      "chorusRate": 0.18,
+      "chorusDepth": 0.009000000000000001,
+      "bitcrush": 0.0,
+      "saturation": 0.11000000000000001
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "upDown",
+      "rate": "1/16T",
+      "octaves": 2,
+      "gate": 0.48
+    },
+    "tags": [
+      "cinematic",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-192",
+    "name": "Final Horizon",
+    "category": "Cinematic",
+    "description": "Original layered cinematic instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.12,
+    "masterTune": 0,
+    "voiceDrift": 6.0,
+    "velocityToAmp": 0.83,
+    "velocityToFilter": 0.6,
+    "keyTracking": 0.67,
+    "unison": 4,
+    "detune": 18,
+    "stereo": 0.84,
+    "phaseRandom": 0.36,
+    "oscA": {
+      "enabled": true,
+      "waveform": "cinematic",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "pulse12",
+      "octave": 0,
+      "semitone": 0,
+      "fine": -5,
+      "level": 0.195,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "digital",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.14,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.245
+    },
+    "noise": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.054,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -7,
+        "level": 0.255,
+        "pan": -0.18,
+        "unison": 7,
+        "detune": 13,
+        "stereo": 0.71,
+        "delay": 0.016,
+        "motion": 0.37,
+        "motionRate": 0.258
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 5,
+        "level": 0.18,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 15,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.38,
+        "motionRate": 0.199
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "white",
+      "level": 0.061000000000000006,
+      "highpass": 945,
+      "lowpass": 7380,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.38,
+      "motionRate": 0.177
+    },
+    "ampEnv": {
+      "attack": 0.465,
+      "hold": 0,
+      "decay": 1.2599999999999998,
+      "sustain": 0.78,
+      "release": 2.44,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 7920,
+      "resonance": 1.6999999999999997,
+      "drive": 0.06,
+      "keyTrack": 0.62
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "notch",
+      "cutoff": 1400,
+      "resonance": 2.0,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.68,
+    "filterEnv": {
+      "attack": 0.063,
+      "hold": 0,
+      "decay": 0.6,
+      "sustain": 0.3,
+      "release": 0.68,
+      "amount": 0.76
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.16,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 1,
+      "amount": 0.04
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.18,
+      "ratio": 2
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "square",
+      "rate": 6.82,
+      "sync": false,
+      "division": "1/16",
+      "amount": 0.018,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.89,
+      "sync": false,
+      "division": "1/8",
+      "amount": 0.15,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.31,
+      "brightness": 0.88,
+      "motion": 0.12,
+      "width": 0.37
+    },
+    "voiceFx": {
+      "chorus": 0.5800000000000001,
+      "chorusRate": 0.29,
+      "chorusDepth": 0.0105,
+      "bitcrush": 0.0,
+      "saturation": 0.14500000000000002
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "random",
+      "rate": "1/32",
+      "octaves": 3,
+      "gate": 0.58
+    },
+    "tags": [
+      "cinematic",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-193",
+    "name": "Organic Circuit",
+    "category": "Hybrid",
+    "description": "Original layered hybrid instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.01,
+    "masterTune": 0,
+    "voiceDrift": 1.0,
+    "velocityToAmp": 0.58,
+    "velocityToFilter": 0.18,
+    "keyTracking": 0.25,
+    "unison": 3,
+    "detune": 3,
+    "stereo": 0.48,
+    "phaseRandom": 0.0,
+    "oscA": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "square",
+      "octave": 0,
+      "semitone": -12,
+      "fine": 3,
+      "level": 0.12,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": true,
+      "waveform": "organ",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.05,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.08
+    },
+    "noise": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.0,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "cinematic",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -4,
+        "level": 0.18,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 10,
+        "stereo": 0.35,
+        "delay": 0.0,
+        "motion": 0.16,
+        "motionRate": 0.06
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.12,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 12,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.2,
+        "motionRate": 0.045
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.025,
+      "highpass": 120,
+      "lowpass": 12000,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.2,
+      "motionRate": 0.045
+    },
+    "ampEnv": {
+      "attack": 0.08,
+      "hold": 0,
+      "decay": 0.6,
+      "sustain": 0.62,
+      "release": 0.9,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 700,
+      "resonance": 0.4,
+      "drive": 0.0,
+      "keyTrack": 0.2
+    },
+    "filter2": {
+      "enabled": true,
+      "type": "highpass",
+      "cutoff": 80,
+      "resonance": 0.2,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "parallel",
+    "filterBlend": 0.32,
+    "filterEnv": {
+      "attack": 0.003,
+      "hold": 0,
+      "decay": 0.12,
+      "sustain": 0.18,
+      "release": 0.16,
+      "amount": 0.16
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.04,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": true,
+      "source": "B",
+      "target": "A",
+      "ratio": 0.5,
+      "amount": 0.0
+    },
+    "ring": {
+      "enabled": true,
+      "amount": 0.0,
+      "ratio": 0.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sine",
+      "rate": 2.2,
+      "sync": true,
+      "division": "1/2",
+      "amount": 0.0,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 0.12,
+      "sync": true,
+      "division": "1/1",
+      "amount": 0.0,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.15,
+      "brightness": 0.28,
+      "motion": 0.0,
+      "width": 0.22
+    },
+    "voiceFx": {
+      "chorus": 0.28,
+      "chorusRate": 0.18,
+      "chorusDepth": 0.006,
+      "bitcrush": 0.12,
+      "saturation": 0.04
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "up",
+      "rate": "1/8",
+      "octaves": 1,
+      "gate": 0.48
+    },
+    "tags": [
+      "hybrid",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-194",
+    "name": "Analog Orchestra",
+    "category": "Hybrid",
+    "description": "Original layered hybrid instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.02,
+    "masterTune": 0,
+    "voiceDrift": 1.45,
+    "velocityToAmp": 0.603,
+    "velocityToFilter": 0.218,
+    "keyTracking": 0.288,
+    "unison": 4,
+    "detune": 6,
+    "stereo": 0.6,
+    "phaseRandom": 0.12,
+    "oscA": {
+      "enabled": true,
+      "waveform": "sawtooth",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "pulse12",
+      "octave": 0,
+      "semitone": 0,
+      "fine": -5,
+      "level": 0.195,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "digital",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.08,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.135
+    },
+    "noise": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.018,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -5,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 13,
+        "stereo": 0.47,
+        "delay": 0.008,
+        "motion": 0.23,
+        "motionRate": 0.078
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 5,
+        "level": 0.13999999999999999,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 15,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.26,
+        "motionRate": 0.059
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "brown",
+      "level": 0.037000000000000005,
+      "highpass": 195,
+      "lowpass": 11580,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.26,
+      "motionRate": 0.057
+    },
+    "ampEnv": {
+      "attack": 0.115,
+      "hold": 0,
+      "decay": 0.6599999999999999,
+      "sustain": 0.7,
+      "release": 1.04,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 1950,
+      "resonance": 1.2,
+      "drive": 0.06,
+      "keyTrack": 0.34
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "bandpass",
+      "cutoff": 200,
+      "resonance": 0.8,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.44,
+    "filterEnv": {
+      "attack": 0.0085,
+      "hold": 0,
+      "decay": 0.164,
+      "sustain": 0.3,
+      "release": 0.207,
+      "amount": 0.28
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.051,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 1,
+      "amount": 0.04
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.06,
+      "ratio": 1
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 2.62,
+      "sync": false,
+      "division": "1/4",
+      "amount": 0.018,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.19,
+      "sync": false,
+      "division": "1/2",
+      "amount": 0.05,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.31,
+      "brightness": 0.4,
+      "motion": 0.12,
+      "width": 0.37
+    },
+    "voiceFx": {
+      "chorus": 0.38,
+      "chorusRate": 0.29,
+      "chorusDepth": 0.0075,
+      "bitcrush": 0.0,
+      "saturation": 0.07500000000000001
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "down",
+      "rate": "1/16",
+      "octaves": 2,
+      "gate": 0.58
+    },
+    "tags": [
+      "hybrid",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-195",
+    "name": "Digital Strings",
+    "category": "Hybrid",
+    "description": "Original layered hybrid instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.03,
+    "masterTune": 0,
+    "voiceDrift": 1.91,
+    "velocityToAmp": 0.625,
+    "velocityToFilter": 0.256,
+    "keyTracking": 0.326,
+    "unison": 5,
+    "detune": 9,
+    "stereo": 0.72,
+    "phaseRandom": 0.24,
+    "oscA": {
+      "enabled": true,
+      "waveform": "pulse25",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "organ",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 7,
+      "level": 0.27,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "vowel",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.11,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.19
+    },
+    "noise": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.036,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -6,
+        "level": 0.22999999999999998,
+        "pan": -0.18,
+        "unison": 6,
+        "detune": 16,
+        "stereo": 0.59,
+        "delay": 0.016,
+        "motion": 0.30000000000000004,
+        "motionRate": 0.096
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 6,
+        "level": 0.16,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 18,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.32,
+        "motionRate": 0.073
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "blue",
+      "level": 0.049,
+      "highpass": 270,
+      "lowpass": 11160,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.32,
+      "motionRate": 0.069
+    },
+    "ampEnv": {
+      "attack": 0.15000000000000002,
+      "hold": 0,
+      "decay": 0.72,
+      "sustain": 0.78,
+      "release": 1.1800000000000002,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 3200,
+      "resonance": 2.0,
+      "drive": 0.12,
+      "keyTrack": 0.48
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "notch",
+      "cutoff": 320,
+      "resonance": 1.4,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.56,
+    "filterEnv": {
+      "attack": 0.0139,
+      "hold": 0,
+      "decay": 0.207,
+      "sustain": 0.42,
+      "release": 0.255,
+      "amount": 0.4
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.062,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 2,
+      "amount": 0.08
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.12,
+      "ratio": 1.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sawtooth",
+      "rate": 3.04,
+      "sync": false,
+      "division": "1/8",
+      "amount": 0.036,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.26,
+      "sync": false,
+      "division": "1/4",
+      "amount": 0.1,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.47,
+      "brightness": 0.52,
+      "motion": 0.24,
+      "width": 0.52
+    },
+    "voiceFx": {
+      "chorus": 0.48000000000000004,
+      "chorusRate": 0.4,
+      "chorusDepth": 0.009000000000000001,
+      "bitcrush": 0.0,
+      "saturation": 0.11000000000000001
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "upDown",
+      "rate": "1/16T",
+      "octaves": 3,
+      "gate": 0.68
+    },
+    "tags": [
+      "hybrid",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-196",
+    "name": "Resonant Machine",
+    "category": "Hybrid",
+    "description": "Original layered hybrid instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.04,
+    "masterTune": 0,
+    "voiceDrift": 2.36,
+    "velocityToAmp": 0.648,
+    "velocityToFilter": 0.295,
+    "keyTracking": 0.365,
+    "unison": 6,
+    "detune": 12,
+    "stereo": 0.84,
+    "phaseRandom": 0.36,
+    "oscA": {
+      "enabled": true,
+      "waveform": "warmSaw",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "digital",
+      "octave": 0,
+      "semitone": 7,
+      "fine": -9,
+      "level": 0.345,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": true,
+      "waveform": "choir",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.14,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.245
+    },
+    "noise": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.054,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -7,
+        "level": 0.255,
+        "pan": -0.18,
+        "unison": 7,
+        "detune": 19,
+        "stereo": 0.71,
+        "delay": 0.0,
+        "motion": 0.37,
+        "motionRate": 0.114
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 7,
+        "level": 0.18,
+        "pan": 0.18,
+        "unison": 7,
+        "detune": 21,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.38,
+        "motionRate": 0.087
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "white",
+      "level": 0.061000000000000006,
+      "highpass": 345,
+      "lowpass": 10740,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.38,
+      "motionRate": 0.081
+    },
+    "ampEnv": {
+      "attack": 0.185,
+      "hold": 0,
+      "decay": 0.78,
+      "sustain": 0.62,
+      "release": 1.32,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 4450,
+      "resonance": 2.8,
+      "drive": 0.18,
+      "keyTrack": 0.62
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "highpass",
+      "cutoff": 440,
+      "resonance": 2.0,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.68,
+    "filterEnv": {
+      "attack": 0.0194,
+      "hold": 0,
+      "decay": 0.251,
+      "sustain": 0.54,
+      "release": 0.302,
+      "amount": 0.52
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.073,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 3,
+      "amount": 0.12
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.18,
+      "ratio": 2
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "square",
+      "rate": 3.46,
+      "sync": true,
+      "division": "1/16",
+      "amount": 0.054,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 0.33,
+      "sync": false,
+      "division": "1/8",
+      "amount": 0.15,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.63,
+      "brightness": 0.64,
+      "motion": 0.36,
+      "width": 0.67
+    },
+    "voiceFx": {
+      "chorus": 0.5800000000000001,
+      "chorusRate": 0.51,
+      "chorusDepth": 0.0105,
+      "bitcrush": 0.0,
+      "saturation": 0.14500000000000002
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "random",
+      "rate": "1/32",
+      "octaves": 1,
+      "gate": 0.78
+    },
+    "tags": [
+      "hybrid",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-197",
+    "name": "Electric Chamber",
+    "category": "Hybrid",
+    "description": "Original layered hybrid instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.05,
+    "masterTune": 0,
+    "voiceDrift": 2.82,
+    "velocityToAmp": 0.671,
+    "velocityToFilter": 0.333,
+    "keyTracking": 0.403,
+    "unison": 7,
+    "detune": 15,
+    "stereo": 0.48,
+    "phaseRandom": 0.0,
+    "oscA": {
+      "enabled": true,
+      "waveform": "hollow",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "vowel",
+      "octave": 0,
+      "semitone": 12,
+      "fine": 11,
+      "level": 0.42,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "glass",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.05,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.08
+    },
+    "noise": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.0,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "spectral",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -4,
+        "level": 0.18,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 22,
+        "stereo": 0.35,
+        "delay": 0.008,
+        "motion": 0.16,
+        "motionRate": 0.132
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.12,
+        "pan": 0.18,
+        "unison": 8,
+        "detune": 24,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.2,
+        "motionRate": 0.101
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.025,
+      "highpass": 420,
+      "lowpass": 10320,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.2,
+      "motionRate": 0.093
+    },
+    "ampEnv": {
+      "attack": 0.22000000000000003,
+      "hold": 0,
+      "decay": 0.84,
+      "sustain": 0.7,
+      "release": 1.46,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 5700,
+      "resonance": 3.6,
+      "drive": 0.24,
+      "keyTrack": 0.2
+    },
+    "filter2": {
+      "enabled": true,
+      "type": "bandpass",
+      "cutoff": 560,
+      "resonance": 0.2,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.32,
+    "filterEnv": {
+      "attack": 0.0248,
+      "hold": 0,
+      "decay": 0.295,
+      "sustain": 0.66,
+      "release": 0.349,
+      "amount": 0.64
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.084,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 4,
+      "amount": 0.16
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.0,
+      "ratio": 0.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sine",
+      "rate": 3.88,
+      "sync": false,
+      "division": "1/2",
+      "amount": 0.072,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.4,
+      "sync": true,
+      "division": "1/1",
+      "amount": 0.0,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.79,
+      "brightness": 0.76,
+      "motion": 0.48,
+      "width": 0.82
+    },
+    "voiceFx": {
+      "chorus": 0.28,
+      "chorusRate": 0.62,
+      "chorusDepth": 0.006,
+      "bitcrush": 0.0,
+      "saturation": 0.04
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "up",
+      "rate": "1/8",
+      "octaves": 2,
+      "gate": 0.88
+    },
+    "tags": [
+      "hybrid",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-198",
+    "name": "Synthetic Wood",
+    "category": "Hybrid",
+    "description": "Original layered hybrid instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.06,
+    "masterTune": 0,
+    "voiceDrift": 3.27,
+    "velocityToAmp": 0.694,
+    "velocityToFilter": 0.371,
+    "keyTracking": 0.441,
+    "unison": 3,
+    "detune": 18,
+    "stereo": 0.6,
+    "phaseRandom": 0.12,
+    "oscA": {
+      "enabled": true,
+      "waveform": "metallic",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "choir",
+      "octave": 0,
+      "semitone": -12,
+      "fine": -3,
+      "level": 0.12,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "shimmer",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.08,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.135
+    },
+    "noise": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.018,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -5,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 10,
+        "stereo": 0.47,
+        "delay": 0.016,
+        "motion": 0.23,
+        "motionRate": 0.15
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 4,
+        "level": 0.13999999999999999,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 12,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.26,
+        "motionRate": 0.115
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "brown",
+      "level": 0.037000000000000005,
+      "highpass": 495,
+      "lowpass": 9900,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.26,
+      "motionRate": 0.105
+    },
+    "ampEnv": {
+      "attack": 0.255,
+      "hold": 0,
+      "decay": 0.8999999999999999,
+      "sustain": 0.78,
+      "release": 1.6,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 6950,
+      "resonance": 4.4,
+      "drive": 0.0,
+      "keyTrack": 0.34
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "notch",
+      "cutoff": 680,
+      "resonance": 0.8,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "parallel",
+    "filterBlend": 0.44,
+    "filterEnv": {
+      "attack": 0.0303,
+      "hold": 0,
+      "decay": 0.338,
+      "sustain": 0.18,
+      "release": 0.396,
+      "amount": 0.76
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.095,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": true,
+      "source": "B",
+      "target": "A",
+      "ratio": 0.5,
+      "amount": 0.0
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.06,
+      "ratio": 1
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 4.3,
+      "sync": false,
+      "division": "1/4",
+      "amount": 0.0,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.47,
+      "sync": false,
+      "division": "1/2",
+      "amount": 0.05,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.15,
+      "brightness": 0.88,
+      "motion": 0.0,
+      "width": 0.22
+    },
+    "voiceFx": {
+      "chorus": 0.38,
+      "chorusRate": 0.18,
+      "chorusDepth": 0.0075,
+      "bitcrush": 0.0,
+      "saturation": 0.07500000000000001
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "down",
+      "rate": "1/16",
+      "octaves": 3,
+      "gate": 0.48
+    },
+    "tags": [
+      "hybrid",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-199",
+    "name": "Pulse Ensemble",
+    "category": "Hybrid",
+    "description": "Original layered hybrid instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.07,
+    "masterTune": 0,
+    "voiceDrift": 3.73,
+    "velocityToAmp": 0.716,
+    "velocityToFilter": 0.409,
+    "keyTracking": 0.479,
+    "unison": 4,
+    "detune": 3,
+    "stereo": 0.72,
+    "phaseRandom": 0.24,
+    "oscA": {
+      "enabled": true,
+      "waveform": "cinematic",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "glass",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 5,
+      "level": 0.195,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": true,
+      "waveform": "spectral",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.11,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.19
+    },
+    "noise": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.036,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "cinematic",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -6,
+        "level": 0.22999999999999998,
+        "pan": -0.18,
+        "unison": 6,
+        "detune": 13,
+        "stereo": 0.59,
+        "delay": 0.0,
+        "motion": 0.30000000000000004,
+        "motionRate": 0.168
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 5,
+        "level": 0.16,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 15,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.32,
+        "motionRate": 0.129
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "blue",
+      "level": 0.049,
+      "highpass": 570,
+      "lowpass": 9480,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.32,
+      "motionRate": 0.117
+    },
+    "ampEnv": {
+      "attack": 0.29000000000000004,
+      "hold": 0,
+      "decay": 0.96,
+      "sustain": 0.62,
+      "release": 1.7400000000000002,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 8200,
+      "resonance": 0.4,
+      "drive": 0.06,
+      "keyTrack": 0.48
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "highpass",
+      "cutoff": 800,
+      "resonance": 1.4,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.56,
+    "filterEnv": {
+      "attack": 0.0357,
+      "hold": 0,
+      "decay": 0.382,
+      "sustain": 0.3,
+      "release": 0.444,
+      "amount": 0.16
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.105,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 1,
+      "amount": 0.04
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.12,
+      "ratio": 1.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sawtooth",
+      "rate": 4.72,
+      "sync": true,
+      "division": "1/8",
+      "amount": 0.018,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 0.54,
+      "sync": false,
+      "division": "1/4",
+      "amount": 0.1,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.31,
+      "brightness": 0.28,
+      "motion": 0.12,
+      "width": 0.37
+    },
+    "voiceFx": {
+      "chorus": 0.48000000000000004,
+      "chorusRate": 0.29,
+      "chorusDepth": 0.009000000000000001,
+      "bitcrush": 0.0,
+      "saturation": 0.11000000000000001
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "upDown",
+      "rate": "1/16T",
+      "octaves": 1,
+      "gate": 0.58
+    },
+    "tags": [
+      "hybrid",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-200",
+    "name": "Harmonic Alloy",
+    "category": "Hybrid",
+    "description": "Original layered hybrid instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.08,
+    "masterTune": 0,
+    "voiceDrift": 4.18,
+    "velocityToAmp": 0.739,
+    "velocityToFilter": 0.447,
+    "keyTracking": 0.517,
+    "unison": 5,
+    "detune": 6,
+    "stereo": 0.84,
+    "phaseRandom": 0.36,
+    "oscA": {
+      "enabled": true,
+      "waveform": "bowed",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "shimmer",
+      "octave": 0,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.27,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "triangle",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.14,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.245
+    },
+    "noise": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.054,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -7,
+        "level": 0.255,
+        "pan": -0.18,
+        "unison": 7,
+        "detune": 16,
+        "stereo": 0.71,
+        "delay": 0.008,
+        "motion": 0.37,
+        "motionRate": 0.186
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 6,
+        "level": 0.18,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 18,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.38,
+        "motionRate": 0.143
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "white",
+      "level": 0.061000000000000006,
+      "highpass": 645,
+      "lowpass": 9060,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.38,
+      "motionRate": 0.129
+    },
+    "ampEnv": {
+      "attack": 0.325,
+      "hold": 0,
+      "decay": 1.02,
+      "sustain": 0.7,
+      "release": 1.8800000000000001,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 9450,
+      "resonance": 1.2,
+      "drive": 0.12,
+      "keyTrack": 0.62
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "bandpass",
+      "cutoff": 920,
+      "resonance": 2.0,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.68,
+    "filterEnv": {
+      "attack": 0.0412,
+      "hold": 0,
+      "decay": 0.425,
+      "sustain": 0.42,
+      "release": 0.491,
+      "amount": 0.28
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.116,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 2,
+      "amount": 0.08
+    },
+    "ring": {
+      "enabled": true,
+      "amount": 0.18,
+      "ratio": 2
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "square",
+      "rate": 5.14,
+      "sync": false,
+      "division": "1/16",
+      "amount": 0.036,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.61,
+      "sync": false,
+      "division": "1/8",
+      "amount": 0.15,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.47,
+      "brightness": 0.4,
+      "motion": 0.24,
+      "width": 0.52
+    },
+    "voiceFx": {
+      "chorus": 0.5800000000000001,
+      "chorusRate": 0.4,
+      "chorusDepth": 0.0105,
+      "bitcrush": 0.12,
+      "saturation": 0.14500000000000002
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "random",
+      "rate": "1/32",
+      "octaves": 2,
+      "gate": 0.68
+    },
+    "tags": [
+      "hybrid",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-201",
+    "name": "Living Voltage",
+    "category": "Hybrid",
+    "description": "Original layered hybrid instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.09,
+    "masterTune": 0,
+    "voiceDrift": 4.64,
+    "velocityToAmp": 0.762,
+    "velocityToFilter": 0.485,
+    "keyTracking": 0.555,
+    "unison": 6,
+    "detune": 9,
+    "stereo": 0.48,
+    "phaseRandom": 0.0,
+    "oscA": {
+      "enabled": true,
+      "waveform": "air",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "spectral",
+      "octave": 0,
+      "semitone": 7,
+      "fine": 9,
+      "level": 0.345,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "square",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.05,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.08
+    },
+    "noise": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.0,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -4,
+        "level": 0.18,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 19,
+        "stereo": 0.35,
+        "delay": 0.016,
+        "motion": 0.16,
+        "motionRate": 0.204
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 7,
+        "level": 0.12,
+        "pan": 0.18,
+        "unison": 7,
+        "detune": 21,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.2,
+        "motionRate": 0.157
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.025,
+      "highpass": 720,
+      "lowpass": 8640,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.2,
+      "motionRate": 0.141
+    },
+    "ampEnv": {
+      "attack": 0.36000000000000004,
+      "hold": 0,
+      "decay": 1.08,
+      "sustain": 0.78,
+      "release": 2.02,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 10700,
+      "resonance": 2.0,
+      "drive": 0.18,
+      "keyTrack": 0.2
+    },
+    "filter2": {
+      "enabled": true,
+      "type": "notch",
+      "cutoff": 1040,
+      "resonance": 0.2,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.32,
+    "filterEnv": {
+      "attack": 0.0466,
+      "hold": 0,
+      "decay": 0.469,
+      "sustain": 0.54,
+      "release": 0.538,
+      "amount": 0.4
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.127,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 3,
+      "amount": 0.12
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.0,
+      "ratio": 0.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sine",
+      "rate": 5.56,
+      "sync": false,
+      "division": "1/2",
+      "amount": 0.054,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.68,
+      "sync": true,
+      "division": "1/1",
+      "amount": 0.0,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.63,
+      "brightness": 0.52,
+      "motion": 0.36,
+      "width": 0.67
+    },
+    "voiceFx": {
+      "chorus": 0.28,
+      "chorusRate": 0.51,
+      "chorusDepth": 0.006,
+      "bitcrush": 0.0,
+      "saturation": 0.04
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "up",
+      "rate": "1/8",
+      "octaves": 3,
+      "gate": 0.78
+    },
+    "tags": [
+      "hybrid",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-202",
+    "name": "Prism Mechanism",
+    "category": "Hybrid",
+    "description": "Original layered hybrid instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.1,
+    "masterTune": 0,
+    "voiceDrift": 5.09,
+    "velocityToAmp": 0.785,
+    "velocityToFilter": 0.524,
+    "keyTracking": 0.594,
+    "unison": 7,
+    "detune": 12,
+    "stereo": 0.6,
+    "phaseRandom": 0.12,
+    "oscA": {
+      "enabled": true,
+      "waveform": "formant",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "triangle",
+      "octave": 0,
+      "semitone": 12,
+      "fine": -11,
+      "level": 0.42,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": true,
+      "waveform": "pulse12",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.08,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.135
+    },
+    "noise": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.018,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -5,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 22,
+        "stereo": 0.47,
+        "delay": 0.0,
+        "motion": 0.23,
+        "motionRate": 0.222
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.13999999999999999,
+        "pan": 0.18,
+        "unison": 8,
+        "detune": 24,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.26,
+        "motionRate": 0.171
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "brown",
+      "level": 0.037000000000000005,
+      "highpass": 795,
+      "lowpass": 8220,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.26,
+      "motionRate": 0.153
+    },
+    "ampEnv": {
+      "attack": 0.3950000000000001,
+      "hold": 0,
+      "decay": 1.1400000000000001,
+      "sustain": 0.62,
+      "release": 2.16,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 11950,
+      "resonance": 2.8,
+      "drive": 0.24,
+      "keyTrack": 0.34
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "highpass",
+      "cutoff": 1160,
+      "resonance": 0.8,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.44,
+    "filterEnv": {
+      "attack": 0.0521,
+      "hold": 0,
+      "decay": 0.513,
+      "sustain": 0.66,
+      "release": 0.585,
+      "amount": 0.52
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.138,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 4,
+      "amount": 0.16
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.06,
+      "ratio": 1
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 5.98,
+      "sync": true,
+      "division": "1/4",
+      "amount": 0.072,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 0.75,
+      "sync": false,
+      "division": "1/2",
+      "amount": 0.05,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.79,
+      "brightness": 0.64,
+      "motion": 0.48,
+      "width": 0.82
+    },
+    "voiceFx": {
+      "chorus": 0.38,
+      "chorusRate": 0.62,
+      "chorusDepth": 0.0075,
+      "bitcrush": 0.0,
+      "saturation": 0.07500000000000001
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "down",
+      "rate": "1/16",
+      "octaves": 1,
+      "gate": 0.88
+    },
+    "tags": [
+      "hybrid",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-203",
+    "name": "Future Acoustic",
+    "category": "Hybrid",
+    "description": "Original layered hybrid instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.11,
+    "masterTune": 0,
+    "voiceDrift": 5.55,
+    "velocityToAmp": 0.807,
+    "velocityToFilter": 0.562,
+    "keyTracking": 0.632,
+    "unison": 3,
+    "detune": 15,
+    "stereo": 0.72,
+    "phaseRandom": 0.24,
+    "oscA": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "square",
+      "octave": 0,
+      "semitone": -12,
+      "fine": 3,
+      "level": 0.12,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "organ",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.11,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.19
+    },
+    "noise": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.036,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "spectral",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -6,
+        "level": 0.22999999999999998,
+        "pan": -0.18,
+        "unison": 6,
+        "detune": 10,
+        "stereo": 0.59,
+        "delay": 0.008,
+        "motion": 0.30000000000000004,
+        "motionRate": 0.24
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.16,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 12,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.32,
+        "motionRate": 0.185
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "blue",
+      "level": 0.049,
+      "highpass": 870,
+      "lowpass": 7800,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.32,
+      "motionRate": 0.165
+    },
+    "ampEnv": {
+      "attack": 0.43000000000000005,
+      "hold": 0,
+      "decay": 1.2,
+      "sustain": 0.7,
+      "release": 2.3000000000000003,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 13200,
+      "resonance": 3.6,
+      "drive": 0.0,
+      "keyTrack": 0.48
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "bandpass",
+      "cutoff": 1280,
+      "resonance": 1.4,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "parallel",
+    "filterBlend": 0.56,
+    "filterEnv": {
+      "attack": 0.0575,
+      "hold": 0,
+      "decay": 0.556,
+      "sustain": 0.18,
+      "release": 0.633,
+      "amount": 0.64
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.149,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": true,
+      "source": "B",
+      "target": "A",
+      "ratio": 0.5,
+      "amount": 0.0
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.12,
+      "ratio": 1.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sawtooth",
+      "rate": 6.4,
+      "sync": false,
+      "division": "1/8",
+      "amount": 0.0,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.82,
+      "sync": false,
+      "division": "1/4",
+      "amount": 0.1,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.15,
+      "brightness": 0.76,
+      "motion": 0.0,
+      "width": 0.22
+    },
+    "voiceFx": {
+      "chorus": 0.48000000000000004,
+      "chorusRate": 0.18,
+      "chorusDepth": 0.009000000000000001,
+      "bitcrush": 0.0,
+      "saturation": 0.11000000000000001
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "upDown",
+      "rate": "1/16T",
+      "octaves": 2,
+      "gate": 0.48
+    },
+    "tags": [
+      "hybrid",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-204",
+    "name": "Neural Instrument",
+    "category": "Hybrid",
+    "description": "Original layered hybrid instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.12,
+    "masterTune": 0,
+    "voiceDrift": 6.0,
+    "velocityToAmp": 0.83,
+    "velocityToFilter": 0.6,
+    "keyTracking": 0.67,
+    "unison": 4,
+    "detune": 18,
+    "stereo": 0.84,
+    "phaseRandom": 0.36,
+    "oscA": {
+      "enabled": true,
+      "waveform": "sawtooth",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "pulse12",
+      "octave": 0,
+      "semitone": 0,
+      "fine": -5,
+      "level": 0.195,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "digital",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.14,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.245
+    },
+    "noise": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.054,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -7,
+        "level": 0.255,
+        "pan": -0.18,
+        "unison": 7,
+        "detune": 13,
+        "stereo": 0.71,
+        "delay": 0.016,
+        "motion": 0.37,
+        "motionRate": 0.258
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 5,
+        "level": 0.18,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 15,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.38,
+        "motionRate": 0.199
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "white",
+      "level": 0.061000000000000006,
+      "highpass": 945,
+      "lowpass": 7380,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.38,
+      "motionRate": 0.177
+    },
+    "ampEnv": {
+      "attack": 0.465,
+      "hold": 0,
+      "decay": 1.2599999999999998,
+      "sustain": 0.78,
+      "release": 2.44,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 14450,
+      "resonance": 4.4,
+      "drive": 0.06,
+      "keyTrack": 0.62
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "notch",
+      "cutoff": 1400,
+      "resonance": 2.0,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.68,
+    "filterEnv": {
+      "attack": 0.063,
+      "hold": 0,
+      "decay": 0.6,
+      "sustain": 0.3,
+      "release": 0.68,
+      "amount": 0.76
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.16,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 1,
+      "amount": 0.04
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.18,
+      "ratio": 2
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "square",
+      "rate": 6.82,
+      "sync": false,
+      "division": "1/16",
+      "amount": 0.018,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.89,
+      "sync": false,
+      "division": "1/8",
+      "amount": 0.15,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.31,
+      "brightness": 0.88,
+      "motion": 0.12,
+      "width": 0.37
+    },
+    "voiceFx": {
+      "chorus": 0.5800000000000001,
+      "chorusRate": 0.29,
+      "chorusDepth": 0.0105,
+      "bitcrush": 0.0,
+      "saturation": 0.14500000000000002
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "random",
+      "rate": "1/32",
+      "octaves": 3,
+      "gate": 0.58
+    },
+    "tags": [
+      "hybrid",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-205",
+    "name": "Human Halo",
+    "category": "Choir",
+    "description": "Original layered choir instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.01,
+    "masterTune": 0,
+    "voiceDrift": 1.0,
+    "velocityToAmp": 0.58,
+    "velocityToFilter": 0.18,
+    "keyTracking": 0.25,
+    "unison": 3,
+    "detune": 3,
+    "stereo": 0.48,
+    "phaseRandom": 0.0,
+    "oscA": {
+      "enabled": true,
+      "waveform": "choir",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "formant",
+      "octave": 0,
+      "semitone": -12,
+      "fine": 3,
+      "level": 0.12,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": true,
+      "waveform": "organ",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.05,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.08
+    },
+    "noise": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.0,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -4,
+        "level": 0.18,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 10,
+        "stereo": 0.35,
+        "delay": 0.0,
+        "motion": 0.16,
+        "motionRate": 0.06
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "air",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.12,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 12,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.2,
+        "motionRate": 0.045
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.025,
+      "highpass": 120,
+      "lowpass": 12000,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.2,
+      "motionRate": 0.045
+    },
+    "ampEnv": {
+      "attack": 0.08,
+      "hold": 0,
+      "decay": 0.6,
+      "sustain": 0.62,
+      "release": 0.9,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 700,
+      "resonance": 0.4,
+      "drive": 0.0,
+      "keyTrack": 0.2
+    },
+    "filter2": {
+      "enabled": true,
+      "type": "highpass",
+      "cutoff": 80,
+      "resonance": 0.2,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "parallel",
+    "filterBlend": 0.32,
+    "filterEnv": {
+      "attack": 0.003,
+      "hold": 0,
+      "decay": 0.12,
+      "sustain": 0.18,
+      "release": 0.16,
+      "amount": 0.16
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.04,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": true,
+      "source": "B",
+      "target": "A",
+      "ratio": 0.5,
+      "amount": 0.0
+    },
+    "ring": {
+      "enabled": true,
+      "amount": 0.0,
+      "ratio": 0.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sine",
+      "rate": 2.2,
+      "sync": true,
+      "division": "1/2",
+      "amount": 0.0,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 0.12,
+      "sync": true,
+      "division": "1/1",
+      "amount": 0.0,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.15,
+      "brightness": 0.28,
+      "motion": 0.0,
+      "width": 0.22
+    },
+    "voiceFx": {
+      "chorus": 0.28,
+      "chorusRate": 0.18,
+      "chorusDepth": 0.006,
+      "bitcrush": 0.12,
+      "saturation": 0.04
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "up",
+      "rate": "1/8",
+      "octaves": 1,
+      "gate": 0.48
+    },
+    "tags": [
+      "choir",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-206",
+    "name": "Cathedral Breath",
+    "category": "Choir",
+    "description": "Original layered choir instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.02,
+    "masterTune": 0,
+    "voiceDrift": 1.45,
+    "velocityToAmp": 0.603,
+    "velocityToFilter": 0.218,
+    "keyTracking": 0.288,
+    "unison": 4,
+    "detune": 6,
+    "stereo": 0.6,
+    "phaseRandom": 0.12,
+    "oscA": {
+      "enabled": true,
+      "waveform": "choir",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "formant",
+      "octave": 0,
+      "semitone": 0,
+      "fine": -5,
+      "level": 0.195,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "digital",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.08,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.135
+    },
+    "noise": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.018,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -5,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 13,
+        "stereo": 0.47,
+        "delay": 0.008,
+        "motion": 0.23,
+        "motionRate": 0.078
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 5,
+        "level": 0.13999999999999999,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 15,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.26,
+        "motionRate": 0.059
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "brown",
+      "level": 0.037000000000000005,
+      "highpass": 195,
+      "lowpass": 11580,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.26,
+      "motionRate": 0.057
+    },
+    "ampEnv": {
+      "attack": 0.115,
+      "hold": 0,
+      "decay": 0.6599999999999999,
+      "sustain": 0.7,
+      "release": 1.04,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 1950,
+      "resonance": 1.2,
+      "drive": 0.06,
+      "keyTrack": 0.34
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "bandpass",
+      "cutoff": 200,
+      "resonance": 0.8,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.44,
+    "filterEnv": {
+      "attack": 0.0085,
+      "hold": 0,
+      "decay": 0.164,
+      "sustain": 0.3,
+      "release": 0.207,
+      "amount": 0.28
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.051,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 1,
+      "amount": 0.04
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.06,
+      "ratio": 1
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 2.62,
+      "sync": false,
+      "division": "1/4",
+      "amount": 0.018,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.19,
+      "sync": false,
+      "division": "1/2",
+      "amount": 0.05,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.31,
+      "brightness": 0.4,
+      "motion": 0.12,
+      "width": 0.37
+    },
+    "voiceFx": {
+      "chorus": 0.38,
+      "chorusRate": 0.29,
+      "chorusDepth": 0.0075,
+      "bitcrush": 0.0,
+      "saturation": 0.07500000000000001
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "down",
+      "rate": "1/16",
+      "octaves": 2,
+      "gate": 0.58
+    },
+    "tags": [
+      "choir",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-207",
+    "name": "Ghost Ensemble",
+    "category": "Choir",
+    "description": "Original layered choir instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.03,
+    "masterTune": 0,
+    "voiceDrift": 1.91,
+    "velocityToAmp": 0.625,
+    "velocityToFilter": 0.256,
+    "keyTracking": 0.326,
+    "unison": 5,
+    "detune": 9,
+    "stereo": 0.72,
+    "phaseRandom": 0.24,
+    "oscA": {
+      "enabled": true,
+      "waveform": "choir",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "formant",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 7,
+      "level": 0.27,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "vowel",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.11,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.19
+    },
+    "noise": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.036,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -6,
+        "level": 0.22999999999999998,
+        "pan": -0.18,
+        "unison": 6,
+        "detune": 16,
+        "stereo": 0.59,
+        "delay": 0.016,
+        "motion": 0.30000000000000004,
+        "motionRate": 0.096
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "air",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 6,
+        "level": 0.16,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 18,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.32,
+        "motionRate": 0.073
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "blue",
+      "level": 0.049,
+      "highpass": 270,
+      "lowpass": 11160,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.32,
+      "motionRate": 0.069
+    },
+    "ampEnv": {
+      "attack": 0.15000000000000002,
+      "hold": 0,
+      "decay": 0.72,
+      "sustain": 0.78,
+      "release": 1.1800000000000002,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 3200,
+      "resonance": 2.0,
+      "drive": 0.12,
+      "keyTrack": 0.48
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "notch",
+      "cutoff": 320,
+      "resonance": 1.4,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.56,
+    "filterEnv": {
+      "attack": 0.0139,
+      "hold": 0,
+      "decay": 0.207,
+      "sustain": 0.42,
+      "release": 0.255,
+      "amount": 0.4
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.062,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 2,
+      "amount": 0.08
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.12,
+      "ratio": 1.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sawtooth",
+      "rate": 3.04,
+      "sync": false,
+      "division": "1/8",
+      "amount": 0.036,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.26,
+      "sync": false,
+      "division": "1/4",
+      "amount": 0.1,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.47,
+      "brightness": 0.52,
+      "motion": 0.24,
+      "width": 0.52
+    },
+    "voiceFx": {
+      "chorus": 0.48000000000000004,
+      "chorusRate": 0.4,
+      "chorusDepth": 0.009000000000000001,
+      "bitcrush": 0.0,
+      "saturation": 0.11000000000000001
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "upDown",
+      "rate": "1/16T",
+      "octaves": 3,
+      "gate": 0.68
+    },
+    "tags": [
+      "choir",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-208",
+    "name": "Velvet Voices",
+    "category": "Choir",
+    "description": "Original layered choir instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.04,
+    "masterTune": 0,
+    "voiceDrift": 2.36,
+    "velocityToAmp": 0.648,
+    "velocityToFilter": 0.295,
+    "keyTracking": 0.365,
+    "unison": 6,
+    "detune": 12,
+    "stereo": 0.84,
+    "phaseRandom": 0.36,
+    "oscA": {
+      "enabled": true,
+      "waveform": "choir",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "formant",
+      "octave": 0,
+      "semitone": 7,
+      "fine": -9,
+      "level": 0.345,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": true,
+      "waveform": "choir",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.14,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.245
+    },
+    "noise": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.054,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -7,
+        "level": 0.255,
+        "pan": -0.18,
+        "unison": 7,
+        "detune": 19,
+        "stereo": 0.71,
+        "delay": 0.0,
+        "motion": 0.37,
+        "motionRate": 0.114
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 7,
+        "level": 0.18,
+        "pan": 0.18,
+        "unison": 7,
+        "detune": 21,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.38,
+        "motionRate": 0.087
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "white",
+      "level": 0.061000000000000006,
+      "highpass": 345,
+      "lowpass": 10740,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.38,
+      "motionRate": 0.081
+    },
+    "ampEnv": {
+      "attack": 0.185,
+      "hold": 0,
+      "decay": 0.78,
+      "sustain": 0.62,
+      "release": 1.32,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 4450,
+      "resonance": 2.8,
+      "drive": 0.18,
+      "keyTrack": 0.62
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "highpass",
+      "cutoff": 440,
+      "resonance": 2.0,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.68,
+    "filterEnv": {
+      "attack": 0.0194,
+      "hold": 0,
+      "decay": 0.251,
+      "sustain": 0.54,
+      "release": 0.302,
+      "amount": 0.52
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.073,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 3,
+      "amount": 0.12
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.18,
+      "ratio": 2
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "square",
+      "rate": 3.46,
+      "sync": true,
+      "division": "1/16",
+      "amount": 0.054,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 0.33,
+      "sync": false,
+      "division": "1/8",
+      "amount": 0.15,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.63,
+      "brightness": 0.64,
+      "motion": 0.36,
+      "width": 0.67
+    },
+    "voiceFx": {
+      "chorus": 0.5800000000000001,
+      "chorusRate": 0.51,
+      "chorusDepth": 0.0105,
+      "bitcrush": 0.0,
+      "saturation": 0.14500000000000002
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "random",
+      "rate": "1/32",
+      "octaves": 1,
+      "gate": 0.78
+    },
+    "tags": [
+      "choir",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-209",
+    "name": "Celestial Vowels",
+    "category": "Choir",
+    "description": "Original layered choir instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.05,
+    "masterTune": 0,
+    "voiceDrift": 2.82,
+    "velocityToAmp": 0.671,
+    "velocityToFilter": 0.333,
+    "keyTracking": 0.403,
+    "unison": 7,
+    "detune": 15,
+    "stereo": 0.48,
+    "phaseRandom": 0.0,
+    "oscA": {
+      "enabled": true,
+      "waveform": "choir",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "formant",
+      "octave": 0,
+      "semitone": 12,
+      "fine": 11,
+      "level": 0.42,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "glass",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.05,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.08
+    },
+    "noise": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.0,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -4,
+        "level": 0.18,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 22,
+        "stereo": 0.35,
+        "delay": 0.008,
+        "motion": 0.16,
+        "motionRate": 0.132
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "air",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.12,
+        "pan": 0.18,
+        "unison": 8,
+        "detune": 24,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.2,
+        "motionRate": 0.101
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.025,
+      "highpass": 420,
+      "lowpass": 10320,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.2,
+      "motionRate": 0.093
+    },
+    "ampEnv": {
+      "attack": 0.22000000000000003,
+      "hold": 0,
+      "decay": 0.84,
+      "sustain": 0.7,
+      "release": 1.46,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 5700,
+      "resonance": 3.6,
+      "drive": 0.24,
+      "keyTrack": 0.2
+    },
+    "filter2": {
+      "enabled": true,
+      "type": "bandpass",
+      "cutoff": 560,
+      "resonance": 0.2,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.32,
+    "filterEnv": {
+      "attack": 0.0248,
+      "hold": 0,
+      "decay": 0.295,
+      "sustain": 0.66,
+      "release": 0.349,
+      "amount": 0.64
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.084,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 4,
+      "amount": 0.16
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.0,
+      "ratio": 0.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sine",
+      "rate": 3.88,
+      "sync": false,
+      "division": "1/2",
+      "amount": 0.072,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.4,
+      "sync": true,
+      "division": "1/1",
+      "amount": 0.0,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.79,
+      "brightness": 0.76,
+      "motion": 0.48,
+      "width": 0.82
+    },
+    "voiceFx": {
+      "chorus": 0.28,
+      "chorusRate": 0.62,
+      "chorusDepth": 0.006,
+      "bitcrush": 0.0,
+      "saturation": 0.04
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "up",
+      "rate": "1/8",
+      "octaves": 2,
+      "gate": 0.88
+    },
+    "tags": [
+      "choir",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-210",
+    "name": "Noir Choir",
+    "category": "Choir",
+    "description": "Original layered choir instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.06,
+    "masterTune": 0,
+    "voiceDrift": 3.27,
+    "velocityToAmp": 0.694,
+    "velocityToFilter": 0.371,
+    "keyTracking": 0.441,
+    "unison": 3,
+    "detune": 18,
+    "stereo": 0.6,
+    "phaseRandom": 0.12,
+    "oscA": {
+      "enabled": true,
+      "waveform": "choir",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "formant",
+      "octave": 0,
+      "semitone": -12,
+      "fine": -3,
+      "level": 0.12,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "shimmer",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.08,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.135
+    },
+    "noise": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.018,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -5,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 10,
+        "stereo": 0.47,
+        "delay": 0.016,
+        "motion": 0.23,
+        "motionRate": 0.15
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 4,
+        "level": 0.13999999999999999,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 12,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.26,
+        "motionRate": 0.115
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "brown",
+      "level": 0.037000000000000005,
+      "highpass": 495,
+      "lowpass": 9900,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.26,
+      "motionRate": 0.105
+    },
+    "ampEnv": {
+      "attack": 0.255,
+      "hold": 0,
+      "decay": 0.8999999999999999,
+      "sustain": 0.78,
+      "release": 1.6,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 6950,
+      "resonance": 4.4,
+      "drive": 0.0,
+      "keyTrack": 0.34
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "notch",
+      "cutoff": 680,
+      "resonance": 0.8,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "parallel",
+    "filterBlend": 0.44,
+    "filterEnv": {
+      "attack": 0.0303,
+      "hold": 0,
+      "decay": 0.338,
+      "sustain": 0.18,
+      "release": 0.396,
+      "amount": 0.76
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.095,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": true,
+      "source": "B",
+      "target": "A",
+      "ratio": 0.5,
+      "amount": 0.0
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.06,
+      "ratio": 1
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 4.3,
+      "sync": false,
+      "division": "1/4",
+      "amount": 0.0,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.47,
+      "sync": false,
+      "division": "1/2",
+      "amount": 0.05,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.15,
+      "brightness": 0.88,
+      "motion": 0.0,
+      "width": 0.22
+    },
+    "voiceFx": {
+      "chorus": 0.38,
+      "chorusRate": 0.18,
+      "chorusDepth": 0.0075,
+      "bitcrush": 0.0,
+      "saturation": 0.07500000000000001
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "down",
+      "rate": "1/16",
+      "octaves": 3,
+      "gate": 0.48
+    },
+    "tags": [
+      "choir",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-211",
+    "name": "Frozen Sopranos",
+    "category": "Choir",
+    "description": "Original layered choir instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.07,
+    "masterTune": 0,
+    "voiceDrift": 3.73,
+    "velocityToAmp": 0.716,
+    "velocityToFilter": 0.409,
+    "keyTracking": 0.479,
+    "unison": 4,
+    "detune": 3,
+    "stereo": 0.72,
+    "phaseRandom": 0.24,
+    "oscA": {
+      "enabled": true,
+      "waveform": "choir",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "formant",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 5,
+      "level": 0.195,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": true,
+      "waveform": "spectral",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.11,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.19
+    },
+    "noise": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.036,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -6,
+        "level": 0.22999999999999998,
+        "pan": -0.18,
+        "unison": 6,
+        "detune": 13,
+        "stereo": 0.59,
+        "delay": 0.0,
+        "motion": 0.30000000000000004,
+        "motionRate": 0.168
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "air",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 5,
+        "level": 0.16,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 15,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.32,
+        "motionRate": 0.129
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "blue",
+      "level": 0.049,
+      "highpass": 570,
+      "lowpass": 9480,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.32,
+      "motionRate": 0.117
+    },
+    "ampEnv": {
+      "attack": 0.29000000000000004,
+      "hold": 0,
+      "decay": 0.96,
+      "sustain": 0.62,
+      "release": 1.7400000000000002,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 8200,
+      "resonance": 0.4,
+      "drive": 0.06,
+      "keyTrack": 0.48
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "highpass",
+      "cutoff": 800,
+      "resonance": 1.4,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.56,
+    "filterEnv": {
+      "attack": 0.0357,
+      "hold": 0,
+      "decay": 0.382,
+      "sustain": 0.3,
+      "release": 0.444,
+      "amount": 0.16
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.105,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 1,
+      "amount": 0.04
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.12,
+      "ratio": 1.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sawtooth",
+      "rate": 4.72,
+      "sync": true,
+      "division": "1/8",
+      "amount": 0.018,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 0.54,
+      "sync": false,
+      "division": "1/4",
+      "amount": 0.1,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.31,
+      "brightness": 0.28,
+      "motion": 0.12,
+      "width": 0.37
+    },
+    "voiceFx": {
+      "chorus": 0.48000000000000004,
+      "chorusRate": 0.29,
+      "chorusDepth": 0.009000000000000001,
+      "bitcrush": 0.0,
+      "saturation": 0.11000000000000001
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "upDown",
+      "rate": "1/16T",
+      "octaves": 1,
+      "gate": 0.58
+    },
+    "tags": [
+      "choir",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-212",
+    "name": "Ancient Men",
+    "category": "Choir",
+    "description": "Original layered choir instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.08,
+    "masterTune": 0,
+    "voiceDrift": 4.18,
+    "velocityToAmp": 0.739,
+    "velocityToFilter": 0.447,
+    "keyTracking": 0.517,
+    "unison": 5,
+    "detune": 6,
+    "stereo": 0.84,
+    "phaseRandom": 0.36,
+    "oscA": {
+      "enabled": true,
+      "waveform": "choir",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "formant",
+      "octave": 0,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.27,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "triangle",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.14,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.245
+    },
+    "noise": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.054,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -7,
+        "level": 0.255,
+        "pan": -0.18,
+        "unison": 7,
+        "detune": 16,
+        "stereo": 0.71,
+        "delay": 0.008,
+        "motion": 0.37,
+        "motionRate": 0.186
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 6,
+        "level": 0.18,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 18,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.38,
+        "motionRate": 0.143
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "white",
+      "level": 0.061000000000000006,
+      "highpass": 645,
+      "lowpass": 9060,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.38,
+      "motionRate": 0.129
+    },
+    "ampEnv": {
+      "attack": 0.325,
+      "hold": 0,
+      "decay": 1.02,
+      "sustain": 0.7,
+      "release": 1.8800000000000001,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 9450,
+      "resonance": 1.2,
+      "drive": 0.12,
+      "keyTrack": 0.62
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "bandpass",
+      "cutoff": 920,
+      "resonance": 2.0,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.68,
+    "filterEnv": {
+      "attack": 0.0412,
+      "hold": 0,
+      "decay": 0.425,
+      "sustain": 0.42,
+      "release": 0.491,
+      "amount": 0.28
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.116,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 2,
+      "amount": 0.08
+    },
+    "ring": {
+      "enabled": true,
+      "amount": 0.18,
+      "ratio": 2
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "square",
+      "rate": 5.14,
+      "sync": false,
+      "division": "1/16",
+      "amount": 0.036,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.61,
+      "sync": false,
+      "division": "1/8",
+      "amount": 0.15,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.47,
+      "brightness": 0.4,
+      "motion": 0.24,
+      "width": 0.52
+    },
+    "voiceFx": {
+      "chorus": 0.5800000000000001,
+      "chorusRate": 0.4,
+      "chorusDepth": 0.0105,
+      "bitcrush": 0.12,
+      "saturation": 0.14500000000000002
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "random",
+      "rate": "1/32",
+      "octaves": 2,
+      "gate": 0.68
+    },
+    "tags": [
+      "choir",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-213",
+    "name": "Synthetic Angels",
+    "category": "Choir",
+    "description": "Original layered choir instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.09,
+    "masterTune": 0,
+    "voiceDrift": 4.64,
+    "velocityToAmp": 0.762,
+    "velocityToFilter": 0.485,
+    "keyTracking": 0.555,
+    "unison": 6,
+    "detune": 9,
+    "stereo": 0.48,
+    "phaseRandom": 0.0,
+    "oscA": {
+      "enabled": true,
+      "waveform": "choir",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "formant",
+      "octave": 0,
+      "semitone": 7,
+      "fine": 9,
+      "level": 0.345,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "square",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.05,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.08
+    },
+    "noise": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.0,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -4,
+        "level": 0.18,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 19,
+        "stereo": 0.35,
+        "delay": 0.016,
+        "motion": 0.16,
+        "motionRate": 0.204
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "air",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 7,
+        "level": 0.12,
+        "pan": 0.18,
+        "unison": 7,
+        "detune": 21,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.2,
+        "motionRate": 0.157
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.025,
+      "highpass": 720,
+      "lowpass": 8640,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.2,
+      "motionRate": 0.141
+    },
+    "ampEnv": {
+      "attack": 0.36000000000000004,
+      "hold": 0,
+      "decay": 1.08,
+      "sustain": 0.78,
+      "release": 2.02,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 10700,
+      "resonance": 2.0,
+      "drive": 0.18,
+      "keyTrack": 0.2
+    },
+    "filter2": {
+      "enabled": true,
+      "type": "notch",
+      "cutoff": 1040,
+      "resonance": 0.2,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.32,
+    "filterEnv": {
+      "attack": 0.0466,
+      "hold": 0,
+      "decay": 0.469,
+      "sustain": 0.54,
+      "release": 0.538,
+      "amount": 0.4
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.127,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 3,
+      "amount": 0.12
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.0,
+      "ratio": 0.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sine",
+      "rate": 5.56,
+      "sync": false,
+      "division": "1/2",
+      "amount": 0.054,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.68,
+      "sync": true,
+      "division": "1/1",
+      "amount": 0.0,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.63,
+      "brightness": 0.52,
+      "motion": 0.36,
+      "width": 0.67
+    },
+    "voiceFx": {
+      "chorus": 0.28,
+      "chorusRate": 0.51,
+      "chorusDepth": 0.006,
+      "bitcrush": 0.0,
+      "saturation": 0.04
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "up",
+      "rate": "1/8",
+      "octaves": 3,
+      "gate": 0.78
+    },
+    "tags": [
+      "choir",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-214",
+    "name": "Hollow Hymn",
+    "category": "Choir",
+    "description": "Original layered choir instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.1,
+    "masterTune": 0,
+    "voiceDrift": 5.09,
+    "velocityToAmp": 0.785,
+    "velocityToFilter": 0.524,
+    "keyTracking": 0.594,
+    "unison": 7,
+    "detune": 12,
+    "stereo": 0.6,
+    "phaseRandom": 0.12,
+    "oscA": {
+      "enabled": true,
+      "waveform": "choir",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "formant",
+      "octave": 0,
+      "semitone": 12,
+      "fine": -11,
+      "level": 0.42,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": true,
+      "waveform": "pulse12",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.08,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.135
+    },
+    "noise": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.018,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -5,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 22,
+        "stereo": 0.47,
+        "delay": 0.0,
+        "motion": 0.23,
+        "motionRate": 0.222
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.13999999999999999,
+        "pan": 0.18,
+        "unison": 8,
+        "detune": 24,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.26,
+        "motionRate": 0.171
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "brown",
+      "level": 0.037000000000000005,
+      "highpass": 795,
+      "lowpass": 8220,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.26,
+      "motionRate": 0.153
+    },
+    "ampEnv": {
+      "attack": 0.3950000000000001,
+      "hold": 0,
+      "decay": 1.1400000000000001,
+      "sustain": 0.62,
+      "release": 2.16,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 11950,
+      "resonance": 2.8,
+      "drive": 0.24,
+      "keyTrack": 0.34
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "highpass",
+      "cutoff": 1160,
+      "resonance": 0.8,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.44,
+    "filterEnv": {
+      "attack": 0.0521,
+      "hold": 0,
+      "decay": 0.513,
+      "sustain": 0.66,
+      "release": 0.585,
+      "amount": 0.52
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.138,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 4,
+      "amount": 0.16
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.06,
+      "ratio": 1
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 5.98,
+      "sync": true,
+      "division": "1/4",
+      "amount": 0.072,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 0.75,
+      "sync": false,
+      "division": "1/2",
+      "amount": 0.05,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.79,
+      "brightness": 0.64,
+      "motion": 0.48,
+      "width": 0.82
+    },
+    "voiceFx": {
+      "chorus": 0.38,
+      "chorusRate": 0.62,
+      "chorusDepth": 0.0075,
+      "bitcrush": 0.0,
+      "saturation": 0.07500000000000001
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "down",
+      "rate": "1/16",
+      "octaves": 1,
+      "gate": 0.88
+    },
+    "tags": [
+      "choir",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-215",
+    "name": "Dream Chorus",
+    "category": "Choir",
+    "description": "Original layered choir instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.11,
+    "masterTune": 0,
+    "voiceDrift": 5.55,
+    "velocityToAmp": 0.807,
+    "velocityToFilter": 0.562,
+    "keyTracking": 0.632,
+    "unison": 3,
+    "detune": 15,
+    "stereo": 0.72,
+    "phaseRandom": 0.24,
+    "oscA": {
+      "enabled": true,
+      "waveform": "choir",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "formant",
+      "octave": 0,
+      "semitone": -12,
+      "fine": 3,
+      "level": 0.12,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "organ",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.11,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.19
+    },
+    "noise": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.036,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -6,
+        "level": 0.22999999999999998,
+        "pan": -0.18,
+        "unison": 6,
+        "detune": 10,
+        "stereo": 0.59,
+        "delay": 0.008,
+        "motion": 0.30000000000000004,
+        "motionRate": 0.24
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "air",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.16,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 12,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.32,
+        "motionRate": 0.185
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "blue",
+      "level": 0.049,
+      "highpass": 870,
+      "lowpass": 7800,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.32,
+      "motionRate": 0.165
+    },
+    "ampEnv": {
+      "attack": 0.43000000000000005,
+      "hold": 0,
+      "decay": 1.2,
+      "sustain": 0.7,
+      "release": 2.3000000000000003,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 13200,
+      "resonance": 3.6,
+      "drive": 0.0,
+      "keyTrack": 0.48
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "bandpass",
+      "cutoff": 1280,
+      "resonance": 1.4,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "parallel",
+    "filterBlend": 0.56,
+    "filterEnv": {
+      "attack": 0.0575,
+      "hold": 0,
+      "decay": 0.556,
+      "sustain": 0.18,
+      "release": 0.633,
+      "amount": 0.64
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.149,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": true,
+      "source": "B",
+      "target": "A",
+      "ratio": 0.5,
+      "amount": 0.0
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.12,
+      "ratio": 1.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sawtooth",
+      "rate": 6.4,
+      "sync": false,
+      "division": "1/8",
+      "amount": 0.0,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.82,
+      "sync": false,
+      "division": "1/4",
+      "amount": 0.1,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.15,
+      "brightness": 0.76,
+      "motion": 0.0,
+      "width": 0.22
+    },
+    "voiceFx": {
+      "chorus": 0.48000000000000004,
+      "chorusRate": 0.18,
+      "chorusDepth": 0.009000000000000001,
+      "bitcrush": 0.0,
+      "saturation": 0.11000000000000001
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "upDown",
+      "rate": "1/16T",
+      "octaves": 2,
+      "gate": 0.48
+    },
+    "tags": [
+      "choir",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-216",
+    "name": "Sacred Air",
+    "category": "Choir",
+    "description": "Original layered choir instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "spectral-hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.12,
+    "masterTune": 0,
+    "voiceDrift": 6.0,
+    "velocityToAmp": 0.83,
+    "velocityToFilter": 0.6,
+    "keyTracking": 0.67,
+    "unison": 4,
+    "detune": 18,
+    "stereo": 0.84,
+    "phaseRandom": 0.36,
+    "oscA": {
+      "enabled": true,
+      "waveform": "choir",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "formant",
+      "octave": 0,
+      "semitone": 0,
+      "fine": -5,
+      "level": 0.195,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "digital",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.14,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.245
+    },
+    "noise": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.054,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -7,
+        "level": 0.255,
+        "pan": -0.18,
+        "unison": 7,
+        "detune": 13,
+        "stereo": 0.71,
+        "delay": 0.016,
+        "motion": 0.37,
+        "motionRate": 0.258
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 5,
+        "level": 0.18,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 15,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.38,
+        "motionRate": 0.199
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "white",
+      "level": 0.061000000000000006,
+      "highpass": 945,
+      "lowpass": 7380,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.38,
+      "motionRate": 0.177
+    },
+    "ampEnv": {
+      "attack": 0.465,
+      "hold": 0,
+      "decay": 1.2599999999999998,
+      "sustain": 0.78,
+      "release": 2.44,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 14450,
+      "resonance": 4.4,
+      "drive": 0.06,
+      "keyTrack": 0.62
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "notch",
+      "cutoff": 1400,
+      "resonance": 2.0,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.68,
+    "filterEnv": {
+      "attack": 0.063,
+      "hold": 0,
+      "decay": 0.6,
+      "sustain": 0.3,
+      "release": 0.68,
+      "amount": 0.76
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.16,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 1,
+      "amount": 0.04
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.18,
+      "ratio": 2
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "square",
+      "rate": 6.82,
+      "sync": false,
+      "division": "1/16",
+      "amount": 0.018,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.89,
+      "sync": false,
+      "division": "1/8",
+      "amount": 0.15,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.31,
+      "brightness": 0.88,
+      "motion": 0.12,
+      "width": 0.37
+    },
+    "voiceFx": {
+      "chorus": 0.5800000000000001,
+      "chorusRate": 0.29,
+      "chorusDepth": 0.0105,
+      "bitcrush": 0.0,
+      "saturation": 0.14500000000000002
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "random",
+      "rate": "1/32",
+      "octaves": 3,
+      "gate": 0.58
+    },
+    "tags": [
+      "choir",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-217",
+    "name": "Desert Strings",
+    "category": "World",
+    "description": "Original layered world instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.01,
+    "masterTune": 0,
+    "voiceDrift": 1.0,
+    "velocityToAmp": 0.58,
+    "velocityToFilter": 0.18,
+    "keyTracking": 0.25,
+    "unison": 3,
+    "detune": 3,
+    "stereo": 0.48,
+    "phaseRandom": 0.0,
+    "oscA": {
+      "enabled": true,
+      "waveform": "hollow",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "square",
+      "octave": 0,
+      "semitone": -12,
+      "fine": 3,
+      "level": 0.12,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": true,
+      "waveform": "organ",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.05,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.08
+    },
+    "noise": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.0,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -4,
+        "level": 0.18,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 10,
+        "stereo": 0.35,
+        "delay": 0.0,
+        "motion": 0.16,
+        "motionRate": 0.06
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.12,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 12,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.2,
+        "motionRate": 0.045
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.025,
+      "highpass": 120,
+      "lowpass": 12000,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.2,
+      "motionRate": 0.045
+    },
+    "ampEnv": {
+      "attack": 0.004,
+      "hold": 0,
+      "decay": 0.28,
+      "sustain": 0.28,
+      "release": 0.45,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 700,
+      "resonance": 0.4,
+      "drive": 0.0,
+      "keyTrack": 0.2
+    },
+    "filter2": {
+      "enabled": true,
+      "type": "highpass",
+      "cutoff": 80,
+      "resonance": 0.2,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "parallel",
+    "filterBlend": 0.32,
+    "filterEnv": {
+      "attack": 0.003,
+      "hold": 0,
+      "decay": 0.12,
+      "sustain": 0.18,
+      "release": 0.16,
+      "amount": 0.16
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.04,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": true,
+      "source": "B",
+      "target": "A",
+      "ratio": 0.5,
+      "amount": 0.0
+    },
+    "ring": {
+      "enabled": true,
+      "amount": 0.0,
+      "ratio": 0.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sine",
+      "rate": 2.2,
+      "sync": true,
+      "division": "1/2",
+      "amount": 0.0,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 0.12,
+      "sync": true,
+      "division": "1/1",
+      "amount": 0.0,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.15,
+      "brightness": 0.28,
+      "motion": 0.0,
+      "width": 0.22
+    },
+    "voiceFx": {
+      "chorus": 0.28,
+      "chorusRate": 0.18,
+      "chorusDepth": 0.006,
+      "bitcrush": 0.12,
+      "saturation": 0.04
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "up",
+      "rate": "1/8",
+      "octaves": 1,
+      "gate": 0.48
+    },
+    "tags": [
+      "world",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-218",
+    "name": "Bamboo Temple",
+    "category": "World",
+    "description": "Original layered world instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.02,
+    "masterTune": 0,
+    "voiceDrift": 1.45,
+    "velocityToAmp": 0.603,
+    "velocityToFilter": 0.218,
+    "keyTracking": 0.288,
+    "unison": 4,
+    "detune": 6,
+    "stereo": 0.6,
+    "phaseRandom": 0.12,
+    "oscA": {
+      "enabled": true,
+      "waveform": "bowed",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "pulse12",
+      "octave": 0,
+      "semitone": 0,
+      "fine": -5,
+      "level": 0.195,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "digital",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.08,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.135
+    },
+    "noise": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.018,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "hollow",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -5,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 13,
+        "stereo": 0.47,
+        "delay": 0.008,
+        "motion": 0.23,
+        "motionRate": 0.078
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 5,
+        "level": 0.13999999999999999,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 15,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.26,
+        "motionRate": 0.059
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "brown",
+      "level": 0.037000000000000005,
+      "highpass": 195,
+      "lowpass": 11580,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.26,
+      "motionRate": 0.057
+    },
+    "ampEnv": {
+      "attack": 0.01,
+      "hold": 0,
+      "decay": 0.32,
+      "sustain": 0.39,
+      "release": 0.5,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 1950,
+      "resonance": 1.2,
+      "drive": 0.06,
+      "keyTrack": 0.34
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "bandpass",
+      "cutoff": 200,
+      "resonance": 0.8,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.44,
+    "filterEnv": {
+      "attack": 0.0085,
+      "hold": 0,
+      "decay": 0.164,
+      "sustain": 0.3,
+      "release": 0.207,
+      "amount": 0.28
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.051,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 1,
+      "amount": 0.04
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.06,
+      "ratio": 1
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 2.62,
+      "sync": false,
+      "division": "1/4",
+      "amount": 0.018,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.19,
+      "sync": false,
+      "division": "1/2",
+      "amount": 0.05,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.31,
+      "brightness": 0.4,
+      "motion": 0.12,
+      "width": 0.37
+    },
+    "voiceFx": {
+      "chorus": 0.38,
+      "chorusRate": 0.29,
+      "chorusDepth": 0.0075,
+      "bitcrush": 0.0,
+      "saturation": 0.07500000000000001
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "down",
+      "rate": "1/16",
+      "octaves": 2,
+      "gate": 0.58
+    },
+    "tags": [
+      "world",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-219",
+    "name": "Nordic Bow",
+    "category": "World",
+    "description": "Original layered world instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.03,
+    "masterTune": 0,
+    "voiceDrift": 1.91,
+    "velocityToAmp": 0.625,
+    "velocityToFilter": 0.256,
+    "keyTracking": 0.326,
+    "unison": 5,
+    "detune": 9,
+    "stereo": 0.72,
+    "phaseRandom": 0.24,
+    "oscA": {
+      "enabled": true,
+      "waveform": "glass",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "organ",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 7,
+      "level": 0.27,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "vowel",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.11,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.19
+    },
+    "noise": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.036,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -6,
+        "level": 0.22999999999999998,
+        "pan": -0.18,
+        "unison": 6,
+        "detune": 16,
+        "stereo": 0.59,
+        "delay": 0.016,
+        "motion": 0.30000000000000004,
+        "motionRate": 0.096
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 6,
+        "level": 0.16,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 18,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.32,
+        "motionRate": 0.073
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "blue",
+      "level": 0.049,
+      "highpass": 270,
+      "lowpass": 11160,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.32,
+      "motionRate": 0.069
+    },
+    "ampEnv": {
+      "attack": 0.016,
+      "hold": 0,
+      "decay": 0.36000000000000004,
+      "sustain": 0.5,
+      "release": 0.55,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 3200,
+      "resonance": 2.0,
+      "drive": 0.12,
+      "keyTrack": 0.48
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "notch",
+      "cutoff": 320,
+      "resonance": 1.4,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.56,
+    "filterEnv": {
+      "attack": 0.0139,
+      "hold": 0,
+      "decay": 0.207,
+      "sustain": 0.42,
+      "release": 0.255,
+      "amount": 0.4
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.062,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 2,
+      "amount": 0.08
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.12,
+      "ratio": 1.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sawtooth",
+      "rate": 3.04,
+      "sync": false,
+      "division": "1/8",
+      "amount": 0.036,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.26,
+      "sync": false,
+      "division": "1/4",
+      "amount": 0.1,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.47,
+      "brightness": 0.52,
+      "motion": 0.24,
+      "width": 0.52
+    },
+    "voiceFx": {
+      "chorus": 0.48000000000000004,
+      "chorusRate": 0.4,
+      "chorusDepth": 0.009000000000000001,
+      "bitcrush": 0.0,
+      "saturation": 0.11000000000000001
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "upDown",
+      "rate": "1/16T",
+      "octaves": 3,
+      "gate": 0.68
+    },
+    "tags": [
+      "world",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-220",
+    "name": "African Glass",
+    "category": "World",
+    "description": "Original layered world instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.04,
+    "masterTune": 0,
+    "voiceDrift": 2.36,
+    "velocityToAmp": 0.648,
+    "velocityToFilter": 0.295,
+    "keyTracking": 0.365,
+    "unison": 6,
+    "detune": 12,
+    "stereo": 0.84,
+    "phaseRandom": 0.36,
+    "oscA": {
+      "enabled": true,
+      "waveform": "air",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "digital",
+      "octave": 0,
+      "semitone": 7,
+      "fine": -9,
+      "level": 0.345,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": true,
+      "waveform": "choir",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.14,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.245
+    },
+    "noise": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.054,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "formant",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -7,
+        "level": 0.255,
+        "pan": -0.18,
+        "unison": 7,
+        "detune": 19,
+        "stereo": 0.71,
+        "delay": 0.0,
+        "motion": 0.37,
+        "motionRate": 0.114
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 7,
+        "level": 0.18,
+        "pan": 0.18,
+        "unison": 7,
+        "detune": 21,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.38,
+        "motionRate": 0.087
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "white",
+      "level": 0.061000000000000006,
+      "highpass": 345,
+      "lowpass": 10740,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.38,
+      "motionRate": 0.081
+    },
+    "ampEnv": {
+      "attack": 0.022000000000000002,
+      "hold": 0,
+      "decay": 0.4,
+      "sustain": 0.28,
+      "release": 0.6000000000000001,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 4450,
+      "resonance": 2.8,
+      "drive": 0.18,
+      "keyTrack": 0.62
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "highpass",
+      "cutoff": 440,
+      "resonance": 2.0,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.68,
+    "filterEnv": {
+      "attack": 0.0194,
+      "hold": 0,
+      "decay": 0.251,
+      "sustain": 0.54,
+      "release": 0.302,
+      "amount": 0.52
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.073,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 3,
+      "amount": 0.12
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.18,
+      "ratio": 2
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "square",
+      "rate": 3.46,
+      "sync": true,
+      "division": "1/16",
+      "amount": 0.054,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 0.33,
+      "sync": false,
+      "division": "1/8",
+      "amount": 0.15,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.63,
+      "brightness": 0.64,
+      "motion": 0.36,
+      "width": 0.67
+    },
+    "voiceFx": {
+      "chorus": 0.5800000000000001,
+      "chorusRate": 0.51,
+      "chorusDepth": 0.0105,
+      "bitcrush": 0.0,
+      "saturation": 0.14500000000000002
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "random",
+      "rate": "1/32",
+      "octaves": 1,
+      "gate": 0.78
+    },
+    "tags": [
+      "world",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-221",
+    "name": "Eastern Pluck",
+    "category": "World",
+    "description": "Original layered world instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.05,
+    "masterTune": 0,
+    "voiceDrift": 2.82,
+    "velocityToAmp": 0.671,
+    "velocityToFilter": 0.333,
+    "keyTracking": 0.403,
+    "unison": 7,
+    "detune": 15,
+    "stereo": 0.48,
+    "phaseRandom": 0.0,
+    "oscA": {
+      "enabled": true,
+      "waveform": "hollow",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "vowel",
+      "octave": 0,
+      "semitone": 12,
+      "fine": 11,
+      "level": 0.42,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "glass",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.05,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.08
+    },
+    "noise": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.0,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -4,
+        "level": 0.18,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 22,
+        "stereo": 0.35,
+        "delay": 0.008,
+        "motion": 0.16,
+        "motionRate": 0.132
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.12,
+        "pan": 0.18,
+        "unison": 8,
+        "detune": 24,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.2,
+        "motionRate": 0.101
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.025,
+      "highpass": 420,
+      "lowpass": 10320,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.2,
+      "motionRate": 0.093
+    },
+    "ampEnv": {
+      "attack": 0.028,
+      "hold": 0,
+      "decay": 0.44000000000000006,
+      "sustain": 0.39,
+      "release": 0.65,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 5700,
+      "resonance": 3.6,
+      "drive": 0.24,
+      "keyTrack": 0.2
+    },
+    "filter2": {
+      "enabled": true,
+      "type": "bandpass",
+      "cutoff": 560,
+      "resonance": 0.2,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.32,
+    "filterEnv": {
+      "attack": 0.0248,
+      "hold": 0,
+      "decay": 0.295,
+      "sustain": 0.66,
+      "release": 0.349,
+      "amount": 0.64
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.084,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 4,
+      "amount": 0.16
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.0,
+      "ratio": 0.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sine",
+      "rate": 3.88,
+      "sync": false,
+      "division": "1/2",
+      "amount": 0.072,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.4,
+      "sync": true,
+      "division": "1/1",
+      "amount": 0.0,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.79,
+      "brightness": 0.76,
+      "motion": 0.48,
+      "width": 0.82
+    },
+    "voiceFx": {
+      "chorus": 0.28,
+      "chorusRate": 0.62,
+      "chorusDepth": 0.006,
+      "bitcrush": 0.0,
+      "saturation": 0.04
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "up",
+      "rate": "1/8",
+      "octaves": 2,
+      "gate": 0.88
+    },
+    "tags": [
+      "world",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-222",
+    "name": "Island Mallet",
+    "category": "World",
+    "description": "Original layered world instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.06,
+    "masterTune": 0,
+    "voiceDrift": 3.27,
+    "velocityToAmp": 0.694,
+    "velocityToFilter": 0.371,
+    "keyTracking": 0.441,
+    "unison": 3,
+    "detune": 18,
+    "stereo": 0.6,
+    "phaseRandom": 0.12,
+    "oscA": {
+      "enabled": true,
+      "waveform": "bowed",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "choir",
+      "octave": 0,
+      "semitone": -12,
+      "fine": -3,
+      "level": 0.12,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "shimmer",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.08,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.135
+    },
+    "noise": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.018,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "hollow",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -5,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 10,
+        "stereo": 0.47,
+        "delay": 0.016,
+        "motion": 0.23,
+        "motionRate": 0.15
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 4,
+        "level": 0.13999999999999999,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 12,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.26,
+        "motionRate": 0.115
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "brown",
+      "level": 0.037000000000000005,
+      "highpass": 495,
+      "lowpass": 9900,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.26,
+      "motionRate": 0.105
+    },
+    "ampEnv": {
+      "attack": 0.034,
+      "hold": 0,
+      "decay": 0.48000000000000004,
+      "sustain": 0.5,
+      "release": 0.7,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 6950,
+      "resonance": 4.4,
+      "drive": 0.0,
+      "keyTrack": 0.34
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "notch",
+      "cutoff": 680,
+      "resonance": 0.8,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "parallel",
+    "filterBlend": 0.44,
+    "filterEnv": {
+      "attack": 0.0303,
+      "hold": 0,
+      "decay": 0.338,
+      "sustain": 0.18,
+      "release": 0.396,
+      "amount": 0.76
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.095,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": true,
+      "source": "B",
+      "target": "A",
+      "ratio": 0.5,
+      "amount": 0.0
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.06,
+      "ratio": 1
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 4.3,
+      "sync": false,
+      "division": "1/4",
+      "amount": 0.0,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.47,
+      "sync": false,
+      "division": "1/2",
+      "amount": 0.05,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.15,
+      "brightness": 0.88,
+      "motion": 0.0,
+      "width": 0.22
+    },
+    "voiceFx": {
+      "chorus": 0.38,
+      "chorusRate": 0.18,
+      "chorusDepth": 0.0075,
+      "bitcrush": 0.0,
+      "saturation": 0.07500000000000001
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "down",
+      "rate": "1/16",
+      "octaves": 3,
+      "gate": 0.48
+    },
+    "tags": [
+      "world",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-223",
+    "name": "Mountain Reed",
+    "category": "World",
+    "description": "Original layered world instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.07,
+    "masterTune": 0,
+    "voiceDrift": 3.73,
+    "velocityToAmp": 0.716,
+    "velocityToFilter": 0.409,
+    "keyTracking": 0.479,
+    "unison": 4,
+    "detune": 3,
+    "stereo": 0.72,
+    "phaseRandom": 0.24,
+    "oscA": {
+      "enabled": true,
+      "waveform": "glass",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "glass",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 5,
+      "level": 0.195,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": true,
+      "waveform": "spectral",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.11,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.19
+    },
+    "noise": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.036,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -6,
+        "level": 0.22999999999999998,
+        "pan": -0.18,
+        "unison": 6,
+        "detune": 13,
+        "stereo": 0.59,
+        "delay": 0.0,
+        "motion": 0.30000000000000004,
+        "motionRate": 0.168
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 5,
+        "level": 0.16,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 15,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.32,
+        "motionRate": 0.129
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "blue",
+      "level": 0.049,
+      "highpass": 570,
+      "lowpass": 9480,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.32,
+      "motionRate": 0.117
+    },
+    "ampEnv": {
+      "attack": 0.04000000000000001,
+      "hold": 0,
+      "decay": 0.52,
+      "sustain": 0.28,
+      "release": 0.75,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 8200,
+      "resonance": 0.4,
+      "drive": 0.06,
+      "keyTrack": 0.48
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "highpass",
+      "cutoff": 800,
+      "resonance": 1.4,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.56,
+    "filterEnv": {
+      "attack": 0.0357,
+      "hold": 0,
+      "decay": 0.382,
+      "sustain": 0.3,
+      "release": 0.444,
+      "amount": 0.16
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.105,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 1,
+      "amount": 0.04
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.12,
+      "ratio": 1.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sawtooth",
+      "rate": 4.72,
+      "sync": true,
+      "division": "1/8",
+      "amount": 0.018,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 0.54,
+      "sync": false,
+      "division": "1/4",
+      "amount": 0.1,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.31,
+      "brightness": 0.28,
+      "motion": 0.12,
+      "width": 0.37
+    },
+    "voiceFx": {
+      "chorus": 0.48000000000000004,
+      "chorusRate": 0.29,
+      "chorusDepth": 0.009000000000000001,
+      "bitcrush": 0.0,
+      "saturation": 0.11000000000000001
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "upDown",
+      "rate": "1/16T",
+      "octaves": 1,
+      "gate": 0.58
+    },
+    "tags": [
+      "world",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-224",
+    "name": "Ceremonial Drumtone",
+    "category": "World",
+    "description": "Original layered world instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.08,
+    "masterTune": 0,
+    "voiceDrift": 4.18,
+    "velocityToAmp": 0.739,
+    "velocityToFilter": 0.447,
+    "keyTracking": 0.517,
+    "unison": 5,
+    "detune": 6,
+    "stereo": 0.84,
+    "phaseRandom": 0.36,
+    "oscA": {
+      "enabled": true,
+      "waveform": "air",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "shimmer",
+      "octave": 0,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.27,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "triangle",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.14,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.245
+    },
+    "noise": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.054,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "formant",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -7,
+        "level": 0.255,
+        "pan": -0.18,
+        "unison": 7,
+        "detune": 16,
+        "stereo": 0.71,
+        "delay": 0.008,
+        "motion": 0.37,
+        "motionRate": 0.186
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 6,
+        "level": 0.18,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 18,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.38,
+        "motionRate": 0.143
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "white",
+      "level": 0.061000000000000006,
+      "highpass": 645,
+      "lowpass": 9060,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.38,
+      "motionRate": 0.129
+    },
+    "ampEnv": {
+      "attack": 0.046,
+      "hold": 0,
+      "decay": 0.56,
+      "sustain": 0.39,
+      "release": 0.8,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 9450,
+      "resonance": 1.2,
+      "drive": 0.12,
+      "keyTrack": 0.62
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "bandpass",
+      "cutoff": 920,
+      "resonance": 2.0,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.68,
+    "filterEnv": {
+      "attack": 0.0412,
+      "hold": 0,
+      "decay": 0.425,
+      "sustain": 0.42,
+      "release": 0.491,
+      "amount": 0.28
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.116,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 2,
+      "amount": 0.08
+    },
+    "ring": {
+      "enabled": true,
+      "amount": 0.18,
+      "ratio": 2
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "square",
+      "rate": 5.14,
+      "sync": false,
+      "division": "1/16",
+      "amount": 0.036,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.61,
+      "sync": false,
+      "division": "1/8",
+      "amount": 0.15,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.47,
+      "brightness": 0.4,
+      "motion": 0.24,
+      "width": 0.52
+    },
+    "voiceFx": {
+      "chorus": 0.5800000000000001,
+      "chorusRate": 0.4,
+      "chorusDepth": 0.0105,
+      "bitcrush": 0.12,
+      "saturation": 0.14500000000000002
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "random",
+      "rate": "1/32",
+      "octaves": 2,
+      "gate": 0.68
+    },
+    "tags": [
+      "world",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-225",
+    "name": "Silk Road Drone",
+    "category": "World",
+    "description": "Original layered world instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.09,
+    "masterTune": 0,
+    "voiceDrift": 4.64,
+    "velocityToAmp": 0.762,
+    "velocityToFilter": 0.485,
+    "keyTracking": 0.555,
+    "unison": 6,
+    "detune": 9,
+    "stereo": 0.48,
+    "phaseRandom": 0.0,
+    "oscA": {
+      "enabled": true,
+      "waveform": "hollow",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "spectral",
+      "octave": 0,
+      "semitone": 7,
+      "fine": 9,
+      "level": 0.345,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "square",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.05,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.08
+    },
+    "noise": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.0,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -4,
+        "level": 0.18,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 19,
+        "stereo": 0.35,
+        "delay": 0.016,
+        "motion": 0.16,
+        "motionRate": 0.204
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 7,
+        "level": 0.12,
+        "pan": 0.18,
+        "unison": 7,
+        "detune": 21,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.2,
+        "motionRate": 0.157
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.025,
+      "highpass": 720,
+      "lowpass": 8640,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.2,
+      "motionRate": 0.141
+    },
+    "ampEnv": {
+      "attack": 0.052000000000000005,
+      "hold": 0,
+      "decay": 0.6000000000000001,
+      "sustain": 0.5,
+      "release": 0.8500000000000001,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 10700,
+      "resonance": 2.0,
+      "drive": 0.18,
+      "keyTrack": 0.2
+    },
+    "filter2": {
+      "enabled": true,
+      "type": "notch",
+      "cutoff": 1040,
+      "resonance": 0.2,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.32,
+    "filterEnv": {
+      "attack": 0.0466,
+      "hold": 0,
+      "decay": 0.469,
+      "sustain": 0.54,
+      "release": 0.538,
+      "amount": 0.4
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.127,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 3,
+      "amount": 0.12
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.0,
+      "ratio": 0.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sine",
+      "rate": 5.56,
+      "sync": false,
+      "division": "1/2",
+      "amount": 0.054,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.68,
+      "sync": true,
+      "division": "1/1",
+      "amount": 0.0,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.63,
+      "brightness": 0.52,
+      "motion": 0.36,
+      "width": 0.67
+    },
+    "voiceFx": {
+      "chorus": 0.28,
+      "chorusRate": 0.51,
+      "chorusDepth": 0.006,
+      "bitcrush": 0.0,
+      "saturation": 0.04
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "up",
+      "rate": "1/8",
+      "octaves": 3,
+      "gate": 0.78
+    },
+    "tags": [
+      "world",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-226",
+    "name": "Arctic Flute",
+    "category": "World",
+    "description": "Original layered world instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.1,
+    "masterTune": 0,
+    "voiceDrift": 5.09,
+    "velocityToAmp": 0.785,
+    "velocityToFilter": 0.524,
+    "keyTracking": 0.594,
+    "unison": 7,
+    "detune": 12,
+    "stereo": 0.6,
+    "phaseRandom": 0.12,
+    "oscA": {
+      "enabled": true,
+      "waveform": "bowed",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "triangle",
+      "octave": 0,
+      "semitone": 12,
+      "fine": -11,
+      "level": 0.42,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": true,
+      "waveform": "pulse12",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.08,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.135
+    },
+    "noise": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.018,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "hollow",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -5,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 22,
+        "stereo": 0.47,
+        "delay": 0.0,
+        "motion": 0.23,
+        "motionRate": 0.222
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.13999999999999999,
+        "pan": 0.18,
+        "unison": 8,
+        "detune": 24,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.26,
+        "motionRate": 0.171
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "brown",
+      "level": 0.037000000000000005,
+      "highpass": 795,
+      "lowpass": 8220,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.26,
+      "motionRate": 0.153
+    },
+    "ampEnv": {
+      "attack": 0.057999999999999996,
+      "hold": 0,
+      "decay": 0.64,
+      "sustain": 0.28,
+      "release": 0.9,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 11950,
+      "resonance": 2.8,
+      "drive": 0.24,
+      "keyTrack": 0.34
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "highpass",
+      "cutoff": 1160,
+      "resonance": 0.8,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.44,
+    "filterEnv": {
+      "attack": 0.0521,
+      "hold": 0,
+      "decay": 0.513,
+      "sustain": 0.66,
+      "release": 0.585,
+      "amount": 0.52
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.138,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 4,
+      "amount": 0.16
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.06,
+      "ratio": 1
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 5.98,
+      "sync": true,
+      "division": "1/4",
+      "amount": 0.072,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 0.75,
+      "sync": false,
+      "division": "1/2",
+      "amount": 0.05,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.79,
+      "brightness": 0.64,
+      "motion": 0.48,
+      "width": 0.82
+    },
+    "voiceFx": {
+      "chorus": 0.38,
+      "chorusRate": 0.62,
+      "chorusDepth": 0.0075,
+      "bitcrush": 0.0,
+      "saturation": 0.07500000000000001
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "down",
+      "rate": "1/16",
+      "octaves": 1,
+      "gate": 0.88
+    },
+    "tags": [
+      "world",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-227",
+    "name": "Jungle Resonance",
+    "category": "World",
+    "description": "Original layered world instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.11,
+    "masterTune": 0,
+    "voiceDrift": 5.55,
+    "velocityToAmp": 0.807,
+    "velocityToFilter": 0.562,
+    "keyTracking": 0.632,
+    "unison": 3,
+    "detune": 15,
+    "stereo": 0.72,
+    "phaseRandom": 0.24,
+    "oscA": {
+      "enabled": true,
+      "waveform": "glass",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "square",
+      "octave": 0,
+      "semitone": -12,
+      "fine": 3,
+      "level": 0.12,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "organ",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.11,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.19
+    },
+    "noise": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.036,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -6,
+        "level": 0.22999999999999998,
+        "pan": -0.18,
+        "unison": 6,
+        "detune": 10,
+        "stereo": 0.59,
+        "delay": 0.008,
+        "motion": 0.30000000000000004,
+        "motionRate": 0.24
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.16,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 12,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.32,
+        "motionRate": 0.185
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "blue",
+      "level": 0.049,
+      "highpass": 870,
+      "lowpass": 7800,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.32,
+      "motionRate": 0.165
+    },
+    "ampEnv": {
+      "attack": 0.064,
+      "hold": 0,
+      "decay": 0.68,
+      "sustain": 0.39,
+      "release": 0.95,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 13200,
+      "resonance": 3.6,
+      "drive": 0.0,
+      "keyTrack": 0.48
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "bandpass",
+      "cutoff": 1280,
+      "resonance": 1.4,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "parallel",
+    "filterBlend": 0.56,
+    "filterEnv": {
+      "attack": 0.0575,
+      "hold": 0,
+      "decay": 0.556,
+      "sustain": 0.18,
+      "release": 0.633,
+      "amount": 0.64
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.149,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": true,
+      "source": "B",
+      "target": "A",
+      "ratio": 0.5,
+      "amount": 0.0
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.12,
+      "ratio": 1.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sawtooth",
+      "rate": 6.4,
+      "sync": false,
+      "division": "1/8",
+      "amount": 0.0,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.82,
+      "sync": false,
+      "division": "1/4",
+      "amount": 0.1,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.15,
+      "brightness": 0.76,
+      "motion": 0.0,
+      "width": 0.22
+    },
+    "voiceFx": {
+      "chorus": 0.48000000000000004,
+      "chorusRate": 0.18,
+      "chorusDepth": 0.009000000000000001,
+      "bitcrush": 0.0,
+      "saturation": 0.11000000000000001
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "upDown",
+      "rate": "1/16T",
+      "octaves": 2,
+      "gate": 0.48
+    },
+    "tags": [
+      "world",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-228",
+    "name": "Nomad Chime",
+    "category": "World",
+    "description": "Original layered world instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.12,
+    "masterTune": 0,
+    "voiceDrift": 6.0,
+    "velocityToAmp": 0.83,
+    "velocityToFilter": 0.6,
+    "keyTracking": 0.67,
+    "unison": 4,
+    "detune": 18,
+    "stereo": 0.84,
+    "phaseRandom": 0.36,
+    "oscA": {
+      "enabled": true,
+      "waveform": "air",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "pulse12",
+      "octave": 0,
+      "semitone": 0,
+      "fine": -5,
+      "level": 0.195,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "digital",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.14,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.245
+    },
+    "noise": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.054,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "formant",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -7,
+        "level": 0.255,
+        "pan": -0.18,
+        "unison": 7,
+        "detune": 13,
+        "stereo": 0.71,
+        "delay": 0.016,
+        "motion": 0.37,
+        "motionRate": 0.258
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 5,
+        "level": 0.18,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 15,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.38,
+        "motionRate": 0.199
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "white",
+      "level": 0.061000000000000006,
+      "highpass": 945,
+      "lowpass": 7380,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.38,
+      "motionRate": 0.177
+    },
+    "ampEnv": {
+      "attack": 0.07,
+      "hold": 0,
+      "decay": 0.72,
+      "sustain": 0.5,
+      "release": 1.0,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 14450,
+      "resonance": 4.4,
+      "drive": 0.06,
+      "keyTrack": 0.62
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "notch",
+      "cutoff": 1400,
+      "resonance": 2.0,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.68,
+    "filterEnv": {
+      "attack": 0.063,
+      "hold": 0,
+      "decay": 0.6,
+      "sustain": 0.3,
+      "release": 0.68,
+      "amount": 0.76
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.16,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 1,
+      "amount": 0.04
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.18,
+      "ratio": 2
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "square",
+      "rate": 6.82,
+      "sync": false,
+      "division": "1/16",
+      "amount": 0.018,
+      "target": "pitch",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": false,
+      "waveform": "triangle",
+      "rate": 0.89,
+      "sync": false,
+      "division": "1/8",
+      "amount": 0.15,
+      "target": "filter",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.31,
+      "brightness": 0.88,
+      "motion": 0.12,
+      "width": 0.37
+    },
+    "voiceFx": {
+      "chorus": 0.5800000000000001,
+      "chorusRate": 0.29,
+      "chorusDepth": 0.0105,
+      "bitcrush": 0.0,
+      "saturation": 0.14500000000000002
+    },
+    "arp": {
+      "enabled": false,
+      "mode": "random",
+      "rate": "1/32",
+      "octaves": 3,
+      "gate": 0.58
+    },
+    "tags": [
+      "world",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-229",
+    "name": "Orbiting Pulse",
+    "category": "Motion",
+    "description": "Original layered motion instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.01,
+    "masterTune": 0,
+    "voiceDrift": 1.0,
+    "velocityToAmp": 0.58,
+    "velocityToFilter": 0.18,
+    "keyTracking": 0.25,
+    "unison": 3,
+    "detune": 3,
+    "stereo": 0.48,
+    "phaseRandom": 0.0,
+    "oscA": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "square",
+      "octave": 0,
+      "semitone": -12,
+      "fine": 3,
+      "level": 0.12,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": true,
+      "waveform": "organ",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.05,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.08
+    },
+    "noise": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.0,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "cinematic",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -4,
+        "level": 0.18,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 10,
+        "stereo": 0.35,
+        "delay": 0.0,
+        "motion": 0.16,
+        "motionRate": 0.06
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.12,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 12,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.2,
+        "motionRate": 0.045
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.025,
+      "highpass": 120,
+      "lowpass": 12000,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.2,
+      "motionRate": 0.045
+    },
+    "ampEnv": {
+      "attack": 0.08,
+      "hold": 0,
+      "decay": 0.6,
+      "sustain": 0.62,
+      "release": 0.9,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 700,
+      "resonance": 0.4,
+      "drive": 0.0,
+      "keyTrack": 0.2
+    },
+    "filter2": {
+      "enabled": true,
+      "type": "highpass",
+      "cutoff": 80,
+      "resonance": 0.2,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "parallel",
+    "filterBlend": 0.32,
+    "filterEnv": {
+      "attack": 0.003,
+      "hold": 0,
+      "decay": 0.12,
+      "sustain": 0.18,
+      "release": 0.16,
+      "amount": 0.16
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.04,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": true,
+      "source": "B",
+      "target": "A",
+      "ratio": 0.5,
+      "amount": 0.0
+    },
+    "ring": {
+      "enabled": true,
+      "amount": 0.0,
+      "ratio": 0.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sine",
+      "rate": 2.2,
+      "sync": true,
+      "division": "1/2",
+      "amount": 0.18,
+      "target": "filter",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 0.12,
+      "sync": true,
+      "division": "1/1",
+      "amount": 0.14,
+      "target": "pan",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.15,
+      "brightness": 0.28,
+      "motion": 0.0,
+      "width": 0.22
+    },
+    "voiceFx": {
+      "chorus": 0.28,
+      "chorusRate": 0.18,
+      "chorusDepth": 0.006,
+      "bitcrush": 0.12,
+      "saturation": 0.04
+    },
+    "arp": {
+      "enabled": true,
+      "mode": "up",
+      "rate": "1/8",
+      "octaves": 2,
+      "gate": 0.48
+    },
+    "tags": [
+      "motion",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-230",
+    "name": "Polyrhythm Cloud",
+    "category": "Motion",
+    "description": "Original layered motion instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.02,
+    "masterTune": 0,
+    "voiceDrift": 1.45,
+    "velocityToAmp": 0.603,
+    "velocityToFilter": 0.218,
+    "keyTracking": 0.288,
+    "unison": 4,
+    "detune": 6,
+    "stereo": 0.6,
+    "phaseRandom": 0.12,
+    "oscA": {
+      "enabled": true,
+      "waveform": "sawtooth",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "pulse12",
+      "octave": 0,
+      "semitone": 0,
+      "fine": -5,
+      "level": 0.195,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "digital",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.08,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.135
+    },
+    "noise": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.018,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -5,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 13,
+        "stereo": 0.47,
+        "delay": 0.008,
+        "motion": 0.23,
+        "motionRate": 0.078
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 5,
+        "level": 0.13999999999999999,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 15,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.26,
+        "motionRate": 0.059
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "brown",
+      "level": 0.037000000000000005,
+      "highpass": 195,
+      "lowpass": 11580,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.26,
+      "motionRate": 0.057
+    },
+    "ampEnv": {
+      "attack": 0.115,
+      "hold": 0,
+      "decay": 0.6599999999999999,
+      "sustain": 0.7,
+      "release": 1.04,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 1950,
+      "resonance": 1.2,
+      "drive": 0.06,
+      "keyTrack": 0.34
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "bandpass",
+      "cutoff": 200,
+      "resonance": 0.8,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.44,
+    "filterEnv": {
+      "attack": 0.0085,
+      "hold": 0,
+      "decay": 0.164,
+      "sustain": 0.3,
+      "release": 0.207,
+      "amount": 0.28
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.051,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 1,
+      "amount": 0.04
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.06,
+      "ratio": 1
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 2.62,
+      "sync": true,
+      "division": "1/4",
+      "amount": 0.26,
+      "target": "filter",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 0.19,
+      "sync": true,
+      "division": "1/2",
+      "amount": 0.21000000000000002,
+      "target": "pan",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.31,
+      "brightness": 0.4,
+      "motion": 0.12,
+      "width": 0.37
+    },
+    "voiceFx": {
+      "chorus": 0.38,
+      "chorusRate": 0.29,
+      "chorusDepth": 0.0075,
+      "bitcrush": 0.0,
+      "saturation": 0.07500000000000001
+    },
+    "arp": {
+      "enabled": true,
+      "mode": "down",
+      "rate": "1/16",
+      "octaves": 3,
+      "gate": 0.58
+    },
+    "tags": [
+      "motion",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-231",
+    "name": "Elastic Sequence",
+    "category": "Motion",
+    "description": "Original layered motion instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.03,
+    "masterTune": 0,
+    "voiceDrift": 1.91,
+    "velocityToAmp": 0.625,
+    "velocityToFilter": 0.256,
+    "keyTracking": 0.326,
+    "unison": 5,
+    "detune": 9,
+    "stereo": 0.72,
+    "phaseRandom": 0.24,
+    "oscA": {
+      "enabled": true,
+      "waveform": "pulse25",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "organ",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 7,
+      "level": 0.27,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "vowel",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.11,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.19
+    },
+    "noise": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.036,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -6,
+        "level": 0.22999999999999998,
+        "pan": -0.18,
+        "unison": 6,
+        "detune": 16,
+        "stereo": 0.59,
+        "delay": 0.016,
+        "motion": 0.30000000000000004,
+        "motionRate": 0.096
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 6,
+        "level": 0.16,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 18,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.32,
+        "motionRate": 0.073
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "blue",
+      "level": 0.049,
+      "highpass": 270,
+      "lowpass": 11160,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.32,
+      "motionRate": 0.069
+    },
+    "ampEnv": {
+      "attack": 0.15000000000000002,
+      "hold": 0,
+      "decay": 0.72,
+      "sustain": 0.78,
+      "release": 1.1800000000000002,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 3200,
+      "resonance": 2.0,
+      "drive": 0.12,
+      "keyTrack": 0.48
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "notch",
+      "cutoff": 320,
+      "resonance": 1.4,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.56,
+    "filterEnv": {
+      "attack": 0.0139,
+      "hold": 0,
+      "decay": 0.207,
+      "sustain": 0.42,
+      "release": 0.255,
+      "amount": 0.4
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.062,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 2,
+      "amount": 0.08
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.12,
+      "ratio": 1.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sawtooth",
+      "rate": 3.04,
+      "sync": true,
+      "division": "1/8",
+      "amount": 0.33999999999999997,
+      "target": "filter",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 0.26,
+      "sync": true,
+      "division": "1/4",
+      "amount": 0.28,
+      "target": "pan",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.47,
+      "brightness": 0.52,
+      "motion": 0.24,
+      "width": 0.52
+    },
+    "voiceFx": {
+      "chorus": 0.48000000000000004,
+      "chorusRate": 0.4,
+      "chorusDepth": 0.009000000000000001,
+      "bitcrush": 0.0,
+      "saturation": 0.11000000000000001
+    },
+    "arp": {
+      "enabled": true,
+      "mode": "upDown",
+      "rate": "1/16T",
+      "octaves": 4,
+      "gate": 0.68
+    },
+    "tags": [
+      "motion",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-232",
+    "name": "Rotating Glass",
+    "category": "Motion",
+    "description": "Original layered motion instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.04,
+    "masterTune": 0,
+    "voiceDrift": 2.36,
+    "velocityToAmp": 0.648,
+    "velocityToFilter": 0.295,
+    "keyTracking": 0.365,
+    "unison": 6,
+    "detune": 12,
+    "stereo": 0.84,
+    "phaseRandom": 0.36,
+    "oscA": {
+      "enabled": true,
+      "waveform": "warmSaw",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "digital",
+      "octave": 0,
+      "semitone": 7,
+      "fine": -9,
+      "level": 0.345,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": true,
+      "waveform": "choir",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.14,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.245
+    },
+    "noise": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.054,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -7,
+        "level": 0.255,
+        "pan": -0.18,
+        "unison": 7,
+        "detune": 19,
+        "stereo": 0.71,
+        "delay": 0.0,
+        "motion": 0.37,
+        "motionRate": 0.114
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 7,
+        "level": 0.18,
+        "pan": 0.18,
+        "unison": 7,
+        "detune": 21,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.38,
+        "motionRate": 0.087
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "white",
+      "level": 0.061000000000000006,
+      "highpass": 345,
+      "lowpass": 10740,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.38,
+      "motionRate": 0.081
+    },
+    "ampEnv": {
+      "attack": 0.185,
+      "hold": 0,
+      "decay": 0.78,
+      "sustain": 0.62,
+      "release": 1.32,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 4450,
+      "resonance": 2.8,
+      "drive": 0.18,
+      "keyTrack": 0.62
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "highpass",
+      "cutoff": 440,
+      "resonance": 2.0,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.68,
+    "filterEnv": {
+      "attack": 0.0194,
+      "hold": 0,
+      "decay": 0.251,
+      "sustain": 0.54,
+      "release": 0.302,
+      "amount": 0.52
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.073,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 3,
+      "amount": 0.12
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.18,
+      "ratio": 2
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "square",
+      "rate": 3.46,
+      "sync": true,
+      "division": "1/16",
+      "amount": 0.42,
+      "target": "filter",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 0.33,
+      "sync": true,
+      "division": "1/8",
+      "amount": 0.35000000000000003,
+      "target": "pan",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.63,
+      "brightness": 0.64,
+      "motion": 0.36,
+      "width": 0.67
+    },
+    "voiceFx": {
+      "chorus": 0.5800000000000001,
+      "chorusRate": 0.51,
+      "chorusDepth": 0.0105,
+      "bitcrush": 0.0,
+      "saturation": 0.14500000000000002
+    },
+    "arp": {
+      "enabled": true,
+      "mode": "random",
+      "rate": "1/32",
+      "octaves": 2,
+      "gate": 0.78
+    },
+    "tags": [
+      "motion",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-233",
+    "name": "Evolving Current",
+    "category": "Motion",
+    "description": "Original layered motion instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.05,
+    "masterTune": 0,
+    "voiceDrift": 2.82,
+    "velocityToAmp": 0.671,
+    "velocityToFilter": 0.333,
+    "keyTracking": 0.403,
+    "unison": 7,
+    "detune": 15,
+    "stereo": 0.48,
+    "phaseRandom": 0.0,
+    "oscA": {
+      "enabled": true,
+      "waveform": "hollow",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "vowel",
+      "octave": 0,
+      "semitone": 12,
+      "fine": 11,
+      "level": 0.42,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "glass",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.05,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.08
+    },
+    "noise": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.0,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "spectral",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -4,
+        "level": 0.18,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 22,
+        "stereo": 0.35,
+        "delay": 0.008,
+        "motion": 0.16,
+        "motionRate": 0.132
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.12,
+        "pan": 0.18,
+        "unison": 8,
+        "detune": 24,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.2,
+        "motionRate": 0.101
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.025,
+      "highpass": 420,
+      "lowpass": 10320,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.2,
+      "motionRate": 0.093
+    },
+    "ampEnv": {
+      "attack": 0.22000000000000003,
+      "hold": 0,
+      "decay": 0.84,
+      "sustain": 0.7,
+      "release": 1.46,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 5700,
+      "resonance": 3.6,
+      "drive": 0.24,
+      "keyTrack": 0.2
+    },
+    "filter2": {
+      "enabled": true,
+      "type": "bandpass",
+      "cutoff": 560,
+      "resonance": 0.2,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.32,
+    "filterEnv": {
+      "attack": 0.0248,
+      "hold": 0,
+      "decay": 0.295,
+      "sustain": 0.66,
+      "release": 0.349,
+      "amount": 0.64
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.084,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 4,
+      "amount": 0.16
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.0,
+      "ratio": 0.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sine",
+      "rate": 3.88,
+      "sync": true,
+      "division": "1/2",
+      "amount": 0.18,
+      "target": "filter",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 0.4,
+      "sync": true,
+      "division": "1/1",
+      "amount": 0.14,
+      "target": "pan",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.79,
+      "brightness": 0.76,
+      "motion": 0.48,
+      "width": 0.82
+    },
+    "voiceFx": {
+      "chorus": 0.28,
+      "chorusRate": 0.62,
+      "chorusDepth": 0.006,
+      "bitcrush": 0.0,
+      "saturation": 0.04
+    },
+    "arp": {
+      "enabled": true,
+      "mode": "up",
+      "rate": "1/8",
+      "octaves": 3,
+      "gate": 0.88
+    },
+    "tags": [
+      "motion",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-234",
+    "name": "Gravity Steps",
+    "category": "Motion",
+    "description": "Original layered motion instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.06,
+    "masterTune": 0,
+    "voiceDrift": 3.27,
+    "velocityToAmp": 0.694,
+    "velocityToFilter": 0.371,
+    "keyTracking": 0.441,
+    "unison": 3,
+    "detune": 18,
+    "stereo": 0.6,
+    "phaseRandom": 0.12,
+    "oscA": {
+      "enabled": true,
+      "waveform": "metallic",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "choir",
+      "octave": 0,
+      "semitone": -12,
+      "fine": -3,
+      "level": 0.12,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "shimmer",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.08,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.135
+    },
+    "noise": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.018,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -5,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 10,
+        "stereo": 0.47,
+        "delay": 0.016,
+        "motion": 0.23,
+        "motionRate": 0.15
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 4,
+        "level": 0.13999999999999999,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 12,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.26,
+        "motionRate": 0.115
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "brown",
+      "level": 0.037000000000000005,
+      "highpass": 495,
+      "lowpass": 9900,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.26,
+      "motionRate": 0.105
+    },
+    "ampEnv": {
+      "attack": 0.255,
+      "hold": 0,
+      "decay": 0.8999999999999999,
+      "sustain": 0.78,
+      "release": 1.6,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 6950,
+      "resonance": 4.4,
+      "drive": 0.0,
+      "keyTrack": 0.34
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "notch",
+      "cutoff": 680,
+      "resonance": 0.8,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "parallel",
+    "filterBlend": 0.44,
+    "filterEnv": {
+      "attack": 0.0303,
+      "hold": 0,
+      "decay": 0.338,
+      "sustain": 0.18,
+      "release": 0.396,
+      "amount": 0.76
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.095,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": true,
+      "source": "B",
+      "target": "A",
+      "ratio": 0.5,
+      "amount": 0.0
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.06,
+      "ratio": 1
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 4.3,
+      "sync": true,
+      "division": "1/4",
+      "amount": 0.26,
+      "target": "filter",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 0.47,
+      "sync": true,
+      "division": "1/2",
+      "amount": 0.21000000000000002,
+      "target": "pan",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.15,
+      "brightness": 0.88,
+      "motion": 0.0,
+      "width": 0.22
+    },
+    "voiceFx": {
+      "chorus": 0.38,
+      "chorusRate": 0.18,
+      "chorusDepth": 0.0075,
+      "bitcrush": 0.0,
+      "saturation": 0.07500000000000001
+    },
+    "arp": {
+      "enabled": true,
+      "mode": "down",
+      "rate": "1/16",
+      "octaves": 4,
+      "gate": 0.48
+    },
+    "tags": [
+      "motion",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-235",
+    "name": "Phase Runner",
+    "category": "Motion",
+    "description": "Original layered motion instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.07,
+    "masterTune": 0,
+    "voiceDrift": 3.73,
+    "velocityToAmp": 0.716,
+    "velocityToFilter": 0.409,
+    "keyTracking": 0.479,
+    "unison": 4,
+    "detune": 3,
+    "stereo": 0.72,
+    "phaseRandom": 0.24,
+    "oscA": {
+      "enabled": true,
+      "waveform": "cinematic",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "glass",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 5,
+      "level": 0.195,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": true,
+      "waveform": "spectral",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.11,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.19
+    },
+    "noise": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.036,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "cinematic",
+        "octave": 0,
+        "semitone": 0,
+        "fine": -6,
+        "level": 0.22999999999999998,
+        "pan": -0.18,
+        "unison": 6,
+        "detune": 13,
+        "stereo": 0.59,
+        "delay": 0.0,
+        "motion": 0.30000000000000004,
+        "motionRate": 0.168
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 1,
+        "semitone": 0,
+        "fine": 5,
+        "level": 0.16,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 15,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.32,
+        "motionRate": 0.129
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "blue",
+      "level": 0.049,
+      "highpass": 570,
+      "lowpass": 9480,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.32,
+      "motionRate": 0.117
+    },
+    "ampEnv": {
+      "attack": 0.29000000000000004,
+      "hold": 0,
+      "decay": 0.96,
+      "sustain": 0.62,
+      "release": 1.7400000000000002,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 8200,
+      "resonance": 0.4,
+      "drive": 0.06,
+      "keyTrack": 0.48
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "highpass",
+      "cutoff": 800,
+      "resonance": 1.4,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.56,
+    "filterEnv": {
+      "attack": 0.0357,
+      "hold": 0,
+      "decay": 0.382,
+      "sustain": 0.3,
+      "release": 0.444,
+      "amount": 0.16
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.105,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 1,
+      "amount": 0.04
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.12,
+      "ratio": 1.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sawtooth",
+      "rate": 4.72,
+      "sync": true,
+      "division": "1/8",
+      "amount": 0.33999999999999997,
+      "target": "filter",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 0.54,
+      "sync": true,
+      "division": "1/4",
+      "amount": 0.28,
+      "target": "pan",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.31,
+      "brightness": 0.28,
+      "motion": 0.12,
+      "width": 0.37
+    },
+    "voiceFx": {
+      "chorus": 0.48000000000000004,
+      "chorusRate": 0.29,
+      "chorusDepth": 0.009000000000000001,
+      "bitcrush": 0.0,
+      "saturation": 0.11000000000000001
+    },
+    "arp": {
+      "enabled": true,
+      "mode": "upDown",
+      "rate": "1/16T",
+      "octaves": 2,
+      "gate": 0.58
+    },
+    "tags": [
+      "motion",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-236",
+    "name": "Kinetic Choir",
+    "category": "Motion",
+    "description": "Original layered motion instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.08,
+    "masterTune": 0,
+    "voiceDrift": 4.18,
+    "velocityToAmp": 0.739,
+    "velocityToFilter": 0.447,
+    "keyTracking": 0.517,
+    "unison": 5,
+    "detune": 6,
+    "stereo": 0.84,
+    "phaseRandom": 0.36,
+    "oscA": {
+      "enabled": true,
+      "waveform": "bowed",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "shimmer",
+      "octave": 0,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.27,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "triangle",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.14,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.245
+    },
+    "noise": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.054,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "bowed",
+        "octave": 0,
+        "semitone": 7,
+        "fine": -7,
+        "level": 0.255,
+        "pan": -0.18,
+        "unison": 7,
+        "detune": 16,
+        "stereo": 0.71,
+        "delay": 0.008,
+        "motion": 0.37,
+        "motionRate": 0.186
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "shimmer",
+        "octave": 0,
+        "semitone": 12,
+        "fine": 6,
+        "level": 0.18,
+        "pan": 0.18,
+        "unison": 6,
+        "detune": 18,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.38,
+        "motionRate": 0.143
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "white",
+      "level": 0.061000000000000006,
+      "highpass": 645,
+      "lowpass": 9060,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.38,
+      "motionRate": 0.129
+    },
+    "ampEnv": {
+      "attack": 0.325,
+      "hold": 0,
+      "decay": 1.02,
+      "sustain": 0.7,
+      "release": 1.8800000000000001,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 9450,
+      "resonance": 1.2,
+      "drive": 0.12,
+      "keyTrack": 0.62
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "bandpass",
+      "cutoff": 920,
+      "resonance": 2.0,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.68,
+    "filterEnv": {
+      "attack": 0.0412,
+      "hold": 0,
+      "decay": 0.425,
+      "sustain": 0.42,
+      "release": 0.491,
+      "amount": 0.28
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.116,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 2,
+      "amount": 0.08
+    },
+    "ring": {
+      "enabled": true,
+      "amount": 0.18,
+      "ratio": 2
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "square",
+      "rate": 5.14,
+      "sync": true,
+      "division": "1/16",
+      "amount": 0.42,
+      "target": "filter",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 0.61,
+      "sync": true,
+      "division": "1/8",
+      "amount": 0.35000000000000003,
+      "target": "pan",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.47,
+      "brightness": 0.4,
+      "motion": 0.24,
+      "width": 0.52
+    },
+    "voiceFx": {
+      "chorus": 0.5800000000000001,
+      "chorusRate": 0.4,
+      "chorusDepth": 0.0105,
+      "bitcrush": 0.12,
+      "saturation": 0.14500000000000002
+    },
+    "arp": {
+      "enabled": true,
+      "mode": "random",
+      "rate": "1/32",
+      "octaves": 3,
+      "gate": 0.68
+    },
+    "tags": [
+      "motion",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-237",
+    "name": "Moving Horizon",
+    "category": "Motion",
+    "description": "Original layered motion instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.09,
+    "masterTune": 0,
+    "voiceDrift": 4.64,
+    "velocityToAmp": 0.762,
+    "velocityToFilter": 0.485,
+    "keyTracking": 0.555,
+    "unison": 6,
+    "detune": 9,
+    "stereo": 0.48,
+    "phaseRandom": 0.0,
+    "oscA": {
+      "enabled": true,
+      "waveform": "air",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "spectral",
+      "octave": 0,
+      "semitone": 7,
+      "fine": 9,
+      "level": 0.345,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "square",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.05,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.08
+    },
+    "noise": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.0,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 12,
+        "fine": -4,
+        "level": 0.18,
+        "pan": -0.18,
+        "unison": 4,
+        "detune": 19,
+        "stereo": 0.35,
+        "delay": 0.016,
+        "motion": 0.16,
+        "motionRate": 0.204
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "formant",
+        "octave": 1,
+        "semitone": 7,
+        "fine": 7,
+        "level": 0.12,
+        "pan": 0.18,
+        "unison": 7,
+        "detune": 21,
+        "stereo": 0.45,
+        "delay": 0.012,
+        "motion": 0.2,
+        "motionRate": 0.157
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "pink",
+      "level": 0.025,
+      "highpass": 720,
+      "lowpass": 8640,
+      "resonance": 0.35,
+      "stereo": 0.52,
+      "motion": 0.2,
+      "motionRate": 0.141
+    },
+    "ampEnv": {
+      "attack": 0.36000000000000004,
+      "hold": 0,
+      "decay": 1.08,
+      "sustain": 0.78,
+      "release": 2.02,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 10700,
+      "resonance": 2.0,
+      "drive": 0.18,
+      "keyTrack": 0.2
+    },
+    "filter2": {
+      "enabled": true,
+      "type": "notch",
+      "cutoff": 1040,
+      "resonance": 0.2,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.32,
+    "filterEnv": {
+      "attack": 0.0466,
+      "hold": 0,
+      "decay": 0.469,
+      "sustain": 0.54,
+      "release": 0.538,
+      "amount": 0.4
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.127,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 3,
+      "amount": 0.12
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.0,
+      "ratio": 0.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sine",
+      "rate": 5.56,
+      "sync": true,
+      "division": "1/2",
+      "amount": 0.18,
+      "target": "filter",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 0.68,
+      "sync": true,
+      "division": "1/1",
+      "amount": 0.14,
+      "target": "pan",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.63,
+      "brightness": 0.52,
+      "motion": 0.36,
+      "width": 0.67
+    },
+    "voiceFx": {
+      "chorus": 0.28,
+      "chorusRate": 0.51,
+      "chorusDepth": 0.006,
+      "bitcrush": 0.0,
+      "saturation": 0.04
+    },
+    "arp": {
+      "enabled": true,
+      "mode": "up",
+      "rate": "1/8",
+      "octaves": 4,
+      "gate": 0.78
+    },
+    "tags": [
+      "motion",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-238",
+    "name": "Fractal Rhythm",
+    "category": "Motion",
+    "description": "Original layered motion instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.1,
+    "masterTune": 0,
+    "voiceDrift": 5.09,
+    "velocityToAmp": 0.785,
+    "velocityToFilter": 0.524,
+    "keyTracking": 0.594,
+    "unison": 7,
+    "detune": 12,
+    "stereo": 0.6,
+    "phaseRandom": 0.12,
+    "oscA": {
+      "enabled": true,
+      "waveform": "formant",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "triangle",
+      "octave": 0,
+      "semitone": 12,
+      "fine": -11,
+      "level": 0.42,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": true,
+      "waveform": "pulse12",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.08,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.135
+    },
+    "noise": {
+      "enabled": false,
+      "color": "white",
+      "level": 0.018,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "choir",
+        "octave": 0,
+        "semitone": -12,
+        "fine": -5,
+        "level": 0.205,
+        "pan": -0.18,
+        "unison": 5,
+        "detune": 22,
+        "stereo": 0.47,
+        "delay": 0.0,
+        "motion": 0.23,
+        "motionRate": 0.222
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "air",
+        "octave": -1,
+        "semitone": 0,
+        "fine": 8,
+        "level": 0.13999999999999999,
+        "pan": 0.18,
+        "unison": 8,
+        "detune": 24,
+        "stereo": 0.57,
+        "delay": 0.018,
+        "motion": 0.26,
+        "motionRate": 0.171
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "brown",
+      "level": 0.037000000000000005,
+      "highpass": 795,
+      "lowpass": 8220,
+      "resonance": 0.6,
+      "stereo": 0.64,
+      "motion": 0.26,
+      "motionRate": 0.153
+    },
+    "ampEnv": {
+      "attack": 0.3950000000000001,
+      "hold": 0,
+      "decay": 1.1400000000000001,
+      "sustain": 0.62,
+      "release": 2.16,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 11950,
+      "resonance": 2.8,
+      "drive": 0.24,
+      "keyTrack": 0.34
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "highpass",
+      "cutoff": 1160,
+      "resonance": 0.8,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.44,
+    "filterEnv": {
+      "attack": 0.0521,
+      "hold": 0,
+      "decay": 0.513,
+      "sustain": 0.66,
+      "release": 0.585,
+      "amount": 0.52
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.138,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 4,
+      "amount": 0.16
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.06,
+      "ratio": 1
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 5.98,
+      "sync": true,
+      "division": "1/4",
+      "amount": 0.26,
+      "target": "filter",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 0.75,
+      "sync": true,
+      "division": "1/2",
+      "amount": 0.21000000000000002,
+      "target": "pan",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.79,
+      "brightness": 0.64,
+      "motion": 0.48,
+      "width": 0.82
+    },
+    "voiceFx": {
+      "chorus": 0.38,
+      "chorusRate": 0.62,
+      "chorusDepth": 0.0075,
+      "bitcrush": 0.0,
+      "saturation": 0.07500000000000001
+    },
+    "arp": {
+      "enabled": true,
+      "mode": "down",
+      "rate": "1/16",
+      "octaves": 2,
+      "gate": 0.88
+    },
+    "tags": [
+      "motion",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-239",
+    "name": "Breathing Machine",
+    "category": "Motion",
+    "description": "Original layered motion instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.11,
+    "masterTune": 0,
+    "voiceDrift": 5.55,
+    "velocityToAmp": 0.807,
+    "velocityToFilter": 0.562,
+    "keyTracking": 0.632,
+    "unison": 3,
+    "detune": 15,
+    "stereo": 0.72,
+    "phaseRandom": 0.24,
+    "oscA": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "square",
+      "octave": 0,
+      "semitone": -12,
+      "fine": 3,
+      "level": 0.12,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "organ",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.11,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": true,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.19
+    },
+    "noise": {
+      "enabled": false,
+      "color": "brown",
+      "level": 0.036,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "spectral",
+        "octave": 0,
+        "semitone": 3,
+        "fine": -6,
+        "level": 0.22999999999999998,
+        "pan": -0.18,
+        "unison": 6,
+        "detune": 10,
+        "stereo": 0.59,
+        "delay": 0.008,
+        "motion": 0.30000000000000004,
+        "motionRate": 0.24
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "spectral",
+        "octave": 2,
+        "semitone": 0,
+        "fine": 4,
+        "level": 0.16,
+        "pan": 0.18,
+        "unison": 4,
+        "detune": 12,
+        "stereo": 0.69,
+        "delay": 0.024,
+        "motion": 0.32,
+        "motionRate": 0.185
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "blue",
+      "level": 0.049,
+      "highpass": 870,
+      "lowpass": 7800,
+      "resonance": 0.85,
+      "stereo": 0.76,
+      "motion": 0.32,
+      "motionRate": 0.165
+    },
+    "ampEnv": {
+      "attack": 0.43000000000000005,
+      "hold": 0,
+      "decay": 1.2,
+      "sustain": 0.7,
+      "release": 2.3000000000000003,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 13200,
+      "resonance": 3.6,
+      "drive": 0.0,
+      "keyTrack": 0.48
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "bandpass",
+      "cutoff": 1280,
+      "resonance": 1.4,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "parallel",
+    "filterBlend": 0.56,
+    "filterEnv": {
+      "attack": 0.0575,
+      "hold": 0,
+      "decay": 0.556,
+      "sustain": 0.18,
+      "release": 0.633,
+      "amount": 0.64
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.149,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": true,
+      "source": "B",
+      "target": "A",
+      "ratio": 0.5,
+      "amount": 0.0
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.12,
+      "ratio": 1.5
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "sawtooth",
+      "rate": 6.4,
+      "sync": true,
+      "division": "1/8",
+      "amount": 0.33999999999999997,
+      "target": "filter",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 0.82,
+      "sync": true,
+      "division": "1/4",
+      "amount": 0.28,
+      "target": "pan",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.15,
+      "brightness": 0.76,
+      "motion": 0.0,
+      "width": 0.22
+    },
+    "voiceFx": {
+      "chorus": 0.48000000000000004,
+      "chorusRate": 0.18,
+      "chorusDepth": 0.009000000000000001,
+      "bitcrush": 0.0,
+      "saturation": 0.11000000000000001
+    },
+    "arp": {
+      "enabled": true,
+      "mode": "upDown",
+      "rate": "1/16T",
+      "octaves": 3,
+      "gate": 0.48
+    },
+    "tags": [
+      "motion",
+      "enterprise",
+      "layered",
+      "factory",
+      "original",
+      "synth"
+    ]
+  },
+  {
+    "id": "preset-240",
+    "name": "Infinite Pattern",
+    "category": "Motion",
+    "description": "Original layered motion instrument with three core oscillators, dual spectral sources, procedural texture, performance macros, and motion-ready modulation.",
+    "author": "MusicStudioLab Factory",
+    "engineMode": "hybrid",
+    "polyphony": 16,
+    "mono": false,
+    "legato": false,
+    "portamento": 0.12,
+    "masterTune": 0,
+    "voiceDrift": 6.0,
+    "velocityToAmp": 0.83,
+    "velocityToFilter": 0.6,
+    "keyTracking": 0.67,
+    "unison": 4,
+    "detune": 18,
+    "stereo": 0.84,
+    "phaseRandom": 0.36,
+    "oscA": {
+      "enabled": true,
+      "waveform": "sawtooth",
+      "octave": 0,
+      "semitone": 0,
+      "fine": 0,
+      "level": 0.72,
+      "pan": -0.06,
+      "pulseWidth": 0.5,
+      "phase": 0
+    },
+    "oscB": {
+      "enabled": true,
+      "waveform": "pulse12",
+      "octave": 0,
+      "semitone": 0,
+      "fine": -5,
+      "level": 0.195,
+      "pan": 0.06,
+      "pulseWidth": 0.5,
+      "phase": 0.25
+    },
+    "oscC": {
+      "enabled": false,
+      "waveform": "digital",
+      "octave": 1,
+      "semitone": 0,
+      "fine": -7,
+      "level": 0.14,
+      "pan": 0,
+      "pulseWidth": 0.5,
+      "phase": 0.5
+    },
+    "sub": {
+      "enabled": false,
+      "waveform": "sine",
+      "octave": -1,
+      "level": 0.245
+    },
+    "noise": {
+      "enabled": false,
+      "color": "blue",
+      "level": 0.054,
+      "stereo": 0.35
+    },
+    "layers": [
+      {
+        "id": "layer-a",
+        "name": "Layer A",
+        "enabled": true,
+        "waveform": "air",
+        "octave": 0,
+        "semitone": 5,
+        "fine": -7,
+        "level": 0.255,
+        "pan": -0.18,
+        "unison": 7,
+        "detune": 13,
+        "stereo": 0.71,
+        "delay": 0.016,
+        "motion": 0.37,
+        "motionRate": 0.258
+      },
+      {
+        "id": "layer-b",
+        "name": "Layer B",
+        "enabled": true,
+        "waveform": "glass",
+        "octave": 0,
+        "semitone": 5,
+        "fine": 5,
+        "level": 0.18,
+        "pan": 0.18,
+        "unison": 5,
+        "detune": 15,
+        "stereo": 0.81,
+        "delay": 0.03,
+        "motion": 0.38,
+        "motionRate": 0.199
+      }
+    ],
+    "textureLayer": {
+      "enabled": true,
+      "color": "white",
+      "level": 0.061000000000000006,
+      "highpass": 945,
+      "lowpass": 7380,
+      "resonance": 1.1,
+      "stereo": 0.88,
+      "motion": 0.38,
+      "motionRate": 0.177
+    },
+    "ampEnv": {
+      "attack": 0.465,
+      "hold": 0,
+      "decay": 1.2599999999999998,
+      "sustain": 0.78,
+      "release": 2.44,
+      "curve": "exponential"
+    },
+    "filter1": {
+      "enabled": true,
+      "type": "lowpass",
+      "cutoff": 14450,
+      "resonance": 4.4,
+      "drive": 0.06,
+      "keyTrack": 0.62
+    },
+    "filter2": {
+      "enabled": false,
+      "type": "notch",
+      "cutoff": 1400,
+      "resonance": 2.0,
+      "drive": 0,
+      "keyTrack": 0
+    },
+    "filterRouting": "serial",
+    "filterBlend": 0.68,
+    "filterEnv": {
+      "attack": 0.063,
+      "hold": 0,
+      "decay": 0.6,
+      "sustain": 0.3,
+      "release": 0.68,
+      "amount": 0.76
+    },
+    "pitchEnv": {
+      "attack": 0.001,
+      "decay": 0.16,
+      "amount": 0
+    },
+    "fm": {
+      "enabled": false,
+      "source": "B",
+      "target": "A",
+      "ratio": 1,
+      "amount": 0.04
+    },
+    "ring": {
+      "enabled": false,
+      "amount": 0.18,
+      "ratio": 2
+    },
+    "lfo1": {
+      "enabled": true,
+      "waveform": "square",
+      "rate": 6.82,
+      "sync": true,
+      "division": "1/16",
+      "amount": 0.42,
+      "target": "filter",
+      "phase": 0
+    },
+    "lfo2": {
+      "enabled": true,
+      "waveform": "triangle",
+      "rate": 0.89,
+      "sync": true,
+      "division": "1/8",
+      "amount": 0.35000000000000003,
+      "target": "pan",
+      "phase": 0.25
+    },
+    "macros": {
+      "character": 0.31,
+      "brightness": 0.88,
+      "motion": 0.12,
+      "width": 0.37
+    },
+    "voiceFx": {
+      "chorus": 0.5800000000000001,
+      "chorusRate": 0.29,
+      "chorusDepth": 0.0105,
+      "bitcrush": 0.0,
+      "saturation": 0.14500000000000002
+    },
+    "arp": {
+      "enabled": true,
+      "mode": "random",
+      "rate": "1/32",
+      "octaves": 4,
+      "gate": 0.58
+    },
+    "tags": [
+      "motion",
+      "enterprise",
+      "layered",
       "factory",
       "original",
       "synth"
@@ -27568,5 +50896,11 @@ export const PRESET_CATEGORIES = [
   "Texture",
   "Chord",
   "Arp",
-  "FX"
+  "FX",
+  "Atmosphere",
+  "Cinematic",
+  "Hybrid",
+  "Choir",
+  "World",
+  "Motion"
 ];

@@ -41,10 +41,14 @@ for entry in manifest:
 
 preset_source = (ROOT / "src" / "studio" / "data" / "instrumentPresets.js").read_text()
 preset_ids = re.findall(r'"id":\s*"(preset-\d+)"', preset_source)
-if len(preset_ids) < 150:
-    errors.append(f"expected at least 150 factory presets, found {len(preset_ids)}")
+if len(preset_ids) < 240:
+    errors.append(f"expected at least 240 factory presets, found {len(preset_ids)}")
 if len(preset_ids) != len(set(preset_ids)):
     errors.append("duplicate factory preset ids")
+
+for required_token in ('"layers":', '"textureLayer":', '"category": "Cinematic"', '"category": "Atmosphere"', '"category": "Choir"'):
+    if required_token not in preset_source:
+        errors.append(f"factory preset bank missing layered-engine token: {required_token}")
 
 required_files = [
     "src/App.js",
@@ -62,6 +66,8 @@ required_files = [
     "src/studio/audio/voices.js",
     "src/studio/audio/automation.js",
     "src/studio/components/SoundDesigner.jsx",
+    "src/studio/components/TrackSidebar.jsx",
+    "src/studio/components/TrackHeader.jsx",
     "src/studio/components/AutomationEditor.jsx",
     "src/studio/components/Mixer.jsx",
     "src/studio/components/PianoRoll.jsx",

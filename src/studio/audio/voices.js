@@ -1,5 +1,15 @@
 import { midiToFrequency } from "./musicTheory";
 import { normalizeSynthPatch } from "./synthDefaults";
+import { createStereoWidthStage } from "./effects";
+import {
+  AUDIO_EPSILON,
+  chooseHighNoteWaveform,
+  highNoteHeadroom,
+  safeFrequency,
+  safeMidi,
+  scheduleSafeEnvelope,
+  scheduleSafeFilterEnvelope,
+} from "./audioSafety";
 import {
   applyWaveform,
   createNoiseBuffer,
@@ -7,7 +17,7 @@ import {
   divisionToSeconds,
 } from "./waveforms";
 
-const EPSILON = 0.0001;
+const EPSILON = AUDIO_EPSILON;
 
 function safeStop(node, time) {
   try {
@@ -18,30 +28,7 @@ function safeStop(node, time) {
 }
 
 function scheduleEnvelope(param, envelope, time, duration, peak = 1) {
-  const attack = Math.max(0.001, envelope.attack ?? 0.01);
-  const hold = Math.max(0, envelope.hold ?? 0);
-  const decay = Math.max(0.001, envelope.decay ?? 0.15);
-  const sustain = Math.max(0.001, Math.min(1, envelope.sustain ?? 0.7));
-  const release = Math.max(0.01, envelope.release ?? 0.25);
-  const noteEnd = time + Math.max(0.02, duration);
-  const attackEnd = time + attack;
-  const holdEnd = attackEnd + hold;
-  const decayEnd = Math.min(noteEnd, holdEnd + decay);
-
-  param.cancelScheduledValues(time);
-  param.setValueAtTime(EPSILON, time);
-  if (envelope.curve === "linear") {
-    param.linearRampToValueAtTime(Math.max(EPSILON, peak), attackEnd);
-    param.setValueAtTime(Math.max(EPSILON, peak), holdEnd);
-    param.linearRampToValueAtTime(Math.max(EPSILON, peak * sustain), decayEnd);
-  } else {
-    param.exponentialRampToValueAtTime(Math.max(EPSILON, peak), attackEnd);
-    param.setValueAtTime(Math.max(EPSILON, peak), holdEnd);
-    param.exponentialRampToValueAtTime(Math.max(EPSILON, peak * sustain), decayEnd);
-  }
-  param.setValueAtTime(Math.max(EPSILON, peak * sustain), noteEnd);
-  param.exponentialRampToValueAtTime(EPSILON, noteEnd + release);
-  return { noteEnd, release, stopTime: noteEnd + release + 0.08 };
+  return scheduleSafeEnvelope(param, envelope, time, duration, peak);
 }
 
 function createBitcrusherCurve(amount = 0) {
@@ -111,7 +98,7 @@ function createVoiceFilter(context, settings, time, midi, brightness = 0) {
   filter.type = settings.type || "lowpass";
   const keyMultiplier = 2 ** (((midi - 60) / 12) * (settings.keyTrack ?? 0));
   const brightMultiplier = 0.45 + brightness * 1.25;
-  const cutoff = Math.max(20, Math.min(20000, (settings.cutoff ?? 8000) * keyMultiplier * brightMultiplier));
+  const cutoff = safeFrequency(context, (settings.cutoff ?? 8000) * keyMultiplier * brightMultiplier, 20, 0.44);
   filter.frequency.setValueAtTime(cutoff, time);
   filter.Q.setValueAtTime(Math.max(0.0001, settings.resonance ?? 0.7), time);
   if (["lowshelf", "highshelf", "peaking"].includes(filter.type)) {
@@ -157,15 +144,37 @@ export function scheduleSynthVoice(
   transport = {},
 ) {
   const patch = normalizeSynthPatch(rawPreset);
+  const safeNoteMidi = safeMidi(midi, 0, 127);
+  const voiceGain = Math.max(0.18, Math.min(1, Number(transport.voiceGain ?? 1)));
+  const highNoteGain = highNoteHeadroom(safeNoteMidi);
   const bpm = transport.bpm || 120;
+  const noteEnvelope = transport.noteEnvelope || {};
+  const transient = Math.max(0, Math.min(1, Number(patch.transient ?? 0.5)));
+  const transientScale = 2 ** ((0.5 - transient) * 1.4);
+  const ampEnvelope = {
+    ...patch.ampEnv,
+    attack: Math.max(0.001, (patch.ampEnv.attack ?? 0.008) * transientScale),
+    decay: Math.max(0.005, (patch.ampEnv.decay ?? 0.18) * (0.72 + transient * 0.56)),
+    ...(Number.isFinite(noteEnvelope.attack) ? { attack: noteEnvelope.attack } : {}),
+    ...(Number.isFinite(noteEnvelope.decay) ? { decay: noteEnvelope.decay } : {}),
+    ...(Number.isFinite(noteEnvelope.sustain) ? { sustain: noteEnvelope.sustain } : {}),
+    ...(Number.isFinite(noteEnvelope.release) ? { release: noteEnvelope.release } : {}),
+  };
+  const noteGain = Math.max(0.05, Math.min(1.5, Number(noteEnvelope.gain ?? 1)));
+  const notePan = Math.max(-1, Math.min(1, Number(noteEnvelope.pan ?? 0)));
+  const noteStereo = Math.max(0, Math.min(2, Number(noteEnvelope.stereo ?? 1)));
   const macros = patch.macros;
-  const character = Math.max(0, Math.min(1, macros.character ?? 0));
-  const brightness = Math.max(0, Math.min(1, macros.brightness ?? 0.5));
+  const timbre = Math.max(0, Math.min(1, Number(patch.timbre ?? 0.5)));
+  const harmonics = Math.max(0, Math.min(1, Number(patch.harmonics ?? 0.22)));
+  const character = Math.max(0, Math.min(1, (macros.character ?? 0) * 0.72 + harmonics * 0.28));
+  const brightness = Math.max(0, Math.min(1, (macros.brightness ?? 0.5) * 0.72 + timbre * 0.28));
   const motion = Math.max(0, Math.min(1, macros.motion ?? 0));
-  const width = Math.max(0, Math.min(1, (patch.stereo ?? 0.3) * 0.7 + (macros.width ?? 0.4) * 0.6));
-  const velocityAmp = (1 - patch.velocityToAmp) + patch.velocityToAmp * Math.max(0.05, velocity);
+  const width = Math.max(0, Math.min(2, ((patch.stereo ?? 0.3) * 0.7 + (macros.width ?? 0.4) * 0.6) * noteStereo));
+  const safeVelocity = Math.max(0.01, Math.min(1, Number(velocity) || 0.8));
+  const velocityAmp = (1 - patch.velocityToAmp) + patch.velocityToAmp * safeVelocity;
   const amp = context.createGain();
   const outputPan = context.createStereoPanner();
+  const noteWidthStage = createStereoWidthStage(context);
   const sourceSum = context.createGain();
   const ringNode = context.createGain();
   const preFilterDrive = context.createWaveShaper();
@@ -175,7 +184,13 @@ export function scheduleSynthVoice(
   const oscillatorNodes = [];
   const panners = [];
 
-  sourceSum.gain.setValueAtTime(0.58, time);
+  const enabledSourceLevel = [patch.oscA, patch.oscB, patch.oscC, ...(patch.layers || [])]
+    .filter((source) => source?.enabled && (source.level ?? 0) > 0)
+    .reduce((sum, source) => sum + Math.max(0, Number(source.level ?? 0)), 0)
+    + (patch.sub?.enabled ? Math.max(0, Number(patch.sub.level ?? 0)) : 0)
+    + (patch.noise?.enabled ? Math.max(0, Number(patch.noise.level ?? 0)) : 0);
+  const sourceNormalization = 1 / Math.sqrt(Math.max(1, enabledSourceLevel));
+  sourceSum.gain.setValueAtTime((patch.softWarm ? 0.5 : 0.55) * sourceNormalization, time);
   ringNode.gain.setValueAtTime(1, time);
   preFilterDrive.curve = createSaturationCurve(
     Math.min(1, (patch.voiceFx.saturation ?? 0) + character * 0.55),
@@ -186,8 +201,8 @@ export function scheduleSynthVoice(
 
   sourceSum.connect(ringNode).connect(preFilterDrive);
 
-  const first = createVoiceFilter(context, patch.filter1, time, midi, brightness);
-  const second = createVoiceFilter(context, patch.filter2, time, midi, brightness);
+  const first = createVoiceFilter(context, patch.filter1, time, safeNoteMidi, brightness);
+  const second = createVoiceFilter(context, patch.filter2, time, safeNoteMidi, brightness);
   const activeFilters = [];
 
   if (patch.filterRouting === "parallel" && patch.filter2.enabled) {
@@ -213,59 +228,127 @@ export function scheduleSynthVoice(
     cursor.connect(filterMix);
   }
 
-  createChorus(context, filterMix, crusher, patch, time, time + duration + patch.ampEnv.release + 1, sourceNodes);
-  crusher.connect(amp).connect(outputPan).connect(destination);
+  createChorus(context, filterMix, crusher, patch, time, time + duration + ampEnvelope.release + 1, sourceNodes);
+
+  const softTone = patch.softTone || {};
+  const lowCut = context.createBiquadFilter();
+  const warmthShelf = context.createBiquadFilter();
+  const presenceDip = context.createBiquadFilter();
+  const airShelf = context.createBiquadFilter();
+  const airFilter = context.createBiquadFilter();
+  const body = Math.max(0, Math.min(1, Number(patch.body ?? 0.5)));
+  const air = Math.max(0, Math.min(1, Number(patch.air ?? 0.42)));
+
+  lowCut.type = "highpass";
+  lowCut.frequency.setValueAtTime(Math.max(18, softTone.lowCut ?? 34 + body * 16), time);
+  lowCut.Q.setValueAtTime(0.55, time);
+
+  warmthShelf.type = "lowshelf";
+  warmthShelf.frequency.setValueAtTime(190, time);
+  warmthShelf.gain.setValueAtTime((softTone.warmthDb ?? 0.35) + (body - 0.5) * 2.2, time);
+
+  presenceDip.type = "peaking";
+  presenceDip.frequency.setValueAtTime(softTone.presenceFrequency ?? 3150, time);
+  presenceDip.Q.setValueAtTime(0.72, time);
+  presenceDip.gain.setValueAtTime((softTone.presenceDipDb ?? -1.4) - (1 - timbre) * 1.2, time);
+
+  airShelf.type = "highshelf";
+  airShelf.frequency.setValueAtTime(8500, time);
+  airShelf.gain.setValueAtTime((air - 0.5) * 3.2, time);
+
+  airFilter.type = "lowpass";
+  airFilter.frequency.setValueAtTime(safeFrequency(context, Math.max(7600, (softTone.airCutoff ?? 14500) + (air - 0.5) * 5000), 1200, 0.43), time);
+  airFilter.Q.setValueAtTime(0.42, time);
+
+  crusher.connect(lowCut).connect(warmthShelf).connect(presenceDip).connect(airShelf).connect(airFilter).connect(amp);
+  amp.connect(noteWidthStage.input);
+  noteWidthStage.setWidth(width, time);
+  noteWidthStage.output.connect(outputPan).connect(destination);
 
   const envelope = scheduleEnvelope(
     amp.gain,
-    patch.ampEnv,
+    ampEnvelope,
     time,
     duration,
-    Math.max(0.01, velocityAmp),
+    Math.max(0.008, velocityAmp * noteGain * voiceGain * highNoteGain * (softTone.outputTrim ?? 1)),
   );
-  outputPan.pan.setValueAtTime(0, time);
+  outputPan.pan.setValueAtTime(notePan, time);
 
-  const baseFrequency = midiToFrequency(midi) * 2 ** ((patch.masterTune || 0) / 1200);
-  const unisonCount = Math.max(1, Math.min(9, Math.round(patch.unison || 1)));
-  const oscillatorDefinitions = [patch.oscA, patch.oscB, patch.oscC];
+  const pitchSemitones = Number(patch.pitchSemitones || 0);
+  const fineCents = Number(patch.masterTune || 0) + Number(patch.pitchFine || 0);
+  const baseFrequency = safeFrequency(context, midiToFrequency(safeNoteMidi + pitchSemitones) * 2 ** (fineCents / 1200), 8, 0.42);
+  const oscillatorDefinitions = [
+    { ...patch.oscA, sourceKind: "core" },
+    { ...patch.oscB, sourceKind: "core" },
+    { ...patch.oscC, sourceKind: "core" },
+    ...(patch.layers || []).map((layer) => ({ ...layer, sourceKind: "layer" })),
+  ];
 
   oscillatorDefinitions.forEach((oscSettings) => {
     if (!oscSettings?.enabled || (oscSettings.level ?? 0) <= 0) return;
-    for (let voiceIndex = 0; voiceIndex < unisonCount; voiceIndex += 1) {
+    const requestedUnison = Math.max(1, Math.round(
+      oscSettings.sourceKind === "layer" ? (oscSettings.unison || 1) : (patch.unison || 1),
+    ));
+    const highNoteUnisonLimit = safeNoteMidi >= 108 ? 2 : (safeNoteMidi >= 96 ? 4 : 9);
+    const sourceUnison = Math.max(1, Math.min(highNoteUnisonLimit, requestedUnison));
+    const sourceDetune = oscSettings.sourceKind === "layer"
+      ? (oscSettings.detune ?? patch.detune ?? 7)
+      : (patch.detune ?? 7);
+    const sourceStereo = oscSettings.sourceKind === "layer"
+      ? Math.max(0, Math.min(1, oscSettings.stereo ?? width))
+      : width;
+    const sourceStart = time + Math.max(0, Math.min(0.25, oscSettings.delay || 0));
+
+    for (let voiceIndex = 0; voiceIndex < sourceUnison; voiceIndex += 1) {
       const oscillator = context.createOscillator();
       const oscillatorGain = context.createGain();
       const panner = context.createStereoPanner();
-      const voicePosition = unisonCount === 1 ? 0 : voiceIndex / (unisonCount - 1) * 2 - 1;
-      const detuneSpread = voicePosition * (patch.detune ?? 7);
+      const voicePosition = sourceUnison === 1 ? 0 : voiceIndex / (sourceUnison - 1) * 2 - 1;
+      const detuneSpread = voicePosition * sourceDetune;
       const randomDrift = (Math.random() * 2 - 1) * (patch.voiceDrift ?? 0);
       const octave = oscSettings.octave ?? 0;
       const semitone = oscSettings.semitone ?? 0;
-      const frequency = baseFrequency * 2 ** ((octave * 12 + semitone) / 12);
+      const frequency = safeFrequency(context, baseFrequency * 2 ** ((octave * 12 + semitone) / 12), 8, 0.42);
       const fine = (oscSettings.fine ?? 0) + detuneSpread + randomDrift;
 
-      applyWaveform(context, oscillator, oscSettings.waveform || "sawtooth");
-      oscillator.frequency.setValueAtTime(frequency, time);
-      oscillator.detune.setValueAtTime(fine, time);
+      applyWaveform(context, oscillator, chooseHighNoteWaveform(oscSettings.waveform || "sawtooth", frequency, context));
+      oscillator.frequency.setValueAtTime(frequency, sourceStart);
+      oscillator.detune.setValueAtTime(fine, sourceStart);
       oscillatorGain.gain.setValueAtTime(
-        Math.max(0, oscSettings.level ?? 0.5) / Math.sqrt(unisonCount),
-        time,
+        (Math.max(0, oscSettings.level ?? 0.5) / Math.sqrt(sourceUnison)) * highNoteGain,
+        sourceStart,
       );
       panner.pan.setValueAtTime(
-        Math.max(-1, Math.min(1, (oscSettings.pan ?? 0) + voicePosition * width)),
-        time,
+        Math.max(-1, Math.min(1, (oscSettings.pan ?? 0) + voicePosition * sourceStereo)),
+        sourceStart,
       );
 
       const pitchAmount = patch.pitchEnv.amount ?? 0;
       if (Math.abs(pitchAmount) > 0.001) {
-        oscillator.detune.setValueAtTime(fine + pitchAmount * 100, time);
+        oscillator.detune.setValueAtTime(fine + pitchAmount * 100, sourceStart);
         oscillator.detune.linearRampToValueAtTime(
           fine,
-          time + Math.max(0.002, patch.pitchEnv.attack ?? 0.001) + Math.max(0.005, patch.pitchEnv.decay ?? 0.08),
+          sourceStart + Math.max(0.002, patch.pitchEnv.attack ?? 0.001) + Math.max(0.005, patch.pitchEnv.decay ?? 0.08),
         );
       }
 
+      if (oscSettings.sourceKind === "layer" && (oscSettings.motion ?? 0) > 0.001) {
+        const layerLfo = context.createOscillator();
+        const detuneDepth = context.createGain();
+        const panDepth = context.createGain();
+        layerLfo.type = "sine";
+        layerLfo.frequency.setValueAtTime(Math.max(0.01, oscSettings.motionRate ?? 0.15), sourceStart);
+        detuneDepth.gain.setValueAtTime((oscSettings.motion ?? 0) * 18, sourceStart);
+        panDepth.gain.setValueAtTime((oscSettings.motion ?? 0) * 0.22, sourceStart);
+        layerLfo.connect(detuneDepth).connect(oscillator.detune);
+        layerLfo.connect(panDepth).connect(panner.pan);
+        layerLfo.start(sourceStart);
+        safeStop(layerLfo, envelope.stopTime);
+        sourceNodes.push(layerLfo);
+      }
+
       oscillator.connect(oscillatorGain).connect(panner).connect(sourceSum);
-      oscillator.start(time);
+      oscillator.start(sourceStart);
       safeStop(oscillator, envelope.stopTime);
       oscillatorNodes.push(oscillator);
       panners.push(panner);
@@ -277,7 +360,7 @@ export function scheduleSynthVoice(
     const sub = context.createOscillator();
     const subGain = context.createGain();
     applyWaveform(context, sub, patch.sub.waveform || "sine");
-    sub.frequency.setValueAtTime(baseFrequency * 2 ** (patch.sub.octave ?? -1), time);
+    sub.frequency.setValueAtTime(safeFrequency(context, baseFrequency * 2 ** (patch.sub.octave ?? -1), 8, 0.42), time);
     subGain.gain.setValueAtTime(patch.sub.level, time);
     sub.connect(subGain).connect(sourceSum);
     sub.start(time);
@@ -304,12 +387,60 @@ export function scheduleSynthVoice(
     sourceNodes.push(noise);
   }
 
+  if (patch.textureLayer?.enabled && (patch.textureLayer.level ?? 0) > 0) {
+    const texture = context.createBufferSource();
+    const textureGain = context.createGain();
+    const texturePan = context.createStereoPanner();
+    const textureHighpass = context.createBiquadFilter();
+    const textureLowpass = context.createBiquadFilter();
+    texture.buffer = createNoiseBuffer(
+      context,
+      patch.textureLayer.color || "pink",
+      Math.max(3, duration + patch.ampEnv.release + 0.5),
+    );
+    texture.loop = true;
+    textureHighpass.type = "highpass";
+    textureHighpass.frequency.setValueAtTime(safeFrequency(context, Math.max(20, patch.textureLayer.highpass ?? 180), 20, 0.44), time);
+    textureHighpass.Q.setValueAtTime(Math.max(0.001, patch.textureLayer.resonance ?? 0.5), time);
+    textureLowpass.type = "lowpass";
+    textureLowpass.frequency.setValueAtTime(safeFrequency(context, patch.textureLayer.lowpass ?? 9800, 200, 0.44), time);
+    textureLowpass.Q.setValueAtTime(Math.max(0.001, patch.textureLayer.resonance ?? 0.5), time);
+    textureGain.gain.setValueAtTime(Math.max(0, patch.textureLayer.level ?? 0.035), time);
+    texturePan.pan.setValueAtTime(0, time);
+    texture.connect(textureHighpass).connect(textureLowpass).connect(textureGain).connect(texturePan).connect(sourceSum);
+
+    if ((patch.textureLayer.motion ?? 0) > 0.001) {
+      const textureLfo = context.createOscillator();
+      const texturePanDepth = context.createGain();
+      const textureFilterDepth = context.createGain();
+      textureLfo.type = "sine";
+      textureLfo.frequency.setValueAtTime(Math.max(0.01, patch.textureLayer.motionRate ?? 0.09), time);
+      texturePanDepth.gain.setValueAtTime(
+        Math.min(1, (patch.textureLayer.stereo ?? 0.65) * (patch.textureLayer.motion ?? 0.18)),
+        time,
+      );
+      textureFilterDepth.gain.setValueAtTime(
+        Math.max(20, (patch.textureLayer.lowpass ?? 9800) * (patch.textureLayer.motion ?? 0.18) * 0.16),
+        time,
+      );
+      textureLfo.connect(texturePanDepth).connect(texturePan.pan);
+      textureLfo.connect(textureFilterDepth).connect(textureLowpass.frequency);
+      textureLfo.start(time);
+      safeStop(textureLfo, envelope.stopTime);
+      sourceNodes.push(textureLfo);
+    }
+
+    texture.start(time);
+    safeStop(texture, envelope.stopTime);
+    sourceNodes.push(texture);
+  }
+
   if (patch.fm?.enabled && (patch.fm.amount ?? 0) > 0 && oscillatorNodes.length) {
     const fmOscillator = context.createOscillator();
     const fmDepth = context.createGain();
     fmOscillator.type = "sine";
-    fmOscillator.frequency.setValueAtTime(baseFrequency * Math.max(0.05, patch.fm.ratio ?? 2), time);
-    fmDepth.gain.setValueAtTime(baseFrequency * (patch.fm.amount ?? 0) * 1.6, time);
+    fmOscillator.frequency.setValueAtTime(safeFrequency(context, baseFrequency * Math.max(0.05, patch.fm.ratio ?? 2), 8, 0.42), time);
+    fmDepth.gain.setValueAtTime(Math.min(context.sampleRate * 0.12, baseFrequency * (patch.fm.amount ?? 0) * 1.25 * highNoteGain), time);
     fmOscillator.connect(fmDepth);
     oscillatorNodes.forEach((oscillator) => fmDepth.connect(oscillator.frequency));
     fmOscillator.start(time);
@@ -321,7 +452,7 @@ export function scheduleSynthVoice(
     const ringOscillator = context.createOscillator();
     const ringDepth = context.createGain();
     ringNode.gain.setValueAtTime(1 - patch.ring.amount, time);
-    ringOscillator.frequency.setValueAtTime(baseFrequency * Math.max(0.05, patch.ring.ratio ?? 1), time);
+    ringOscillator.frequency.setValueAtTime(safeFrequency(context, baseFrequency * Math.max(0.05, patch.ring.ratio ?? 1), 8, 0.42), time);
     ringDepth.gain.setValueAtTime(patch.ring.amount, time);
     ringOscillator.connect(ringDepth).connect(ringNode.gain);
     ringOscillator.start(time);
@@ -336,20 +467,18 @@ export function scheduleSynthVoice(
     const amount = (patch.filterEnv.amount ?? 0) * filterVelocity;
     const maxCutoff = Math.max(20, Math.min(20000, baseCutoff * 2 ** (amount * 6)));
     const sustainCutoff = Math.max(20, Math.min(20000, baseCutoff * 2 ** (amount * 6 * (patch.filterEnv.sustain ?? 0.3))));
-    const attack = Math.max(0.001, patch.filterEnv.attack ?? 0.005);
-    const hold = Math.max(0, patch.filterEnv.hold ?? 0);
-    const decay = Math.max(0.005, patch.filterEnv.decay ?? 0.3);
-    const release = Math.max(0.01, patch.filterEnv.release ?? 0.4);
-    const noteEnd = time + Math.max(0.02, duration);
-
-    filter.frequency.cancelScheduledValues(time);
-    filter.frequency.setValueAtTime(Math.max(20, baseCutoff), time);
-    filter.frequency.exponentialRampToValueAtTime(maxCutoff, time + attack);
-    filter.frequency.setValueAtTime(maxCutoff, time + attack + hold);
-    filter.frequency.exponentialRampToValueAtTime(sustainCutoff, time + attack + hold + decay);
-    filter.frequency.setValueAtTime(sustainCutoff, noteEnd);
-    filter.frequency.exponentialRampToValueAtTime(Math.max(20, baseCutoff), noteEnd + release);
-    filter.Q.setValueAtTime(Math.max(0.001, settings.resonance ?? 0.7), time);
+    scheduleSafeFilterEnvelope(filter.frequency, {
+      startValue: Math.max(20, baseCutoff),
+      peakValue: safeFrequency(context, maxCutoff, 20, 0.44),
+      sustainValue: safeFrequency(context, sustainCutoff, 20, 0.44),
+      attack: patch.filterEnv.attack ?? 0.005,
+      hold: patch.filterEnv.hold ?? 0,
+      decay: patch.filterEnv.decay ?? 0.3,
+      release: patch.filterEnv.release ?? 0.4,
+      time,
+      duration,
+    });
+    filter.Q.setValueAtTime(Math.max(0.001, Math.min(12, settings.resonance ?? 0.7)), time);
   });
 
   const targets = {
@@ -363,12 +492,29 @@ export function scheduleSynthVoice(
   const lfo2 = { ...patch.lfo2, amount: (patch.lfo2.amount ?? 0) + motion * 0.08 };
   attachLfo(context, lfo1, patch, targets, time, envelope.stopTime, bpm, sourceNodes);
   attachLfo(context, lfo2, patch, targets, time, envelope.stopTime, bpm, sourceNodes);
+  attachLfo(context, {
+    enabled: Math.abs(patch.pitchLfoDepth ?? 0) > 0.0001,
+    waveform: "sine",
+    rate: Math.max(0.01, patch.pitchLfoRate ?? 5.2),
+    sync: false,
+    amount: Math.max(-1, Math.min(1, (patch.pitchLfoDepth ?? 0) / 100)),
+    target: "pitch",
+  }, patch, targets, time, envelope.stopTime, bpm, sourceNodes);
 
   return {
+    startedAt: time,
+    endTime: envelope.stopTime,
+    midi: safeNoteMidi,
     stop(when = context.currentTime) {
-      amp.gain.cancelScheduledValues(when);
-      amp.gain.setTargetAtTime(EPSILON, when, 0.015);
-      sourceNodes.forEach((node) => safeStop(node, when + 0.08));
+      const releaseAt = Math.max(context.currentTime, when);
+      try {
+        amp.gain.cancelAndHoldAtTime?.(releaseAt);
+      } catch (_) {
+        amp.gain.cancelScheduledValues(releaseAt);
+        amp.gain.setValueAtTime(Math.max(EPSILON, amp.gain.value || EPSILON), releaseAt);
+      }
+      amp.gain.setTargetAtTime(EPSILON, releaseAt, 0.012);
+      sourceNodes.forEach((node) => safeStop(node, releaseAt + 0.07));
     },
   };
 }
@@ -390,28 +536,76 @@ export function scheduleSampleVoice(
   const gain = context.createGain();
   const filter = context.createBiquadFilter();
   const panner = context.createStereoPanner();
+  const widthStage = createStereoWidthStage(context);
   const sample = track.reverse ? reverseBuffer(context, buffer) : buffer;
-  const start = Math.max(0, Math.min(sample.duration - 0.01, track.startOffset || 0));
-  const end = Math.max(start + 0.01, Math.min(sample.duration, track.endOffset || sample.duration));
-  const duration = end - start;
-  const attack = Math.max(0.001, track.sampleAttack ?? 0.001);
-  const release = Math.max(0.005, track.sampleRelease ?? 0.04);
+  const selectedSlice = Number.isInteger(track.sliceIndex)
+    ? (track.sampleSlices || [])[track.sliceIndex]
+    : null;
+  const rawStart = selectedSlice?.start ?? track.startOffset ?? 0;
+  const rawEnd = selectedSlice?.end ?? track.endOffset ?? sample.duration;
+  const start = Math.max(0, Math.min(sample.duration - 0.01, rawStart));
+  const end = Math.max(start + 0.01, Math.min(sample.duration, rawEnd));
+  const playbackRate = Math.max(1 / 32, Math.min(32, 2 ** ((track.pitch || 0) / 12)));
+  const sliceDuration = end - start;
+  const requestedOutputDuration = Number.isFinite(track.noteDurationSeconds)
+    ? Math.max(0.01, track.noteDurationSeconds)
+    : null;
+  const loopEnabled = Boolean(track.sampleLoopEnabled && requestedOutputDuration != null);
+  const loopStart = Math.max(start, Math.min(end - 0.005, selectedSlice?.start ?? track.sampleLoopStart ?? start));
+  const loopEnd = Math.max(loopStart + 0.005, Math.min(end, selectedSlice?.end ?? track.sampleLoopEnd ?? end));
+  const noteEnvelope = track.noteEnvelope || {};
+  const gateDuration = requestedOutputDuration == null
+    ? Math.max(0.01, sliceDuration / playbackRate)
+    : requestedOutputDuration;
+  const attack = Math.min(gateDuration * 0.8, Math.max(0.001, noteEnvelope.attack ?? track.sampleAttack ?? 0.001));
+  const decay = Math.min(gateDuration * 0.8, Math.max(0.001, noteEnvelope.decay ?? 0.04));
+  const sustain = Math.max(0.01, Math.min(1, noteEnvelope.sustain ?? 1));
+  const release = Math.max(0.005, Math.min(8, noteEnvelope.release ?? track.sampleRelease ?? 0.04));
+  const noteGain = Math.max(0.05, Math.min(1.5, Number(noteEnvelope.gain ?? 1)));
+  const voiceGain = Math.max(0.18, Math.min(1, Number(track.voiceGain ?? 1)));
+  const peak = Math.max(EPSILON, Math.min(1, Number(velocity) || 0.8) * noteGain * voiceGain);
+  const requestedSourceDuration = (gateDuration + release) * playbackRate;
+  const sourceDuration = loopEnabled
+    ? requestedSourceDuration
+    : Math.min(sliceDuration, requestedSourceDuration);
 
   source.buffer = sample;
-  source.playbackRate.setValueAtTime(2 ** ((track.pitch || 0) / 12), time);
+  source.loop = loopEnabled;
+  if (loopEnabled) {
+    source.loopStart = loopStart;
+    source.loopEnd = loopEnd;
+  }
+  source.playbackRate.setValueAtTime(playbackRate, time);
   filter.type = track.sampleFilterType || "lowpass";
-  filter.frequency.setValueAtTime(track.sampleCutoff || 20000, time);
+  filter.frequency.setValueAtTime(safeFrequency(context, track.sampleCutoff || 20000, 20, 0.44), time);
   filter.Q.setValueAtTime(track.sampleResonance || 0.2, time);
-  panner.pan.setValueAtTime(track.samplePan || 0, time);
-  gain.gain.setValueAtTime(EPSILON, time);
-  gain.gain.exponentialRampToValueAtTime(Math.max(EPSILON, velocity), time + attack);
-  gain.gain.setValueAtTime(Math.max(EPSILON, velocity), time + Math.max(attack, duration - release));
-  gain.gain.exponentialRampToValueAtTime(EPSILON, time + duration);
+  const notePan = Math.max(-1, Math.min(1, Number(noteEnvelope.pan ?? 0)));
+  const noteStereo = Math.max(0, Math.min(2, Number(noteEnvelope.stereo ?? 1)));
+  panner.pan.setValueAtTime(Math.max(-1, Math.min(1, (track.samplePan || 0) + notePan)), time);
+  widthStage.setWidth(noteStereo, time);
+  const sampleEnvelope = scheduleSafeEnvelope(gain.gain, {
+    attack,
+    decay,
+    sustain,
+    release,
+    curve: "exponential",
+  }, time, gateDuration, peak);
 
-  source.connect(filter).connect(gain).connect(panner).connect(destination);
-  source.start(time, start, duration);
-  safeStop(source, time + duration + 0.05);
-  return source;
+  source.connect(filter).connect(gain).connect(widthStage.input);
+  widthStage.output.connect(panner).connect(destination);
+  source.start(time, start, sourceDuration);
+  safeStop(source, sampleEnvelope.stopTime);
+  return {
+    source,
+    startedAt: time,
+    endTime: sampleEnvelope.stopTime,
+    stop(when = context.currentTime) {
+      const releaseAt = Math.max(context.currentTime, when);
+      try { gain.gain.cancelAndHoldAtTime?.(releaseAt); } catch (_) { gain.gain.cancelScheduledValues(releaseAt); }
+      gain.gain.setTargetAtTime(EPSILON, releaseAt, 0.01);
+      safeStop(source, releaseAt + 0.06);
+    },
+  };
 }
 
 function reverseBuffer(context, buffer) {

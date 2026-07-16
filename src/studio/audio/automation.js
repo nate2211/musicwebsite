@@ -1,3 +1,4 @@
+import { safeFrequency, smoothAudioParam } from "./audioSafety";
 export const AUTOMATION_PARAMETERS = [
   { value: "volume", label: "Mixer Volume", min: 0, max: 1.25, defaultValue: 0.75 },
   { value: "pan", label: "Mixer Pan", min: -1, max: 1, defaultValue: 0 },
@@ -54,10 +55,15 @@ export function applyAutomationToPatch(patch, values) {
 
 export function applyAutomationToStrip(strip, values, time) {
   if (!strip || !values) return;
-  const set = (param, value) => param.setTargetAtTime(value, time, 0.008);
-  if (Number.isFinite(values.volume)) set(strip.gain.gain, Math.max(0, values.volume));
-  if (Number.isFinite(values.pan)) set(strip.pan.pan, Math.max(-1, Math.min(1, values.pan)));
-  if (Number.isFinite(values.filterCutoff)) set(strip.lowpass.frequency, Math.max(20, values.filterCutoff));
-  if (Number.isFinite(values.delayMix)) set(strip.delayWet.gain, Math.max(0, values.delayMix));
-  if (Number.isFinite(values.reverbMix)) set(strip.reverbWet.gain, Math.max(0, values.reverbMix));
+  const when = Math.max(strip.input.context.currentTime, Number(time) || 0);
+  if (Number.isFinite(values.volume)) smoothAudioParam(strip.gain.gain, Math.max(0, values.volume), when, 0.018);
+  if (Number.isFinite(values.pan)) smoothAudioParam(strip.pan.pan, Math.max(-1, Math.min(1, values.pan)), when, 0.022);
+  if (Number.isFinite(values.filterCutoff)) {
+    smoothAudioParam(strip.lowpass.frequency, safeFrequency(strip.input.context, values.filterCutoff, 20, 0.45), when, 0.028);
+  }
+  if (Number.isFinite(values.delayMix)) smoothAudioParam(strip.delayWet.gain, Math.max(0, values.delayMix), when, 0.026);
+  if (Number.isFinite(values.reverbMix)) {
+    const activeSlot = strip.reverbSlots?.[strip.activeRoomSlot];
+    smoothAudioParam((activeSlot?.wet || strip.reverbWet).gain, Math.max(0, values.reverbMix), when, 0.032);
+  }
 }

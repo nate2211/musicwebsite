@@ -1,0 +1,30 @@
+MusicStudioLab Enterprise DAW 6.5 build report
+Generated: 2026-07-16
+
+Implemented
+- Left-click and left-drag draw notes on empty piano-roll cells.
+- Left-drag existing notes to resize them and inherit the resulting duration.
+- Right-click and right-drag erase existing notes.
+- Normal left click on an existing note previews it and never erases it.
+- Selected-scale ghost notes render on beat positions across C0-C9.
+- Scale-root ghosts render brighter than the remaining scale tones.
+- Ghost notes and the live tone legend update from the selected root and scale.
+- Ghost notes can be hidden without changing scale-fold mode.
+- Selected track auto-mounting and sampler piano-roll editing remain enabled.
+
+Validation completed
+- 444 WAV files validated.
+- 168 synthesizer presets validated.
+- 20 required website/workstation modules validated.
+- DAW 6.5 source and compiled JSX checks passed.
+- Vite client production build passed.
+- Vite SSR production build passed.
+- 11 indexable routes plus 404.html prerendered.
+- SEO validation passed.
+
+Packaging
+- Production dist output included.
+- node_modules excluded.
+- Temporary SSR output excluded.
+- Git and IDE metadata excluded.
+- Release ZIP split into parts no larger than 150 MiB.

@@ -19,17 +19,34 @@ import { PianoRoll } from "./components/PianoRoll";
 import { Playlist } from "./components/Playlist";
 import { Mixer } from "./components/Mixer";
 import { SoundDesigner } from "./components/SoundDesigner";
+import { SampleLab } from "./components/SampleLab";
 import { Mastering } from "./components/Mastering";
+import { PluginRack } from "./components/PluginRack";
 import { AutomationEditor } from "./components/AutomationEditor";
 import { ProjectDialog } from "./components/ProjectDialog";
 import { TopBar, ViewTabs } from "./components/TopBar";
 import { TrackSidebar } from "./components/TrackSidebar";
-import { resolveTrackPreset } from "./data/presetLibrary";
+import { importPresetPayload, resolveTrackPreset } from "./data/presetLibrary";
+import {
+  importUserAudioFiles,
+  loadUserSamples,
+  mergeSampleCatalog,
+  saveRenderedUserSample,
+} from "./state/sampleLibrary";
+import { rasterizeAudioBuffer } from "./audio/sampleTools";
 import { INSTRUMENT_PRESETS } from "./data/instrumentPresets";
 import "./StudioPage.css";
 
+const SYNTH_CATEGORY_COLORS = {
+  "808": "#9f83ff", Bass: "#8572ff", Keys: "#64c8ff", Pluck: "#6ee7c6", Bell: "#87ddff",
+  Lead: "#ff7eb3", Pad: "#8f9dff", Synth: "#69d4ff", Brass: "#ffb86b", Flute: "#83e6dc",
+  Texture: "#b08cff", Chord: "#71d8ff", Arp: "#65e3a7", FX: "#ff8c92", Atmosphere: "#8ba4ff",
+  Cinematic: "#c491ff", Hybrid: "#ff8cc8", Choir: "#b6a0ff", World: "#67d9c1", Motion: "#78baff",
+};
+
 export default function StudioPage({ initialView }) {
   const [manifest, setManifest] = useState([]);
+  const [userSamples, setUserSamples] = useState([]);
   const [projects, setProjects] = useState(() => loadProjects());
   const [projectOpen, setProjectOpen] = useState(false);
   const [rendering, setRendering] = useState(false);
@@ -49,20 +66,22 @@ export default function StudioPage({ initialView }) {
 
   useEffect(() => {
     let cancelled = false;
-    fetch("/sounds/manifest.json")
-      .then((response) => {
-        if (!response.ok) throw new Error("Factory sound manifest request failed.");
-        return response.json();
-      })
-      .then((samples) => {
+    const loadFactory = fetch("/sounds/manifest.json").then((response) => {
+      if (!response.ok) throw new Error("Factory sound manifest request failed.");
+      return response.json();
+    });
+    Promise.all([loadFactory, loadUserSamples().catch(() => [])])
+      .then(([factorySamples, storedUserSamples]) => {
         if (cancelled) return;
-        setManifest(samples);
-        const nextProject = createBlankProject(samples);
-        if (initialView && ["rack", "piano", "playlist", "mixer", "sound", "automation", "master"].includes(initialView)) {
+        const catalog = mergeSampleCatalog(factorySamples, storedUserSamples, []);
+        setManifest(factorySamples);
+        setUserSamples(storedUserSamples);
+        const nextProject = createBlankProject(catalog);
+        if (initialView && ["rack", "piano", "playlist", "mixer", "plugins", "sound", "sample", "automation", "master"].includes(initialView)) {
           nextProject.view = initialView;
         }
         dispatch({ type: "LOAD_PROJECT", project: nextProject });
-        samples.slice(0, 12).forEach((sample) => engineRef.current.loadSample(sample).catch(() => {}));
+        factorySamples.slice(0, 12).forEach((sample) => engineRef.current.loadSample(sample).catch(() => {}));
       })
       .catch(() => setToast("Factory sound manifest could not be loaded."));
     return () => {
@@ -72,7 +91,7 @@ export default function StudioPage({ initialView }) {
   }, []);
 
   React.useEffect(() => {
-    if (initialView && ["rack", "piano", "playlist", "mixer", "sound", "automation", "master"].includes(initialView)) {
+    if (initialView && ["rack", "piano", "playlist", "mixer", "plugins", "sound", "sample", "automation", "master"].includes(initialView)) {
       dispatch({ type: "SET_VIEW", view: initialView });
     }
   }, [initialView]);
@@ -82,14 +101,26 @@ export default function StudioPage({ initialView }) {
     || project.tracks[0];
 
   useEffect(() => {
-    if (manifest.length && project.samples.length === 0) {
-      dispatch({ type: "SET_PROJECT_FIELD", field: "samples", value: manifest });
+    engineRef.current?.sync(project);
+  }, [project.masterVolume, project.master]);
+
+  useEffect(() => {
+    if (!project.tracks.length) return;
+    const selectedExists = project.tracks.some((track) => track.id === project.selectedTrackId);
+    if (!selectedExists) {
+      dispatch({ type: "SELECT_TRACK", id: project.tracks[0].id });
     }
-  }, [manifest, project.samples.length]);
+  }, [project.selectedTrackId, project.tracks]);
+
+  useEffect(() => {
+    if (manifest.length && project.samples.length === 0) {
+      dispatch({ type: "SET_PROJECT_FIELD", field: "samples", value: mergeSampleCatalog(manifest, userSamples, project.samples) });
+    }
+  }, [manifest, userSamples, project.samples.length]);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
-      if (project.tracks.length) setProjects(saveProject(project));
+      setProjects(saveProject(project));
     }, 1500);
     return () => window.clearTimeout(timer);
   }, [project]);
@@ -160,26 +191,172 @@ export default function StudioPage({ initialView }) {
     const assigned = { ...selectedTrack, type: "sampler", sampleId: sample.id };
     await engineRef.current.previewTrack(assigned, null, sample, 60, project);
   };
-  const assignSample = (sampleId) => {
-    if (!selectedTrack) return;
-    dispatch({ type: "UPDATE_TRACK", id: selectedTrack.id, patch: { type: "sampler", sampleId } });
+  const assignSample = (sample) => {
+    if (!selectedTrack || !sample) return;
+    dispatch({
+      type: "ASSIGN_SAMPLE",
+      id: selectedTrack.id,
+      sampleId: sample.id,
+      sampleName: sample.name,
+    });
+  };
+  const addSampleTrack = (sample) => {
+    if (!sample) return;
+    dispatch({
+      type: "ADD_TRACK",
+      trackType: "sampler",
+      sampleId: sample.id,
+      sampleName: sample.name,
+      openPiano: true,
+    });
+  };
+  const addPresetTrack = (preset) => {
+    if (!preset) return;
+    dispatch({
+      type: "ADD_TRACK",
+      trackType: "synth",
+      presetId: preset.id,
+      presetName: preset.name,
+      color: SYNTH_CATEGORY_COLORS[preset.category] || "#69d4ff",
+      openPiano: true,
+    });
+    notify(`${preset.name} added as a synthesizer track.`);
   };
   const assignPreset = (presetId) => {
-    if (!selectedTrack) return;
-    dispatch({ type: "UPDATE_TRACK", id: selectedTrack.id, patch: { type: "synth", presetId, synth: {} } });
+    const preset = INSTRUMENT_PRESETS.find((entry) => entry.id === presetId)
+      || (project.customPresets || []).find((entry) => entry.id === presetId);
+    if (!selectedTrack) {
+      addPresetTrack(preset);
+      return;
+    }
+    dispatch({
+      type: "UPDATE_TRACK",
+      id: selectedTrack.id,
+      patch: {
+        type: "synth",
+        presetId,
+        synth: {},
+        sequenceMode: "notes",
+        name: selectedTrack.type === "synth" ? selectedTrack.name : (preset?.name || selectedTrack.name),
+      },
+    });
   };
+
+  const importAudioToProject = useCallback(async (files, options = {}) => {
+    try {
+      const imported = await importUserAudioFiles(files, options);
+      setUserSamples((current) => mergeSampleCatalog([], [...current, ...imported], []));
+      dispatch({ type: "ADD_SAMPLES", samples: imported });
+      if (options.addTracks !== false) {
+        imported.forEach((sample) => dispatch({
+          type: "ADD_TRACK",
+          trackType: "sampler",
+          sampleId: sample.id,
+          sampleName: sample.name,
+          openPiano: false,
+        }));
+        dispatch({ type: "SET_VIEW", view: "sample" });
+      } else if (options.assignToSelected && selectedTrack) {
+        dispatch({ type: "ASSIGN_SAMPLE", id: selectedTrack.id, sampleId: imported[0].id, sampleName: imported[0].name });
+      }
+      notify(`${imported.length} local audio file${imported.length === 1 ? "" : "s"} added.`);
+      return imported;
+    } catch (error) {
+      notify(error.message);
+      return [];
+    }
+  }, [notify, selectedTrack]);
+
+  const importPresetFiles = useCallback(async (files) => {
+    const presets = [];
+    for (const file of [...(files || [])]) {
+      try {
+        const parsed = JSON.parse(await file.text());
+        const payloads = Array.isArray(parsed) ? parsed : Array.isArray(parsed.presets) ? parsed.presets : [parsed];
+        payloads.forEach((payload, index) => presets.push(importPresetPayload(payload, `${file.name.replace(/\.[^.]+$/, "")} ${index + 1}`)));
+      } catch (error) {
+        notify(`Could not import ${file.name}: ${error.message}`);
+      }
+    }
+    if (presets.length) {
+      dispatch({ type: "IMPORT_CUSTOM_PRESETS", presets });
+      notify(`${presets.length} warm digital preset${presets.length === 1 ? "" : "s"} imported.`);
+    }
+  }, [notify]);
+
+  const rasterizeSelectedSample = useCallback(async (track, sample, range) => {
+    if (!track || !sample) return null;
+    try {
+      const context = await engineRef.current.ensure();
+      const buffer = await engineRef.current.loadSample(sample);
+      const blob = await rasterizeAudioBuffer(context, buffer, range);
+      const renderedSample = await saveRenderedUserSample(blob, {
+        name: `${sample.name} · Rasterized`,
+        bpm: project.bpm,
+        rootNote: sample.rootNote,
+      });
+      setUserSamples((current) => mergeSampleCatalog([], [...current, renderedSample], []));
+      dispatch({ type: "ADD_SAMPLES", samples: [renderedSample] });
+      dispatch({
+        type: "ADD_TRACK",
+        trackType: "sampler",
+        sampleId: renderedSample.id,
+        sampleName: renderedSample.name,
+        openPiano: false,
+      });
+      dispatch({ type: "SET_VIEW", view: "sample" });
+      notify("Rasterized loop saved as a new local sample track.");
+      return renderedSample;
+    } catch (error) {
+      notify(`Rasterize failed: ${error.message}`);
+      return null;
+    }
+  }, [notify, project.bpm]);
 
   const mainWorkspace = useMemo(() => {
     const common = { project, playhead: state.playhead, dispatch };
     switch (project.view) {
       case "piano":
-        return <PianoRoll {...common} track={selectedTrack} onPreview={previewMidi} />;
+        return (
+          <PianoRoll
+            key={selectedTrack?.id || "no-selected-track"}
+            {...common}
+            track={selectedTrack}
+            onPreview={previewMidi}
+          />
+        );
       case "playlist":
         return <Playlist {...common} />;
       case "mixer":
         return <Mixer project={project} dispatch={dispatch} />;
+      case "plugins":
+        return <PluginRack project={project} track={selectedTrack} dispatch={dispatch} />;
       case "sound":
         return <SoundDesigner project={project} track={selectedTrack} dispatch={dispatch} onPreview={previewMidi} />;
+      case "sample": {
+        const selectedSample = project.samples.find((entry) => entry.id === selectedTrack?.sampleId);
+        return (
+          <SampleLab
+            project={project}
+            track={selectedTrack}
+            sample={selectedSample}
+            dispatch={dispatch}
+            onGetSampleBuffer={(entry) => engineRef.current.loadSample(entry)}
+            onRasterize={rasterizeSelectedSample}
+            onImportAudio={importAudioToProject}
+            onPreviewSlice={async (sliceIndex) => {
+              if (!selectedTrack || !selectedSample) return;
+              await engineRef.current.previewTrack(
+                { ...selectedTrack, sliceIndex },
+                null,
+                selectedSample,
+                60 + sliceIndex,
+                project,
+              );
+            }}
+          />
+        );
+      }
       case "automation":
         return <AutomationEditor project={project} playhead={state.playhead} dispatch={dispatch} />;
       case "master":
@@ -219,9 +396,13 @@ export default function StudioPage({ initialView }) {
           project={project}
           selectedTrack={selectedTrack}
           onAssignSample={assignSample}
+          onAddSampleTrack={addSampleTrack}
           onAssignPreset={assignPreset}
           onApplyKit={(kit) => dispatch({ type: "APPLY_KIT", kit })}
           onPreviewSample={previewSample}
+          onAddPresetTrack={addPresetTrack}
+          onImportAudio={importAudioToProject}
+          onImportPresets={importPresetFiles}
           onPreviewPreset={(preset) => {
             if (selectedTrack) {
               engineRef.current.previewTrack(
@@ -233,15 +414,38 @@ export default function StudioPage({ initialView }) {
               );
             }
           }}
-          onAddTrack={(trackType) => dispatch({ type: "ADD_TRACK", trackType })}
+          onAddTrack={(trackType, sample) => {
+            if (trackType === "synth") {
+              addPresetTrack(INSTRUMENT_PRESETS[0]);
+              return;
+            }
+            dispatch({
+              type: "ADD_TRACK",
+              trackType,
+              sampleId: sample?.id,
+              sampleName: sample?.name,
+              openPiano: true,
+            });
+          }}
         />
-        <TrackSidebar project={project} dispatch={dispatch} />
+        <TrackSidebar
+          project={project}
+          dispatch={dispatch}
+          onAddLocalFiles={(files) => importAudioToProject(files, { addTracks: true })}
+          onSelectTrack={(trackId) => dispatch({
+            type: "SELECT_TRACK",
+            id: trackId,
+            openPiano: true,
+          })}
+        />
         <main className="workspace">{mainWorkspace}</main>
       </div>
       <footer className="statusbar">
         <span>Project: {project.name}</span>
-        <span>{project.tracks.length} tracks</span>
-        <span>{project.samples.length} original factory sounds</span>
+        <span>{project.tracks.length} tracks · {project.tracks.filter((track) => track.mute).length} muted</span>
+        <span>{(project.selectedTrackIds || []).length} batch-selected</span>
+        <span>Active: {selectedTrack?.name || "None"}</span>
+        <span>{project.samples.length} sounds · {project.samples.filter((sample) => sample.user).length} local</span>
         <span>{INSTRUMENT_PRESETS.length + (project.customPresets?.length || 0)} instrument patches</span>
         <span>44.1 kHz · Web Audio · offline WAV rendering</span>
       </footer>
@@ -263,7 +467,7 @@ export default function StudioPage({ initialView }) {
           stop();
           dispatch({
             type: "LOAD_PROJECT",
-            project: { ...savedProject, samples: manifest.length ? manifest : savedProject.samples },
+            project: { ...savedProject, samples: mergeSampleCatalog(manifest, userSamples, savedProject.samples) },
           });
           setProjectOpen(false);
         }}
@@ -271,7 +475,7 @@ export default function StudioPage({ initialView }) {
         onImport={async (file) => {
           try {
             const imported = await importProjectFile(file);
-            dispatch({ type: "LOAD_PROJECT", project: { ...imported, samples: manifest } });
+            dispatch({ type: "LOAD_PROJECT", project: { ...imported, samples: mergeSampleCatalog(manifest, userSamples, imported.samples || []) } });
             setProjectOpen(false);
             notify("Project imported.");
           } catch (error) {
@@ -280,7 +484,7 @@ export default function StudioPage({ initialView }) {
         }}
         onNew={() => {
           stop();
-          dispatch({ type: "LOAD_PROJECT", project: createBlankProject(manifest) });
+          dispatch({ type: "LOAD_PROJECT", project: createBlankProject(mergeSampleCatalog(manifest, userSamples, [])) });
           setProjectOpen(false);
         }}
       />

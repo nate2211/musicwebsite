@@ -1,0 +1,25 @@
+MusicStudioLab Enterprise DAW 6.3 build report
+Generated: 2026-07-16
+
+Validation completed successfully:
+- Project integrity: 444 WAV assets, 168 synth presets, 20 required modules
+- DAW feature validation: sample-derived titles, duplicate suffixing, manual-title preservation, C0-C9 roll, scale controls, right-drag draw, left erase/resize, inherited duration
+- Client production build: passed
+- SSR production build: passed
+- Prerender: 11 indexable routes plus 404
+- SEO validation: passed
+
+Package policy:
+- Includes complete source code
+- Includes 444 original factory WAV assets
+- Includes tested production dist output
+- Includes package-lock.json and build scripts
+- Includes deterministic asset generators and documentation
+- Includes assemble-and-build.sh for the split release
+- Excludes node_modules, Git history, IDE metadata, SSR temporary output, and temporary logs
+
+Factory asset count: 444
+Factory source audio bytes: 161917060
+Factory source audio MiB: 154.42
+Uncompressed distributable bytes before ZIP metadata: 327665552
+Uncompressed distributable MiB before ZIP metadata: 312.49

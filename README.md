@@ -1,6 +1,6 @@
-# MusicStudioLab Enterprise Production Website 5
+# MusicStudioLab Enterprise Production Website 6.9
 
-MusicStudioLab is a browser-based hip-hop, trap, drill, R&B, and electronic production workstation built with React, Vite, and the Web Audio API. Version 6 combines the expanded workstation with a complete public-facing product website inspired by the original MusicStudioLab dark glass interface and the connected AudioMasterLab, ImageMasterLab, and SuiteOfficeLab product family.
+MusicStudioLab is a browser-based hip-hop, trap, drill, R&B, and electronic production workstation built with React, Vite, and the Web Audio API. Version 6.9 combines the expanded workstation with a complete public-facing product website inspired by the original MusicStudioLab dark glass interface and the connected AudioMasterLab, ImageMasterLab, and SuiteOfficeLab product family.
 
 The earlier monolithic studio remains under `src/pages/legacyMusic.js` for reference. The active workstation is split into maintainable audio, state, data, and UI modules under `src/studio`, while the public website is split into reusable navigation, page, SEO, layout, and routing modules under `src/site`.
 
@@ -22,8 +22,8 @@ The application now includes:
 ## Production workstation
 
 - Seven production workspaces: Channel Rack, Piano Roll, Playlist, Mixer, Synth Lab, Automation, and Mastering.
-- 332 original local WAV assets totaling about 117 MB before the production build is copied.
-- 168 original factory synthesizer patches across 14 categories.
+- 444 original local WAV assets totaling about 154 MiB before the production build is copied.
+- 240 original factory synthesizer patches across 20 categories, including cinematic, atmosphere, choir, hybrid, world, and motion instruments.
 - Three main oscillators plus sub and colored-noise generators.
 - Built-in sine, triangle, saw, square, pulse, warm-saw, organ, hollow, digital, metallic, and vowel waveforms.
 - Unison up to nine voices, detune, stereo spread, drift, tuning, glide, mono/legato metadata, and velocity response.
@@ -86,9 +86,9 @@ The compiled site is written to `dist/`. A validated production build is include
 - `src/site/pages`: home, Synth Lab, sound library, workflow, help, about, contact, privacy, terms, and copyright pages.
 - `src/studio/audio`: real-time/offline audio, synth voices, channel effects, automation, waveforms, and WAV export.
 - `src/studio/components`: independent workstation workspaces and controls.
-- `src/studio/data`: 168 factory presets, drum kits, and preset-resolution helpers.
+- `src/studio/data`: 240 factory presets, drum kits, and preset-resolution helpers.
 - `src/studio/state`: project schema, immutable reducer commands, and browser storage.
-- `public/sounds`: 332 original local WAV assets plus searchable manifest.
+- `public/sounds`: 444 original local WAV assets plus searchable manifest.
 - `scripts`: deterministic factory generators, Windows clean installation, and integrity validation.
 - `docs`: architecture and beat-production workflow documentation.
 
@@ -117,7 +117,7 @@ A browser must receive a user gesture before it can start audio. Click a preview
 
 ## SEO and Google Search Console
 
-Version 6 includes route-level prerendering, canonical metadata, structured data, sitemap/robots files, page-specific social images, a true 404 document, lazy-loaded studio code, cache headers, and an automated SEO validator.
+Version 6.9 includes route-level prerendering, canonical metadata, structured data, sitemap/robots files, page-specific social images, a true 404 document, lazy-loaded studio code, cache headers, and an automated SEO validator.
 
 Build and validate everything:
 
@@ -126,3 +126,56 @@ npm run check
 ```
 
 Deploy only the generated `dist` directory. See `SEO_IMPLEMENTATION.md` and `SEARCH_CONSOLE_CHECKLIST.md` for verification, sitemap submission, URL inspection, rich-result testing, and maintenance steps.
+
+## DAW 6.7 piano-roll object editing and transforms
+
+The selected-track piano roll now works as a full note-object editor rather than a simple paint grid.
+
+- Drag the **left edge** of one or more selected notes to move their starts while keeping their ends anchored.
+- Drag the **right edge** to stretch or shorten note durations.
+- Drag the **center** of a note to move the full selection horizontally and vertically.
+- Switch to **Select** and drag an empty area to marquee-select notes; Shift-drag adds to the current selection.
+- Use Ctrl/Cmd+A to select every note, Ctrl/Cmd+D to duplicate, and Delete/Backspace to remove the selection.
+- Translate notes by configurable steps or semitones.
+- Flip note timing, reflect pitches, compress or expand timing, and compress or expand pitch spacing.
+- Fill the entire pattern with ascending or descending scale notes, root pulses, scale triads, or repeated selected phrases.
+- Increase the piano-roll pattern from 1 to 16 bars. Realtime playback and offline WAV rendering use the selected pattern length.
+- FL-style selected-scale row highlights and octave-spanning ghost notes remain active across the expanded timeline.
+- Left-click and left-drag draw notes; right-click and right-drag erase notes.
+
+See `RELEASE_NOTES_DAW_6_7.md` for the complete change list.
+
+## Split archive assembly and build
+
+The downloadable release is divided into parts no larger than 150 MiB. Put every `.part-*` file, the `.sha256` file, and `assemble-and-build.sh` in the same directory, then run:
+
+```bash
+chmod +x assemble-and-build.sh
+./assemble-and-build.sh
+```
+
+The script concatenates the parts in order, verifies the reconstructed ZIP checksum, extracts the project, installs exact dependencies with `npm ci`, and runs the full production build and validation suite with `npm run check`. Use Git Bash or WSL on Windows, or any standard POSIX shell on macOS/Linux.
+
+## DAW 6.8 track management and layered synthesizers
+
+- Add any factory or user synthesizer preset directly to the track list from the preset browser or the track-sidebar synthesizer dropdown.
+- New synth tracks use the selected preset name, receive a playable arrangement clip, become the active piano-roll track, and support duplicate-name suffixing.
+- Select multiple tracks with dedicated check controls, then mute, unmute, or delete the selection.
+- The track-management dropdown also provides select all, clear selection, mute all, unmute all, delete selected, and delete all.
+- The factory bank now contains 240 original presets across 20 categories.
+- The hybrid synth engine adds two independent spectral layers, expanded custom harmonic waveforms, per-layer unison/detune/stereo/motion, delayed layer onset, and a filtered procedural texture bed.
+- New Atmosphere, Cinematic, Hybrid, Choir, World, and Motion banks provide evolving, performance-ready starting points while remaining fully editable and original.
+
+
+## DAW 6.9 draggable controls and master output
+
+- Every rotary control in Mixer, Synth Lab, sampler editing, effects, and Mastering can be dragged directly.
+- Drag upward or right to increase a knob; drag downward or left to decrease it.
+- Pointer capture keeps the gesture active when the cursor moves outside the knob.
+- Hold Shift while dragging for fine adjustment or Alt/Option for ultra-fine movement.
+- Focused knobs also support arrow keys, Page Up/Page Down, Home, and End.
+- The transport bar now contains a persistent horizontal master-volume slider with a live percentage readout.
+- Master output updates the Web Audio master gain during playback and applies to sample/synth previews, project autosave, project export/import, and offline WAV rendering.
+- The existing Mastering workspace Master knob controls the same project setting, so both surfaces remain synchronized.
+
+See `RELEASE_NOTES_DAW_6_9.md` for the complete change list.

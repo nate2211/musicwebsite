@@ -1,6 +1,6 @@
 # MusicStudioLab SEO implementation
 
-Version 6 converts the marketing website from a single generic SPA document into an indexable, route-specific site while preserving the interactive browser DAW.
+Version 6.4 converts the marketing website from a single generic SPA document into an indexable, route-specific site while preserving the interactive browser DAW.
 
 ## What the build produces
 

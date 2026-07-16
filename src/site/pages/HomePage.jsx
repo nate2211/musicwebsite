@@ -18,7 +18,7 @@ export default function HomePage() {
       <Hero
         eyebrow="Browser music production workstation"
         title={<>Make hip-hop beats online. Design every sound. <span className="gradient-text">Finish the record.</span></>}
-        description="MusicStudioLab combines an original factory sound library, a deep three-oscillator synthesizer, sequencing, arrangement, mixing, automation, mastering, and offline WAV rendering in one focused browser studio."
+        description="MusicStudioLab combines an original factory sound library, a layered hybrid synthesizer with three core oscillators, dual spectral layers and procedural textures, sequencing, arrangement, mixing, automation, mastering, and offline WAV rendering in one focused browser studio."
         actions={<><PrimaryButton to="/music">Launch Production Studio</PrimaryButton><PrimaryButton to="/synth-lab" secondary icon="synth">Explore Synth Lab</PrimaryButton></>}
       >
         <ProductPreview />
@@ -26,8 +26,8 @@ export default function HomePage() {
 
       <section className="site-section site-section--stats">
         <div className="site-container stats-grid">
-          <Stat value="332" label="Original WAV assets" description="Drums, 808s, loops, textures, transitions and impulse responses" />
-          <Stat value="168" label="Factory synth patches" description="Leads, pads, keys, basses, plucks, bells, motion and experimental sounds" />
+          <Stat value="444" label="Original WAV assets" description="Drums, 808s, loops, textures, transitions and impulse responses" />
+          <Stat value="240" label="Factory synth patches" description="Leads, pads, keys, basses, plucks, bells, motion and experimental sounds" />
           <Stat value="7" label="Production workspaces" description="Rack, piano roll, playlist, mixer, sound design, automation and mastering" />
           <Stat value="64" label="Automation steps" description="Draw movement for levels, pan, cutoff, sends and performance macros" />
         </div>
@@ -47,9 +47,11 @@ export default function HomePage() {
           <div className="split-layout__copy">
             <span className="section-kicker">Enterprise sound creation</span>
             <h2>A synthesizer designed for custom hip-hop sounds.</h2>
-            <p>Layer three oscillators with a dedicated sub and noise source, then add modulation, dual filters, envelopes, unison, stereo processing, macros and original user presets.</p>
+            <p>Combine three core oscillators with dual spectral layers, a procedural texture bed, sub and noise sources, then shape the instrument through modulation, dual filters, envelopes, independent layer unison, stereo motion, macros and original user presets.</p>
             <CheckList items={[
-              "Custom harmonic waveform construction",
+              "Sixteen custom harmonic and spectral waveform sources",
+              "Dual independent spectral layers with motion",
+              "Procedural filtered stereo texture beds",
               "FM and ring-modulation routing",
               "Dual LFOs with tempo-synced destinations",
               "Nine-voice unison, detune, drift and spread",

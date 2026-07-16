@@ -1,0 +1,34 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="58" y1="36" x2="460" y2="476" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#52d7ff"></stop>
+      <stop offset="0.45" stop-color="#7c5cff"></stop>
+      <stop offset="1" stop-color="#07090f"></stop>
+    </linearGradient>
+
+    <linearGradient id="wave" x1="104" y1="256" x2="408" y2="256" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#52d7ff"></stop>
+      <stop offset="0.5" stop-color="#ffffff"></stop>
+      <stop offset="1" stop-color="#7c5cff"></stop>
+    </linearGradient>
+
+    <filter id="shadow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000000" flood-opacity="0.42"></feDropShadow>
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" rx="112" fill="url(#bg)"></rect>
+
+  <g filter="url(#shadow)">
+    <circle cx="256" cy="256" r="154" fill="#0e1118" stroke="rgba(255,255,255,0.75)" stroke-width="16"></circle>
+
+    <path d="M118 258C143 258 143 190 168 190C193 190 193 322 218 322C243 322 243 150 268 150C293 150 293 362 318 362C343 362 343 214 368 214C393 214 393 258 418 258" fill="none" stroke="url(#wave)" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"></path>
+
+    <path d="M176 366V168" stroke="#52d7ff" stroke-width="20" stroke-linecap="round" opacity="0.9"></path>
+
+    <path d="M336 366V168" stroke="#7c5cff" stroke-width="20" stroke-linecap="round" opacity="0.9"></path>
+
+    <circle cx="176" cy="386" r="31" fill="#52d7ff"></circle>
+    <circle cx="336" cy="386" r="31" fill="#7c5cff"></circle>
+  </g>
+</svg>

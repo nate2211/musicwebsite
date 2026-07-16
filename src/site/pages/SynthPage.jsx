@@ -15,12 +15,12 @@ export default function SynthPage() {
   return (
     <>
       <Seo path="/synth-lab" />
-      <Hero eyebrow="Advanced synthesizer and patch design" title={<>Create custom sounds from <span className="gradient-text">waveform to master.</span></>} description="The Synth Lab is a full instrument-design environment for basses, leads, pads, bells, keys, plucks, textures and experimental sounds. Every control is connected to live playback and offline project rendering." actions={<><PrimaryButton to="/music?view=sound" icon="synth">Open Synth Lab Workspace</PrimaryButton><PrimaryButton to="/sounds" secondary icon="sounds">Browse 168 Patches</PrimaryButton></>}>
+      <Hero eyebrow="Advanced synthesizer and patch design" title={<>Create custom sounds from <span className="gradient-text">waveform to master.</span></>} description="The Synth Lab is a full hybrid instrument-design environment for basses, leads, pads, cinematic layers, choirs, keys, plucks, textures and experimental sounds. Every core oscillator, spectral layer and texture control is connected to live playback and offline project rendering." actions={<><PrimaryButton to="/music?view=sound" icon="synth">Open Synth Lab Workspace</PrimaryButton><PrimaryButton to="/sounds" secondary icon="sounds">Browse 240 Patches</PrimaryButton></>}>
         <WaveVisual />
       </Hero>
       <section className="site-section site-section--stats">
         <div className="site-container synth-spec-row">
-          {['3 oscillators','4 noise colors','2 multimode filters','3 envelopes','2 tempo LFOs','4 performance macros','9-voice unison','168 factory patches'].map((item) => <span key={item}>{item}</span>)}
+          {['3 core oscillators','2 spectral layers','procedural texture bed','16 harmonic waveforms','2 multimode filters','2 tempo LFOs','independent layer motion','240 factory patches'].map((item) => <span key={item}>{item}</span>)}
         </div>
       </section>
       <section className="site-section">
@@ -32,7 +32,7 @@ export default function SynthPage() {
       <section className="site-section site-section--split">
         <div className="site-container split-layout split-layout--reverse">
           <div className="patch-browser-visual">
-            <div className="patch-browser-visual__header"><strong>Factory Patch Browser</strong><span>168 original instruments</span></div>
+            <div className="patch-browser-visual__header"><strong>Factory Patch Browser</strong><span>240 original layered instruments</span></div>
             <div className="patch-browser-visual__filters"><span className="is-active">All</span><span>Bass</span><span>Lead</span><span>Keys</span><span>Pad</span><span>Pluck</span></div>
             <div className="patch-browser-visual__grid">{['Night Shift 808','Chrome Bell','Velvet Keys','Airline Pad','Neon Glass Lead','Dust Pluck','Wide Choir','Motion Texture'].map((name, index) => <div key={name} className={index === 4 ? 'is-selected' : ''}><span>{['Bass','Bell','Keys','Pad','Lead','Pluck','Vocal','Texture'][index]}</span><strong>{name}</strong><small>{['Sub · Drive · Mono','FM · Metallic','Warm · Wide','Slow · Evolving','Bright · Unison','Short · Digital','Formant · Space','Motion · Noise'][index]}</small></div>)}</div>
           </div>

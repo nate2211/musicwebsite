@@ -37,7 +37,7 @@ export default function StudioLandingPage() {
           <div className="split-layout__copy">
             <span className="section-kicker">Built for modern beat production</span>
             <h2>Sequence drums quickly, then keep full control over the sound.</h2>
-            <p>Start with 332 original WAV assets and 168 editable synthesizer patches, or initialize a clean instrument and design a new sound from oscillators, filters, envelopes, modulation and effects.</p>
+            <p>Start with 444 original WAV assets and 240 editable layered synthesizer patches, or initialize a clean instrument and design a new sound from oscillators, filters, envelopes, modulation and effects.</p>
             <CheckList items={[
               "Tuned 808s and original drum one-shots",
               "Three oscillators, sub, noise, FM and ring modulation",

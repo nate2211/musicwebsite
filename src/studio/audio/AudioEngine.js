@@ -1,7 +1,14 @@
-import { createChannelStrip, distortionCurve, updateChannelStrip } from "./effects";
+import {
+  applyTimeShaperAtStep,
+  createChannelStrip,
+  masterTrackFromProject,
+  pitchShiftSemitones,
+  updateChannelStrip,
+} from "./effects";
 import { scheduleSampleVoice, scheduleSynthVoice } from "./voices";
 import { resolveTrackPreset } from "../data/presetLibrary";
 import { applyAutomationToPatch, applyAutomationToStrip, collectTrackAutomation } from "./automation";
+import { chordHeadroom } from "./audioSafety";
 
 const AudioContextClass = () => window.AudioContext || window.webkitAudioContext;
 
@@ -9,7 +16,7 @@ export class AudioEngine {
   constructor(onStep) {
     this.context = null;
     this.master = null;
-    this.masterGain = null;
+    this.masterStrip = null;
     this.strips = new Map();
     this.samples = new Map();
     this.timer = null;
@@ -19,36 +26,63 @@ export class AudioEngine {
     this.getProject = null;
     this.lookAhead = 0.12;
     this.interval = 25;
+    this.activeVoices = new Map();
+    this.previewVoice = null;
+    this.maxVoicesPerTrack = 24;
+    this.maxVoicesTotal = 96;
+  }
+
+
+  cleanupVoices(now = this.context?.currentTime || 0) {
+    for (const [trackId, voices] of this.activeVoices.entries()) {
+      const active = voices.filter((voice) => !Number.isFinite(voice.endTime) || voice.endTime > now - 0.02);
+      if (active.length) this.activeVoices.set(trackId, active);
+      else this.activeVoices.delete(trackId);
+    }
+  }
+
+  activeVoiceCount(trackId = null) {
+    this.cleanupVoices();
+    if (trackId) return (this.activeVoices.get(trackId) || []).length;
+    return [...this.activeVoices.values()].reduce((sum, voices) => sum + voices.length, 0);
+  }
+
+  registerVoice(trackId, voice, scheduledTime, limit = this.maxVoicesPerTrack) {
+    if (!voice) return voice;
+    this.cleanupVoices();
+    const voices = this.activeVoices.get(trackId) || [];
+    while (voices.length >= limit) {
+      const stolen = voices.shift();
+      stolen?.stop?.(Math.max(this.context.currentTime, scheduledTime - 0.004));
+    }
+    while (this.activeVoiceCount() >= this.maxVoicesTotal) {
+      const firstEntry = this.activeVoices.entries().next().value;
+      if (!firstEntry) break;
+      const [oldestTrack, oldestVoices] = firstEntry;
+      const stolen = oldestVoices.shift();
+      stolen?.stop?.(Math.max(this.context.currentTime, scheduledTime - 0.004));
+      if (!oldestVoices.length) this.activeVoices.delete(oldestTrack);
+    }
+    voices.push(voice);
+    this.activeVoices.set(trackId, voices);
+    return voice;
+  }
+
+  releaseAllVoices(when = this.context?.currentTime || 0) {
+    for (const voices of this.activeVoices.values()) {
+      voices.forEach((voice) => voice?.stop?.(when));
+    }
+    this.activeVoices.clear();
+    this.previewVoice?.stop?.(when);
+    this.previewVoice = null;
   }
 
   async ensure() {
     if (!this.context) {
       const Context = AudioContextClass();
       this.context = new Context({ latencyHint: "interactive" });
-      this.master = this.context.createGain();
-      this.masterLow = this.context.createBiquadFilter();
-      this.masterHigh = this.context.createBiquadFilter();
-      this.masterCompressor = this.context.createDynamicsCompressor();
-      this.masterClipper = this.context.createWaveShaper();
-      this.masterGain = this.context.createGain();
-      this.masterLow.type = "lowshelf";
-      this.masterLow.frequency.value = 120;
-      this.masterHigh.type = "highshelf";
-      this.masterHigh.frequency.value = 7000;
-      this.masterCompressor.threshold.value = -7;
-      this.masterCompressor.knee.value = 5;
-      this.masterCompressor.ratio.value = 12;
-      this.masterCompressor.attack.value = 0.003;
-      this.masterCompressor.release.value = 0.12;
-      this.masterClipper.curve = distortionCurve(0.12);
-      this.masterClipper.oversample = "4x";
-      this.master
-        .connect(this.masterLow)
-        .connect(this.masterHigh)
-        .connect(this.masterCompressor)
-        .connect(this.masterClipper)
-        .connect(this.masterGain)
-        .connect(this.context.destination);
+      this.masterStrip = createChannelStrip(this.context, this.context.destination);
+      this.master = this.masterStrip.input;
     }
     if (this.context.state === "suspended") await this.context.resume();
     return this.context;
@@ -65,9 +99,21 @@ export class AudioEngine {
     return decoded;
   }
 
-  sync(project) {
+  sync(project, { prune = true } = {}) {
     if (!this.context) return;
+    const now = this.context.currentTime;
     const soloed = project.tracks.some((track) => track.solo);
+    if (prune) {
+      const liveTrackIds = new Set(project.tracks.map((track) => track.id));
+      for (const [trackId, strip] of this.strips.entries()) {
+        if (liveTrackIds.has(trackId)) continue;
+        try { strip.chorusLfo?.stop(); } catch (_) { /* already stopped */ }
+        try { strip.input?.disconnect(); } catch (_) { /* no-op */ }
+        this.strips.delete(trackId);
+        (this.activeVoices.get(trackId) || []).forEach((voice) => voice?.stop?.(now));
+        this.activeVoices.delete(trackId);
+      }
+    }
     project.tracks.forEach((track) => {
       let strip = this.strips.get(track.id);
       if (!strip) {
@@ -77,39 +123,48 @@ export class AudioEngine {
       updateChannelStrip(strip, {
         ...track,
         mute: track.mute || (soloed && !track.solo),
-      }, this.context.currentTime);
+      }, now, project.bpm);
     });
-    const master = project.master || {};
-    this.master.gain.setTargetAtTime(master.inputGain ?? 1, this.context.currentTime, 0.02);
-    this.masterLow.gain.setTargetAtTime(master.lowGain ?? 0, this.context.currentTime, 0.02);
-    this.masterHigh.gain.setTargetAtTime(master.highGain ?? 0, this.context.currentTime, 0.02);
-    this.masterCompressor.threshold.setTargetAtTime(master.compThreshold ?? -10, this.context.currentTime, 0.02);
-    this.masterCompressor.ratio.setTargetAtTime(master.compRatio ?? 3, this.context.currentTime, 0.02);
-    this.masterClipper.curve = distortionCurve(master.clipDrive ?? 0.16);
-    const ceilingGain = 10 ** ((master.limiterCeiling ?? -1) / 20);
-    this.masterGain.gain.setTargetAtTime((project.masterVolume ?? 0.85) * ceilingGain, this.context.currentTime, 0.02);
+    if (this.masterStrip) {
+      updateChannelStrip(this.masterStrip, masterTrackFromProject(project), now, project.bpm);
+    }
   }
 
   async previewTrack(track, preset, sample, midi = 60, project = null) {
     await this.ensure();
-    const previewProject = project || { tracks: [track], masterVolume: 0.85, bpm: 120, customPresets: [] };
-    this.sync({ ...previewProject, tracks: [track] });
+    const previewProject = project || { tracks: [track], masterVolume: 0.85, bpm: 120, customPresets: [], master: {} };
+    this.sync(previewProject, { prune: false });
     const strip = this.strips.get(track.id) || createChannelStrip(this.context, this.master);
     this.strips.set(track.id, strip);
+    const now = this.context.currentTime;
+    this.previewVoice?.stop?.(now);
+    this.previewVoice = null;
+    const insertPitch = pitchShiftSemitones(track);
     if (track.type === "sampler" && sample) {
       const buffer = await this.loadSample(sample);
-      scheduleSampleVoice(this.context, strip.input, buffer, this.context.currentTime + 0.01, 0.9, track);
+      this.previewVoice = scheduleSampleVoice(
+        this.context,
+        strip.input,
+        buffer,
+        now + 0.012,
+        0.82,
+        {
+          ...track,
+          voiceGain: 0.72,
+          pitch: (track.pitch || 0) + insertPitch + (midi - (Number.isInteger(track.sliceIndex) ? 60 + track.sliceIndex : 60)),
+        },
+      );
     } else {
       const resolved = preset || resolveTrackPreset(previewProject, track);
-      scheduleSynthVoice(
+      this.previewVoice = scheduleSynthVoice(
         this.context,
         strip.input,
         resolved,
-        midi,
-        0.85,
-        this.context.currentTime + 0.01,
+        midi + insertPitch,
+        0.78,
+        now + 0.012,
         0.55,
-        { bpm: previewProject.bpm || 120 },
+        { bpm: previewProject.bpm || 120, voiceGain: 0.72 },
       );
     }
   }
@@ -133,6 +188,7 @@ export class AudioEngine {
 
   stop() {
     this.pause();
+    this.releaseAllVoices(this.context?.currentTime || 0);
     this.absoluteStep = 0;
     this.onStep?.(0);
   }
@@ -153,17 +209,21 @@ export class AudioEngine {
   }
 
   scheduleStep(project, absoluteStep, time) {
-    const localStep = absoluteStep % 64;
+    const patternSteps = Math.max(16, Math.min(256, Number(project.patternBars || 4) * 16));
+    const localStep = absoluteStep % patternSteps;
+    const stepSeconds = 60 / Math.max(40, project.bpm) / 4;
     window.setTimeout(
       () => this.onStep?.(absoluteStep),
       Math.max(0, (time - this.context.currentTime) * 1000),
     );
     const soloed = project.tracks.some((track) => track.solo);
+    applyTimeShaperAtStep(this.masterStrip, project.master || {}, absoluteStep, time, stepSeconds);
 
     project.tracks.forEach((track) => {
       if (track.mute || (soloed && !track.solo)) return;
       const strip = this.strips.get(track.id);
       if (!strip) return;
+      applyTimeShaperAtStep(strip, track.effects || {}, absoluteStep, time, stepSeconds);
       const automationValues = collectTrackAutomation(project, track.id, absoluteStep);
       applyAutomationToStrip(strip, automationValues, time);
       const activeClip = project.arrangement.find((clip) => (
@@ -173,16 +233,54 @@ export class AudioEngine {
       ));
       if (project.arrangement.length && track.useArrangement !== false && !activeClip) return;
       const patternStep = activeClip
-        ? (absoluteStep - activeClip.startBar * 16) % 64
+        ? (absoluteStep - activeClip.startBar * 16) % patternSteps
         : localStep;
+      const insertPitch = pitchShiftSemitones(track) + Number(track.effects?.pitchShiftFine || 0) / 100;
 
       if (track.type === "sampler") {
-        const velocity = track.steps?.[patternStep] || 0;
-        if (velocity <= 0) return;
         const sample = project.samples.find((entry) => entry.id === track.sampleId);
         const buffer = this.samples.get(track.sampleId);
+        const samplerUsesNotes = track.sequenceMode === "notes"
+          || (track.sequenceMode !== "steps" && (track.notes || []).length > 0);
+
+        if (samplerUsesNotes) {
+          const noteEvents = (track.notes || []).filter((note) => note.start === patternStep);
+          if (buffer) {
+            const activeCount = this.activeVoiceCount(track.id);
+            const voiceGain = chordHeadroom(noteEvents.length, activeCount);
+            noteEvents.forEach((note) => {
+              const voice = scheduleSampleVoice(
+                this.context,
+                strip.input,
+                buffer,
+                time,
+                note.velocity || 0.8,
+                {
+                  ...track,
+                  voiceGain,
+                  pitch: (track.pitch || 0) + insertPitch + (note.midi - (Number.isInteger(note.sliceIndex) ? 60 + note.sliceIndex : 60)),
+                  noteDurationSeconds: stepSeconds * (note.duration || 1),
+                  sliceIndex: Number.isInteger(note.sliceIndex) ? note.sliceIndex : undefined,
+                  noteEnvelope: note.envelope,
+                },
+              );
+              this.registerVoice(track.id, voice, time, 24);
+            });
+          } else if (sample && noteEvents.length) {
+            this.loadSample(sample).catch(() => {});
+          }
+          return;
+        }
+
+        const velocity = track.steps?.[patternStep % Math.max(1, track.steps?.length || 64)] || 0;
+        if (velocity <= 0) return;
         if (buffer) {
-          scheduleSampleVoice(this.context, strip.input, buffer, time, velocity, track);
+          const voice = scheduleSampleVoice(this.context, strip.input, buffer, time, velocity, {
+            ...track,
+            voiceGain: chordHeadroom(1, this.activeVoiceCount(track.id)),
+            pitch: (track.pitch || 0) + insertPitch,
+          });
+          this.registerVoice(track.id, voice, time, 24);
         } else if (sample) {
           this.loadSample(sample).catch(() => {});
         }
@@ -190,29 +288,36 @@ export class AudioEngine {
       }
 
       const preset = applyAutomationToPatch(resolveTrackPreset(project, track), automationValues);
-      (track.notes || [])
-        .filter((note) => note.start === patternStep)
-        .forEach((note) => scheduleSynthVoice(
+      const noteEvents = (track.notes || []).filter((note) => note.start === patternStep);
+      const voiceGain = chordHeadroom(noteEvents.length, this.activeVoiceCount(track.id));
+      noteEvents.forEach((note) => {
+        const voice = scheduleSynthVoice(
           this.context,
           strip.input,
           preset,
-          note.midi,
+          note.midi + insertPitch,
           note.velocity || 0.8,
           time,
-          (60 / project.bpm / 4) * (note.duration || 1),
-          { bpm: project.bpm },
-        ));
+          stepSeconds * (note.duration || 1),
+          { bpm: project.bpm, noteEnvelope: note.envelope, voiceGain },
+        );
+        this.registerVoice(track.id, voice, time, 24);
+      });
     });
   }
 
   destroy() {
     this.stop();
-    this.strips.forEach((strip) => {
+    [...this.strips.values(), this.masterStrip].filter(Boolean).forEach((strip) => {
       try { strip.chorusLfo?.stop(); } catch (_) { /* already stopped */ }
     });
     try { this.context?.close(); } catch (_) { /* no-op */ }
     this.context = null;
+    this.master = null;
+    this.masterStrip = null;
     this.strips.clear();
     this.samples.clear();
+    this.activeVoices.clear();
+    this.previewVoice = null;
   }
 }

@@ -12,6 +12,7 @@ import { Knob, Panel, Segmented, SelectControl, Toggle } from "./Controls";
 
 const SYNTH_TABS = [
   { value: "osc", label: "Oscillators" },
+  { value: "layers", label: "Layer Engine" },
   { value: "filter", label: "Filters + Envelopes" },
   { value: "mod", label: "Modulation" },
   { value: "fx", label: "Voice FX + Macros" },
@@ -39,6 +40,12 @@ export function SoundDesigner({ project, track, dispatch, onPreview }) {
   const updateSection = (section, changes) => replacePatch({
     ...patch,
     [section]: { ...patch[section], ...changes },
+  });
+  const updateLayer = (index, changes) => replacePatch({
+    ...patch,
+    layers: patch.layers.map((layer, layerIndex) => layerIndex === index
+      ? { ...layer, ...changes }
+      : layer),
   });
 
   const savePatch = () => {
@@ -77,7 +84,7 @@ export function SoundDesigner({ project, track, dispatch, onPreview }) {
   return (
     <Panel
       title={`Synth Lab · ${track.name}`}
-      subtitle="Three-oscillator subtractive/FM instrument with custom harmonic waveforms, dual filters, dual LFOs, macros, modulation, and per-voice effects"
+      subtitle="Production hybrid instrument with stable tabbed workspaces, three core oscillators, dual spectral layers, timbre and pitch shaping, modulation, macros, and polished per-voice processing"
       className="synth-designer-panel"
       actions={(
         <>
@@ -117,6 +124,20 @@ export function SoundDesigner({ project, track, dispatch, onPreview }) {
           </div>
         </div>
 
+        <div className="synth-engine-strip" aria-label="Synth global tone and pitch controls">
+          <div className="synth-strip-title"><small>GLOBAL ENGINE</small><strong>Tone · Pitch · Motion</strong><span>Production-safe controls applied to every voice</span></div>
+          <Knob label="Timbre" value={patch.timbre ?? 0.5} min={0} max={1} step={0.01} onChange={(timbre) => updateRoot({ timbre })} display={percent} />
+          <Knob label="Harmonics" value={patch.harmonics ?? 0.22} min={0} max={1} step={0.01} onChange={(harmonics) => updateRoot({ harmonics })} display={percent} />
+          <Knob label="Body" value={patch.body ?? 0.5} min={0} max={1} step={0.01} onChange={(body) => updateRoot({ body })} display={percent} />
+          <Knob label="Air" value={patch.air ?? 0.42} min={0} max={1} step={0.01} onChange={(air) => updateRoot({ air })} display={percent} />
+          <Knob label="Transient" value={patch.transient ?? 0.5} min={0} max={1} step={0.01} onChange={(transient) => updateRoot({ transient })} display={percent} />
+          <Knob label="Pitch" value={patch.pitchSemitones ?? 0} min={-24} max={24} step={1} onChange={(pitchSemitones) => updateRoot({ pitchSemitones })} display={semitones} />
+          <Knob label="Fine" value={patch.pitchFine ?? 0} min={-100} max={100} step={1} onChange={(pitchFine) => updateRoot({ pitchFine })} display={cents} />
+          <Knob label="Pitch LFO" value={patch.pitchLfoDepth ?? 0} min={0} max={100} step={0.1} onChange={(pitchLfoDepth) => updateRoot({ pitchLfoDepth })} display={cents} />
+          <Knob label="LFO Rate" value={patch.pitchLfoRate ?? 5.2} min={0.05} max={20} step={0.01} onChange={(pitchLfoRate) => updateRoot({ pitchLfoRate })} display={hertz} />
+        </div>
+
+        <div className="synth-tab-workspace" data-active-tab={tab}>
         {tab === "osc" && (
           <div className="synth-page-grid">
             <OscillatorCard label="Oscillator A" oscillator={patch.oscA} onChange={(changes) => updateSection("oscA", changes)} />
@@ -154,6 +175,59 @@ export function SoundDesigner({ project, track, dispatch, onPreview }) {
                 <Knob label="Stereo" value={patch.stereo} onChange={(stereo) => updateRoot({ stereo })} display={percent} />
                 <Knob label="Drift" value={patch.voiceDrift} min={0} max={15} step={0.1} onChange={(voiceDrift) => updateRoot({ voiceDrift })} display={cents} />
                 <Knob label="Glide" value={patch.portamento} min={0} max={1} step={0.001} onChange={(portamento) => updateRoot({ portamento })} display={milliseconds} />
+              </div>
+            </SynthSection>
+          </div>
+        )}
+
+        {tab === "layers" && (
+          <div className="synth-page-grid layer-engine-grid">
+            {patch.layers.map((layer, index) => (
+              <LayerCard
+                key={layer.id || index}
+                title={index === 0 ? "Spectral Layer A" : "Spectral Layer B"}
+                layer={layer}
+                onChange={(changes) => updateLayer(index, changes)}
+              />
+            ))}
+            <SynthSection title="Procedural Texture Bed" className="span-2" muted={!patch.textureLayer.enabled}>
+              <Toggle
+                label="Enable texture layer"
+                checked={patch.textureLayer.enabled}
+                onChange={(enabled) => updateSection("textureLayer", { enabled })}
+                hint="Adds a filtered, moving stereo noise bed behind the tonal layers for atmosphere and depth."
+              />
+              <div className="split-control-grid">
+                <div>
+                  <Segmented
+                    value={patch.textureLayer.color}
+                    options={["white", "pink", "brown", "blue"]}
+                    onChange={(color) => updateSection("textureLayer", { color })}
+                    compact
+                  />
+                  <div className="knob-row">
+                    <Knob label="Level" value={patch.textureLayer.level} min={0} max={0.35} step={0.001} onChange={(level) => updateSection("textureLayer", { level })} display={percent} />
+                    <Knob label="Stereo" value={patch.textureLayer.stereo} onChange={(stereo) => updateSection("textureLayer", { stereo })} display={percent} />
+                    <Knob label="Motion" value={patch.textureLayer.motion} onChange={(motion) => updateSection("textureLayer", { motion })} display={percent} />
+                    <Knob label="Rate" value={patch.textureLayer.motionRate} min={0.01} max={4} step={0.01} onChange={(motionRate) => updateSection("textureLayer", { motionRate })} display={hertz} />
+                  </div>
+                </div>
+                <div>
+                  <FilterGraph cutoff={patch.textureLayer.lowpass} resonance={patch.textureLayer.resonance} type="bandpass" />
+                  <div className="knob-row">
+                    <Knob label="Highpass" value={patch.textureLayer.highpass} min={20} max={8000} step={1} onChange={(highpass) => updateSection("textureLayer", { highpass })} display={frequency} />
+                    <Knob label="Lowpass" value={patch.textureLayer.lowpass} min={200} max={20000} step={1} onChange={(lowpass) => updateSection("textureLayer", { lowpass })} display={frequency} />
+                    <Knob label="Resonance" value={patch.textureLayer.resonance} min={0} max={12} step={0.1} onChange={(resonance) => updateSection("textureLayer", { resonance })} />
+                  </div>
+                </div>
+              </div>
+            </SynthSection>
+            <SynthSection title="Enterprise Layer Architecture">
+              <p className="section-copy">Each spectral layer has independent waveform, tuning, unison, detune, stereo spread, delayed onset, and slow movement. Combine it with the three core oscillators for dense pads, cinematic keys, evolving textures, hybrid leads, choirs, and motion patches.</p>
+              <div className="layer-engine-stats">
+                <span>{patch.layers.filter((layer) => layer.enabled).length} spectral layers active</span>
+                <span>{patch.layers.reduce((sum, layer) => sum + (layer.enabled ? layer.unison : 0), 0)} layer voices</span>
+                <span>{patch.textureLayer.enabled ? "Texture bed active" : "Texture bed bypassed"}</span>
               </div>
             </SynthSection>
           </div>
@@ -259,6 +333,7 @@ export function SoundDesigner({ project, track, dispatch, onPreview }) {
             onExport={exportPatch}
           />
         )}
+        </div>
 
         <SynthKeyboard octave={keyboardOctave} setOctave={setKeyboardOctave} onPreview={onPreview} />
       </div>
@@ -279,6 +354,29 @@ function OscillatorCard({ label, oscillator, onChange }) {
         <Knob label="Level" value={oscillator.level} onChange={(level) => onChange({ level })} display={percent} />
         <Knob label="Pan" value={oscillator.pan} min={-1} max={1} step={0.01} onChange={(pan) => onChange({ pan })} display={panDisplay} />
         <Knob label="Phase" value={oscillator.phase} min={0} max={1} step={0.01} onChange={(phase) => onChange({ phase })} display={(value) => `${Math.round(value * 360)}°`} />
+      </div>
+    </SynthSection>
+  );
+}
+
+function LayerCard({ title, layer, onChange }) {
+  return (
+    <SynthSection title={title} muted={!layer.enabled}>
+      <Toggle label="Enabled" checked={layer.enabled} onChange={(enabled) => onChange({ enabled })} />
+      <SelectControl label="Source" value={layer.waveform} options={SYNTH_WAVEFORMS} onChange={(waveform) => onChange({ waveform })} />
+      <MiniWave waveform={layer.waveform} />
+      <div className="knob-row">
+        <Knob label="Octave" value={layer.octave} min={-3} max={3} step={1} onChange={(octave) => onChange({ octave })} />
+        <Knob label="Semitone" value={layer.semitone} min={-24} max={24} step={1} onChange={(semitone) => onChange({ semitone })} display={semitones} />
+        <Knob label="Fine" value={layer.fine} min={-100} max={100} step={1} onChange={(fine) => onChange({ fine })} display={cents} />
+        <Knob label="Level" value={layer.level} min={0} max={1} step={0.001} onChange={(level) => onChange({ level })} display={percent} />
+        <Knob label="Pan" value={layer.pan} min={-1} max={1} step={0.01} onChange={(pan) => onChange({ pan })} display={panDisplay} />
+        <Knob label="Unison" value={layer.unison} min={1} max={9} step={1} onChange={(unison) => onChange({ unison })} />
+        <Knob label="Detune" value={layer.detune} min={0} max={50} step={0.1} onChange={(detune) => onChange({ detune })} display={cents} />
+        <Knob label="Stereo" value={layer.stereo} min={0} max={1} step={0.01} onChange={(stereo) => onChange({ stereo })} display={percent} />
+        <Knob label="Delay" value={layer.delay} min={0} max={0.25} step={0.001} onChange={(delay) => onChange({ delay })} display={milliseconds} />
+        <Knob label="Motion" value={layer.motion} min={0} max={1} step={0.001} onChange={(motion) => onChange({ motion })} display={percent} />
+        <Knob label="Rate" value={layer.motionRate} min={0.01} max={4} step={0.01} onChange={(motionRate) => onChange({ motionRate })} display={hertz} />
       </div>
     </SynthSection>
   );
@@ -347,7 +445,7 @@ function PatchManager({ presets, selectedPreset, customPresets, onSelect, onDele
   return (
     <div className="patch-manager">
       <div className="patch-manager-toolbar">
-        <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search 168 factory patches and your custom patches…" />
+        <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder={`Search ${presets.length} factory and custom patches…`} />
         <select value={category} onChange={(event) => setCategory(event.target.value)}>
           {categories.map((entry) => <option key={entry}>{entry}</option>)}
         </select>
@@ -409,16 +507,22 @@ function WaveformDisplay({ patch }) {
   const points = Array.from({ length: 180 }, (_, index) => {
     const x = index / 179;
     const phase = x * Math.PI * 6;
+    const layerSample = (patch.layers || []).reduce((sum, layer) => (
+      layer.enabled
+        ? sum + waveSample(layer.waveform, phase * 2 ** (((layer.octave || 0) * 12 + (layer.semitone || 0)) / 12)) * layer.level
+        : sum
+    ), 0);
     const sample = waveSample(patch.oscA.waveform, phase) * patch.oscA.level
       + waveSample(patch.oscB.waveform, phase * 2 ** ((patch.oscB.semitone || 0) / 12)) * patch.oscB.level
-      + (patch.oscC.enabled ? waveSample(patch.oscC.waveform, phase * 2 ** ((patch.oscC.semitone || 0) / 12)) * patch.oscC.level : 0);
+      + (patch.oscC.enabled ? waveSample(patch.oscC.waveform, phase * 2 ** ((patch.oscC.semitone || 0) / 12)) * patch.oscC.level : 0)
+      + layerSample;
     return `${(x * 100).toFixed(2)},${(50 - sample * 24).toFixed(2)}`;
   }).join(" ");
   return (
     <div className="waveform-display">
       <div>
         <span>LIVE PATCH SHAPE</span>
-        <strong>{patch.engineMode.toUpperCase()} · {patch.unison} VOICE UNISON</strong>
+        <strong>{patch.engineMode.toUpperCase()} · {patch.unison} CORE UNISON · {patch.layers.filter((layer) => layer.enabled).length} LAYERS</strong>
       </div>
       <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-label="Combined oscillator waveform">
         <defs>
@@ -485,6 +589,14 @@ function waveSample(waveform, phase) {
     case "metallic": return Math.sin(phase) * 0.45 + Math.sin(phase * 2.71) * 0.35 + Math.sin(phase * 5.43) * 0.2;
     case "vowel": return Math.sin(phase) * 0.5 + Math.sin(phase * 4) * 0.32 + Math.sin(phase * 7) * 0.18;
     case "warmSaw": return (2 * cycle - 1) * 0.7 + Math.sin(phase) * 0.3;
+    case "cinematic": return Math.sin(phase) * 0.42 + Math.sin(phase * 0.5) * 0.18 + Math.sin(phase * 2) * 0.23 + Math.sin(phase * 5) * 0.12;
+    case "choir": return Math.sin(phase) * 0.5 + Math.sin(phase * 2) * 0.18 + Math.sin(phase * 3) * 0.19 + Math.sin(phase * 5) * 0.09;
+    case "bowed": return Math.tanh((2 * cycle - 1) * 2.2) * 0.55 + Math.sin(phase * 2) * 0.24 + Math.sin(phase * 4) * 0.12;
+    case "glass": return Math.sin(phase) * 0.38 + Math.sin(phase * 2.02) * 0.24 + Math.sin(phase * 5.03) * 0.22 + Math.sin(phase * 9.07) * 0.1;
+    case "air": return Math.sin(phase) * 0.48 + Math.sin(phase * 1.01) * 0.18 + Math.sin(phase * 6.1) * 0.08;
+    case "shimmer": return Math.sin(phase) * 0.36 + Math.sin(phase * 2) * 0.18 + Math.sin(phase * 4) * 0.17 + Math.sin(phase * 8) * 0.14;
+    case "formant": return Math.sin(phase) * 0.42 + Math.sin(phase * 3) * 0.25 + Math.sin(phase * 7) * 0.2;
+    case "spectral": return Math.sin(phase) * 0.31 + Math.sin(phase * 2.37) * 0.24 + Math.sin(phase * 4.81) * 0.19 + Math.sin(phase * 8.19) * 0.12;
     case "sawtooth":
     default: return 2 * cycle - 1;
   }

@@ -1,0 +1,30 @@
+MusicStudioLab Enterprise DAW 6.6 build report
+Date: 2026-07-16
+
+Implemented
+- Full C0-C9 piano roll remains mounted for every selected sampler or synth track.
+- All-notes view is the default for an FL Studio-like scale-helper presentation.
+- Selected key note and scale drive every scale highlight and ghost-note guide.
+- Continuous scale-row highlighting spans all 64 steps.
+- Four-step ghost bars repeat every beat on all matching notes in every octave.
+- Root rows and root ghost notes are visually emphasized.
+- Scale-degree and exact pitch/octave labels are rendered.
+- Left draw, right erase, and left-drag resize behavior is retained.
+
+Compiled render checks
+- C natural minor notes: C, D, D#, F, G, G#, A#.
+- C-minor guide count: 1,024 beat-aligned ghost bars.
+- C-minor matching pitch rows across C0-C9: 64.
+- Root guides verified at C0, C4, and C9.
+- D major notes after control change: D, E, F#, G, A, B, C#.
+- D-major root guides verified from D0 through D8.
+- Out-of-scale D# guide verified absent for D major.
+
+Production checks
+- 444 WAV assets validated.
+- 168 synthesizer presets validated.
+- Required workstation and website modules validated.
+- Vite client build passed.
+- Vite SSR build passed.
+- 11 indexable routes plus 404 prerendered.
+- SEO validation passed.

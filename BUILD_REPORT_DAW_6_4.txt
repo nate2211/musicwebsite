@@ -1,0 +1,16 @@
+MusicStudioLab Enterprise DAW 6.4 build report
+Date: 2026-07-16
+
+Validated features:
+- Selecting any track opens and remounts its piano roll.
+- The default Kick sampler renders a full C0-C9 piano-roll grid.
+- Selected-track banner binds to the correct track ID and title.
+- Invalid saved selected-track IDs repair on project load.
+- Sampler step patterns migrate to visible middle-C note events.
+- Sampler notes support right-drag drawing, left-click erase, and left-drag resizing.
+- Sampler note pitch and duration work in realtime scheduling and offline WAV rendering.
+- Synth piano-roll editing and DAW 6.3 sample-derived track titles remain intact.
+- 444 original WAV assets and 168 instrument patches validated.
+- Vite client and SSR builds passed.
+- 11 routes plus 404 prerendered.
+- SEO validation passed.
