@@ -874,3 +874,21 @@
 .note-envelope-controls{grid-template-columns:repeat(7,minmax(105px,1fr))}.note-envelope-controls>label{min-width:0}.note-envelope-controls input[type="range"]{height:16px;cursor:ew-resize;background:linear-gradient(90deg,#5d77de,#8f7cff,#66e3bf);border-radius:999px}.note-envelope-controls>label:nth-child(6) input{background:linear-gradient(90deg,#58a7ff,#303949 50%,#ff77aa)}.note-envelope-controls>label:nth-child(7) input{background:linear-gradient(90deg,#777,#66e3bf 50%,#8f7cff)}.note-envelope-presets{grid-column:1/-1}.piano-note.has-note-envelope:after{content:"";position:absolute;inset:auto 3px 2px;height:2px;background:linear-gradient(90deg,#58a7ff,#8f7cff,#66e3bf);opacity:.8}
 
 @media(max-width:1500px){.plugin-module{width:300px;min-width:300px}.note-envelope-controls{grid-template-columns:repeat(4,minmax(110px,1fr))}.note-envelope-presets{grid-column:1/-1}.synth-engine-strip{min-height:88px}.synth-strip-title{width:150px;min-width:150px}}
+.engine-guard-display{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px;padding:12px;border:1px solid #2f4350;border-radius:9px;background:radial-gradient(circle at 50% 0,#173242,#091019 68%)}
+.engine-guard-display b{grid-column:1/-1;color:#71e3f2;font:10px ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.14em;text-align:center}
+.engine-guard-display span{padding:6px;border:1px solid #263845;border-radius:5px;background:#0b151e;color:#8ba9b6;font-size:8px;text-align:center}
+.engine-guard-note{display:block;margin-top:10px;padding:8px;border-left:2px solid #65dff1;background:#0b121a;color:#8295a5;font-size:8px;line-height:1.5}
+
+/* DAW 8.0 GPU piano-roll compositor and realtime stream scope */
+.piano-scroll{position:relative;isolation:isolate;background:#090c11}
+.gpu-piano-roll-canvas{position:absolute;left:0;top:0;z-index:3;display:block;pointer-events:none;will-change:transform;contain:strict}
+.gpu-roll-enabled .gpu-rendered-roll .optimized-note-row{background:transparent!important;background-image:none!important;opacity:1!important;border-color:transparent!important}
+.gpu-roll-enabled .gpu-rendered-roll .scale-row-highlight,
+.gpu-roll-enabled .gpu-rendered-roll .scale-guide-layer{opacity:0!important}
+.gpu-roll-enabled .gpu-rendered-roll .piano-note{background:transparent!important;box-shadow:inset 0 0 0 1px #ffffff48,0 1px 6px #0008!important}
+.gpu-roll-enabled .gpu-rendered-roll .piano-note.selected{box-shadow:inset 0 0 0 2px #fff,0 0 10px #9fffe088!important}
+.gpu-roll-enabled .gpu-rendered-roll .piano-note .note-envelope-curve{opacity:.55}
+.gpu-render-status{color:#8df2d4!important;border:1px solid #315548;border-radius:999px;padding:2px 7px;background:#0a1714}
+.gpu-audio-scope{height:48px;flex:none;position:relative;border-bottom:1px solid #222b38;background:linear-gradient(180deg,#080c13,#0c121a);overflow:hidden}
+.gpu-audio-scope canvas{position:absolute;inset:0;width:100%;height:100%}
+.gpu-audio-scope span{position:absolute;right:9px;top:6px;z-index:2;padding:2px 6px;border-radius:5px;background:#05080db8;color:#8df2d4;font:8px ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;pointer-events:none}

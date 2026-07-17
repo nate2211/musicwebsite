@@ -14,6 +14,7 @@ export function TopBar({
   onOpen,
   onExport,
   onRender,
+  onResetAudio,
   rendering,
   midiStatus,
 }) {
@@ -67,6 +68,7 @@ export function TopBar({
         <button onClick={onOpen}>Projects</button>
         <button onClick={onSave}>Save</button>
         <button onClick={onExport}>Project File</button>
+        <button onClick={onResetAudio} title="Recreate the native audio output and reload active samples">Reset audio</button>
         <button className="accent" onClick={onRender} disabled={rendering}>{rendering ? "Rendering…" : "Export WAV"}</button>
       </div>
     </div>

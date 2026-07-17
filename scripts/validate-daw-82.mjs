@@ -1,0 +1,665 @@
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import React from "react";
+import { renderToStaticMarkup } from "react-dom/server";
+import { createServer } from "vite";
+import { createBlankProject } from "../src/studio/state/createProject.js";
+import { studioReducer } from "../src/studio/state/studioReducer.js";
+import WebRenderer from "@elemaudio/web-renderer";
+import { ElementaryRealtimeEngine } from "../src/studio/audio/ElementaryRealtimeEngine.js";
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const errors = [];
+const assert = (condition, message) => { if (!condition) errors.push(message); };
+const read = (relative) => fs.readFileSync(path.join(root, relative), "utf8");
+
+const piano = read("src/studio/components/PianoRoll.jsx");
+const reducer = read("src/studio/state/studioReducer.js");
+const engine = read("src/studio/audio/AudioEngine.js");
+const offline = read("src/studio/audio/offlineRender.js");
+const css = read("src/studio/StudioPage.css");
+const trackSidebarSource = read("src/studio/components/TrackSidebar.jsx");
+const trackHeaderSource = read("src/studio/components/TrackHeader.jsx");
+const browserSource = read("src/studio/components/BrowserPanel.jsx");
+const soundDesignerSource = read("src/studio/components/SoundDesigner.jsx");
+const synthDefaultsSource = read("src/studio/audio/synthDefaults.js");
+const voicesSource = read("src/studio/audio/voices.js");
+const controlsSource = read("src/studio/components/Controls.jsx");
+const topBarSource = read("src/studio/components/TopBar.jsx");
+const studioPageSource = read("src/studio/StudioPage.jsx");
+const sampleLabSource = read("src/studio/components/SampleLab.jsx");
+const sampleLibrarySource = read("src/studio/state/sampleLibrary.js");
+const sampleToolsSource = read("src/studio/audio/sampleTools.js");
+const presetLibrarySource = read("src/studio/data/presetLibrary.js");
+const pluginRackSource = read("src/studio/components/PluginRack.jsx");
+const effectsSource = read("src/studio/audio/effects.js");
+const audioSafetySource = read("src/studio/audio/audioSafety.js");
+const renderSafetySource = read("src/studio/audio/renderSafety.js");
+const multitrackPlannerSource = read("src/studio/audio/multitrackPlanner.js");
+const waveformsSource = read("src/studio/audio/waveforms.js");
+const keyboardSource = read("src/studio/hooks/useKeyboardShortcuts.js");
+const elementaryGraphSource = read("src/studio/audio/elementaryGraph.js");
+const elementaryRealtimeSource = read("src/studio/audio/ElementaryRealtimeEngine.js");
+const elementaryOfflineSource = read("src/studio/audio/elementaryOffline.js");
+const packageJson = JSON.parse(read("package.json"));
+
+assert(packageJson.dependencies?.["@elemaudio/core"], "Elementary core dependency is missing.");
+assert(packageJson.dependencies?.["@elemaudio/web-renderer"], "Elementary browser renderer dependency is missing.");
+assert(packageJson.dependencies?.["@elemaudio/offline-renderer"], "Elementary offline renderer dependency is missing.");
+const installedWebRenderer = new WebRenderer();
+assert(typeof installedWebRenderer.render === "function", "Installed Elementary WebRenderer does not expose render().");
+assert(typeof installedWebRenderer.renderWithOptions === "undefined", "Validator expected WebRenderer 4.x without renderWithOptions().");
+const realtimeApiProbe = new ElementaryRealtimeEngine();
+let realtimeRenderCalls = 0;
+realtimeApiProbe.core = {
+  render: async (...roots) => { realtimeRenderCalls += 1; return { roots: roots.length, elapsedTimeMs: 0 }; },
+};
+await realtimeApiProbe.update(createBlankProject([]), { force: true });
+assert(realtimeRenderCalls === 1, "ElementaryRealtimeEngine did not call core.render exactly once.");
+assert(engine.includes("ElementaryRealtimeEngine"), "Realtime engine is not connected to Elementary Audio.");
+assert(engine.includes("Elementary Audio shared DSP + protected output"), "Elementary shared DSP backend status is missing.");
+assert(engine.includes("this.elementaryEngine.connectInput(this.streamInput)"), "All track buses are not routed into the shared Elementary engine.");
+assert(!elementaryRealtimeSource.includes("renderWithOptions"), "Unsupported Elementary renderWithOptions API remains.");
+assert(elementaryRealtimeSource.includes("this.core.render(...roots)"), "Elementary WebRenderer 4.x core.render API is not used.");
+assert(engine.includes("activateNativeStreamFallback"), "Elementary compatibility failures do not preserve native audio output.");
+assert(elementaryGraphSource.includes("el.skcompress"), "Elementary linked stereo compression is missing.");
+assert(elementaryGraphSource.includes("el.highshelf"), "Elementary master air shelf is missing.");
+assert(elementaryGraphSource.includes("el.dcblock"), "Elementary DC blocking is missing.");
+assert(elementaryOfflineSource.includes("OfflineRenderer"), "Elementary offline renderer integration is missing.");
+assert(offline.includes("processBufferWithElementary"), "Offline WAV export does not use the matching Elementary graph.");
+assert(engine.includes("prefetchSample(sample)"), "Startup sample prefetch is missing.");
+assert(engine.includes("unlockOutputGraph"), "First-gesture Web Audio output unlock is missing.");
+assert(engine.includes("prepareProject(project)"), "Project audio is not prepared before playback.");
+assert(engine.includes("await this.prepareProject(project)"), "Playback begins before startup samples and strips are ready.");
+assert(studioPageSource.includes("engineRef.current.prefetchSample"), "Studio startup still creates AudioContext during background preload.");
+assert(!studioPageSource.includes("factorySamples.slice(0, 12).forEach((sample) => engineRef.current.loadSample"), "Legacy background AudioContext creation remains.");
+assert(engine.includes("selectDenseNoteBatch"), "Dense-note admission control is missing.");
+assert(engine.includes("planMultitrackStep"), "Whole-project multitrack voice admission is missing.");
+assert(engine.includes("estimateSynthVoiceCost"), "Synth node-cost estimation is missing from the realtime scheduler.");
+assert(engine.includes("multitrackHeadroom"), "Whole-project multitrack headroom is missing.");
+assert(engine.includes("lastSyncedProject !== project"), "Unchanged multitrack projects are still resynchronized every scheduler tick.");
+assert(engine.includes("schedulerPressure"), "Adaptive scheduler-pressure protection is missing.");
+assert(engine.includes("deviceFloor"), "Device-latency-aware scheduler look-ahead is missing.");
+assert(engine.includes("createPrecisionScheduler"), "Dedicated worker-backed scheduler clock is missing.");
+assert(engine.includes("snapshotActiveVoiceStats"), "One-pass active voice ledger snapshot is missing.");
+assert(engine.includes("complexityScale"), "Adaptive per-voice complexity scaling is missing.");
+assert(effectsSource.includes("chorusSend"), "Dormant chorus branch gating is missing.");
+assert(effectsSource.includes("delaySend"), "Dormant delay branch gating is missing.");
+assert(effectsSource.includes("reverbSend"), "Dormant reverb branch gating is missing.");
+assert(effectsSource.includes("multiband.wetInput"), "Dormant multiband branch gating is missing.");
+assert(voicesSource.includes("transport.complexityScale"), "Synth unison does not adapt to multitrack stream load.");
+assert(multitrackPlannerSource.includes("First pass reserves one voice per active track"), "Fair per-track voice reservation is missing.");
+assert(multitrackPlannerSource.includes("before a voice is created"), "Pre-allocation node-cost planning is missing.");
+assert(waveformsSource.includes("bucketSeconds"), "Reusable bucketed noise buffers are missing.");
+assert(waveformsSource.includes("saturationCurveCache"), "Saturation curves are not cached.");
+assert(voicesSource.includes("bitcrusherCurveCache"), "Bitcrusher curves are not cached.");
+assert(voicesSource.includes("reversedBufferCache"), "Reverse-sample buffers are not cached.");
+assert(engine.includes("denseStartOffset"), "Dense chord scheduling is not micro-staggered.");
+assert(studioPageSource.includes("startingAudioRef"), "Repeated Play clicks are not guarded during startup.");
+
+
+assert(studioPageSource.includes("restartFromBeginningRef"), "Spacebar restart-from-beginning state is missing.");
+assert(studioPageSource.includes("const startStep = restartFromBeginningRef.current ? 0"), "Second Space press does not restart from step zero.");
+assert(keyboardSource.includes('event.code==="Space"'), "Spacebar transport shortcut is missing.");
+assert(engine.includes("clearScheduledUiTimers"), "Pause does not clear scheduled playhead callbacks.");
+assert(engine.includes("queueProcessingGraphReset"), "Long-session processing graph reset is missing.");
+assert(engine.includes("releaseAllVoices(now)"), "Pause does not flush active voices click-free.");
+assert(engine.includes("masterStrip.inputTrim.gain.setTargetAtTime"), "Pause does not fade the master input before graph reset.");
+assert(voicesSource.includes("mudDip"), "Warm voice tone stage is missing low-mid cleanup.");
+assert(voicesSource.includes("clarityBell"), "Warm voice tone stage is missing clarity restoration.");
+assert(voicesSource.includes("velvetShelf"), "Warm voice tone stage is missing velvet high-frequency shaping.");
+assert(presetLibrarySource.includes("const isPiano"), "Piano-specific warm voicing is missing.");
+assert(presetLibrarySource.includes("pianoWarmth: isPiano"), "Piano presets are not tagged with piano warmth metadata.");
+assert(piano.includes('className="note-handle left"'), "Left note-edge resize handle is missing.");
+assert(piano.includes('className="note-handle right"'), "Right note-edge resize handle is missing.");
+assert(piano.includes('className="note-body"'), "Draggable note center is missing.");
+assert(piano.includes('"resize-left"'), "Left-edge stretch mode is missing.");
+assert(piano.includes('"resize-right"'), "Right-edge stretch mode is missing.");
+assert(piano.includes('"move"'), "Center move mode is missing.");
+assert(piano.includes("beginMarquee"), "Marquee selection start handler is missing.");
+assert(piano.includes("moveMarquee"), "Marquee selection drag handler is missing.");
+assert(piano.includes("marquee-selection"), "Marquee selection visual is missing.");
+assert(piano.includes("selectedNoteIds"), "Multi-note selection state is missing.");
+assert(piano.includes("Flip time"), "Horizontal flip transform is missing.");
+assert(piano.includes("Reflect pitch"), "Vertical pitch reflection is missing.");
+assert(piano.includes("Time ×½"), "Time compression tool is missing.");
+assert(piano.includes("Time ×2"), "Time expansion tool is missing.");
+assert(piano.includes("Pitch compress"), "Pitch compression tool is missing.");
+assert(piano.includes("Pitch expand"), "Pitch expansion tool is missing.");
+assert(piano.includes("Fill whole roll"), "Whole-piano-roll fill action is missing.");
+assert(piano.includes("Scale ascending"), "Ascending scale fill option is missing.");
+assert(piano.includes("Scale triads each bar"), "Chord fill option is missing.");
+assert(piano.includes("Repeat selection to end"), "Selection repeat fill option is missing.");
+assert(piano.includes('type: "SET_PATTERN_BARS"'), "Pattern bar control is not connected to project state.");
+assert(piano.includes("patternSteps = patternBars * 16"), "Piano roll does not derive steps from selected bars.");
+assert(piano.includes("data-pattern-bars"), "Rendered roll is not tagged with its bar count.");
+assert(piano.includes("data-pattern-steps"), "Rendered roll is not tagged with its step count.");
+assert(piano.includes("scale-guide-note"), "Selected-scale ghost notes are missing.");
+assert(piano.includes("event.button === 2"), "Right-click erase behavior is missing.");
+assert(piano.includes('tool !== "draw"'), "Draw/select tool separation is missing.");
+assert(reducer.includes('case "SET_PATTERN_BARS"'), "Pattern bar reducer action is missing.");
+assert(reducer.includes('case "SET_TRACK_NOTES"'), "Bulk note commit reducer action is missing.");
+assert(engine.includes("project.patternBars || 4"), "Realtime engine does not use variable pattern bars.");
+assert(offline.includes("project.patternBars || 4"), "Offline renderer does not use variable pattern bars.");
+assert(css.includes(".piano-note .note-handle.left"), "Left resize-handle styling is missing.");
+assert(css.includes(".piano-note .note-body"), "Move-handle styling is missing.");
+assert(css.includes(".selection-surface"), "Selection surface styling is missing.");
+assert(css.includes(".marquee-selection"), "Marquee visual styling is missing.");
+assert(css.includes("var(--pattern-steps)"), "Dynamic piano-roll width styling is missing.");
+assert(piano.includes("const PianoRow = React.memo"), "Piano-roll pitch rows are not memoized.");
+assert(piano.includes("const PianoNoteBlock = React.memo"), "Piano-roll note objects are not memoized.");
+assert(piano.includes("optimized-note-row"), "Optimized row-based piano-roll renderer is missing.");
+assert(piano.includes("notesByMidi"), "Indexed pitch hit detection is missing.");
+assert(piano.includes("notesById"), "Indexed note lookup is missing.");
+assert(piano.includes("requestAnimationFrame"), "Animation-frame drag throttling is missing.");
+assert(piano.includes("translate3d"), "GPU-positioned note rendering is missing.");
+assert(!piano.includes("Array.from({ length: patternSteps"), "Legacy per-step button rendering remains in the piano roll.");
+assert(piano.includes("Per-note envelope"), "Per-note envelope editor is missing.");
+assert(piano.includes("applyEnvelopePatch"), "Per-note envelope update handler is missing.");
+assert(piano.includes("resetSelectedEnvelopes"), "Per-note envelope reset action is missing.");
+assert(voicesSource.includes("transport.noteEnvelope"), "Synth voices do not consume per-note envelopes.");
+assert(voicesSource.includes("track.noteEnvelope"), "Sampler voices do not consume per-note envelopes.");
+assert(engine.includes("noteEnvelope: job.note.envelope"), "Realtime scheduler does not forward per-note envelopes.");
+assert(offline.includes("noteEnvelope: note.envelope"), "Offline renderer does not forward per-note envelopes.");
+assert(css.includes(".optimized-note-row"), "Optimized piano-row styling is missing.");
+assert(css.includes(".note-envelope-editor"), "Per-note envelope editor styling is missing.");
+assert(css.includes(".note-envelope-curve"), "Per-note envelope visualization styling is missing.");
+assert(css.includes(".piano-playhead-line"), "Single playhead-layer styling is missing.");
+
+assert(pluginRackSource.includes("Time Shaper"), "Time Shaper plugin UI is missing.");
+assert(pluginRackSource.includes("Tri-Band Compressor"), "Multiband compressor plugin UI is missing.");
+assert(pluginRackSource.includes("Stereo Field"), "Stereo pan/width plugin UI is missing.");
+assert(pluginRackSource.includes("Pitch Shifter"), "Pitch shifter plugin UI is missing.");
+assert(pluginRackSource.includes("Production EQ"), "EQ plugin UI is missing.");
+assert(pluginRackSource.includes("Tempo Delay"), "Delay plugin UI is missing.");
+assert(pluginRackSource.includes("Room Designer"), "Room reverb plugin UI is missing.");
+assert(pluginRackSource.includes("Plugin Master"), "Master plugin UI is missing.");
+assert(pluginRackSource.includes("Production · multitrack default"), "Production multitrack engine mode is missing.");
+assert(pluginRackSource.includes("Track voices"), "Per-track polyphony control is missing.");
+assert(pluginRackSource.includes("Scheduler"), "Scheduler look-ahead control is missing.");
+assert(pluginRackSource.includes('value: "master"'), "Plugin rack cannot switch to the master bus.");
+assert(effectsSource.includes("createMultibandStage"), "Three-band compressor audio graph is missing.");
+assert(effectsSource.includes("applyTimeShaperAtStep"), "Time Shaper scheduler is missing.");
+assert(effectsSource.includes("ROOM_PRESETS"), "Room reverb preset engine is missing.");
+assert(effectsSource.includes("createStereoWidthStage"), "Stereo width processor is missing.");
+assert(engine.includes("pitchShiftSemitones(track)"), "Realtime pitch-shifter scheduling is missing.");
+assert(offline.includes("pitchShiftSemitones(track)"), "Offline pitch-shifter rendering is missing.");
+assert(piano.includes('["pan", "Pan"'), "Per-note pan control is missing.");
+assert(piano.includes('["stereo", "Stereo"'), "Per-note stereo width control is missing.");
+assert(voicesSource.includes("noteEnvelope.pan"), "Synth/sample voices do not consume note pan.");
+assert(voicesSource.includes("noteEnvelope.stereo"), "Synth/sample voices do not consume note stereo width.");
+assert(soundDesignerSource.includes("synth-engine-strip"), "Stable horizontal Synth Lab engine strip is missing.");
+assert(soundDesignerSource.includes('label="Timbre"'), "Synth timbre control is missing.");
+assert(soundDesignerSource.includes('label="Pitch LFO"'), "Dedicated synth pitch LFO is missing.");
+assert(synthDefaultsSource.includes("pitchLfoDepth"), "Synth pitch-LFO defaults are missing.");
+assert(css.includes(".plugin-rack-scroll"), "Horizontal plugin rack styling is missing.");
+assert(css.includes(".synth-tab-workspace"), "Stable Synth Lab tab workspace styling is missing.");
+
+
+assert(trackSidebarSource.includes("Add synthesizer"), "Track-list synthesizer preset dropdown is missing.");
+assert(trackSidebarSource.includes("Manage tracks…"), "Bulk track-management dropdown is missing.");
+assert(trackSidebarSource.includes("Mute selected"), "Mute-selected track action is missing.");
+assert(trackSidebarSource.includes('value="delete-all"'), "Delete-all-tracks dropdown action is missing.");
+assert(trackHeaderSource.includes("track-batch-toggle"), "Per-track bulk-selection toggle is missing.");
+assert(browserSource.includes("onAddPresetTrack"), "Preset browser cannot add a synth directly as a track.");
+assert(browserSource.includes("Add ${preset.name} as a new synthesizer track"), "Preset add-to-track-list control is missing.");
+assert(reducer.includes('case "TOGGLE_TRACK_SELECTION"'), "Track batch selection reducer action is missing.");
+assert(reducer.includes('case "MUTE_SELECTED_TRACKS"'), "Mute-selected reducer action is missing.");
+assert(reducer.includes('case "MUTE_ALL_TRACKS"'), "Mute-all reducer action is missing.");
+assert(reducer.includes('case "DELETE_SELECTED_TRACKS"'), "Delete-selected reducer action is missing.");
+assert(reducer.includes('case "DELETE_ALL_TRACKS"'), "Delete-all reducer action is missing.");
+assert(soundDesignerSource.includes('value: "layers"'), "Layer Engine synth page is missing.");
+assert(soundDesignerSource.includes("Spectral Layer A"), "Spectral layer A controls are missing.");
+assert(soundDesignerSource.includes("Procedural Texture Bed"), "Procedural texture layer controls are missing.");
+assert(synthDefaultsSource.includes("SYNTH_LAYER_DEFAULTS"), "Enterprise spectral-layer defaults are missing.");
+assert(synthDefaultsSource.includes("textureLayer"), "Procedural texture-layer defaults are missing.");
+assert(voicesSource.includes('sourceKind: "layer"'), "Realtime synth engine does not schedule spectral layers.");
+assert(voicesSource.includes("textureHighpass"), "Realtime synth engine does not schedule the texture bed.");
+assert(css.includes(".track-bulk-toolbar"), "Bulk track-management styling is missing.");
+assert(css.includes(".layer-engine-grid"), "Layer Engine styling is missing.");
+assert(controlsSource.includes("onPointerDown={beginDrag}"), "Rotary knobs do not start pointer dragging.");
+assert(controlsSource.includes("setPointerCapture"), "Rotary knobs do not retain drag capture outside their face.");
+assert(controlsSource.includes("event.shiftKey ? 0.1"), "Rotary knobs are missing Shift fine adjustment.");
+assert(controlsSource.includes('role="slider"'), "Rotary knobs are missing accessible slider semantics.");
+assert(controlsSource.includes("ArrowUp") && controlsSource.includes("PageDown"), "Rotary knobs are missing keyboard adjustment.");
+assert(topBarSource.includes('className="master-volume-slider"'), "Top bar master-volume slider is missing.");
+assert(topBarSource.includes('onField("masterVolume"'), "Master-volume slider is not connected to project state.");
+assert(studioPageSource.includes("engineRef.current?.sync(project)"), "Master-volume changes are not synchronized into the realtime engine.");
+assert(engine.includes("nativeMasterPreElementaryFromProject(project)"), "Realtime master rack does not consume project master settings and volume.");
+assert(offline.includes("nativeMasterPreElementaryFromProject(project)"), "Offline rendering does not use the master plugin rack and master volume.");
+assert(css.includes(".knob.dragging .knob-face"), "Dragged-knob visual feedback is missing.");
+assert(css.includes(".master-volume-track"), "Master-volume slider styling is missing.");
+
+assert(browserSource.includes("Upload samples"), "Sample upload control is missing from the browser.");
+assert(browserSource.includes("Upload drums"), "Drum upload control is missing from the browser.");
+assert(browserSource.includes("Import presets"), "Preset import control is missing from the browser.");
+assert(browserSource.includes("Drop local audio here"), "Audio drag-and-drop track creation is missing.");
+assert(trackSidebarSource.includes("Add local audio tracks"), "Direct local-file track creation is missing from the track list.");
+assert(sampleLibrarySource.includes("indexedDB.open"), "Imported audio is not persisted in IndexedDB.");
+assert(sampleLibrarySource.includes("saveRenderedUserSample"), "Rasterized audio cannot be saved to the local sample library.");
+assert(sampleToolsSource.includes("createEvenSlices"), "Even sample slicing utility is missing.");
+assert(sampleToolsSource.includes("buildSlicePattern"), "Slice-pattern generation utility is missing.");
+assert(sampleToolsSource.includes("rasterizeAudioBuffer"), "Sample rasterization utility is missing.");
+assert(sampleLabSource.includes("Sample Lab"), "Dedicated Sample Lab screen is missing.");
+assert(sampleLabSource.includes("Rasterize selection"), "Sample rasterization control is missing.");
+assert(sampleLabSource.includes("Create piano-roll slice pattern"), "Slice-to-pattern control is missing.");
+assert(sampleLabSource.includes("slice-cut-handle"), "Draggable sample cut handles are missing.");
+assert(sampleLabSource.includes("Loop selected region"), "Sample loop-region control is missing.");
+assert(presetLibrarySource.includes("warmDigitalPreset"), "Warm digital factory-preset voicing is missing.");
+assert(presetLibrarySource.includes("bitcrush: Math.min(isPiano ? 0 : 0.006"), "Factory patches are not protected from harsh bit-crushing.");
+assert(presetLibrarySource.includes("softTone"), "Soft Warm preset tone metadata is missing.");
+assert(presetLibrarySource.includes("presenceDipDb"), "Soft Warm upper-mid smoothing profile is missing.");
+assert(voicesSource.includes("presenceDip.type = \"peaking\""), "Realtime synth voices are missing the soft presence-dip stage.");
+assert(voicesSource.includes("airFilter.type = \"lowpass\""), "Realtime synth voices are missing the silk air filter.");
+assert(voicesSource.includes("softTone.outputTrim"), "Realtime synth voices are missing gentle preset output trim.");
+assert(voicesSource.includes("track.sampleLoopEnabled"), "Realtime sample voices do not loop selected regions.");
+assert(voicesSource.includes("track.sampleSlices"), "Realtime sample voices do not resolve slice cuts.");
+assert(engine.includes("note.sliceIndex"), "Realtime sequencer does not schedule sample slices.");
+assert(offline.includes("note.sliceIndex"), "Offline renderer does not schedule sample slices.");
+assert(css.includes(".sample-waveform-editor"), "Sample waveform styling is missing.");
+assert(css.includes(".browser-panel.dragging-files"), "File-drop feedback styling is missing.");
+
+assert(audioSafetySource.includes("phase-aware ADSR envelope"), "Phase-aware short-note envelope scheduling is missing.");
+assert(audioSafetySource.includes("levelAtEnd"), "Envelope release does not retain the partial attack/decay level.");
+assert(effectsSource.includes("lowFilter2"), "Multiband compressor is missing 4th-order crossover sections.");
+assert(effectsSource.includes("equalPowerGains"), "Multiband dry/wet control is not equal-power.");
+assert(effectsSource.includes("fxHeadroom"), "Parallel delay/reverb/chorus returns are missing automatic headroom.");
+assert(effectsSource.includes('safetyClipper.oversample = "4x"'), "Realtime output is missing the oversampled transparent ceiling stage.");
+assert(engine.includes("maxVoiceCostTotal"), "Adaptive voice-complexity budgeting is missing.");
+assert(engine.includes("getNotesAtStep"), "Realtime note scheduling is not indexed by step.");
+assert(engine.includes("schedulerRecoveries"), "Scheduler overrun recovery is missing.");
+assert(voicesSource.includes("oscillatorEnergy"), "Synth voice gain is not normalized by oscillator energy.");
+assert(voicesSource.includes("qualityVoiceCap"), "High-register unison is not quality/CPU guarded.");
+assert(offline.includes("finalizeRenderedBuffer"), "Offline render does not use linked true-peak safety mastering.");
+assert(renderSafetySource.includes("linked-stereo look-ahead"), "Linked-stereo look-ahead render limiter is missing.");
+assert(pluginRackSource.includes("Engine Guard"), "Master plugin rack is missing Engine Guard controls.");
+assert(pluginRackSource.includes("Render rate"), "Engine Guard is missing render sample-rate selection.");
+
+
+const gpuRollSource = read("src/studio/components/GpuPianoRollSurface.jsx");
+const gpuScopeSource = read("src/studio/components/GpuAudioScope.jsx");
+const streamWorkletSource = read("public/worklets/musicstudio-stream-guard.js");
+assert(gpuRollSource.includes('getContext("webgl2"'), "GPU piano-roll WebGL2 renderer is missing.");
+assert(gpuRollSource.includes('powerPreference: "high-performance"'), "GPU piano renderer does not request the high-performance adapter path.");
+assert(piano.includes("GpuPianoRollSurface"), "Piano roll is not connected to the GPU compositor.");
+assert(gpuScopeSource.includes('getByteFrequencyData'), "GPU audio spectrum is not connected to the analyser stream.");
+assert(engine.includes("installStreamProcessor"), "Protected AudioWorklet stream installation is missing.");
+assert(engine.includes("musicstudio-stream-guard"), "Audio engine is not connected to the stream guard processor.");
+assert(streamWorkletSource.includes('registerProcessor("musicstudio-stream-guard"'), "AudioWorklet processor registration is missing.");
+assert(streamWorkletSource.includes("dcRemoved"), "AudioWorklet DC-blocking stream protection is missing.");
+assert(css.includes(".gpu-piano-roll-canvas"), "GPU piano-roll canvas styling is missing.");
+
+const manifest = JSON.parse(read("public/sounds/manifest.json"));
+let state = { project: createBlankProject(manifest), playing: false, playhead: 0 };
+assert(state.project.patternBars === 4, "New projects must begin with a four-bar piano-roll pattern.");
+assert(state.project.version === 8.2, "Project schema version must be 8.1.");
+assert(manifest.length >= 500, `Expected at least 500 expanded WAV assets, found ${manifest.length}.`);
+assert(manifest.filter((entry) => String(entry.id).startsWith("gpu8_")).length === 56, "GPU production expansion pack must contain 56 assets.");
+assert(state.project.selectedTrackIds.length === 1, "New projects must initialize bulk selection with the active track.");
+
+const originalTrackCount = state.project.tracks.length;
+state = studioReducer(state, {
+  type: "ADD_TRACK",
+  trackType: "synth",
+  presetId: "preset-169",
+  presetName: "Ethereal Horizon",
+  color: "#8ba4ff",
+  openPiano: true,
+});
+const addedSynth = state.project.tracks.at(-1);
+assert(state.project.tracks.length === originalTrackCount + 1, "Adding a synthesizer did not append it to the track list.");
+assert(addedSynth.type === "synth" && addedSynth.presetId === "preset-169", "Added synthesizer did not retain its selected preset.");
+assert(addedSynth.name === "Ethereal Horizon", "Added synthesizer track was not named after its preset.");
+assert(state.project.arrangement.some((clip) => clip.trackId === addedSynth.id), "New synth track did not receive a playable arrangement clip.");
+assert(state.project.selectedTrackIds.length === 1 && state.project.selectedTrackIds[0] === addedSynth.id, "New synth track was not selected in the track list.");
+
+const kickId = state.project.tracks.find((track) => track.name === "Kick").id;
+state = studioReducer(state, { type: "TOGGLE_TRACK_SELECTION", id: kickId });
+assert(state.project.selectedTrackIds.includes(kickId) && state.project.selectedTrackIds.includes(addedSynth.id), "Track multi-selection did not retain both chosen tracks.");
+state = studioReducer(state, { type: "MUTE_SELECTED_TRACKS", value: true });
+assert(state.project.tracks.find((track) => track.id === kickId).mute, "Mute selected did not mute the selected Kick track.");
+assert(state.project.tracks.find((track) => track.id === addedSynth.id).mute, "Mute selected did not mute the selected synth track.");
+state = studioReducer(state, { type: "MUTE_SELECTED_TRACKS", value: false });
+assert(!state.project.tracks.find((track) => track.id === kickId).mute, "Unmute selected did not restore the selected Kick track.");
+state = studioReducer(state, { type: "MUTE_ALL_TRACKS", value: true });
+assert(state.project.tracks.every((track) => track.mute), "Mute all did not mute every track.");
+state = studioReducer(state, { type: "MUTE_ALL_TRACKS", value: false });
+assert(state.project.tracks.every((track) => !track.mute), "Unmute all did not restore every track.");
+state = studioReducer(state, { type: "DELETE_SELECTED_TRACKS" });
+assert(!state.project.tracks.some((track) => track.id === kickId || track.id === addedSynth.id), "Delete selected did not remove every selected track.");
+assert(!state.project.arrangement.some((clip) => clip.trackId === kickId || clip.trackId === addedSynth.id), "Delete selected left orphan arrangement clips.");
+
+const melodyId = state.project.tracks.find((track) => track.name === "Warm Piano").id;
+state = studioReducer(state, { type: "SET_PATTERN_BARS", value: 8 });
+assert(state.project.patternBars === 8, "Pattern bars did not increase to eight.");
+state = studioReducer(state, {
+  type: "SET_TRACK_NOTES",
+  trackId: melodyId,
+  notes: [
+    { id: "a", start: 0, duration: 8, midi: 60, velocity: 0.8, envelope: { attack: 0.05, decay: 0.2, sustain: 0.6, release: 0.7, gain: 0.85 } },
+    { id: "b", start: 120, duration: 20, midi: 72, velocity: 0.7 },
+  ],
+});
+let melody = state.project.tracks.find((track) => track.id === melodyId);
+assert(melody.notes.length === 2, "Bulk note commit did not replace the selected track notes.");
+assert(melody.notes[1].start === 120, "Bulk note commit lost an extended-pattern note.");
+state = studioReducer(state, { type: "SET_PATTERN_BARS", value: 4 });
+melody = state.project.tracks.find((track) => track.id === melodyId);
+assert(melody.notes.length === 1, "Shrinking pattern bars must remove notes beyond the new pattern boundary.");
+assert(melody.notes[0].envelope?.release === 0.7 && melody.notes[0].envelope?.gain === 0.85, "Per-note envelope data was not preserved through reducer edits.");
+
+const importedSample = { id: "user-sample-test", name: "Warm Drum Loop", category: "User Drums", subtype: "User Drums", duration: 2, user: true, url: "blob:test" };
+state = studioReducer(state, { type: "ADD_SAMPLES", samples: [importedSample] });
+assert(state.project.samples.some((sample) => sample.id === importedSample.id), "Imported audio was not added to project samples.");
+state = studioReducer(state, { type: "ADD_TRACK", trackType: "sampler", sampleId: importedSample.id, sampleName: importedSample.name });
+const importedTrack = state.project.tracks.at(-1);
+assert(importedTrack.sampleId === importedSample.id && importedTrack.name === "Warm Drum Loop", "Imported audio did not create a correctly named track.");
+assert(Array.isArray(importedTrack.sampleSlices), "Imported sampler track is missing slice state.");
+
+const { createEvenSlices, buildSlicePattern } = await import("../src/studio/audio/sampleTools.js");
+const slices = createEvenSlices(4, 8, 0, 4);
+assert(slices.length === 8 && slices[0].start === 0 && slices.at(-1).end === 4, "Even slicing did not cover the full loop.");
+const slicePattern = buildSlicePattern(slices, { patternSteps: 64, spacing: 4, mode: "forward" });
+assert(slicePattern.length === 16, "Slice pattern did not fill the four-bar piano roll at beat spacing.");
+assert(slicePattern.every((note) => Number.isInteger(note.sliceIndex)), "Generated slice notes are missing slice indexes.");
+
+const { getAllPresets } = await import("../src/studio/data/presetLibrary.js");
+const warmedPresets = getAllPresets(state.project).slice(0, 240);
+assert(warmedPresets.every((preset) => preset.warmDigital && preset.softWarm), "Factory presets are not marked with Soft Warm voicing.");
+assert(warmedPresets.every((preset) => preset.productionAir), "Factory presets are missing Production Air voicing metadata.");
+assert(warmedPresets.every((preset) => (preset.softTone?.airShelfDb || 0) >= 0.3), "Factory presets are missing controlled air lift.");
+assert(warmedPresets.every((preset) => (preset.softTone?.airCutoff || 0) >= 11200), "Factory presets are still overly dark.");
+assert(warmedPresets.every((preset) => (preset.voiceFx?.bitcrush || 0) <= 0.006), "One or more factory presets remain excessively bit-crushed.");
+assert(warmedPresets.every((preset) => (preset.voiceFx?.saturation || 0) <= 0.065), "One or more factory presets retain aggressive saturation.");
+assert(warmedPresets.every((preset) => (preset.filter1?.resonance || 0) <= 1.25), "One or more factory presets retain harsh filter resonance.");
+assert(warmedPresets.every((preset) => (preset.filter1?.cutoff || 0) <= 8200), "One or more factory presets retain an overly bright primary filter.");
+assert(warmedPresets.every((preset) => (preset.fm?.amount || 0) <= 0.055), "One or more factory presets retain excessive FM intensity.");
+assert(warmedPresets.every((preset) => (preset.ring?.amount || 0) <= 0.04), "One or more factory presets retain excessive ring modulation.");
+assert(warmedPresets.every((preset) => (preset.layers || []).every((layer) => (layer.level || 0) <= 0.14)), "One or more factory spectral layers remain too loud.");
+assert(warmedPresets.every((preset) => (preset.softTone?.outputTrim || 1) <= 0.79), "One or more factory presets are missing gentle output trim.");
+const warmedPianos = warmedPresets.filter((preset) => preset.pianoWarmth);
+assert(warmedPianos.length >= 2, "Expected multiple piano/keys presets to receive dedicated warm voicing.");
+assert(warmedPianos.every((preset) => (preset.voiceFx?.bitcrush || 0) === 0), "Warm piano presets must not use bit reduction.");
+assert(warmedPianos.every((preset) => (preset.filter1?.resonance || 0) <= 0.82), "Warm piano presets retain excessive resonance.");
+assert(warmedPianos.every((preset) => (preset.softTone?.presenceDipDb || 0) <= -2.2), "Warm piano presets are missing strong brittle-presence control.");
+assert(warmedPianos.every((preset) => (preset.softTone?.warmthDb || 0) >= 1), "Warm piano presets are missing low-shelf warmth.");
+assert(state.project.tracks.some((track) => track.name === "Warm Piano" && track.presetId === "preset-026"), "New projects do not begin with the warm piano melody track.");
+assert(state.project.master.compRatio === 2 && state.project.master.compRelease === 0.26, "New projects are missing the softer master dynamics profile.");
+
+const presetModule = await import("../src/studio/data/instrumentPresets.js");
+const factoryPresets = presetModule.INSTRUMENT_PRESETS;
+assert(factoryPresets.length === 240, `Expected 240 enterprise factory presets, found ${factoryPresets.length}.`);
+for (const category of ["Atmosphere", "Cinematic", "Hybrid", "Choir", "World", "Motion"]) {
+  assert(factoryPresets.some((preset) => preset.category === category), `Missing ${category} preset category.`);
+}
+assert(factoryPresets.every((preset) => Array.isArray(preset.layers) && preset.layers.length === 2), "Every factory preset must contain two spectral layers.");
+assert(factoryPresets.every((preset) => preset.textureLayer), "Every factory preset must include texture-layer settings.");
+assert(factoryPresets.filter((preset) => preset.layers.every((layer) => layer.enabled)).length >= 72, "The expanded preset bank does not contain enough fully layered instruments.");
+
+const vite = await createServer({ root, server: { middlewareMode: true }, appType: "custom", logLevel: "silent" });
+try {
+  const { PianoRoll } = await vite.ssrLoadModule("/src/studio/components/PianoRoll.jsx");
+  const { TrackSidebar } = await vite.ssrLoadModule("/src/studio/components/TrackSidebar.jsx");
+  const { BrowserPanel } = await vite.ssrLoadModule("/src/studio/components/BrowserPanel.jsx");
+  const { SoundDesigner } = await vite.ssrLoadModule("/src/studio/components/SoundDesigner.jsx");
+  const { Knob } = await vite.ssrLoadModule("/src/studio/components/Controls.jsx");
+  const { TopBar } = await vite.ssrLoadModule("/src/studio/components/TopBar.jsx");
+  const { SampleLab } = await vite.ssrLoadModule("/src/studio/components/SampleLab.jsx");
+  const { PluginRack } = await vite.ssrLoadModule("/src/studio/components/PluginRack.jsx");
+  const { AudioEngine, selectDenseNoteBatch } = await vite.ssrLoadModule("/src/studio/audio/AudioEngine.js");
+
+  const denseInput = Array.from({ length: 48 }, (_, index) => ({
+    id: `dense-${index}`,
+    midi: 36 + index,
+    duration: 4,
+    velocity: 0.35 + (index % 8) * 0.07,
+  }));
+  const denseBatch = selectDenseNoteBatch(denseInput, 20);
+  assert(denseBatch.length === 20, "Dense-note admission did not enforce the requested voice limit.");
+  assert(denseBatch.some((note) => note.midi === 36), "Dense-note admission dropped the bass anchor.");
+  assert(denseBatch.some((note) => note.midi === 83), "Dense-note admission dropped the top anchor.");
+  const planner = await vite.ssrLoadModule("/src/studio/audio/multitrackPlanner.js");
+  const multitrackCandidates = ["piano", "bass", "drums", "pad"].flatMap((trackId, trackIndex) => (
+    Array.from({ length: 24 }, (_, noteIndex) => ({
+      kind: trackId === "drums" ? "sample-step" : "synth-note",
+      trackId,
+      midi: 36 + trackIndex * 12 + noteIndex,
+      velocity: 0.45 + (noteIndex % 6) * 0.08,
+      duration: 4,
+      cost: trackId === "drums" ? 1 : 7,
+    }))
+  ));
+  const multitrackPlan = planner.planMultitrackStep(multitrackCandidates, {
+    globalVoiceBudget: 28,
+    globalCostBudget: 150,
+    perTrackVoiceBudget: 10,
+    perTrackCostBudget: 70,
+    activeVoiceCount: 0,
+    activeVoiceCost: 0,
+    activeByTrack: new Map(),
+  });
+  assert(multitrackPlan.length <= 28, "Multitrack planner exceeded the global voice budget.");
+  assert(new Set(multitrackPlan.map((job) => job.trackId)).size === 4, "Dense multitrack admission starved an active track.");
+  assert(multitrackPlan.reduce((sum, job) => sum + job.cost, 0) <= 150, "Multitrack planner exceeded the global node-cost budget.");
+
+  const startupEngine = new AudioEngine(() => {});
+  const startupOrder = [];
+  startupEngine.ensure = async () => {
+    startupOrder.push("ensure");
+    startupEngine.context = { currentTime: 1 };
+  };
+  startupEngine.prepareProject = async () => startupOrder.push("prepare");
+  startupEngine.scheduler = () => startupOrder.push("scheduler");
+  startupEngine.clearScheduledUiTimers = () => {};
+  startupEngine.processingGraphNeedsReset = false;
+  await startupEngine.play(() => createBlankProject([]), 0);
+  clearInterval(startupEngine.timer);
+  startupEngine.timer = null;
+  assert(startupOrder.join(",") === "ensure,prepare,scheduler", "Playback startup order is not ensure → prepare → scheduler.");
+  const renderProject = createBlankProject(manifest);
+  renderProject.patternBars = 8;
+  const selectedTrack = renderProject.tracks.find((entry) => entry.name === "Warm Piano");
+  selectedTrack.notes[0] = { ...selectedTrack.notes[0], envelope: { attack: 0.04, decay: 0.2, sustain: 0.55, release: 0.8, gain: 0.9 } };
+  const markup = renderToStaticMarkup(React.createElement(PianoRoll, {
+    project: renderProject,
+    track: selectedTrack,
+    playhead: 0,
+    dispatch: () => {},
+    onPreview: () => {},
+  }));
+  assert(markup.includes('data-pattern-bars="8"'), "Compiled piano roll did not render the selected eight-bar length.");
+  assert(markup.includes('data-pattern-steps="128"'), "Compiled piano roll did not render 128 steps for eight bars.");
+  assert(markup.includes("note-handle left"), "Compiled notes do not include a left edge handle.");
+  assert(markup.includes("note-handle right"), "Compiled notes do not include a right edge handle.");
+  assert(markup.includes("note-body"), "Compiled notes do not include a draggable center.");
+  assert(markup.includes("selection-surface"), "Compiled piano roll does not include the marquee selection surface.");
+  assert(markup.includes("Fill whole roll"), "Compiled piano roll does not include whole-roll fills.");
+  const guideCount = (markup.match(/data-scale-guide-midi=/g) || []).length;
+  const rowCount = (markup.match(/optimized-note-row/g) || []).length;
+  const buttonCount = (markup.match(/<button/g) || []).length;
+  assert(guideCount === 64, `Expected 64 CSS-repeated C-minor scale-guide rows, found ${guideCount}.`);
+  assert(rowCount === 109, `Expected one optimized row for each C0-C9 pitch, found ${rowCount}.`);
+  assert(buttonCount < 200, `Optimized eight-bar piano roll rendered ${buttonCount} buttons; expected fewer than 200.`);
+  assert(markup.includes("piano-playhead-line"), "Compiled piano roll is missing its single playhead layer.");
+  assert(markup.includes("Per-note envelope"), "Compiled piano roll is missing the per-note envelope editor.");
+  assert(markup.includes('data-note-envelope="custom"'), "Compiled note does not expose its custom envelope state.");
+  assert(markup.includes("note-envelope-curve"), "Compiled note does not render its envelope visualization.");
+
+  const sidebarMarkup = renderToStaticMarkup(React.createElement(TrackSidebar, {
+    project: renderProject,
+    dispatch: () => {},
+    onSelectTrack: () => {},
+  }));
+  assert(sidebarMarkup.includes("Add synthesizer"), "Compiled track sidebar does not render the synthesizer selector.");
+  assert(sidebarMarkup.includes("Manage tracks"), "Compiled track sidebar does not render bulk track actions.");
+  assert((sidebarMarkup.match(/track-batch-toggle/g) || []).length === renderProject.tracks.length, "Compiled track list is missing a selection toggle for one or more tracks.");
+
+  const browserMarkup = renderToStaticMarkup(React.createElement(BrowserPanel, {
+    project: renderProject,
+    selectedTrack: renderProject.tracks[0],
+    onAssignSample: () => {},
+    onAddSampleTrack: () => {},
+    onAssignPreset: () => {},
+    onApplyKit: () => {},
+    onPreviewSample: () => {},
+    onPreviewPreset: () => {},
+    onAddTrack: () => {},
+    onAddPresetTrack: () => {},
+  }));
+  assert(browserMarkup.includes("Presets"), "Compiled browser does not render its Presets tab.");
+
+  const knobMarkup = renderToStaticMarkup(React.createElement(Knob, {
+    label: "Cutoff",
+    value: 1200,
+    min: 20,
+    max: 20000,
+    step: 1,
+    onChange: () => {},
+  }));
+  assert(knobMarkup.includes('role="slider"'), "Compiled knob is missing slider semantics.");
+  assert(knobMarkup.includes('aria-valuenow="1200"'), "Compiled knob does not expose its current value.");
+
+  const topBarMarkup = renderToStaticMarkup(React.createElement(TopBar, {
+    project: renderProject,
+    playing: false,
+    playhead: 0,
+    onPlay: () => {},
+    onStop: () => {},
+    onField: () => {},
+    onSave: () => {},
+    onOpen: () => {},
+    onExport: () => {},
+    onRender: () => {},
+    rendering: false,
+    midiStatus: "Ready",
+  }));
+  assert(topBarMarkup.includes('aria-label="Master volume"'), "Compiled top bar does not render the master-volume slider.");
+  assert(topBarMarkup.includes("82%"), "Compiled master-volume slider does not display the project level.");
+
+  const synthTrack = renderProject.tracks.find((track) => track.type === "synth");
+  const designerMarkup = renderToStaticMarkup(React.createElement(SoundDesigner, {
+    project: renderProject,
+    track: synthTrack,
+    dispatch: () => {},
+    onPreview: () => {},
+  }));
+  assert(designerMarkup.includes("Layer Engine"), "Compiled Synth Lab does not render the Layer Engine tab.");
+  assert(designerMarkup.includes("Tone · Pitch · Motion"), "Compiled Synth Lab is missing the stable global engine strip.");
+  assert(designerMarkup.includes("Timbre"), "Compiled Synth Lab is missing timbre controls.");
+
+  const pluginMarkup = renderToStaticMarkup(React.createElement(PluginRack, {
+    project: renderProject,
+    track: synthTrack,
+    dispatch: () => {},
+  }));
+  for (const label of ["Time Shaper", "Tri-Band Compressor", "Stereo Field", "Pitch Shifter", "Production EQ", "Tempo Delay", "Room Designer", "Channel Polish"]) {
+    assert(pluginMarkup.includes(label), `Compiled plugin rack is missing ${label}.`);
+  }
+  assert(pluginMarkup.includes("Master Rack"), "Compiled plugin rack is missing the master-rack selector.");
+
+  const samplerTrack = renderProject.tracks.find((entry) => entry.type === "sampler");
+  const samplerSource = renderProject.samples.find((entry) => entry.id === samplerTrack.sampleId);
+  const sampleMarkup = renderToStaticMarkup(React.createElement(SampleLab, {
+    project: renderProject,
+    track: { ...samplerTrack, sampleSlices: createEvenSlices(samplerSource.duration || 2, 8, 0, samplerSource.duration || 2) },
+    sample: samplerSource,
+    dispatch: () => {},
+    onGetSampleBuffer: async () => null,
+    onRasterize: () => {},
+    onImportAudio: () => {},
+    onPreviewSlice: () => {},
+  }));
+  assert(sampleMarkup.includes("Rasterize selection"), "Compiled Sample Lab does not render rasterization controls.");
+  assert(sampleMarkup.includes("Create piano-roll slice pattern"), "Compiled Sample Lab does not render slice pattern generation.");
+  assert((sampleMarkup.match(/slice-cut-handle/g) || []).length === 7, "Compiled Sample Lab did not render the expected cut handles.");
+} finally {
+  await vite.close();
+}
+
+
+assert(audioSafetySource.includes("scheduleSafeEnvelope"), "Safe chronological envelope scheduler is missing.");
+assert(audioSafetySource.includes("if (gate <= attack)"), "Long attacks are not converted into a partial attack level.");
+assert(audioSafetySource.includes("scheduleSafeFilterEnvelope"), "Safe filter-envelope scheduler is missing.");
+assert(audioSafetySource.includes("safeFrequency"), "Nyquist-safe frequency guard is missing.");
+assert(audioSafetySource.includes("chooseHighNoteWaveform"), "Upper-register anti-alias waveform guard is missing.");
+assert(voicesSource.includes("highNoteHeadroom"), "High-note voice headroom is missing.");
+assert(voicesSource.includes("voiceGain"), "Per-voice polyphony headroom is missing.");
+assert(engine.includes("trackPolyphony"), "Configurable per-track voice limit is missing.");
+assert(engine.includes("maxVoicesTotal = requestedTotal"), "Configurable global voice limit is missing.");
+assert(engine.includes("registerVoice"), "Click-free voice registry is missing.");
+assert(engine.includes("releaseAllVoices"), "Voice release cleanup is missing.");
+assert(engine.includes("chordHeadroom"), "Realtime chord normalization is missing.");
+assert(offline.includes("chordHeadroom"), "Offline chord normalization is missing.");
+assert(effectsSource.includes("smoothCachedParam"), "Cached parameter smoothing is missing.");
+assert(effectsSource.includes("safetyLimiter"), "Track/master transient safety limiter is missing.");
+assert(effectsSource.includes("driveSlots"), "Crossfaded saturation slots are missing.");
+assert(effectsSource.includes("reverbSlots"), "Crossfaded room-reverb slots are missing.");
+assert(effectsSource.includes("cachedRoomImpulse"), "Cached room impulse generation is missing.");
+assert(piano.includes("const HIGH_MIDI = 120"), "C9 high-note support is missing from the piano roll.");
+
+const safety = await import("../src/studio/audio/audioSafety.js");
+assert(safety.safeMidi(120) === 120, "C9 MIDI 120 is not preserved by the safety layer.");
+assert(safety.safeMidi(999) === 127, "Out-of-range MIDI values are not safely clamped.");
+assert(safety.highNoteHeadroom(120) > 0.5, "High-note headroom is muting the upper register too aggressively.");
+assert(safety.chordHeadroom(4, 0) <= 0.51 && safety.chordHeadroom(4, 0) >= 0.49, "Four-note chord headroom is not square-root normalized.");
+
+const envelopeEvents = [];
+const fakeParam = {
+  value: 0,
+  cancelScheduledValues: (time) => envelopeEvents.push(["cancel", time]),
+  setValueAtTime: (value, time) => envelopeEvents.push(["set", time, value]),
+  linearRampToValueAtTime: (value, time) => envelopeEvents.push(["linear", time, value]),
+  exponentialRampToValueAtTime: (value, time) => envelopeEvents.push(["exponential", time, value]),
+};
+safety.scheduleSafeEnvelope(fakeParam, { attack: 4, decay: 2, sustain: 0.5, release: 0.4 }, 1, 0.25, 0.8);
+const scheduledTimes = envelopeEvents.filter((event) => event[0] !== "cancel").map((event) => event[1]);
+assert(scheduledTimes.every((time, index) => index === 0 || time >= scheduledTimes[index - 1]), "Long-attack envelope events are scheduled out of chronological order.");
+
+const { finalizeRenderedBuffer } = await import("../src/studio/audio/renderSafety.js");
+const stressChannels = [new Float32Array(4096), new Float32Array(4096)];
+for (let index = 0; index < stressChannels[0].length; index += 1) {
+  const chordBurst = index % 113 < 8 ? 3.8 : 0;
+  stressChannels[0][index] = 0.18 + Math.sin(index * 0.17) * 1.7 + chordBurst;
+  stressChannels[1][index] = -0.12 + Math.cos(index * 0.19) * 1.55 - chordBurst * 0.75;
+}
+const mockBuffer = {
+  numberOfChannels: 2,
+  length: stressChannels[0].length,
+  sampleRate: 48000,
+  getChannelData: (channel) => stressChannels[channel],
+};
+const stressStats = finalizeRenderedBuffer(mockBuffer, { ceilingDb: -1, lookAheadMs: 6, releaseMs: 180 });
+const stressPeak = Math.max(...stressChannels.flatMap((channel) => Array.from(channel, Math.abs)));
+assert(stressPeak <= 10 ** (-1 / 20) + 0.00001, "True-peak render guard allowed the stress buffer above its configured ceiling.");
+assert(stressStats.minimumGain < 1, "True-peak render guard did not react to an intentionally overloaded stress buffer.");
+assert(Math.abs(stressChannels[0].reduce((sum, value) => sum + value, 0) / stressChannels[0].length) < 0.01, "Render safety did not remove DC offset from the stress buffer.");
+
+
+const { buildElementaryMasterGraph } = await import("../src/studio/audio/elementaryGraph.js");
+const OfflineRenderer = (await import("@elemaudio/offline-renderer")).default;
+const elementaryCore = new OfflineRenderer();
+await elementaryCore.initialize({ numInputChannels: 2, numOutputChannels: 2, sampleRate: 48000, blockSize: 128 });
+const elementaryStats = await elementaryCore.render(...buildElementaryMasterGraph(createBlankProject([]), "validation-master"));
+const elementaryInputLeft = new Float32Array(4096);
+const elementaryInputRight = new Float32Array(4096);
+for (let index = 0; index < elementaryInputLeft.length; index += 1) {
+  elementaryInputLeft[index] = Math.sin(index * 0.07) * 0.18;
+  elementaryInputRight[index] = Math.cos(index * 0.05) * 0.16;
+}
+const elementaryOutputLeft = new Float32Array(4096);
+const elementaryOutputRight = new Float32Array(4096);
+elementaryCore.process([elementaryInputLeft, elementaryInputRight], [elementaryOutputLeft, elementaryOutputRight]);
+const elementaryPeak = Math.max(...elementaryOutputLeft.map(Math.abs), ...elementaryOutputRight.map(Math.abs));
+assert(elementaryStats.nodesAdded > 100, "Elementary master graph was not fully constructed.");
+assert(elementaryPeak > 0.001 && elementaryPeak < 1, "Elementary master graph did not produce a stable bounded stereo output.");
+elementaryCore.reset();
+
+if (errors.length) {
+  console.error("DAW 8.2 validation failed:");
+  errors.forEach((error) => console.error(` - ${error}`));
+  process.exit(1);
+}
+
+console.log("DAW 8.2 validation passed: WebRenderer 4.x API compatibility, audible native fallback, Elementary Audio shared realtime DSP, matched Elementary offline master processing,  isolated multitrack stream scheduling, worker-backed timing, dormant-FX gating, adaptive oscillator complexity, professional multitrack pre-admission, fair track reservation, cached per-voice resources, Production Air preset voicing, first-play AudioContext creation and output unlock, raw sample prefetch, project audio preparation before step-zero scheduling, guarded startup clicks, dense-note pre-admission with bass/top anchor preservation, micro-staggered dense chords, warm piano and presets, click-free pause flushing, phase-aware envelopes, adaptive polyphony, plugin safety, oversampled realtime ceilings, linked true-peak offline protection, C0-C9 piano-roll editing, and the complete DAW 7.x production workflow.");
+process.exit(0);

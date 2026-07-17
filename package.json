@@ -1,6 +1,6 @@
 {
   "name": "musicstudiolab-enterprise",
-  "version": "6.9.0",
+  "version": "8.6.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "check": "npm run validate && npm run validate:daw && npm run build && npm run validate:seo",
     "validate": "python scripts/validate_project.py",
-    "generate:sounds": "python scripts/generate_factory_sounds.py",
+    "generate:sounds": "python scripts/generate_factory_sounds.py && python scripts/generate_gpu_expansion_pack.py",
     "generate:presets": "python scripts/generate_instrument_presets.py",
     "generate:factory": "npm run generate:presets && npm run generate:sounds",
     "install:windows": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/windows-clean-install.ps1",
@@ -18,7 +18,7 @@
     "build:ssr": "vite build --ssr src/entry-server.jsx --outDir .seo-ssr",
     "prerender": "node scripts/prerender.mjs",
     "validate:seo": "python scripts/validate_seo.py",
-    "validate:daw": "node scripts/validate-daw-69.mjs"
+    "validate:daw": "node scripts/validate-daw-86.mjs"
   },
   "dependencies": {
     "@vitejs/plugin-react": "6.0.3",

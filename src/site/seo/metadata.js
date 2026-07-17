@@ -194,7 +194,7 @@ function softwareSchema(path, data) {
     applicationSubCategory: "Digital audio workstation",
     operatingSystem: "Any operating system with a modern web browser",
     browserRequirements: "Requires JavaScript and Web Audio API support",
-    softwareVersion: "7.4.0",
+    softwareVersion: "8.7.0",
     isAccessibleForFree: true,
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD", availability: "https://schema.org/InStock" },
     featureList: FEATURE_LIST,

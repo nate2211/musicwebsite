@@ -1,8 +1,25 @@
 import { createSaturationCurve, divisionToSeconds } from "./waveforms";
-import { safeFrequency, smoothAudioParam, smoothCachedParam } from "./audioSafety";
+import { equalPowerGains, safeFrequency, smoothAudioParam, smoothCachedParam } from "./audioSafety";
 
 export function distortionCurve(amount = 0) {
   return createSaturationCurve(amount);
+}
+
+function createTransparentCeilingCurve(ceiling = 0.955) {
+  const size = 8192;
+  const curve = new Float32Array(size);
+  const safeCeiling = Math.max(0.75, Math.min(0.995, ceiling));
+  const knee = safeCeiling * 0.8;
+  const room = Math.max(0.000001, safeCeiling - knee);
+  for (let index = 0; index < size; index += 1) {
+    const x = index / (size - 1) * 2 - 1;
+    const sign = x < 0 ? -1 : 1;
+    const magnitude = Math.abs(x);
+    curve[index] = magnitude <= knee
+      ? x
+      : sign * Math.min(safeCeiling, knee + room * (1 - Math.exp(-(magnitude - knee) / room)));
+  }
+  return curve;
 }
 
 const ROOM_PRESETS = {
@@ -94,29 +111,46 @@ function createMultibandStage(context) {
   const output = context.createGain();
   const dry = context.createGain();
   const wet = context.createGain();
+  const wetInput = context.createGain();
   const sum = context.createGain();
+  wetInput.gain.value = 0;
 
+  // Cascaded Butterworth sections produce Linkwitz-Riley-style 4th-order
+  // crossovers, which keep the three bands phase-aligned and avoid the hollow
+  // or warped sound caused by single-filter parallel splits.
   const lowFilter = context.createBiquadFilter();
+  const lowFilter2 = context.createBiquadFilter();
   const lowComp = context.createDynamicsCompressor();
   const lowGain = context.createGain();
   lowFilter.type = "lowpass";
+  lowFilter2.type = "lowpass";
 
   const midHighpass = context.createBiquadFilter();
+  const midHighpass2 = context.createBiquadFilter();
   const midLowpass = context.createBiquadFilter();
+  const midLowpass2 = context.createBiquadFilter();
   const midComp = context.createDynamicsCompressor();
   const midGain = context.createGain();
   midHighpass.type = "highpass";
+  midHighpass2.type = "highpass";
   midLowpass.type = "lowpass";
+  midLowpass2.type = "lowpass";
 
   const highFilter = context.createBiquadFilter();
+  const highFilter2 = context.createBiquadFilter();
   const highComp = context.createDynamicsCompressor();
   const highGain = context.createGain();
   highFilter.type = "highpass";
+  highFilter2.type = "highpass";
+
+  [lowFilter, lowFilter2, midHighpass, midHighpass2, midLowpass, midLowpass2, highFilter, highFilter2]
+    .forEach((filter) => { filter.Q.value = Math.SQRT1_2; });
 
   input.connect(dry).connect(output);
-  input.connect(lowFilter).connect(lowComp).connect(lowGain).connect(sum);
-  input.connect(midHighpass).connect(midLowpass).connect(midComp).connect(midGain).connect(sum);
-  input.connect(highFilter).connect(highComp).connect(highGain).connect(sum);
+  input.connect(wetInput);
+  wetInput.connect(lowFilter).connect(lowFilter2).connect(lowComp).connect(lowGain).connect(sum);
+  wetInput.connect(midHighpass).connect(midHighpass2).connect(midLowpass).connect(midLowpass2).connect(midComp).connect(midGain).connect(sum);
+  wetInput.connect(highFilter).connect(highFilter2).connect(highComp).connect(highGain).connect(sum);
   sum.connect(wet).connect(output);
 
   return {
@@ -124,14 +158,19 @@ function createMultibandStage(context) {
     output,
     dry,
     wet,
+    wetInput,
     lowFilter,
+    lowFilter2,
     lowComp,
     lowGain,
     midHighpass,
+    midHighpass2,
     midLowpass,
+    midLowpass2,
     midComp,
     midGain,
     highFilter,
+    highFilter2,
     highComp,
     highGain,
   };
@@ -187,9 +226,14 @@ export function createChannelStrip(context, destination) {
   const pan = context.createStereoPanner();
   const gain = context.createGain();
   const widthStage = createStereoWidthStage(context);
+  const fxSum = context.createGain();
+  const fxHeadroom = context.createGain();
+  const fxGuard = context.createDynamicsCompressor();
   const safetyHighpass = context.createBiquadFilter();
   const safetyLowpass = context.createBiquadFilter();
   const safetyLimiter = context.createDynamicsCompressor();
+  const safetyClipper = context.createWaveShaper();
+  const safetyCeiling = context.createGain();
 
   highpass.type = "highpass";
   lowpass.type = "lowpass";
@@ -207,11 +251,19 @@ export function createChannelStrip(context, destination) {
   safetyLowpass.type = "lowpass";
   safetyLowpass.frequency.value = safeFrequency(context, 20000, 1000, 0.45);
   safetyLowpass.Q.value = 0.42;
-  safetyLimiter.threshold.value = -2.5;
+  safetyLimiter.threshold.value = -3;
   safetyLimiter.knee.value = 1.5;
-  safetyLimiter.ratio.value = 14;
-  safetyLimiter.attack.value = 0.0025;
-  safetyLimiter.release.value = 0.085;
+  safetyLimiter.ratio.value = 10;
+  safetyLimiter.attack.value = 0.004;
+  safetyLimiter.release.value = 0.14;
+  fxGuard.threshold.value = -7;
+  fxGuard.knee.value = 9;
+  fxGuard.ratio.value = 3.2;
+  fxGuard.attack.value = 0.004;
+  fxGuard.release.value = 0.12;
+  safetyClipper.curve = createTransparentCeilingCurve(0.955);
+  safetyClipper.oversample = "4x";
+  safetyCeiling.gain.value = 0.985;
 
   driveSlots[0].wet.gain.value = 1;
   driveInput.connect(driveSlots[0].shaper);
@@ -219,8 +271,10 @@ export function createChannelStrip(context, destination) {
   driveSlots[0].wet.connect(driveSum);
   driveSlots[1].wet.connect(driveSum);
 
+  const chorusSend = context.createGain();
   const chorusDelay = context.createDelay(0.05);
   const chorusWet = context.createGain();
+  chorusSend.gain.value = 0;
   const chorusLfo = context.createOscillator();
   const chorusDepth = context.createGain();
   chorusDelay.delayTime.value = 0.012;
@@ -229,14 +283,26 @@ export function createChannelStrip(context, destination) {
   chorusLfo.connect(chorusDepth).connect(chorusDelay.delayTime);
   chorusLfo.start();
 
+  const delaySend = context.createGain();
   const delay = context.createDelay(4);
   const feedback = context.createGain();
+  delaySend.gain.value = 0;
+  const feedbackHighpass = context.createBiquadFilter();
+  const feedbackLowpass = context.createBiquadFilter();
   const delayTone = context.createBiquadFilter();
   const delayWet = context.createGain();
+  feedbackHighpass.type = "highpass";
+  feedbackHighpass.frequency.value = 120;
+  feedbackHighpass.Q.value = 0.55;
+  feedbackLowpass.type = "lowpass";
+  feedbackLowpass.frequency.value = 9000;
+  feedbackLowpass.Q.value = 0.55;
   delayTone.type = "lowpass";
 
+  const reverbSend = context.createGain();
   const reverbPreDelay = context.createDelay(0.2);
   const reverbSlots = [createRoomSlot(context, "studio", true), createRoomSlot(context, "studio", false)];
+  reverbSend.gain.value = 0;
   reverbSlots[0].wet.gain.value = 0;
   reverbPreDelay.connect(reverbSlots[0].convolver);
   reverbPreDelay.connect(reverbSlots[1].convolver);
@@ -252,19 +318,22 @@ export function createChannelStrip(context, destination) {
     .connect(multiband.input);
   multiband.output.connect(compressor).connect(makeup).connect(driveInput);
 
-  driveSum.connect(dry).connect(widthStage.input);
-  driveSum.connect(chorusDelay).connect(chorusWet).connect(widthStage.input);
-  driveSum.connect(delay);
-  delay.connect(feedback).connect(delay);
-  delay.connect(delayTone).connect(delayWet).connect(widthStage.input);
-  driveSum.connect(reverbPreDelay);
-  reverbSlots.forEach((slot) => slot.wet.connect(widthStage.input));
+  driveSum.connect(dry).connect(fxSum);
+  driveSum.connect(chorusSend).connect(chorusDelay).connect(chorusWet).connect(fxSum);
+  driveSum.connect(delaySend).connect(delay);
+  delay.connect(feedbackHighpass).connect(feedbackLowpass).connect(feedback).connect(delay);
+  delay.connect(delayTone).connect(delayWet).connect(fxSum);
+  driveSum.connect(reverbSend).connect(reverbPreDelay);
+  reverbSlots.forEach((slot) => slot.wet.connect(fxSum));
+  fxSum.connect(fxHeadroom).connect(fxGuard).connect(widthStage.input);
   widthStage.output
     .connect(pan)
     .connect(gain)
     .connect(safetyHighpass)
     .connect(safetyLowpass)
     .connect(safetyLimiter)
+    .connect(safetyClipper)
+    .connect(safetyCeiling)
     .connect(destination);
 
   return {
@@ -289,17 +358,27 @@ export function createChannelStrip(context, destination) {
     pan,
     gain,
     widthStage,
+    fxSum,
+    fxHeadroom,
+    fxGuard,
     safetyHighpass,
     safetyLowpass,
     safetyLimiter,
+    safetyClipper,
+    safetyCeiling,
+    chorusSend,
     chorusDelay,
     chorusWet,
     chorusLfo,
     chorusDepth,
+    delaySend,
     delay,
     feedback,
+    feedbackHighpass,
+    feedbackLowpass,
     delayTone,
     delayWet,
+    reverbSend,
     reverbPreDelay,
     reverb: reverbSlots[0].convolver,
     reverbTone: reverbSlots[0].tone,
@@ -371,7 +450,7 @@ export function updateChannelStrip(strip, track, time = 0, bpm = 120) {
   if (!effects.timeShaperEnabled) set("time.gate", strip.timeGate.gain, 1, 0.018);
   set("mixer.volume", strip.gain.gain, track.mute ? 0 : Math.max(0, mixer.volume ?? 0.8), 0.025);
   set("mixer.pan", strip.pan.pan, Math.max(-1, Math.min(1, (mixer.pan ?? 0) + (effects.stereoPan ?? 0))), 0.03);
-  strip.widthStage.setWidth(stereoEnabled ? (effects.stereoWidth ?? 1) : 1, when);
+  strip.widthStage.setWidth(stereoEnabled ? Math.max(0, Math.min(track.type === "master" ? 1.3 : 1.6, effects.stereoWidth ?? 1)) : 1, when);
 
   set("eq.highpass", strip.highpass.frequency, safeFrequency(context, eqEnabled ? (effects.highpass ?? 20) : 20, 10, 0.45), 0.035, 0.5);
   set("eq.lowpass", strip.lowpass.frequency, safeFrequency(context, eqEnabled ? (effects.lowpass ?? 20000) : 20000, 200, 0.45), 0.035, 0.5);
@@ -385,18 +464,27 @@ export function updateChannelStrip(strip, track, time = 0, bpm = 120) {
 
   const lowCross = Math.max(70, Math.min(900, effects.multibandLowCross ?? 180));
   const highCross = Math.max(lowCross + 300, Math.min(12000, effects.multibandHighCross ?? 3200));
-  set("mb.low.cross", strip.multiband.lowFilter.frequency, lowCross, 0.04, 0.5);
-  set("mb.mid.highpass", strip.multiband.midHighpass.frequency, lowCross, 0.04, 0.5);
-  set("mb.mid.lowpass", strip.multiband.midLowpass.frequency, highCross, 0.04, 0.5);
-  set("mb.high.cross", strip.multiband.highFilter.frequency, highCross, 0.04, 0.5);
+  set("mb.low.cross", strip.multiband.lowFilter.frequency, lowCross, 0.055, 0.5);
+  set("mb.low.cross.2", strip.multiband.lowFilter2.frequency, lowCross, 0.055, 0.5);
+  set("mb.mid.highpass", strip.multiband.midHighpass.frequency, lowCross, 0.055, 0.5);
+  set("mb.mid.highpass.2", strip.multiband.midHighpass2.frequency, lowCross, 0.055, 0.5);
+  set("mb.mid.lowpass", strip.multiband.midLowpass.frequency, highCross, 0.055, 0.5);
+  set("mb.mid.lowpass.2", strip.multiband.midLowpass2.frequency, highCross, 0.055, 0.5);
+  set("mb.high.cross", strip.multiband.highFilter.frequency, highCross, 0.055, 0.5);
+  set("mb.high.cross.2", strip.multiband.highFilter2.frequency, highCross, 0.055, 0.5);
   configureCompressor(strip, strip.multiband.lowComp, effects, "multibandLow", when);
   configureCompressor(strip, strip.multiband.midComp, effects, "multibandMid", when);
   configureCompressor(strip, strip.multiband.highComp, effects, "multibandHigh", when);
   set("mb.low.makeup", strip.multiband.lowGain.gain, effects.multibandLowMakeup ?? 1, 0.035);
   set("mb.mid.makeup", strip.multiband.midGain.gain, effects.multibandMidMakeup ?? 1, 0.035);
   set("mb.high.makeup", strip.multiband.highGain.gain, effects.multibandHighMakeup ?? 1, 0.035);
-  set("mb.dry", strip.multiband.dry.gain, mbEnabled ? 0 : 1, 0.03);
-  set("mb.wet", strip.multiband.wet.gain, mbEnabled ? (effects.multibandMix ?? 1) : 0, 0.03);
+  const multibandMix = mbEnabled ? Math.max(0, Math.min(1, effects.multibandMix ?? 1)) : 0;
+  const multibandBlend = equalPowerGains(multibandMix);
+  // The expensive three-band branch receives silence while bypassed. The old
+  // graph continued filtering/compressing every track even at 0% wet.
+  set("mb.input", strip.multiband.wetInput.gain, multibandMix > 0.0005 ? 1 : 0, 0.045);
+  set("mb.dry", strip.multiband.dry.gain, multibandBlend.dry, 0.055);
+  set("mb.wet", strip.multiband.wet.gain, multibandBlend.wet, 0.055);
 
   set("comp.threshold", strip.compressor.threshold, effects.compThreshold ?? -18, 0.035);
   set("comp.knee", strip.compressor.knee, effects.compKnee ?? 8, 0.035);
@@ -406,37 +494,57 @@ export function updateChannelStrip(strip, track, time = 0, bpm = 120) {
   set("comp.makeup", strip.makeup.gain, effects.compEnabled === false ? 1 : (effects.makeupGain ?? 1), 0.03);
 
   updateDrive(strip, effects.saturationEnabled === false ? 0 : (effects.drive ?? 0), when);
-  set("chorus.mix", strip.chorusWet.gain, effects.chorusEnabled === false ? 0 : (effects.chorusMix ?? 0), 0.03);
-  set("chorus.rate", strip.chorusLfo.frequency, effects.chorusRate ?? 0.25, 0.04);
-  set("chorus.depth", strip.chorusDepth.gain, effects.chorusDepth ?? 0.006, 0.04);
+  const chorusMix = effects.chorusEnabled === false ? 0 : Math.max(0, Math.min(1, effects.chorusMix ?? 0));
+  set("chorus.send", strip.chorusSend.gain, chorusMix > 0.0005 ? 1 : 0, 0.025);
+  set("chorus.mix", strip.chorusWet.gain, chorusMix, 0.03);
+  set("chorus.rate", strip.chorusLfo.frequency, chorusMix > 0.0005 ? (effects.chorusRate ?? 0.25) : 0.01, 0.04);
+  set("chorus.depth", strip.chorusDepth.gain, chorusMix > 0.0005 ? (effects.chorusDepth ?? 0.006) : 0.00001, 0.04);
 
   const delaySeconds = effects.delaySync
     ? divisionToSeconds(effects.delayDivision || "1/4", bpm)
     : (effects.delayTime ?? 0.25);
+  const delayMix = delayEnabled ? Math.max(0, Math.min(1, effects.delayMix ?? 0)) : 0;
+  const delayActive = delayMix > 0.0005;
+  set("delay.send", strip.delaySend.gain, delayActive ? 1 : 0, 0.025);
   set("delay.time", strip.delay.delayTime, Math.max(0.01, Math.min(3.8, delaySeconds)), 0.055, 0.0005);
-  set("delay.feedback", strip.feedback.gain, Math.max(0, Math.min(0.92, effects.delayFeedback ?? 0.18)), 0.045);
-  set("delay.tone", strip.delayTone.frequency, safeFrequency(context, effects.delayTone ?? 7600, 300, 0.44), 0.045, 0.5);
-  set("delay.mix", strip.delayWet.gain, delayEnabled ? (effects.delayMix ?? 0) : 0, 0.035);
+  set("delay.feedback", strip.feedback.gain, delayActive ? Math.max(0, Math.min(0.84, effects.delayFeedback ?? 0.18)) : 0, 0.06);
+  set("delay.feedback.hp", strip.feedbackHighpass.frequency, safeFrequency(context, effects.delayFeedbackHighpass ?? 120, 30, 0.4), 0.06, 0.5);
+  set("delay.feedback.lp", strip.feedbackLowpass.frequency, safeFrequency(context, effects.delayTone ?? 7600, 500, 0.42), 0.06, 0.5);
+  set("delay.tone", strip.delayTone.frequency, safeFrequency(context, effects.delayTone ?? 7600, 300, 0.44), 0.055, 0.5);
+  set("delay.mix", strip.delayWet.gain, delayActive ? Math.sin(delayMix * Math.PI * 0.5) * 0.72 : 0, 0.055);
 
   const room = effects.reverbRoom || "studio";
   const roomSettings = roomPreset(room);
   set("reverb.predelay", strip.reverbPreDelay.delayTime, effects.reverbPreDelay ?? roomSettings.preDelay, 0.045);
+  const reverbMix = reverbEnabled ? Math.max(0, Math.min(1, effects.reverbMix ?? 0)) : 0;
+  const reverbActive = reverbMix > 0.0005;
+  set("reverb.send", strip.reverbSend.gain, reverbActive ? 1 : 0, 0.03);
   updateRoom(
     strip,
     room,
-    reverbEnabled ? Math.max(0, Math.min(1, effects.reverbMix ?? 0)) : 0,
+    reverbActive ? Math.sin(reverbMix * Math.PI * 0.5) * 0.72 : 0,
     safeFrequency(context, effects.reverbDamping ?? roomSettings.damp, 300, 0.44),
     when,
   );
-  set("dry.gain", strip.dry.gain, 1, 0.02);
+  const chorusReturn = chorusMix;
+  const delayReturn = delayMix;
+  const reverbReturn = reverbMix;
+  const parallelEnergy = 1 + chorusReturn ** 2 + delayReturn ** 2 + reverbReturn ** 2;
+  set("dry.gain", strip.dry.gain, 1, 0.04);
+  set("fx.headroom", strip.fxHeadroom.gain, 1 / Math.sqrt(parallelEnergy), 0.07);
 
   const isMaster = track.type === "master";
   set("safety.hp", strip.safetyHighpass.frequency, isMaster ? 16 : 12, 0.04, 0.2);
   set("safety.lp", strip.safetyLowpass.frequency, safeFrequency(context, isMaster ? 19800 : 20000, 1000, 0.45), 0.04, 0.5);
-  set("safety.threshold", strip.safetyLimiter.threshold, isMaster ? -1.2 : -2.5, 0.035);
-  set("safety.ratio", strip.safetyLimiter.ratio, isMaster ? 20 : 14, 0.035);
-  set("safety.attack", strip.safetyLimiter.attack, isMaster ? 0.0015 : 0.0025, 0.035);
-  set("safety.release", strip.safetyLimiter.release, isMaster ? 0.075 : 0.085, 0.04);
+  set("safety.threshold", strip.safetyLimiter.threshold, isMaster ? -1.4 : -3, 0.035);
+  set("safety.ratio", strip.safetyLimiter.ratio, isMaster ? 14 : 10, 0.035);
+  set("safety.attack", strip.safetyLimiter.attack, isMaster ? 0.003 : 0.004, 0.035);
+  set("safety.release", strip.safetyLimiter.release, isMaster ? 0.16 : 0.14, 0.055);
+  set("fx.guard.threshold", strip.fxGuard.threshold, isMaster ? -6 : -8, 0.055);
+  set("fx.guard.ratio", strip.fxGuard.ratio, isMaster ? 3.8 : 3.2, 0.055);
+  set("fx.guard.attack", strip.fxGuard.attack, isMaster ? 0.003 : 0.004, 0.055);
+  set("fx.guard.release", strip.fxGuard.release, isMaster ? 0.14 : 0.12, 0.065);
+  set("safety.ceiling", strip.safetyCeiling.gain, isMaster ? 0.965 : 0.985, 0.055);
 }
 
 function contextOf(strip) {
@@ -491,13 +599,13 @@ export function masterTrackFromProject(project) {
       eqEnabled: master.eqEnabled !== false,
       highpass: master.highpass ?? 24,
       lowpass: master.lowpass ?? 19500,
-      lowGain: master.lowGain ?? 0,
-      lowFrequency: master.lowFrequency ?? 120,
-      midGain: master.midGain ?? 0,
-      midFrequency: master.midFrequency ?? 2800,
-      midQ: master.midQ ?? 0.8,
-      highGain: master.highGain ?? 0,
-      highFrequency: master.highFrequency ?? 9000,
+      lowGain: master.lowGain ?? 0.45,
+      lowFrequency: master.lowFrequency ?? 145,
+      midGain: master.midGain ?? -0.9,
+      midFrequency: master.midFrequency ?? 3250,
+      midQ: master.midQ ?? 0.88,
+      highGain: master.highGain ?? 0.42,
+      highFrequency: master.highFrequency ?? 9800,
       multibandEnabled: Boolean(master.multibandEnabled),
       multibandMix: master.multibandMix ?? 1,
       multibandLowCross: master.multibandLowCross ?? 180,
@@ -512,14 +620,14 @@ export function masterTrackFromProject(project) {
       multibandMidMakeup: master.multibandMidMakeup ?? 1,
       multibandHighMakeup: master.multibandHighMakeup ?? 1,
       compEnabled: master.compEnabled !== false,
-      compThreshold: master.compThreshold ?? -10,
-      compRatio: master.compRatio ?? 3,
-      compKnee: master.compKnee ?? 8,
-      compAttack: master.compAttack ?? 0.01,
-      compRelease: master.compRelease ?? 0.18,
+      compThreshold: master.compThreshold ?? -12,
+      compRatio: master.compRatio ?? 2,
+      compKnee: master.compKnee ?? 12,
+      compAttack: master.compAttack ?? 0.02,
+      compRelease: master.compRelease ?? 0.26,
       makeupGain: master.makeupGain ?? 1,
       saturationEnabled: master.saturationEnabled !== false,
-      drive: master.clipDrive ?? 0.08,
+      drive: master.clipDrive ?? 0.035,
       chorusEnabled: false,
       chorusMix: 0,
       stereoEnabled: master.stereoEnabled !== false,
@@ -530,13 +638,14 @@ export function masterTrackFromProject(project) {
       delaySync: master.delaySync !== false,
       delayDivision: master.delayDivision ?? "1/4",
       delayTime: master.delayTime ?? 0.25,
-      delayFeedback: master.delayFeedback ?? 0.15,
-      delayTone: master.delayTone ?? 8200,
+      delayFeedback: master.delayFeedback ?? 0.1,
+      delayFeedbackHighpass: master.delayFeedbackHighpass ?? 120,
+      delayTone: master.delayTone ?? 7000,
       reverbEnabled: Boolean(master.reverbEnabled),
       reverbRoom: master.reverbRoom ?? "studio",
       reverbMix: master.reverbMix ?? 0,
       reverbPreDelay: master.reverbPreDelay ?? 0.01,
-      reverbDamping: master.reverbDamping ?? 9000,
+      reverbDamping: master.reverbDamping ?? 7600,
       timeShaperEnabled: Boolean(master.timeShaperEnabled),
       timeShaperPattern: master.timeShaperPattern ?? "straight",
       timeShaperDepth: master.timeShaperDepth ?? 0,

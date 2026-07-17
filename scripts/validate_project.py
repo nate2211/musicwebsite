@@ -71,6 +71,8 @@ required_files = [
     "src/studio/components/AutomationEditor.jsx",
     "src/studio/components/Mixer.jsx",
     "src/studio/components/PianoRoll.jsx",
+    "src/studio/components/GpuPianoRollSurface.jsx",
+    "src/studio/components/GpuAudioScope.jsx",
     "src/studio/components/Playlist.jsx",
     "src/studio/components/Mastering.jsx",
 ]
@@ -84,6 +86,9 @@ if "applied-caas-gateway" in lock_text or "internal.api.openai.org" in lock_text
 
 if not (ROOT / "public" / "_redirects").exists():
     errors.append("missing Cloudflare SPA redirect file")
+
+if len(manifest) < 500:
+    errors.append(f"expected at least 500 expanded WAV assets, found {len(manifest)}")
 
 if errors:
     print("Validation failed:")

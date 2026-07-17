@@ -60,6 +60,8 @@ export default function StudioPage({ initialView }) {
   const stateRef = useRef(state);
   stateRef.current = state;
   const engineRef = useRef(null);
+  const restartFromBeginningRef = useRef(false);
+  const startingAudioRef = useRef(false);
   if (!engineRef.current) {
     engineRef.current = new AudioEngine((step) => dispatch({ type: "SET_PLAYHEAD", value: step }));
   }
@@ -81,7 +83,12 @@ export default function StudioPage({ initialView }) {
           nextProject.view = initialView;
         }
         dispatch({ type: "LOAD_PROJECT", project: nextProject });
-        factorySamples.slice(0, 12).forEach((sample) => engineRef.current.loadSample(sample).catch(() => {}));
+        const startupIds = new Set(
+          nextProject.tracks.filter((track) => track.type === "sampler").map((track) => track.sampleId),
+        );
+        factorySamples
+          .filter((sample) => startupIds.has(sample.id))
+          .forEach((sample) => engineRef.current.prefetchSample(sample).catch(() => {}));
       })
       .catch(() => setToast("Factory sound manifest could not be loaded."));
     return () => {
@@ -103,6 +110,15 @@ export default function StudioPage({ initialView }) {
   useEffect(() => {
     engineRef.current?.sync(project);
   }, [project.masterVolume, project.master]);
+
+  useEffect(() => {
+    const sampleIds = new Set(project.tracks
+      .filter((track) => track.type === "sampler" && track.sampleId)
+      .map((track) => track.sampleId));
+    project.samples
+      .filter((sample) => sampleIds.has(sample.id))
+      .forEach((sample) => engineRef.current?.prefetchSample(sample).catch(() => {}));
+  }, [project.samples, project.tracks]);
 
   useEffect(() => {
     if (!project.tracks.length) return;
@@ -132,19 +148,52 @@ export default function StudioPage({ initialView }) {
 
   const playPause = useCallback(async () => {
     if (stateRef.current.playing) {
-      engineRef.current.pause();
+      engineRef.current.pause({ flushVoices: true, resetProcessing: true });
+      restartFromBeginningRef.current = true;
       dispatch({ type: "SET_PLAYING", value: false });
       return;
     }
-    await engineRef.current.play(() => stateRef.current.project, stateRef.current.playhead);
-    dispatch({ type: "SET_PLAYING", value: true });
-  }, []);
+    if (startingAudioRef.current) return;
+    startingAudioRef.current = true;
+    const startStep = restartFromBeginningRef.current ? 0 : stateRef.current.playhead;
+    if (restartFromBeginningRef.current) dispatch({ type: "SET_PLAYHEAD", value: 0 });
+    restartFromBeginningRef.current = false;
+    try {
+      await engineRef.current.play(() => stateRef.current.project, startStep);
+      dispatch({ type: "SET_PLAYING", value: true });
+    } catch (error) {
+      console.error(error);
+      engineRef.current.pause({ flushVoices: true, resetProcessing: false });
+      dispatch({ type: "SET_PLAYING", value: false });
+      notify(`Audio could not start: ${error.message}`);
+    } finally {
+      startingAudioRef.current = false;
+    }
+  }, [notify]);
+
 
   const stop = useCallback(() => {
+    restartFromBeginningRef.current = false;
     engineRef.current.stop();
     dispatch({ type: "SET_PLAYING", value: false });
     dispatch({ type: "SET_PLAYHEAD", value: 0 });
   }, []);
+
+  const resetAudio = useCallback(async () => {
+    if (startingAudioRef.current) return;
+    startingAudioRef.current = true;
+    try {
+      dispatch({ type: "SET_PLAYING", value: false });
+      restartFromBeginningRef.current = true;
+      await engineRef.current.resetAudio(stateRef.current.project);
+      notify("Native audio output reset and ready.");
+    } catch (error) {
+      console.error(error);
+      notify(`Audio reset failed: ${error.message}`);
+    } finally {
+      startingAudioRef.current = false;
+    }
+  }, [notify]);
 
   const save = useCallback(() => {
     setProjects(saveProject(stateRef.current.project));
@@ -323,6 +372,7 @@ export default function StudioPage({ initialView }) {
             {...common}
             track={selectedTrack}
             onPreview={previewMidi}
+            audioEngine={engineRef.current}
           />
         );
       case "playlist":
@@ -387,6 +437,7 @@ export default function StudioPage({ initialView }) {
         onOpen={() => setProjectOpen(true)}
         onExport={() => exportProject(project)}
         onRender={render}
+        onResetAudio={resetAudio}
         rendering={rendering}
         midiStatus={midiStatus}
       />
@@ -447,7 +498,7 @@ export default function StudioPage({ initialView }) {
         <span>Active: {selectedTrack?.name || "None"}</span>
         <span>{project.samples.length} sounds · {project.samples.filter((sample) => sample.user).length} local</span>
         <span>{INSTRUMENT_PRESETS.length + (project.customPresets?.length || 0)} instrument patches</span>
-        <span>44.1 kHz · Web Audio · offline WAV rendering</span>
+        <span>44.1 kHz · direct native Web Audio · GPU piano/spectrum · offline WAV rendering</span>
       </footer>
       {rendering && (
         <div className="render-overlay">

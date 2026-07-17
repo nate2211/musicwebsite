@@ -8,6 +8,8 @@ import {
 } from "../audio/musicTheory";
 import { Panel } from "./Controls";
 import { resolveTrackPreset } from "../data/presetLibrary";
+import { GpuPianoRollSurface } from "./GpuPianoRollSurface";
+import { GpuAudioScope } from "./GpuAudioScope";
 
 const LOW_MIDI = 12; // C0
 const HIGH_MIDI = 120; // C9
@@ -220,7 +222,7 @@ const PianoNoteBlock = React.memo(function PianoNoteBlock({
   );
 });
 
-export function PianoRoll({ project, track, playhead, dispatch, onPreview }) {
+export function PianoRoll({ project, track, playhead, dispatch, onPreview, audioEngine }) {
   const [velocity, setVelocity] = useState(0.78);
   const [noteLength, setNoteLength] = useState(4);
   const [foldToScale, setFoldToScale] = useState(false);
@@ -235,6 +237,8 @@ export function PianoRoll({ project, track, playhead, dispatch, onPreview }) {
   const [translateSemitones, setTranslateSemitones] = useState(1);
   const [fillMode, setFillMode] = useState("scale-up");
   const [envelopeEditorOpen, setEnvelopeEditorOpen] = useState(true);
+  const [rollRenderer, setRollRenderer] = useState("gpu");
+  const [gpuBackend, setGpuBackend] = useState("Initializing GPU");
 
   const scrollRef = useRef(null);
   const gridRef = useRef(null);
@@ -927,6 +931,13 @@ export function PianoRoll({ project, track, playhead, dispatch, onPreview }) {
             V zoom
             <input type="range" min="18" max="34" step="1" value={rowHeight} onChange={(event) => setRowHeight(Number(event.target.value))} />
           </label>
+          <label>
+            Renderer
+            <select value={rollRenderer} onChange={(event) => setRollRenderer(event.target.value)}>
+              <option value="gpu">GPU accelerated</option>
+              <option value="dom">DOM compatibility</option>
+            </select>
+          </label>
         </div>
       )}
       className="piano-panel"
@@ -1042,12 +1053,33 @@ export function PianoRoll({ project, track, playhead, dispatch, onPreview }) {
         </span>
         <span>Inherited note length: {noteLength} steps</span>
         <span>{notes.length} notes</span>
+        <span className="gpu-render-status">{rollRenderer === "gpu" ? gpuBackend : "DOM renderer"}</span>
       </div>
+      <GpuAudioScope audioEngine={audioEngine} />
 
-      <div className="piano-scroll" ref={scrollRef} onContextMenu={(event) => event.preventDefault()}>
+      <div className={`piano-scroll ${rollRenderer === "gpu" ? "gpu-roll-enabled" : ""}`} ref={scrollRef} onContextMenu={(event) => event.preventDefault()}>
+        <GpuPianoRollSurface
+          enabled={rollRenderer === "gpu"}
+          scrollRef={scrollRef}
+          rows={rows}
+          notes={displayNotes}
+          rowIndexByMidi={rowIndexByMidi}
+          selectedSet={selectedSet}
+          scalePitchClasses={scalePitchClasses}
+          rootPitchClass={Number(project.key)}
+          showScaleHighlights={showScaleHighlights}
+          showScaleGhosts={showScaleGhosts}
+          trackColor={track.color}
+          playhead={playhead}
+          patternSteps={patternSteps}
+          stepWidth={stepWidth}
+          rowHeight={rowHeight}
+          keysWidth={KEYS_WIDTH}
+          onBackendChange={setGpuBackend}
+        />
         <div
           ref={gridRef}
-          className={`piano-grid piano-grid-67 ${tool === "select" ? "select-tool" : "draw-tool"} ${showScaleGhosts ? "show-scale-ghosts" : "hide-scale-ghosts"} ${showScaleHighlights ? "show-scale-highlights" : "hide-scale-highlights"}`}
+          className={`piano-grid piano-grid-67 ${rollRenderer === "gpu" ? "gpu-rendered-roll" : ""} ${tool === "select" ? "select-tool" : "draw-tool"} ${showScaleGhosts ? "show-scale-ghosts" : "hide-scale-ghosts"} ${showScaleHighlights ? "show-scale-highlights" : "hide-scale-highlights"}`}
           data-piano-track-id={track.id}
           data-scale-root={NOTE_NAMES[project.key]}
           data-scale-name={project.scale}

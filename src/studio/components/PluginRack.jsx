@@ -61,12 +61,13 @@ export function PluginRack({ project, track, dispatch }) {
         <div className="plugin-rack-scroll" data-plugin-target={target}>
           <TimeShaperPlugin settings={settings} update={update} />
           <MultibandPlugin settings={settings} update={update} />
-          <StereoPlugin settings={settings} update={update} />
+          <StereoPlugin settings={settings} update={update} isMaster={target === "master"} />
           {target === "track" && <PitchPlugin settings={settings} update={update} />}
           <EqPlugin settings={settings} update={update} />
           <DelayPlugin settings={settings} update={update} />
           <ReverbPlugin settings={settings} update={update} />
           <MasterPlugin settings={settings} update={update} isMaster={target === "master"} />
+          {target === "master" && <EngineGuardPlugin settings={settings} update={update} />}
         </div>
       )}
       <div className="plugin-signal-bar" aria-label="Plugin signal flow">
@@ -76,6 +77,7 @@ export function PluginRack({ project, track, dispatch }) {
         <span>STEREO / PITCH</span><i />
         <span>EQ</span><i />
         <span>DELAY / ROOM</span><i />
+        <span>TRUE-PEAK GUARD</span><i />
         <b>OUTPUT</b>
       </div>
     </Panel>
@@ -135,16 +137,24 @@ function MultibandPlugin({ settings, update }) {
       <div className="plugin-knobs">
         <Knob label="Low X" value={settings.multibandLowCross ?? 180} min={70} max={900} step={1} onChange={(multibandLowCross) => update({ multibandLowCross })} display={frequency} />
         <Knob label="High X" value={settings.multibandHighCross ?? 3200} min={1000} max={12000} step={10} onChange={(multibandHighCross) => update({ multibandHighCross })} display={frequency} />
+        <Knob label="Low Thresh" value={settings.multibandLowThreshold ?? -18} min={-48} max={0} step={.5} onChange={(multibandLowThreshold) => update({ multibandLowThreshold })} display={decibels} />
+        <Knob label="Mid Thresh" value={settings.multibandMidThreshold ?? -20} min={-48} max={0} step={.5} onChange={(multibandMidThreshold) => update({ multibandMidThreshold })} display={decibels} />
+        <Knob label="High Thresh" value={settings.multibandHighThreshold ?? -22} min={-48} max={0} step={.5} onChange={(multibandHighThreshold) => update({ multibandHighThreshold })} display={decibels} />
         <Knob label="Low Ratio" value={settings.multibandLowRatio ?? 2.5} min={1} max={12} step={.1} onChange={(multibandLowRatio) => update({ multibandLowRatio })} display={ratio} />
         <Knob label="Mid Ratio" value={settings.multibandMidRatio ?? 2.1} min={1} max={12} step={.1} onChange={(multibandMidRatio) => update({ multibandMidRatio })} display={ratio} />
         <Knob label="High Ratio" value={settings.multibandHighRatio ?? 1.8} min={1} max={12} step={.1} onChange={(multibandHighRatio) => update({ multibandHighRatio })} display={ratio} />
         <Knob label="Mix" value={settings.multibandMix ?? 1} onChange={(multibandMix) => update({ multibandMix })} display={percent} />
       </div>
+      <div className="plugin-buttons">
+        <button type="button" onClick={() => update({ multibandLowThreshold: -12, multibandMidThreshold: -14, multibandHighThreshold: -16, multibandLowRatio: 1.7, multibandMidRatio: 1.6, multibandHighRatio: 1.5, multibandMix: .72 })}>Transparent</button>
+        <button type="button" onClick={() => update({ multibandLowThreshold: -20, multibandMidThreshold: -22, multibandHighThreshold: -24, multibandLowRatio: 3.2, multibandMidRatio: 2.6, multibandHighRatio: 2.1, multibandMix: .9 })}>Punch</button>
+        <button type="button" onClick={() => update({ multibandLowThreshold: -18, multibandMidThreshold: -20, multibandHighThreshold: -22, multibandLowRatio: 2.4, multibandMidRatio: 2, multibandHighRatio: 1.7, multibandMix: .78 })}>Glue</button>
+      </div>
     </PluginFrame>
   );
 }
 
-function StereoPlugin({ settings, update }) {
+function StereoPlugin({ settings, update, isMaster = false }) {
   const enabled = settings.stereoEnabled !== false;
   const pan = settings.stereoPan ?? 0;
   const width = settings.stereoWidth ?? 1;
@@ -153,7 +163,7 @@ function StereoPlugin({ settings, update }) {
       <div className="stereo-scope"><i style={{ transform: `translateX(${pan * 35}px) scaleX(${Math.max(.08, width)})` }} /></div>
       <div className="plugin-knobs">
         <Knob label="Pan" value={pan} min={-1} max={1} step={.01} onChange={(stereoPan) => update({ stereoPan })} display={panDisplay} />
-        <Knob label="Width" value={width} min={0} max={2} step={.01} onChange={(stereoWidth) => update({ stereoWidth })} display={(value) => `${Math.round(value * 100)}%`} />
+        <Knob label="Width" value={Math.min(width, isMaster ? 1.3 : 1.6)} min={0} max={isMaster ? 1.3 : 1.6} step={.01} onChange={(stereoWidth) => update({ stereoWidth })} display={(value) => `${Math.round(value * 100)}%`} />
       </div>
       <div className="plugin-buttons"><button type="button" onClick={() => update({ stereoWidth: 0 })}>Mono</button><button type="button" onClick={() => update({ stereoWidth: 1 })}>Natural</button><button type="button" onClick={() => update({ stereoWidth: 1.35 })}>Wide</button></div>
     </PluginFrame>
@@ -202,7 +212,8 @@ function DelayPlugin({ settings, update }) {
         ? <SelectControl label="Division" value={settings.delayDivision || "1/4"} options={DELAY_DIVISIONS} onChange={(delayDivision) => update({ delayDivision })} />
         : <Knob label="Time" value={settings.delayTime ?? .25} min={.01} max={3.8} step={.01} onChange={(delayTime) => update({ delayTime })} display={seconds} />}
       <div className="plugin-knobs">
-        <Knob label="Feedback" value={settings.delayFeedback ?? .18} min={0} max={.94} step={.01} onChange={(delayFeedback) => update({ delayFeedback })} display={percent} />
+        <Knob label="Feedback" value={settings.delayFeedback ?? .18} min={0} max={.84} step={.01} onChange={(delayFeedback) => update({ delayFeedback })} display={percent} />
+        <Knob label="Low cut" value={settings.delayFeedbackHighpass ?? 120} min={30} max={1200} step={5} onChange={(delayFeedbackHighpass) => update({ delayFeedbackHighpass })} display={frequency} />
         <Knob label="Tone" value={settings.delayTone ?? 7600} min={800} max={16000} step={10} onChange={(delayTone) => update({ delayTone })} display={frequency} />
         <Knob label="Mix" value={settings.delayMix ?? 0} min={0} max={.9} step={.01} onChange={(delayMix) => update({ delayMix })} display={percent} />
       </div>
@@ -239,6 +250,53 @@ function MasterPlugin({ settings, update, isMaster }) {
         <Knob label="Drive" value={isMaster ? (settings.clipDrive ?? .065) : (settings.drive ?? 0)} min={0} max={.6} step={.005} onChange={(value) => update(isMaster ? { clipDrive: value } : { drive: value })} display={percent} />
         <Knob label="Makeup" value={settings.makeupGain ?? 1} min={.25} max={2} step={.01} onChange={(makeupGain) => update({ makeupGain })} display={percent} />
       </div>
+    </PluginFrame>
+  );
+}
+
+
+function EngineGuardPlugin({ settings, update }) {
+  const quality = settings.engineQuality || "balanced";
+  return (
+    <PluginFrame code="SG-TP" title="Engine Guard" subtitle="Adaptive polyphony and linked true-peak render protection" enabled onEnabled={() => {}} accent="cyan">
+      <div className="engine-guard-display">
+        <b>SAFE AUDIO PATH</b>
+        <span>phase-aligned crossover</span>
+        <span>fair multitrack admission</span>
+        <span>node-cost voice budget</span>
+        <span>4× ceiling stage</span>
+        <span>linked-stereo render limiter</span>
+      </div>
+      <SelectControl
+        label="Realtime quality"
+        value={quality}
+        options={[
+          { value: "economy", label: "Economy · lowest CPU" },
+          { value: "balanced", label: "Balanced · lighter projects" },
+          { value: "production", label: "Production · multitrack default" },
+          { value: "studio", label: "Studio · highest detail" },
+        ]}
+        onChange={(engineQuality) => update({ engineQuality })}
+      />
+      <SelectControl
+        label="Render rate"
+        value={String(settings.renderSampleRate || 48000)}
+        options={[
+          { value: "44100", label: "44.1 kHz" },
+          { value: "48000", label: "48 kHz" },
+          { value: "96000", label: "96 kHz" },
+        ]}
+        onChange={(value) => update({ renderSampleRate: Number(value) })}
+      />
+      <div className="plugin-knobs">
+        <Knob label="Project voices" value={settings.maxPolyphony ?? 84} min={24} max={128} step={1} onChange={(maxPolyphony) => update({ maxPolyphony })} display={(value) => `${value} voices`} />
+        <Knob label="Track voices" value={settings.trackPolyphony ?? 22} min={6} max={36} step={1} onChange={(trackPolyphony) => update({ trackPolyphony })} display={(value) => `${value} voices`} />
+        <Knob label="Scheduler" value={settings.schedulerLookAheadMs ?? 155} min={90} max={240} step={5} onChange={(schedulerLookAheadMs) => update({ schedulerLookAheadMs })} display={(value) => `${value} ms`} />
+        <Knob label="Ceiling" value={settings.renderCeiling ?? -1} min={-6} max={-.1} step={.1} onChange={(renderCeiling) => update({ renderCeiling })} display={decibels} />
+        <Knob label="Render lookahead" value={settings.renderLookAheadMs ?? 6} min={1} max={20} step={1} onChange={(renderLookAheadMs) => update({ renderLookAheadMs })} display={(value) => `${value} ms`} />
+        <Knob label="Release" value={settings.renderLimiterReleaseMs ?? 140} min={40} max={600} step={5} onChange={(renderLimiterReleaseMs) => update({ renderLimiterReleaseMs })} display={(value) => `${value} ms`} />
+      </div>
+      <small className="engine-guard-note">The scheduler reserves useful voices across active tracks before allocating dense chords, then applies node-cost budgeting, adaptive headroom, and click-free ceilings before audio reaches the master bus.</small>
     </PluginFrame>
   );
 }

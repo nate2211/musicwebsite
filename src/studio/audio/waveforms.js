@@ -1,5 +1,6 @@
 const periodicWaveCache = new WeakMap();
 const noiseCache = new WeakMap();
+const saturationCurveCache = new Map();
 
 const HARMONICS = {
   warmSaw: {
@@ -105,10 +106,12 @@ export function createNoiseBuffer(context, color = "white", seconds = 2) {
     contextCache = new Map();
     noiseCache.set(context, contextCache);
   }
-  const key = `${color}:${seconds}`;
+  const requestedSeconds = Math.max(0.25, Number(seconds) || 2);
+  const bucketSeconds = requestedSeconds <= 1 ? 1 : requestedSeconds <= 2 ? 2 : requestedSeconds <= 4 ? 4 : 8;
+  const key = `${color}:${bucketSeconds}`;
   if (contextCache.has(key)) return contextCache.get(key);
 
-  const length = Math.max(1, Math.floor(context.sampleRate * seconds));
+  const length = Math.max(1, Math.floor(context.sampleRate * bucketSeconds));
   const buffer = context.createBuffer(2, length, context.sampleRate);
   for (let channel = 0; channel < buffer.numberOfChannels; channel += 1) {
     const data = buffer.getChannelData(channel);
@@ -146,13 +149,16 @@ export function createNoiseBuffer(context, color = "white", seconds = 2) {
 }
 
 export function createSaturationCurve(amount = 0) {
+  const quantized = Math.round(Math.max(0, Number(amount) || 0) * 200) / 200;
+  if (saturationCurveCache.has(quantized)) return saturationCurveCache.get(quantized);
   const size = 4096;
   const curve = new Float32Array(size);
-  const drive = 1 + Math.max(0, amount) * 28;
+  const drive = 1 + quantized * 28;
   for (let i = 0; i < size; i += 1) {
     const x = (i / (size - 1)) * 2 - 1;
     curve[i] = Math.tanh(x * drive) / Math.tanh(drive);
   }
+  saturationCurveCache.set(quantized, curve);
   return curve;
 }
 

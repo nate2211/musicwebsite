@@ -31,7 +31,7 @@ export function studioReducer(state, action) {
         patternBars: 4,
         selectedTrackIds: [],
         ...action.project,
-        version: 7.4,
+        version: 8.7,
       };
       loadedProject.master = { ...createBlankProject([]).master, ...(loadedProject.master || {}) };
       const loadedTracks = (loadedProject.tracks || []).map((track) => ({
